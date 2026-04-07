@@ -30,7 +30,8 @@
 
 ### 1. 身分權限矩陣 (Identity & Permissions)
 * **內部使用者命名規範**：權限欄位強制使用：`Onead User (AOE)`、`Onead User (AOE Admin)`、`Onead User (PM)`、`Onead User (PAD)`。
-* **操作步驟語法糖**：涉及 ID 571 (AOE) 驗證時，操作步驟第一項必須統一寫為：**「以『果實夥伴』代理商權限之帳號登入系統」**。
+* **外部使用者命名規範**：權限欄位必須**完整輸出技術名稱**：`superdsp_agency_admin`、`superdsp_agency`、`superdsp_client_admin`、`superdsp_client`、`superdsp_media_admin`、`superdsp_media`。
+* **操作步驟語法糖**：涉及 ID 571 (AOE) 驗證時，操作步驟第一項必須統一寫為：**「以『果實夥伴 (ID 571)』代理商權限之帳號登入系統」**。
 * **AOE (ID 571) 特權**：
     * 具備「素材免審核」機制，上傳後自動為 `Passed`。
     * 建立活動時「產業主/子類別」為**必填**且介面專屬。
