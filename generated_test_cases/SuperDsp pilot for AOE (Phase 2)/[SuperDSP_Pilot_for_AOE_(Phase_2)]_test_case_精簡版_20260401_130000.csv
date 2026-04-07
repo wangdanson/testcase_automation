@@ -1,0 +1,24 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE Admin)","廣告活動管理","【權限】【正向】AOE 帳號顯示 OneAD 產業類別選單驗證","確認具備特定身分之帳號是否能看到專屬下拉選單","1. 以「果實夥伴」帳號登入系統
+2. 進入「新增廣告活動」頁面
+3. 檢查是否有「OneAD 產業類別」選單","介面應顯示「OneAD 產業類別」主類別與子類別選單","SuperDSP Pilot for AOE (Phase 2).html - 3. 前端開發文件"
+"SuperDSP","Agency Admin (非 571)","廣告活動管理","【權限】【反向】一般代理商帳號隱藏 OneAD 產業類別驗證","確認非指定帳號不會看到專屬功能","1. 以一般代理商帳號登入系統
+2. 進入「新增廣告活動」頁面
+3. 檢查是否有「OneAD 產業類別」選單","介面不應顯示「OneAD 產業類別」選單","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2)"
+"SuperDSP","Onead User (AOE Admin)","廣告活動管理","【功能】【正向】新增廣告活動時設定 OneAD 產業類別驗證","確認選單可選取並成功儲存活動","1. 在新增廣告活動頁面選取 OneAD 產業類別
+2. 填寫其他必填項並點擊儲存","廣告活動應成功建立並存入產業類別資訊","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件"
+"SuperDSP","Onead User (AOE Admin)","素材管理","【功能】【整合】素材包自動通過審核機制驗證","確認 AOE 帳號上傳素材後不需人工審核","1. 上傳一個素材包
+2. 在列表觀察素材狀態","素材包狀態應直接顯示為「Passed」","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【ＵＩ】【正向】AOE 專屬優化版編輯抽屜顯示驗證","確認指定帳號會出現新版編輯介面","1. 進入廣告組合列表
+2. 點擊編輯一個 RichMedia 格式的廣告組合
+3. 觀察編輯介面佈局","介面應呈現優化後的抽屜佈局","SuperDSP Pilot for AOE (Phase 2).html - 3. 前端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【ＵＩ】【正向】時段網格組件選取功能驗證","確認新版時段選取工具可正常操作","1. 在優化抽屜中點擊或拖曳時段網格","網格應正確反映選取狀態","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【ＵＩ】【正向】地區樹狀選單選取功能驗證","確認新版地區選單可正常展開並勾選","1. 在優化抽屜中展開地區選單並執行勾選","地區樹狀選單應正確顯示勾選狀態","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【整合】【正向】媒體黑白名單顯示媒體網址驗證","確認選取媒體後會出現對應網址","1. 編輯廣告組合黑白名單
+2. 選取一個媒體","介面應顯示該媒體對應的 URL","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【功能】【正向】套用網站清單功能驗證","確認可選取並套用預設的 URL 群組","1. 在編輯介面選取「套用網站清單」
+2. 下拉選單選取一個清單並儲存","系統應正確套用所選的 URL 群組","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合報表","【數據】【正向】報表零值與橫線顯示規則驗證","確認無資料時報表呈現正確符號","1. 下載無數據報表
+2. 檢查曝光、點擊與 CTR 欄位","曝光與點擊應顯示 0，CTR 應顯示 -","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2)"
+"SuperDSP","Onead User (AOE)","廣告組合報表","【數據】【正向】報表名稱遷移顯示驗證","確認舊格式名稱在報表中顯示為新名稱","1. 下載包含舊資料的報表
+2. 檢查 MIB 格式顯示名稱","MIB 應顯示為 MIC","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件"

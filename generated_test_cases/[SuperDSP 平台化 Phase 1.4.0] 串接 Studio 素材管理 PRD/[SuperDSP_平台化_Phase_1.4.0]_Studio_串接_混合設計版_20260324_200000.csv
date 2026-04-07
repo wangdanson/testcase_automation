@@ -1,0 +1,52 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Media Admin","素材管理 - 素材包列表","【權限】【反向】媒體角色 Studio 入口隱藏驗證","確認 Media 帳號是否正確被限制使用 Studio 導流功能","1. 以 Media Admin 帳號登入
+2. 進入「素材管理 > 素材包」頁面
+3. 檢查介面按鈕與新增選項","1. 介面應完全隱藏「前往 Studio 建立素材」按鈕
+2. 點擊「新增素材包」時，格式選單中應不出現 Studio 類型的選項
+3. 確保 Media 合約不開放此跨系統功能","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Agency Admin / Client Admin","素材管理 - 素材包列表","【權限】【正向】Studio 素材編輯鎖定驗證","確認來自 OneAD Studio 的素材包是否禁止在 DSP 直接編輯","1. 找到來源為「OneAD Studio」的素材包
+2. 點擊操作列中的「編輯」按鈕","1. 系統應彈出通知窗提示將前往 STUDIO，而非開啟 DSP 編輯抽屜
+2. 點擊確認後應開新視窗跳轉
+3. 確保素材原始資料的一致性與安全性","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材列表","【功能新增】【ＵＩ】素材來源標籤全面性驗證","整合檢查素材包、影音與圖文列表的來源標註正確性","1. 分別進入「素材包」、「影音」與「圖文」列表
+2. 觀察「來源」欄位之標籤內容","1. 所有列表分頁均應正確顯示「來源」欄位
+2. 內容應精確區分為 SuperDSP 或 OneAD Studio
+3. Studio 來源的 Video 與 Banner，其編輯按鈕應為 Disabled 狀態","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【功能新增】【情境】建立 Studio 素材完整導流驗證","檢查從 DSP 發起至 Studio 完成建立的完整連動流程","1. 點擊「前往 Studio 建立素材」
+2. 於提示窗點擊「是」
+3. 觀察 Redirect URL 中的 token 與 clientId 參數
+4. 在 Studio 完成建立並關閉視窗
+5. 回到 DSP 觀察列表","1. 應顯示標題為「通知」的 MessageBox，提示開新視窗
+2. URL 應正確帶入加密 Token 與目前廣告主 ID
+3. 跳轉應以新標籤頁開啟
+4. 返回 DSP 後列表應自動刷新並顯示剛建立的素材包","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包建立","【功能新增】【整合】選取 Studio 格式跳轉驗證","檢查在新增抽屜中選取 Studio 格式的 UI 聯動行為","1. 點擊「新增素材包」開啟抽屜
+2. 在選擇格式欄位點擊「OneAD Studio 格式」
+3. 於通知窗點擊確認","1. 選取該格式後應立即彈出轉導通知
+2. 點擊確認後，素材抽屜應先自動收合再進行網頁跳轉
+3. 應正確導向 Studio 對應格式的建立畫面","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","廣告組合設定","【功能新增】【整合】追蹤碼位置遷移與多筆設定驗證","整合檢查追蹤碼遷移至廣告組合後的設定邏輯與格式檢查","1. 進入廣告組合「第三方追蹤碼」區塊
+2. 點擊 (+) 新增多筆追蹤碼並輸入內容
+3. 輸入包含全形空白的錯誤格式
+4. 點擊儲存並重新進入編輯","1. 介面應正確提供多筆輸入框，且至少需保留一筆
+2. 錯誤格式應即時觸發 validate_pattern 提示警告並阻擋儲存
+3. 重新進入編輯時，資料回顯應正確無誤
+4. 系統應相容舊有 platform_id = 0 的資料顯示","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","廣告組合設定","【功能新增】【正向】選取 Studio 格式觸發素材建立驗證","驗證廣告組合介面中因缺少素材而觸發的導流行為","1. 在廣告組合中選取 Studio 類型的廣告格式
+2. 點擊「新增素材包」按鈕
+3. 在新視窗完成建立後返回觀察選單","1. 點擊按鈕應彈出導流通知，確認後導向 Studio
+2. 導流 URL 應帶入正確的 universal_id (ad_format_type_id)
+3. 完成後返回 DSP，素材包下拉選單應能立即選取該新素材","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","廣告組合設定","【功能新增】【ＵＩ】素材包下拉選單防抖機制驗證","確認頻繁操作選單時的 API 請求穩定性","1. 在廣告組合介面連續快速地點擊「指定素材包」下拉選單","1. 系統應具備 Debounce 機制，防止重複發送重複的 Fetch 請求
+2. 下拉選單載入應穩定，不應出現重複疊加或卡頓","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","廣告組合設定","【功能新增】【整合】MASA Token 自動刷新機制驗證","確認導流過程中 Token 是否能維持有效性","1. 在 Token 即將過期時發起 Studio 導流操作
+2. 檢查 API /api/v1/users/refresh_token 的請求紀錄","1. 系統應在跳轉前自動呼叫刷新 API
+2. Token 的 exp (有效期限) 應成功延長一天
+3. 確保進入 Studio 時為已登入狀態","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【反向】【ＵＩ】瀏覽器彈窗阻擋之導引驗證","確認當新視窗開啟失敗時系統的處理能力","1. 開啟瀏覽器阻擋彈窗功能
+2. 執行 Studio 導流操作","1. 若視窗被阻擋，DSP 應能偵測或顯示提示
+2. 應提供手動點擊連結或調整設定的引導路徑，避免流程中斷","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","廣告組合設定","【正向】【整合】格式變更自動清空素材包連動驗證","驗證變更廣告格式時是否正確清除已選之 Studio 素材","1. 選取 Studio A 格式並指定素材包
+2. 將廣告格式切換為 Studio B 格式
+3. 觀察指定素材包欄位內容","1. 當格式變更時，原本已選取的指定素材包內容必須自動清空
+2. 避免格式不匹配導致的投放錯誤","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"

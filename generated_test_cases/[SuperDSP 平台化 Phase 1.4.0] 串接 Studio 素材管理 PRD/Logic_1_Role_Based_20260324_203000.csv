@@ -1,0 +1,19 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Agency Admin","素材管理 - 素材包列表","【權限】【正向】代理商管理員 Studio 導流權限驗證","確認 Agency Admin 是否具備完整的 Studio 建立與編輯權限","1. 以 Agency Admin 帳號登入
+2. 進入素材包列表並點擊「前往 Studio 建立素材」
+3. 點擊來源為 Studio 素材的「編輯」按鈕","1. 應能正常看到導流按鈕並觸發通知窗
+2. 點擊確認後應能成功跳轉至 Studio 畫面","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Agency User","素材管理 - 素材包列表","【權限】【正向】代理商一般使用者導流權限驗證","確認 Agency User 是否能執行 Studio 建立與編輯操作","1. 以 Agency User 帳號登入
+2. 執行與 Admin 相同的導流操作","1. 應具備與 Admin 一致的導流權限，確保日常投放操作不中斷","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Client Admin","素材管理 - 素材包列表","【權限】【正向】廣告主管理員 Studio 導流權限驗證","確認 Client Admin 是否能操作跨系統素材建立","1. 以 Client Admin 帳號登入
+2. 嘗試發起 Studio 導流操作","1. 應能正常使用 Studio 導流功能，建立所屬廣告主的素材","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Media Admin","素材管理 - 素材包列表","【權限】【反向】媒體管理員功能存取限制驗證","驗證媒體角色是否被正確屏蔽 Studio 導流入口","1. 以 Media Admin 帳號登入
+2. 檢查素材管理頁面按鈕與新增選項","1. 應完全看不到「前往 Studio 建立素材」按鈕
+2. 來源標籤不應顯示 Studio 相關內容","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【權限】【整合】AOE 內部帳號導流權限驗證","確認 AOE 帳號在代理商視角下的導流操作能力","1. 以 AOE 帳號登入並進入代理商視角
+2. 執行 Studio 導流操作","1. 應能正常發起導流並取得 Redirect URL","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","SuperAdmin","素材管理 - 素材包列表","【權限】【整合】SuperAdmin 跨廣告主視角切換驗證","驗證超級管理員切換身分後導流功能的動態顯示","1. 以 SuperAdmin 登入並切換至 Agency 視角
+2. 檢查導流按鈕
+3. 切換至 Media 視視角
+4. 再次檢查導流按鈕","1. 視角為 Agency 時應顯示導流功能
+2. 視角變更為 Media 後應立即隱藏所有導流入口","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"

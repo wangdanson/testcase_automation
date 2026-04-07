@@ -1,0 +1,86 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE Admin)","廣告活動管理","【權限】【正向】ID 571 專屬之 OneAD 產業類別欄位顯示驗證","確認具備 ID 571 且為 Agency 類型之帳號，在建立廣告活動時是否正確開啟產業標籤設定權限","1. 以「果實夥伴」代理商權限之帳號登入系統
+2. 進入「新增廣告活動」頁面
+3. 檢查介面是否顯示「OneAD 產業類別」主類別與子類別下拉選單","1. 介面應正確顯示專屬的 OneAD 產業標籤選單
+2. 下拉選單應能成功呼叫 GET one_categories API 並顯示啟用的選項","SuperDSP Pilot for AOE (Phase 2).html - 3. 前端開發文件 - 編輯廣告活動新增欄位"
+"SuperDSP","Onead User (AOE Admin)","廣告活動管理","【權限】【負向】非 ID 571 帳號之專屬功能屏蔽驗證","確認不具備特定身分（非 ID 571）的一般代理商帳號，在操作時系統是否正確隱藏 AOE 專屬欄位","1. 以一般代理商帳號（非果實夥伴）登入系統
+2. 檢查「新增廣告活動」介面與「廣告組合編輯抽屜」","1. 介面應完全屏蔽「OneAD 產業類別」欄位
+2. 廣告組合編輯介面應維持一般版本，不顯示優化後的 AOE 專屬佈局","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 開發頁面及範圍"
+"SuperDSP","Onead User (AOE Admin)","廣告活動管理","【權限】【正向】廣告活動層級之產業類別必填驗證","驗證針對 ID 571 帳號，系統是否強制要求設定 OneAD 產業類別以符合歸類規範","1. 以「果實夥伴」帳號新增廣告活動
+2. 不選取 OneAD 產業類別直接點擊儲存
+3. 選取類別後再次點擊儲存","1. 未選取類別時，系統應彈出必填提示並阻擋儲存
+2. 選取後應能成功調用 one_campaign API 並正確存入 one_category_id","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (廣告活動)"
+"SuperDSP","Onead User (AOE Admin)","素材管理","【權限】【正向】ID 571 素材包自動通過 (Auto-pass) 機制驗證","確認專屬帳號上傳素材後，系統是否正確執行免審核邏輯並在 ODM 排除顯示","1. 以「果實夥伴」帳號上傳一個全新素材包
+2. 前往素材包列表觀察狀態
+3. 以管理員身分登入 ODM 檢查審核清單","1. 素材包狀態應立即顯示為「Passed」，不需經過人工或 OneAD 審核
+2. ODM 的 SuperDSP 素材審核列表應排除該帳號產出的資料","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (素材包 / ODM)"
+"SuperDSP","Onead User (AOE)","使用者資訊","【權限】【整合】UserInfo API 身份欄位對等連動驗證","驗證後端 API 回傳之 owner_id/type 是否能精確驅動前端 UI 權限的物理鎖定","1. 登入「果實夥伴」帳號並檢查 UserInfo API (advertiser.owner_id)
+2. 觀察介面上的下拉選單與功能按鈕是否依據回傳值呈現可編輯狀態","1. API 回傳值應正確識別 owner_id = 571 且 owner_type = Agency
+2. 前端應依此回傳值動態解鎖 AOE 專屬功能區塊","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (UserInfo API)"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【功能新增】【ＵＩ】優化版編輯抽屜佈局與互動反饋驗證","檢查 AOE 專屬優化抽屜之視覺結構、網格選取與地區樹狀組件之穩定性","1. 以「果實夥伴」帳號進入 RichMedia 廣告組合編輯頁面
+2. 在時段網格執行滑鼠拖曳與全選操作
+3. 展開地區樹狀選單執行半選與全選連動","1. 介面應呈現優化後的抽屜佈局
+2. 網格選取與地區樹狀連動應 100% 正確反映，無互動延遲","SuperDSP Pilot for AOE (Phase 2).html - 3. 前端開發文件 - 幫 AOE 獨立一個 AD Group 抽屜"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【功能新增】【ＵＩ】優化版抽屜之語系與姓名標籤正確性驗證","確認在繁體中文語系下，優化介面中的標籤名稱與姓名顯示格式是否符合規範","1. 切換系統語系至繁體中文
+2. 在優化版編輯抽屜中檢查各功能欄位名稱與使用者姓名欄位","1. 姓名標籤應正確顯示為「姓在前、名在後」(lastName firstName)
+2. 所有繁中標籤語意應精確且排版整齊","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 修訂追蹤表 (i18n)"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【整合】黑白名單媒體 URL 自動抓取與回填驗證","驗證在編輯黑白名單時，系統是否能正確從 media option API 取得 URL 並即時顯示","1. 以「果實夥伴」帳號編輯廣告組合之黑白名單
+2. 透過選單選取特定媒體
+3. 檢查介面是否自動回填顯示該媒體的原始 URL","1. 選取媒體後，系統應自動抓取並顯示對應的 media url 供使用者參考
+2. 確保 URL 資訊之即時性與正確性","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (黑白名單)"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【整合】URL 群組 (URL Groups) 選取與存取機制驗證","確認系統是否能正確呼叫 API 取得 URL 群組，並在儲存後正確寫入後端","1. 在優化介面選取「套用網站清單」
+2. 從下拉選單選取預設的 URL 群組並儲存
+3. 重新進入編輯介面檢查回顯數值","1. 下拉選單應正確顯示 GET url_groups API 回傳的名稱與 ID
+2. 儲存後的群組 ID 應正確存入 ad_group 欄位並在編輯時正確還原","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (URL 群組)"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【功能新增】【整合】RichMedia 格式之進階設定選單動態過濾驗證","驗證針對 RichMedia 格式，系統是否依據新規範過濾 hourlies/regions 並改用新版選單","1. 建立一個 RichMedia 格式的廣告組合
+2. 進入編輯介面，觀察時段與地區的 API 回傳值與 UI 呈現","1. API 回傳應排除舊有的 hourlies/regions，改由 hours/cities 承載
+2. UI 應正確顯示新版的時段網格與地區樹狀選單，且排序符合規則","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (Ad Group Index/Options)"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【整合】手動操作編輯觸發投放端 Sequence 更新機制驗證","確認系統是否能依據「手動編輯」行為精確判定是否產出新的投放指令檔","1. 對既有廣告組合進行欄位修改（如名稱或時段）並點擊儲存
+2. 觀察產出的 Sequence 檔案
+3. 對同一個組合不做任何編輯直接點擊儲存，再次觀察 Sequence","1. 欄位變更應成功觸發重新產出包含最新媒體清單與 URL 的 Sequence
+2. 無變動之儲存應維持既有 Sequence，不產出新檔以避免無效更新","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 媒體設定變更影響說明"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【正向】【整合】跨版本功能疊加與複製完整性驗證","確認在執行複製操作時，新版的優化設定是否能與舊版功能（如追蹤碼）同時繼承","1. 選取一個包含舊版追蹤碼與新版黑白名單設定的廣告組合點擊複製
+2. 檢查新生成的 Draft 廣告組合之各項細節設定","1. 複製品應完美繼承原有的時段、地區、追蹤碼與黑白名單 URL
+2. 狀態應重置為 Draft，且原本鎖定的欄位應解鎖恢復可編輯","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - RoadMap"
+"SuperDSP","Onead User (AOE)","廣告組合報表","【數據驗證】【整合】報表指標數值之零值與無效狀態正確性驗證","確認報表輸出時，針對「未發生」與「無法計算」之數據是否展示正確語意符號","1. 下載無數據報表
+2. 檢查曝光、點擊（一階指標）與 CTR、CPM（二階指標）之欄位數值","1. 曝光與點擊應顯示為 0 (或 $0)
+2. CTR/CPM 等計算類指標因分母為 0，應顯示為「-」(橫線)
+3. 確保報表精確區分「數值為零」與「不適用計算」之語意差異","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 指標分類及規則"
+"SuperDSP","Onead User (AOE)","廣告組合報表","【數據驗證】【ＵＩ】不同廣告格式下之無效欄位自動轉換驗證","確認針對特定格式限制下無法計算之數據，系統是否能依據規範自動轉為「-」","1. 以 Banner 格式下載廣告組合報表
+2. 檢查觀看率相關指標（vtr25~100）之數值顯示","1. 針對 Banner 格式限制無法產出觀看數據之欄位，系統應統一回傳並顯示「-」
+2. 確保前端系統畫面與下載之 Excel 報表維持顯示邏輯一致性","SuperDSP Pilot for AOE (Phase 2).html - 3. 前端開發文件 - 無效欄位處理規範"
+"SuperDSP","Onead User (AOE)","廣告組合報表","【數據驗證】【ＵＩ】報表 Excel 數值格式碼 (numFmt) 與自動加總驗證","檢查下載的 Excel 報表數值欄位是否具備正確的屬性，以支援財務分析之自動計算","1. 下載廣告組合報表 (.xlsx)
+2. 在 Excel 中對金額、百分比與數量欄位執行 SUM 函數運算","1. 欄位應為數值類型 (numFmt) 而非字串，確保可直接運算不需手動轉換
+2. 貨幣應具備千分位，百分比應具備正確的小數位數顯示","SuperDSP Pilot for AOE (Phase 2).html - 3. 前端開發文件 - 數值格式細分與顯示規則"
+"SuperDSP","Onead User (AOE)","廣告組合報表","【數據驗證】【整合】歷史數據廣告格式名稱遷移正確性驗證","確認報表下載時，歷史存量數據之格式名稱是否已依據遷移規則正確轉換顯示","1. 篩選包含歷史舊資料的日期區間下載廣告組合報表
+2. 檢查報表內「廣告格式」欄位之名稱顯示","1. MIB 應正確顯示為 MIC；MIR 應顯示為 MIR/MIRV；Cover 應顯示為 MFS
+2. 確保報表內容名稱統一且符合 SuperDSP 2.0 命名標準","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (系統名稱遷移)"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【反向】【整合】廣告組合之預算上限與活動可用額度連動驗證","確認在優化介面下，設定預算時是否正確受限於廣告活動之餘額限制","1. 嘗試設定一個超過 Campaign 剩餘可用額度的廣告組合預算
+2. 觀察系統儲存時的回饋","1. 系統應彈出預算超額提示並阻擋儲存
+2. 確保新 UI 開發未影響底層預算分配與可用額度計算邏輯","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - RoadMap"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【整合】ABORTED 狀態下之預算釋放機制驗證","驗證當廣告組合狀態變更為停刊時，剩餘預算是否能即時回流至廣告活動","1. 將一個執行中且尚有餘額的廣告組合狀態變更為 ABORTED
+2. 儲存後進入廣告活動列表檢查可用額度變動情況","1. 儲存後該組合之剩餘預算應即時釋放回 Campaign 的可用額度中
+2. 驗證新版優化 UI 正確執行了 Pilot Phase 1 定義之預算釋放邏輯","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 修訂追蹤表 (Pilot Phase 1)"
+"SuperDSP","Onead User (AOE)","廣告組合列表","【正向】【ＵＩ】項目獨立控管下之刪除按鈕動態隱藏驗證","確認列表操作列的刪除按鈕是否能依據組合狀態進行精確的邏輯顯示控制","1. 檢視包含 Active、Oncue 與 Draft 組合的列表
+2. 觀察各別組合右側的操作按鈕清單","1. 僅有 Active、Oncue 等上刊中或已結案的組合應自動隱藏刪除按鈕
+2. 狀態為 Draft 的項目應正確顯示刪除按鈕，且彼此互不干擾","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 開發頁面及範圍"
+"SuperDSP","Onead User (AOE)","廣告組合列表","【整合】啟用開關切換與後端 Sequence 即時狀態同步驗證","驗證在列表直接操作 Enable/Disable 開關時，是否能同步產出對應的投放指令","1. 對特定廣告組合在列表執行「關閉 (Disable)」與「開啟 (Enable)」切換
+2. 每次切換後檢查產出的 Sequence 狀態位元","1. 切換操作應即時成功，且 UI 狀態正確反映
+2. 每次切換應成功觸發重新產出 Sequence，且內容與切換後的狀態完全一致","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 媒體設定變更影響說明"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【整合】黑白名單之網站清單套用與自定義網址混和校驗驗證","確認系統在同時套用網站清單與手動輸入網址時，是否具備去重與格式過濾功能","1. 選取一個 URL 群組並套用
+2. 在手動輸入區塊輸入一個該群組已存在的網址
+3. 觀察系統的 URL 檢查提示","1. 系統應自動偵測到網址重複並彈出提示或自動去重
+2. 確保最終存入資料庫的媒體網址清單為正確且無重複的","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 黑白名單優化"
+"SuperDSP","Onead User (AOE)","廣告組合報表","【數據驗證】【整合】報表無資料時之顯示語意一致性驗證","驗證從 ClickHouse 取得原始數據為空時，報表是否依據指標特性區分顯示 0 或 -","1. 在無任何投放數據的情況下下載每日指標報表
+2. 檢查各指標欄位的顯示字符","1. 基礎計數指標（曝光/點擊）必須顯示為 0
+2. 分母為零之比率指標（CTR/CPM）必須顯示為 -
+3. 確保報表呈現與規格定義之語意規則完全相符","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - 無資料時報表顯示說明"
+"SuperDSP","Onead User (AOE)","廣告組合管理","【正向】【ＵＩ】地區選單之樹狀結構層級與搜尋功能驗證","檢查地區選單在多層級下的顯示效果，以及搜尋關鍵字時的結果過濾精確度","1. 展開地區選單檢查縣市與區域的父子層級關係
+2. 在選單搜尋框輸入特定關鍵字（如：信義區）並觀察過濾結果","1. 地區應呈現正確的樹狀層級，子層縮排應一致
+2. 搜尋功能應能精確定位並高亮顯示匹配的地區項目","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - 功能細項 (地區選項)"
+"SuperDSP","Onead User (AOE)","廣告活動管理","【權限】【負向】跨 Agency 存取權限隔離與安全機制驗證","確認 ID 571 專屬功能之 API 介面是否具備嚴格的權限驗證以防範非法調用","1. 以非 ID 571 帳號嘗試透過腳本調用 GET one_categories API
+2. 觀察後端回傳之 HTTP 狀態碼與內容","1. 後端應拒絕非授權帳號的請求，回傳 403 或 401 錯誤
+2. 確保專屬功能之 API 具備物理上的安全性，不因前端隱藏而門戶大開","SuperDSP Pilot for AOE (Phase 2).html - 2. 後端開發文件 - API 規格"
+"SuperDSP","Onead User (PM)","系統管理","【整合】Roadmap 與規格說明文件之可存取性驗證","確認系統內嵌或連結之 Pilot 說明文件（如 Vercel Roadmap）是否正常運作","1. 以 PM 權限帳號登入系統
+2. 點擊進入 Pilot 專屬 Roadmap 連結與報表規格說明頁面","1. 外部連結應正確導向至最新的 Roadmap 頁面與 Google Sheets 規格文件
+2. 確保資訊透明度，便於 PM 與 AOE 追蹤開發與測試進度","SuperDSP Pilot for AOE (Phase 2).html - 1. SuperDSP Pilot for AOE (Phase 2) - RoadMap"

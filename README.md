@@ -29,12 +29,34 @@
 │   └── google_credentials.json
 ├── credentials_stepsImg/    # 存放憑證設定步驟的教學截圖
 ├── source_files/            # 原始規格文件參考 (PDF, PNG, HTML 等)
-│   ├── Superdsp phase 1.0~1.7.0/
-│   ├── Superdsp CCT/Custom Audience/
-│   ├── HTML/                # 系統介面 HTML 檔
-│   └── user_manual/         # 各系統操作手冊
+│   ├── [SuperDSP Pilot for AOE (Phase 2)]/
+│   │   └── SuperDSP Pilot for AOE (Phase 2).html
+│   ├── [Commerce AD Phase 1] Commerce AD & RTB/
+│   ├── [Commerce AD Phase 2] Commerce AD 帳務管理 及 受眾洞察報告下載/
+│   ├── [SuperDSP 平台化 Phase 1.4.0] IAS 內文比對/
+│   ├── [SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD/
+│   ├── SuperDSP CCT(Cross-Channel Targeting)/
+│   ├── SuperDSP Custom Audience/
+│   ├── SuperDSP Pilot for AOE (Phase 1)/
+│   └── HTML/
 ├── generated_test_cases/    # 產出的測試案例儲存區 (依來源專案分類)
-│   └── [專案名稱]/           # 包含產出的 CSV 與 UserStory 分析檔
+│   ├── [SuperDSP Pilot for AOE (Phase 2)]/
+│   │   └── [SuperDSP_Pilot_for_AOE_(Phase_2)]_test_case_20260401_143000.csv
+│   ├── [Commerce AD Phase 1] Commerce AD & RTB/
+│   ├── [Commerce AD Phase 2] Commerce AD 帳務管理 及 受眾洞察報告下載/
+│   ├── [SuperDSP 平台化 Phase 1.4.0] IAS 內文比對/
+│   ├── [SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD/
+│   ├── Superdsp CCT(Cross-Channel Targeting)/
+│   ├── Superdsp Custom Audience/
+│   ├── Superdsp phase 1.3.2/
+│   ├── Superdsp phase 1.4.0/
+│   ├── Superdsp phase 1.5.0 (commerce ad phase 1)/
+│   ├── Superdsp phase 1.7.0 (commerce ad phase 3)/
+│   ├── SuperDSP Pilot for AOE (Phase 1)/
+│   ├── SuperDSP Pilot for AOE (Phase 2)/
+│   ├── SuperDSP_Pilot_for_AOE/
+│   ├── SuperDSP_Pilot_for_AOE_(Phase_1)/
+│   └── SuperDSP_Staging/
 └── .gemini/                 # Gemini CLI 配置資料夾
     ├── commands/            # 自定義 Speckit 系列指令
     └── skills/              # 核心專家技能 (test-case-automation-expert)

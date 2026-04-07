@@ -1,0 +1,60 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE)","權限驗證","【權限】AOE 身分自動識別","驗證系統正確讀取 ID 571 帳號身分","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 調用 UserInfo API 檢查回傳值","1. advertiser.owner_id 應回傳 571
+2. advertiser.owner_type 應回傳 Agency","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","權限驗證","【權限】廣告活動功能分權","驗證 ID 571 具備 OneAD 產業類別編輯權限","1. 以「果實夥伴 (ID 571)」帳號登入
+2. 進入「廣告活動」建立/編輯介面","1. 介面應顯示 OneAD 產業類別與子類別下拉選單
+2. 後端應允許 one_category_id 與 one_sub_category_id 寫入","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件"
+"SuperDSP","一般代理商帳號","權限驗證","【反向】廣告活動權限隔離","驗證非 ID 571 帳號之欄位隱藏","1. 以一般代理商（非 ID 571）帳號登入
+2. 進入「廣告活動」建立/編輯介面","1. 介面絕對不可出現「OneAD 產業類別」相關欄位
+2. 應維持原本的 RichMedia/InStream 設定介面","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件 / 遺漏補強"
+"SuperDSP","Onead User (AOE)","權限驗證","【權限】廣告組合抽屜分權","驗證 ID 571 具備 AOE 獨立編輯抽屜","1. 以「果實夥伴 (ID 571)」帳號登入
+2. 進入 RichMedia 廣告組合編輯介面","1. 應顯示 AOE 專屬編輯抽屜
+2. 抽屜內應包含指定素材包、黑白名單、時段、地區優化項目","SuperDSP Pilot for AOE (Phase 2).html - PM/規劃文件"
+"SuperDSP","一般代理商帳號","權限驗證","【反向】廣告組合權限隔離","驗證非 ID 571 帳號之介面回歸","1. 以一般代理商（非 ID 571）帳號登入
+2. 進入 RichMedia 廣告組合編輯介面","1. 應維持舊有的小時 (hourlies) 與地區 (regions) 選擇器樣式
+2. 不應出現 AOE 專屬新版抽屜介面","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件 / 遺漏補強"
+"SuperDSP","Onead User (AOE)","廣告活動","【欄位】產業類別必填校驗","驗證 AOE 帳號建立廣告活動之 API 強制性","1. 以「果實夥伴 (ID 571)」帳號登入
+2. 建立新廣告活動
+3. 保持 OneAD 產業類別為空值並嘗試儲存","1. 系統應阻擋儲存並提示必填
+2. 後端 API 應回傳 one_category_id 必填驗證失敗訊息","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【邏輯】格式名稱轉換 (MIB)","驗證 Mobile In-Bottom (MIB) 系統名稱轉換","1. 以「果實夥伴 (ID 571)」帳號登入
+2. 選擇 Mobile In-Bottom (MIB) 格式進行設定","1. 系統內部對應名稱應轉換為 MIC
+2. 報表顯示名稱應正確對應","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【邏輯】格式名稱轉換 (MIR)","驗證 Mobile In-Read (MIR) 系統名稱轉換","1. 以「果實夥伴 (ID 571)」帳號登入
+2. 選擇 Mobile In-Read (MIR) 格式進行設定","1. 系統內部對應名稱應轉換為 MIR/MIRV","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【邏輯】格式名稱轉換 (Cover)","驗證 Cover 系統名稱轉換","1. 以「果實夥伴 (ID 571)」帳號登入
+2. 選擇 Cover 格式進行設定","1. 系統內部對應名稱應轉換為 MFS","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【欄位】時段選擇結構校驗","驗證新版小時選擇器之 API 結構","1. 於 AOE 廣告組合介面選擇投遞時段
+2. 檢查 API 回傳之資料結構","1. 回傳結構應為 period+hours 組合
+2. 系統應正確記錄各時段設定值","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【欄位】地區選擇結構校驗","驗證新版城市選擇器之 API 結構","1. 於 AOE 廣告組合介面選擇投遞地區
+2. 檢查 API 回傳之資料結構","1. 回傳結構應為 region+city 組合
+2. 系統應正確記錄各行政區設定值","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【功能】黑白名單 URL 檢索","驗證媒體搜尋 API 增加 URL 顯示","1. 進入廣告組合黑白名單設定頁面
+2. 搜尋特定媒體","1. 媒體選項應同步撈取並顯示 media url
+2. 應提供 URL 檢查提示確保輸入正確","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","素材包","【邏輯】AOE 免審核機制","驗證 ID 571 帳號素材自動通過邏輯","1. 以「果實夥伴 (ID 571)」帳號上傳素材包","1. create/update pack API 應自動將狀態設為 Passed
+2. 素材包不需設定 OneAD 廣告類別","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"ODM","Onead User (PAD)","素材審核","【反向】AOE 素材過濾","驗證 ODM 審核列表排除果實夥伴素材","1. 以 PAD 權限帳號進入 ODM 素材審核列表","1. 列表清單應自動排除 ID 571 帳號上傳之素材包
+2. PAD 無需對 AOE 素材進行人工審核操作","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告活動","【整合】Sequence 更新機制 (編輯)","驗證編輯操作觸發 Sequence 重新產出","1. 對投遞中 (Oncue) 廣告活動進行任意編輯並儲存
+2. 檢查系統產出的 Sequence 資料","1. 系統應產出新的 Sequence
+2. Sequence 應包含最新的媒體清單與 URL 設定","SuperDSP Pilot for AOE (Phase 2).html - 媒體設定變更影響說明"
+"SuperDSP","Onead User (AOE)","廣告活動","【反向】Sequence 鎖定機制 (未編輯)","驗證投遞中活動維持舊有設定之邏輯","1. 修改 ERP 端的媒體 URL
+2. 檢查「投遞中 (Oncue)」且「未編輯」之廣告活動","1. 活動應維持當初 Oncue 時的媒體清單與 URL 投放
+2. 不應因 ERP 變更而自動更新 Sequence","SuperDSP Pilot for AOE (Phase 2).html - 媒體設定變更影響說明"
+"SuperDSP","Onead User (AOE)","數據報表","【數據】一階指標顯示規則 (計數)","驗證曝光與點擊無資料時之顯示語意","1. 於廣告組合報表查看無數據之曝光、點擊、轉換欄位","1. 數值應顯示為 0","SuperDSP Pilot for AOE (Phase 2).html - 指標分類及規則"
+"SuperDSP","Onead User (AOE)","數據報表","【數據】一階指標顯示規則 (金額)","驗證花費與收益無資料時之顯示語意","1. 於廣告組合報表查看無數據之花費、收益欄位","1. 數值應顯示為 $0","SuperDSP Pilot for AOE (Phase 2).html - 指標分類及規則"
+"SuperDSP","Onead User (AOE)","數據報表","【數據】二階指標顯示規則 (-)","驗證 CPM 與 CTR 分母為 0 時之顯示語意","1. 於廣告組合報表查看曝光為 0 時之 CPM 或 CTR 欄位","1. 數值應顯示為 - (表示不適用/無法計算)","SuperDSP Pilot for AOE (Phase 2).html - 指標分類及規則"
+"SuperDSP","Onead User (AOE)","數據報表","【數據】Excel 格式定義校驗","驗證匯出報表之 numFmt 格式正確性","1. 下載廣告組合報表
+2. 檢查貨幣與百分比欄位之 Excel 格式設定","1. 貨幣應具備正確的小數點與千分位 (numFmt)
+2. 百分比應呈現兩位或四位小數格式","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件"
+"SuperDSP","Onead User (AOE)","數據報表","【數據】無效欄位處理 (Banner)","驗證特定格式下觀看事件之處理","1. 下載 Banner 格式之廣告組合報表
+2. 檢查其 25%/50%/75%/100% 觀看率欄位","1. 該些欄位應被視為無效欄位
+2. 報表中應統一回傳並顯示字串 ""-""","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件"
+"SuperDSP","一般使用者","使用者設定","【UX】語系與姓名順序校驗","驗證繁體中文語系下之姓名排版","1. 將系統語系切換至繁體中文
+2. 進入個人帳號資訊頁面查看姓名顯示","1. 姓名應符合姓氏在前、名字在後之排序 (lastName + firstName)","SuperDSP Pilot for AOE (Phase 2).html - PM/規劃文件 / GEMINI_ERROR_LOG.md"
+"SuperDSP","Onead User (AOE)","廣告組合","【整合】Studio 素材包同步機制","驗證 Studio 導流與列表自動刷新","1. 於廣告組合頁面點擊進入 Studio 上傳素材包
+2. 完成後返回 SuperDSP 廣告組合頁面","1. SuperDSP 應監聽 postMessage 通訊
+2. 素材包列表應自動刷新並顯示最新上傳項目","SuperDSP Pilot for AOE (Phase 2).html - SKILL.md (Studio 導流規則)"

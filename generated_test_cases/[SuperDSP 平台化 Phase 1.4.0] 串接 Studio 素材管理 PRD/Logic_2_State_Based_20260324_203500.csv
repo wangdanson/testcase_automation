@@ -1,0 +1,21 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【正向】【情境】Token 有效狀態下導流驗證","驗證當 Token 處於有效期時 Studio 導流的流暢度","1. 確保目前登入 Token 有效
+2. 發起 Studio 導流操作
+3. 觀察 Studio 端的登入狀態","1. 系統應直接導向 Studio 建立頁面，無需使用者再次輸入帳密","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【整合】【整合】Token 瀕臨過期狀態下自動刷新驗證","確認 Token 即將過期時系統是否能自動執行刷新動作","1. 模擬 Token 即將在短時間內過期的情境
+2. 發起 Studio 導流
+3. 檢查 API 紀錄中的 refresh_token 請求","1. 系統應在跳轉前自動呼叫刷新 API
+2. 進入 Studio 後應能維持正常登入狀態","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【反向】【整合】Token 已失效狀態下導流處理驗證","驗證當 Token 完全失效時發起導流的錯誤攔截","1. 模擬 Token 已完全過期或被刪除
+2. 嘗試點擊「前往 Studio 建立素材」","1. 系統應攔截請求並彈出友善的「登入逾時」提示
+2. 不應發送跳轉請求，引導使用者重新登入 DSP","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【正向】【情境】已通過 (Passed) 素材之導流編輯驗證","驗證已審核通過的素材發起編輯時的跳轉行為","1. 找到一個狀態為 Passed 且來源為 Studio 的素材包
+2. 點擊「編輯」並確認跳轉","1. 系統應正確導向 Studio 的 packageModify 頁面
+2. 確保已通過的素材能被正確帶入編輯模式","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","素材管理 - 素材包列表","【反向】【情境】已刪除 (Deleted) 素材之編輯連結失效驗證","驗證當素材已被刪除時其導流按鈕的可用性","1. 找到一個已在 Studio 或 DSP 標記為刪除的素材包
+2. 檢查其操作列中的導流按鈕","1. 編輯與複製按鈕應變更為 Disabled 狀態
+2. 防止使用者對已失效的資料發起導流請求","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
+"SuperDSP","Onead User (AOE)","廣告組合設定","【整合】【整合】廣告組合 Active 狀態下追蹤碼鎖定驗證","確認廣告活動上刊後其追蹤碼資料的狀態限制","1. 進入一個狀態為 Active 的廣告組合
+2. 找到追蹤碼設定區塊
+3. 嘗試修改內容或點擊刪除","1. 所有追蹤碼輸入框與刪除按鈕應變更為 Read-only 或 Disabled
+2. 確保執行中廣告的數據收集穩定性","[SuperDSP 平台化 Phase 1.4.0] 串接 Studio 素材管理 PRD.html"
