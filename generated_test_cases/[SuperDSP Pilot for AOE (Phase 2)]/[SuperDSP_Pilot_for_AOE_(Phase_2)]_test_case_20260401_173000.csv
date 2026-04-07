@@ -1,0 +1,56 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE)","權限驗證","【權限】【正向】AOE 身分自動識別","驗證系統正確識別 ID 571 帳號之 Agency 特權身分","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 調用 UserInfo API 並檢查回傳之 advertiser 結構","1. advertiser.owner_id 應精確回傳 571
+2. advertiser.owner_type 應回傳 Agency","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告活動","【權限】【正向】AOE 專屬產業類別顯示","驗證 ID 571 帳號具備 OneAD 產業類別編輯權限","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 進入「廣告活動」建立或編輯介面","1. 介面應顯示「OneAD 產業類別」與「子類別」下拉選單
+2. 欄位應可正常選取與編輯","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件"
+"SuperDSP","一般代理商帳號","廣告活動","【權限】【反向】產業類別權限隔離","驗證非 ID 571 帳號絕對隱藏 AOE 專屬欄位","1. 以一般代理商（非 ID 571）帳號登入系統
+2. 進入「廣告活動」建立或編輯介面","1. 介面中絕對不得出現「OneAD 產業類別」相關欄位
+2. 應維持原本的 RichMedia/InStream 設定介面樣式","SuperDSP Pilot for AOE (Phase 2).html - 權限對稱校驗原則"
+"SuperDSP","Onead User (AOE)","廣告活動","【業務】【邏輯】產業類別必填限制","驗證 AOE 帳號建立廣告活動之欄位強制性","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 建立新廣告活動
+3. 保持「OneAD 產業類別」欄位為空白並嘗試儲存","1. 系統應阻擋儲存並彈出必填提示
+2. 後端 API 應執行 one_category_id 必填校驗","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【權限】【正向】AOE 獨立編輯抽屜","驗證 ID 571 具備 RichMedia 新版編輯介面","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 進入 RichMedia 類型的廣告組合編輯介面","1. 應顯示 AOE 專屬的編輯抽屜介面
+2. 欄位應包含指定素材包、黑白名單、時段 (hours)、地區 (cities) 優化項目","SuperDSP Pilot for AOE (Phase 2).html - PM/規劃文件"
+"SuperDSP","一般代理商帳號","廣告組合","【權限】【反向】編輯介面權限隔離","驗證非 ID 571 帳號維持舊版編輯介面","1. 以一般代理商（非 ID 571）帳號登入系統
+2. 進入 RichMedia 類型的廣告組合編輯介面","1. 應維持舊有的小時 (hourlies) 與地區 (regions) 選擇器樣式
+2. 絕對不應出現 AOE 專屬之新版抽屜介面","SuperDSP Pilot for AOE (Phase 2).html - 權限對稱校驗原則"
+"SuperDSP","Onead User (AOE)","廣告組合","【欄位】【邏輯】時段與地區結構校驗","驗證新版選擇器之 API 傳輸結構正確性","1. 以「果實夥伴 (ID 571)」代理商權號之帳號登入系統
+2. 於新版編輯抽屜選取投遞時段與投遞城市並儲存","1. 時段回傳結構應為 period+hours 組合
+2. 地區回傳結構應為 region+city 組合
+3. 系統應正確記錄並回顯設定內容","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","Onead User (AOE)","廣告組合","【功能】【正向】黑白名單媒體優化","驗證媒體搜尋 API 增加 URL 顯示與校驗","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 進入黑白名單設定區域並搜尋特定媒體","1. 媒體選項應同步顯示 media url 資訊
+2. 應提供 URL 檢查提示確保輸入正確性
+3. 黑白名單應移除「全部」字眼優化","SuperDSP Pilot for AOE (Phase 2).html - PM/規劃文件 / 後端開發文件"
+"SuperDSP","Onead User (AOE)","素材包","【邏輯】【正向】AOE 自動免審核特權","驗證 ID 571 帳號素材上傳之自動通過邏輯","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 上傳新素材包","1. create/update pack API 應自動將狀態設為 Passed
+2. 系統不應要求設定 OneAD 廣告類別即可儲存","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件"
+"SuperDSP","一般代理商帳號","素材包","【權限】【反向】一般帳號素材審核流程","驗證非 ID 571 帳號之素材審核隔離機制","1. 以一般代理商（非 ID 571）帳號登入系統
+2. 上傳新素材包","1. 素材狀態不得自動變更為 Passed
+2. 系統應要求設定 OneAD 廣告類別且需進入人工審核流程","SuperDSP Pilot for AOE (Phase 2).html - 權限對稱校驗原則"
+"ODM","Onead User (AOE Admin)","素材審核","【權限】【反向】AOE 素材列表過濾","驗證 ODM 列表排除 AOE 自動免審核素材包","1. 以「Onead User (AOE Admin)」權限帳號進入 ODM 素材審核列表","1. 列表清單應自動排除 ID 571 帳號上傳之素材包
+2. 系統應自動完成免審核邏輯，無需人工干預","SuperDSP Pilot for AOE (Phase 2).html - 後端開發文件 / 角色修正"
+"SuperDSP","Onead User (AOE)","廣告活動","【整合】【邏輯】Sequence 更新鎖定","驗證編輯操作觸發廣告投放設定同步之正確性","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 對投遞中 (Oncue) 且未編輯之廣告活動進行檢查
+3. 對該活動進行任意編輯並儲存","1. 未編輯之活動應維持原 Sequence 與媒體 URL 投放
+2. 編輯並儲存後，系統應產出新 Sequence 並同步最新媒體清單","SuperDSP Pilot for AOE (Phase 2).html - 媒體設定變更影響說明"
+"SuperDSP","Onead User (AOE)","廣告組合","【業務】【邏輯】受眾過期儲存攔截","驗證儲存時針對 Expired 受眾之自動移除機制","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 進入廣告組合編輯介面，選取已過期 (Expired) 之客製受眾包
+3. 點擊儲存按鈕","1. 系統應彈出確認彈窗提示包含過期受眾
+2. 點擊確定後，系統應自動移除過期項目並完成儲存","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件 / 儲存驗證"
+"SuperDSP","Onead User (AOE)","廣告組合","【業務】【邏輯】受眾過期自動暫停","驗證廣告組合因受眾全數過期之自動 Paused 邏輯","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 檢查一個僅依賴客製受眾包且該受眾已全數過期之廣告組合","1. 系統應自動將該廣告組合狀態變更為 Paused
+2. Ad Group 列表應顯示對應的過期暫停 Tooltip 說明","SuperDSP Pilot for AOE (Phase 2).html - 前端開發文件 / 自動暫停機制"
+"SuperDSP","Onead User (AOE)","數據報表","【數據】【邏輯】指標顯示語意一致性","驗證無資料時之一階與二階指標語意呈現","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 於廣告組合報表查看無數據或分母為 0 之指標欄位","1. 曝光、點擊等一階指標應顯示 0 或 $0
+2. CTR、CPM 等二階指標應顯示 - (表示無法計算)","SuperDSP Pilot for AOE (Phase 2).html - 指標分類及規則"
+"SuperDSP","Onead User (AOE)","數據報表","【數據】【格式】報表分頁命名規範","驗證 Excel 報表 Sheet 命名之防重邏輯校驗","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 下載包含多個廣告組合之數據報表","1. Excel 報表分頁名稱應符合 ad_group_id + ""_"" + ad_group_name 規則
+2. 應避免因名稱過長重複導致的下載錯誤","SuperDSP Pilot for AOE (Phase 2).html - 報表輸出 sheet 命名規則優化"
+"SuperDSP","Onead User (AOE)","廣告組合","【整合】【正向】Studio 跨系統自動刷新","驗證素材包上傳完成後之 postMessage 通訊邏輯校驗","1. 以「果實夥伴 (ID 571)」代理商權限之帳號登入系統
+2. 於廣告組合介面跳轉至 Studio 完成素材上傳並返回","1. SuperDSP 應監聽 postMessage 通訊並自動刷新列表
+2. 列表應正確顯示剛完成上傳之素材包項目","SuperDSP Pilot for AOE (Phase 2).html - SKILL.md (Studio 導流規則)"
