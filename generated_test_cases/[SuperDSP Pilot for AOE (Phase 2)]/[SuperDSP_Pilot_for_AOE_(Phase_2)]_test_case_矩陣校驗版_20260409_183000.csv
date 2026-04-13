@@ -1,0 +1,65 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE Admin)","素材包列表","【權限】【正向】驗證 ID 571 素材自動通過機制","驗證果實夥伴 (ID 571) 上傳之素材包無需審核即可使用","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 進入「素材管理」頁面並上傳新的素材包
+3. 查看該素材包之審核狀態","1. 素材包上傳後，狀態應立即顯示為「Passed」
+2. 無需等待人工審核即可在 Ad Group 中選取","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：素材-AOE"
+"SuperDSP","superdsp_agency","素材包列表","【功能】【回歸】驗證一般代理商素材審核流程 (類型二)","驗證 AOE 自動通過機制不影響非 571 帳號之標準審核流程","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入「素材管理」頁面並上傳新的素材包
+3. 查看該素材包之審核狀態","1. 狀態應維持「Pending」或「Waiting for Audit」，不得自動通過
+2. 驗證新機制對外部副作用回歸符合預期","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：素材-Agency"
+"SuperDSP","superdsp_client","素材包列表","【權限】【反向】驗證廣告主素材權限隔離","驗證廣告主帳號無法享有 AOE 素材特權","1. 以 superdsp_client 權限之帳號登入系統
+2. 進入「素材管理」頁面並上傳新的素材包","1. 狀態不得為 Passed，必須維持現行審核機制
+2. 驗證特權僅限於 ID 571 帳號","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：素材-Client"
+"SuperDSP","superdsp_media","素材包列表","【權限】【反向】驗證媒體素材權限隔離","驗證媒體帳號無法享有 AOE 素材特權","1. 以 superdsp_media 權限之帳號登入系統
+2. 進入「素材管理」頁面並上傳新的素材包","1. 狀態不得為 Passed，必須維持現行審核機制
+2. 驗證特權僅限於 ID 571 帳號","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：素材-Media"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【權限】【正向】驗證 OneAD 產業類別欄位顯示 (RichMedia)","驗證 ID 571 在建立 RichMedia 活動時出現專屬產業類別欄位","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 建立新的廣告活動，產品線選擇「RichMedia」
+3. 檢查介面是否出現「OneAD 產業類別 (主/子)」下拉選單","1. 介面應正確顯示「OneAD 產業類別 (主/子)」下拉選單
+2. 該欄位應具備後端回傳之選項內容","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：活動-AOE"
+"SuperDSP","superdsp_agency","廣告活動編輯","【權限】【反向】驗證一般代理商欄位隔離","驗證一般代理商帳號不應看到 OneAD 專屬產業類別","1. 以 superdsp_agency 權限之帳號登入系統
+2. 建立新的 RichMedia 廣告活動","1. 介面完全不應出現「OneAD 產業類別」相關欄位
+2. 驗證權限隔離與 UI 完整性","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：活動-Agency"
+"SuperDSP","superdsp_client","廣告活動編輯","【權限】【反向】驗證廣告主欄位隔離","驗證廣告主帳號不應看到 OneAD 專屬產業類別","1. 以 superdsp_client 權限之帳號登入系統
+2. 建立新的 RichMedia 廣告活動","1. 介面中絕對不得出現「OneAD 產業類別」相關欄位
+2. 維持標準編輯界面","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：活動-Client"
+"SuperDSP","superdsp_media","廣告活動編輯","【權限】【反向】驗證媒體帳號欄位隔離","驗證媒體端帳號不應看到 OneAD 專屬產業類別","1. 以 superdsp_media 權限之帳號登入系統
+2. 建立新的 RichMedia 廣告活動","1. 介面中絕對不得出現「OneAD 產業類別」相關欄位
+2. 維持標準編輯界面","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：活動-Media"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【ＵＩ】【正向】驗證 AOE 專用編輯抽屜佈局","驗證 RichMedia 下之 Ad Group 具備優化版編輯介面","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 進入 RichMedia 產品之 Ad Group 編輯頁面
+3. 檢查「時段設定」、「地區設定」與「素材包選取」之排列","1. 應顯示 AOE 專屬之 Ad Group 編輯抽屜
+2. 選項應符合 hours/cities 結構回傳","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：抽屜-AOE"
+"SuperDSP","superdsp_agency","廣告組合編輯","【權限】【反向】驗證一般代理商抽屜隔離","驗證一般代理商不應看到 AOE 專用編輯抽屜","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入 Ad Group 編輯頁面","1. 應維持標準編輯介面，不得出現 AOE 專屬佈局
+2. 驗證權限隔離生效","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：抽屜-Agency"
+"SuperDSP","superdsp_client","廣告組合編輯","【權限】【反向】驗證廣告主抽屜隔離","驗證廣告主不應看到 AOE 專用編輯抽屜","1. 以 superdsp_client 權限之帳號登入系統
+2. 進入 Ad Group 編輯頁面","1. 絕對不應出現 AOE 專屬之優化抽屜介面
+2. 驗證權限隔離生效","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：抽屜-Client"
+"SuperDSP","superdsp_media","廣告組合編輯","【權限】【反向】驗證媒體帳號抽屜隔離","驗證媒體端不應看到 AOE 專用編輯抽屜","1. 以 superdsp_media 權限之帳號登入系統
+2. 進入 Ad Group 編輯頁面","1. 絕對不應出現 AOE 專屬之優化抽屜介面
+2. 驗證角色權限符合限制","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：抽屜-Media"
+"SuperDSP","Onead User (AOE Admin)","黑白名單設定","【功能】【正向】驗證 URL 格式檢查與網站清單優化","驗證 ID 571 專屬之黑白名單優化功能","1. 以『果實夥伴 (ID 571)』代理商權限之帳號進入黑白名單設定
+2. 測試 URL 格式校驗、清單帶入與「全部」字眼移除優化","1. 所有優化項 (格式提示、清單套用、UI 字眼) 應正確生效
+2. 驗證功能性完整","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：名單-AOE"
+"SuperDSP","superdsp_agency","黑白名單設定","【權限】【反向】驗證一般代理商黑白名單隔離","驗證一般代理商帳號維持舊版黑白名單介面","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入廣告組合之黑白名單設定","1. 應維持標準黑白名單介面，不具備 AOE 專屬優化邏輯
+2. 驗證功能隔離正確","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：名單-Agency"
+"SuperDSP","superdsp_client","黑白名單設定","【權限】【反向】驗證廣告主黑白名單隔離","驗證廣告主帳號不應看到 AOE 專屬黑白名單功能","1. 以 superdsp_client 權限之帳號登入系統
+2. 進入廣告組合之黑白名單設定","1. 絕對不得出現 AOE 專屬之優化介面與功能
+2. 驗證功能隔離正確","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：名單-Client"
+"SuperDSP","superdsp_media","黑白名單設定","【權限】【反向】驗證媒體帳號黑白名單隔離","驗證媒體端帳號無法存取 AOE 專屬黑白名單功能","1. 以 superdsp_media 權限之帳號登入系統
+2. 嘗試存取廣告組合之黑白名單編輯","1. 介面應符合 Media 角色權限限制，不得出現 AOE 特權
+2. 驗證功能隔離正確","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：名單-Media"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【整合】【回歸】驗證黑白名單 URL 同步邏輯 (類型一)","驗證 ERP 更新媒體後，透過編輯觸發 Sequence 同步最新資料","1. 透過 ERP 更新媒體手機 URL
+2. 以『果實夥伴 (ID 571)』代理商權限執行 Ad Group 儲存操作
+3. 檢查產出之 Sequence","1. 儲存應觸發產出新 Sequence
+2. 內容應包含最新之媒體資料","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：同步-AOE"
+"SuperDSP","Onead User (AOE Admin)","數據報表","【數據】【正向】驗證報表指標無資料顯示規範","驗證一階 (0) 與二階 (-) 指標顯示正確性","1. 下載無數據之廣告組合報表
+2. 檢查曝光、點擊、CPM、CTR 等欄位","1. 符合一階顯示 0、二階顯示 - 之語意規範
+2. Excel 格式應具備 _DASH 變體","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：報表-AOE"
+"ODM","Onead User (AOE Admin)","素材審核列表","【整合】【回歸】驗證素材過濾對 ODM 列表之副作用 (類型二)","驗證排除 AOE 素材不影響其他代理商之審核流程","1. 以 Onead User (AOE Admin) 權限登入 ODM
+2. 檢查非 571 之素材包是否正常顯示並可審核","1. 列表中正確排除 ID 571 素材，但不影響其他素材之正常審核
+2. 驗證機制副作用回歸符合預期","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：ODM-AOE"
+"SuperDSP","superdsp_agency","API 接口","【權限】【反向】驗證非 571 帳號之 API 安全強隔離","驗證後端 API 是否具備強校驗攔截授權外請求","1. 使用非 571 帳號嘗試調用專屬 API (如免審核 API)","1. 後端應回傳 403 Forbidden 或錯誤提示
+2. 保障系統安全性","主文件：SuperDSP Pilot for AOE (Phase 2).html - 矩陣：API-Agency"

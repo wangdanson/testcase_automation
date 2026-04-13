@@ -21,9 +21,17 @@
 | **Strategy** | **雙標籤強制規範** | **必須**使用兩類標籤組成，格式為 `【分類】【性質】功能名稱`（如 `【權限】【正向】`），嚴禁只使用單一標籤。 | User Correction (Pilot Phase 2) |
 | **Strategy** | **過濾瑣碎技術邏輯** | **禁止**將純技術欄位名稱映射（如 MIB -> MIC）列為測試項目。應專注於業務價值與 UI 變更之測試。 | User Correction (Pilot Phase 2) |
 | **Identity** | **ODM 審核查核角色** | 驗證 ODM 列表中 AOE 素材過濾之行為，測試角色應使用 **Onead User (AOE Admin)**，而非 PAD。 | User Correction (Pilot Phase 2) |
-| **L10n** | **繁中語系標籤修正** | 確保姓氏在前、名字在後，對應 `lastName` 與 `firstName`。 | Pilot Phase 1 |
+| **L10n** | **繁中語系標籤修正** | 確保姓氏在前、名字在後，對應 `lastName` 與 `firstName` | Pilot Phase 1 |
+
+## 3. 🛡️ [Anti-Regression] 功能與邏輯回歸防護 (Regression Prevention)
+
+| 模組 | 規則描述 | 避坑指南 | 來源/案例 |
+|---|---|---|---|
+| **Logic** | **防範指令競爭 (Instruction Competition)** | 產出時嚴禁因過度專注於「新格式規範」而忽略「基礎功能模組」（如黑白名單、時段）。 | **User Correction (2026-04-09)** |
+| **Logic** | **功能表面積校驗 (Test Surface Area)** | 針對 Phase 系列升級，**必須參考前一版本**案例，確保歷史功能（黑白名單、受眾操作）在全角色隔離中依然存在。 | **Repeated Omission Fix** |
 
 ## 4. 🛡️ [Anti-Regression] 防回歸預檢清單
+
 
 > **規則更新時之強制動作**: 任何對 `SKILL.md` 或 `GEMINI.md` 的結構化重組，必須保留以下「憲法級錨點」：
 

@@ -8,3 +8,4 @@ google_credentials.json
 google_service_account/
 service_account/
 .env
+knology_management/

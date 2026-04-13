@@ -1,0 +1,60 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE Admin)","素材包列表","【權限】【正向】驗證 ID 571 素材自動通過機制","驗證果實夥伴 (ID 571) 上傳之素材包無需審核即可使用","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 進入「素材管理」頁面並上傳新的素材包
+3. 查看該素材包之審核狀態","1. 素材包上傳後，狀態應立即顯示為「Passed」
+2. 無需等待人工審核即可在 Ad Group 中選取","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：後端開發文件"
+"SuperDSP","superdsp_agency","素材包列表","【權限】【反向】驗證一般帳號素材審核機制","驗證非 ID 571 之一般代理商上傳素材仍需審核","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入「素材管理」頁面並上傳新的素材包
+3. 查看該素材包之審核狀態","1. 素材包上傳後，狀態應顯示為「Pending」或「Waiting for Audit」
+2. 驗證權限隔離，非特權帳號不具備自動通過功能","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：後端開發文件"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【權限】【正向】驗證 OneAD 產業類別欄位顯示 (RichMedia)","驗證 ID 571 在建立 RichMedia 活動時出現專屬產業類別欄位","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 建立新的廣告活動，產品線選擇「RichMedia」
+3. 檢查介面是否出現「OneAD 產業類別 (主/子)」下拉選單","1. 介面應正確顯示「OneAD 產業類別 (主/子)」下拉選單
+2. 該欄位應具備後端回傳之選項內容","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：前端開發文件"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【權限】【反向】驗證 OneAD 產業類別欄位隱藏 (非 RichMedia)","驗證 ID 571 在建立非 RichMedia 活動時不應出現專屬欄位","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 建立新的廣告活動，產品線選擇「InStream」或「Commerce AD」
+3. 檢查介面是否出現「OneAD 產業類別」下拉選單","1. 介面不應出現「OneAD 產業類別」下拉選單
+2. 應維持標準編輯界面，確保 UI 範圍僅限於 RichMedia","主文件：SuperDSP Pilot for AOE (Phase 2).html - 參考使用者回覆 Q5"
+"SuperDSP","superdsp_agency","廣告活動編輯","【權限】【反向】驗證一般帳號欄位隔離","驗證一般代理商帳號不應看到 OneAD 專屬產業類別","1. 以 superdsp_agency 權限之帳號登入系統
+2. 建立新的 RichMedia 廣告活動
+3. 檢查介面是否出現「OneAD 產業類別」下拉選單","1. 介面完全不應出現「OneAD 產業類別」相關欄位
+2. 驗證權限隔離邏輯正確，非特權帳號無法存取該功能","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：前端開發文件"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【功能】【正向】驗證產業類別必填校驗","驗證 ID 571 建立活動時，產業類別為必填項","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 建立 RichMedia 活動，不填寫「OneAD 產業類別」並嘗試儲存
+3. 填寫產業類別後再次嘗試儲存","1. 未填寫時，系統應攔截儲存並提示「OneAD 產業類別為必填」
+2. 填寫完成後，應能成功建立廣告活動","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：後端開發文件"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【ＵＩ】【正向】驗證 AOE 專用編輯抽屜","驗證 RichMedia 下之 Ad Group 具備優化版編輯介面","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 進入 RichMedia 產品之 Ad Group 編輯頁面
+3. 檢查「時段設定」、「地區設定」與「素材包選取」之排列與功能","1. 應顯示 AOE 專屬之 Ad Group 編輯抽屜
+2. 欄位應包含編輯介面優化後之項次，且正確隱藏 hourlies/regions 改為回傳 hours/cities 結構","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：後端開發文件"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【整合】【正向】驗證黑白名單 URL 同步邏輯","驗證 ERP 更新媒體 URL 後，廣告組合能透過編輯觸發更新","1. 透過 ERP 更新特定媒體的手機 URL
+2. 以『果實夥伴 (ID 571)』代理商權限之帳號進入該媒體所屬之 Oncue 廣告組合
+3. 修改廣告組合名稱並儲存
+4. 檢查產出之 Sequence 與投放清單","1. 儲存操作應觸發產出新的 Sequence
+2. 新的 Sequence 中應包含 ERP 更新後之最新手機 URL
+3. 驗證「任何編輯行為」皆能同步最新媒體設定","主文件：SuperDSP Pilot for AOE (Phase 2).html - 參考使用者回覆 Q6"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【邊界】【反向】驗證黑白名單 URL 格式檢查","驗證輸入不合法 URL 時之介面提示","1. 以『果實夥伴 (ID 571)』代理商權限之帳號進入廣告組合「黑白名單」設定
+2. 手動輸入格式錯誤之 URL (如：僅輸入文字無 domain)
+3. 嘗試儲存設定","1. 系統應出現「URL 格式錯誤」或相關檢查提示
+2. 應攔截儲存直到格式正確","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：PM/規劃文件 (v1.0.6)"
+"SuperDSP","Onead User (AOE Admin)","數據報表","【數據】【正向】驗證報表指標無資料顯示規範 (一階)","驗證當投放數據為 0 時，一階指標之顯示正確性","1. 選擇一個尚無數據之廣告活動
+2. 執行「廣告組合報表」下載
+3. 檢查「曝光」、「點擊」與「金額」欄位之數值","1. 「曝光」與「點擊」欄位應顯示為「0」
+2. 「金額」欄位應顯示為「$0」
+3. 符合一階指標計數類語意","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：PM/規劃文件 (指標分類)"
+"SuperDSP","Onead User (AOE Admin)","數據報表","【數據】【正向】驗證報表指標無資料顯示規範 (二階)","驗證當分母為 0 時，二階指標之顯示正確性","1. 選擇一個尚無數據之廣告活動
+2. 執行「廣告組合報表」下載
+3. 檢查「CTR」、「CPM」與「ROAS」欄位之數值","1. 由於分母 (曝光或花費) 為 0，上述欄位應顯示為「-」
+2. 應套用 _DASH 類型格式，代表「不適用/無法計算」
+3. 嚴禁顯示為 0 以避免誤導成效數據","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：PM/規劃文件 (指標分類)"
+"SuperDSP","Onead User (AOE Admin)","數據報表","【數據】【回歸】驗證廣告格式遷移後之名稱顯示 (MIB to MIC)","驗證遷移後報表名稱之顯示正確性與相容性","1. 執行包含舊有「Mobile In-Bottom (MIB)」格式之廣告活動報表下載
+2. 檢查報表內「廣告格式」欄位之名稱顯示","1. 應正確顯示遷移後之名稱「MIC」
+2. 驗證 ad_format_type migration 邏輯已正確應用於報表輸出","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：後端開發文件"
+"ODM","Onead User (AOE Admin)","素材審核列表","【整合】【反向】驗證 ODM 審核列表排除 AOE 素材","驗證果實夥伴之素材包不會出現在 ODM 審核清單中","1. 以 Onead User (AOE Admin) 權限登入 ODM 系統
+2. 進入「SuperDSP 素材審核」列表
+3. 搜尋由果實夥伴 (ID 571) 上傳之素材包","1. 審核列表中應正確排除果實夥伴上傳之素材包
+2. 符合免審核邏輯，降低人工審核負擔","主文件：SuperDSP Pilot for AOE (Phase 2).html - 章節：後端開發文件"
+"SuperDSP","superdsp_agency","API 接口","【權限】【反向】驗證非 571 帳號之 API 安全隔離","驗證後端 API 是否具備強校驗攔截非授權請求","1. 使用非 571 代理商帳號之 Token
+2. 嘗試調用 `GET /ad_groups/options/media` 並帶入 `advertiser_id = 571`
+3. 嘗試調用素材自動通過之相關 API","1. 後端應回傳 403 Forbidden 或相關錯誤訊息
+2. 驗證權限隔離不僅限於前端隱藏，後端亦具備強效驗","主文件：SuperDSP Pilot for AOE (Phase 2).html - 參考優化策略建議"
