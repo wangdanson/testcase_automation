@@ -1,0 +1,1532 @@
+<h2 id="id-[開發規格文件]CommerceAd&amp;RTB-SuperDSP">
+ SuperDSP
+</h2>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="222fe8cf-66e3-4577-bc64-d8396ea0aa5d" data-macro-name="expand" id="expander-1594382669">
+ <div class="expand-control" id="expander-control-1594382669">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   get 合約 API
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1594382669">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="6ba81745-51b5-42f0-8b93-29d82df76dd2" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         GET
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="cd689da1-1eda-4e3d-8a84-47044a60bda2" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v1/superdsp/users/contract</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        old api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/users_controller.rb
+        <code>
+         contract
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="7a091455-8879-42f8-84fc-8f844d14a50a" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "status": "success",
+    "data": {
+        .......
+        "rtb_fees": [
+            {
+                "purposes_id": 1,
+                "product_category_id": 2,
+                "product_category": "Commerce AD",
+                "ad_format_type_id": 1,
+                "ad_format_type": "",
+                "pricing_model": "CPC",
+                "pricing_model_id": 2,
+                "display_pricing_model": "CPC",
+            },
+        ]
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        合約新增回傳 RTB 合約區塊
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="69ad9c4c-9fba-4ebf-a02a-98aa79429bfc" data-macro-name="expand" id="expander-1756985570">
+ <div class="expand-control" id="expander-control-1756985570">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   get target_segments api
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1756985570">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="6da382d6-d741-46a6-a89b-a024e96a3a38" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         GET
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/target_segments
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        old api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/target_segments_controller.rb index
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="5f115009-17ae-4f8c-ada1-297362f6c269" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    status: success,
+    data: [
+        universal_potential_models: [{
+            id: 10618,
+            path: "Webb零售數據 &gt; 商品購買者 &gt; 身體與手足保養",
+            name: "身體與手足保養",
+            path_en: "Webb Retail Data &gt; Product Category &gt;Body &amp; Hand Care",
+            name_en: "Body &amp; Hand Care",
+            segment_category: "universal_potential_models"
+        }],
+    ],
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        新增一種受眾包
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="9a74aca2-6ce1-4951-9077-16e0f82b1a89" data-macro-name="expand" id="expander-1879282412">
+ <div class="expand-control" id="expander-control-1879282412">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   get  product_keys options api
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1879282412">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="897e6a5a-fc36-4d0e-a6f7-2b0b58588f90" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         GET
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/options/product_keys
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        new api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/options/product_keys_controller.rb
+        </code>
+        index
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="845217de-e0ef-47e5-b733-47d24a5c6850" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    status: success,
+    data: [{
+        id: 1,
+        path: "進口豪華汽車 &gt; 轎車",
+        name": "轎車",
+    },]
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="e850e7c4-7924-45f6-b340-95c46aeacfbf" data-macro-name="expand" id="expander-1204113239">
+ <div class="expand-control" id="expander-control-1204113239">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   get ad_format_type api
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1204113239">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="fa4a634e-a40b-422c-96d9-61ea858f0517" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         GET
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_format_types
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        old api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_format_types.rb
+        </code>
+        index
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9be229fa-00c9-4a8d-bdd0-d4b277abf843" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    status: success,
+    data: [
+      {
+        .....,
+        device_ids:[]
+      },
+      ...,
+    ],
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        新增參數 device_ids
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="d6a45251-7967-49a8-a886-e1bcb5808de6" data-macro-name="expand" id="expander-1473756753">
+ <div class="expand-control" id="expander-control-1473756753">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   ad_group_rtb create
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1473756753">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="b506e44d-f344-4a7c-a790-25d702d8cefe" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         POST
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/campaigns/{campaign_id}/ad_groups_rtb
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        new api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="92099a62-418d-4917-931a-260227fd70ad" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "ad_group":{
+        "name":"test",
+        "ad_format_type_id":7,
+        "start_date":"2025/07/21",
+        "end_date":"2025/07/22",
+        "budget":10000,
+        "margin":5, //整數
+        "pricing_model_id":2,
+        "market_price":211,  //小數第一位
+        "superdsp_pack_id":null,
+        "target_devices":[2,3],
+        "excluded_medium_ids":[],
+        "hourlies":[1,2,3,4],
+        "regions":[1,2,3,4],
+        "cities":[1,2,4,7,12,13],
+        "freq": 2,
+        "targets":{
+            "type":0,
+            "include":{
+                "demographic_ids":[4,6,8,10,22,24,3,5,7,9,11,13],
+                "interest_ids":[],
+                "keyword_ids":[],
+                "segment_ids":[],
+                "audience_ids":[],
+                "contextual_ids":[],
+                "product_key_ids": [],
+            },
+            "exclude":{
+                "audience_ids":[],
+                "contextual_ids":[]
+            }
+        },
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_groups_rtb_controller.rb
+        </code>
+        create
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="be379273-614f-4c74-a937-43c220d54d72" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    status: success
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <ul>
+        <li>
+         <p>
+          主要 request 跟之前 ad_group 一樣, 但拔掉以下參數
+         </p>
+         <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="992e9d1f-aa80-4a41-8832-0c41997ec6ca" data-macro-name="code" style="border-width: 1px;">
+          <div class="codeContent panelContent pdl">
+           <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">deliver_strategy: 0
+brand_safety_ids
+tracking_codes
+show_logo: true</pre>
+          </div>
+         </div>
+        </li>
+        <li>
+         <p>
+          新增的受眾包 universal_potential_models 照舊邏輯放進 segment_ids 裡 及 product_key 資料)及 product_key 資料)
+          <br/>
+         </p>
+        </li>
+        <li>
+         <p>
+          複製也打這一支
+         </p>
+        </li>
+        <li>
+         <p>
+          主要是 uniprice 計算拿的東西跟 ad_group 不一樣
+         </p>
+        </li>
+        <li>
+         <p>
+          market_price 是賣價(含margin), margin 是利潤
+         </p>
+        </li>
+       </ul>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="b743fc2f-4d9b-4aca-a74a-eb2b5ce0e1e7" data-macro-name="expand" id="expander-497499022">
+ <div class="expand-control" id="expander-control-497499022">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   ad_group_rtb update
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-497499022">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="63078e19-fd9d-4609-82a2-ba24c19638f8" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         PUT
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_groups_rtb/{ad_group_id}
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        new api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9a75061d-5772-4c94-9487-c6fa9af71205" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "ad_group":{
+        "name":"test",
+        "ad_format_type_id":7,
+        "start_date":"2025/07/21",
+        "end_date":"2025/07/22",
+        "budget":10000,
+        "margin":20,
+        "pricing_model_id":2,
+        "market_price":250,
+        "superdsp_pack_id":null,
+        "target_devices":[2,3],
+        "excluded_medium_ids":[],
+        "hourlies":[1,2,3,4],
+        "regions":[1,2,3,4],
+        "cities":[1,2,4,7,12,13],
+        "freq": 2,
+        "targets":{
+            "type":0,
+            "include":{
+                "audience_ids":[],
+                "segment_ids":[],
+                "contextual_ids":[],
+                "demographic_ids":[4,6,8,10,22,24,3,5,7,9,11,13],
+                "interest_ids":[],
+                "keyword_ids":[],
+                "product_key_ids": [],
+            },
+            "exclude":{
+                "audience_ids":[],
+                "contextual_ids":[]
+            }
+        },
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_groups_rtb_controller.rb
+        </code>
+        update
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bbc01449-8065-4ccc-9b97-8a78bd5e8fb0" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    status: success
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <ul>
+        <li>
+         <p>
+          主要 request 跟之前 ad_group 一樣, 但拔掉以下參數
+         </p>
+         <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="60d15b94-af14-4d7f-87cd-eefa8cce192b" data-macro-name="code" style="border-width: 1px;">
+          <div class="codeContent panelContent pdl">
+           <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">deliver_strategy: 0
+brand_safety_ids
+tracking_codes
+show_logo: true</pre>
+          </div>
+         </div>
+         <p>
+          新增的受眾包 universal_potential_models 照舊邏輯放進 segment_ids 裡 及 product_key 資料)
+         </p>
+        </li>
+        <li>
+         <p>
+          主要是 uniprice 計算拿的東西跟 ad_group 不一樣
+         </p>
+        </li>
+        <li>
+         <p>
+          market_price 是賣價(含margin), margin 是利潤
+         </p>
+        </li>
+       </ul>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="7f9d3177-471c-4969-9a01-be6174a699eb" data-macro-name="expand" id="expander-1555854920">
+ <div class="expand-control" id="expander-control-1555854920">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   ad_group_rtb 複製
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1555854920">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="cf5db0dd-e2c7-41d6-b4c1-94a1d3b5fdf3" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        POST
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_groups_rtb/{ad_group_id}/duplicate
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        new api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_groups_rtb_controller.rb
+        </code>
+        <code>
+         duplicate
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="24c9ce97-a03a-47a3-86d0-cb5037516a3e" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    status: success
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="3beab119-b76b-44b7-890e-65a854d216e6" data-macro-name="expand" id="expander-1098463829">
+ <div class="expand-control" id="expander-control-1098463829">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   ad_group_rtb show
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1098463829">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="97c9751c-abf3-49e9-9e32-fc974d1d52ab" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         GET
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_groups_rtb/{ad_group_id}
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        new api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         api/v1/superdsp/ad_groups_rtb_controller.rb
+        </code>
+        show
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fefdddfe-296c-4afc-92b7-563cbe9f2d52" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "status": "success",
+    "data": {
+        "id": 114163,
+        "budget": 1000,
+        "freq": 2,
+        "ad_format_type_id": 7,
+        "superdsp_pack_id": null,
+        "target_devices": [2, 3],
+        "name": "test0724-1",
+        "start_date": "2025/07/24",
+        "end_date": "2025/07/29",
+        "margin": 14,
+        "pricing_model_id": 2,
+        "market_price": "140.0",
+        "excluded_medium_ids": [],
+        "hidden_excluded_medium_ids": [],
+        "hourlies": [1,2,3,4],
+        "regions": [1,2,3,4],
+        "cities": [1,2,4,7,12,13],
+        "superdsp_status": "draft",
+        "targets": {
+            "type": 1,
+            "include": {
+                "audience_ids": [],
+                "segment_ids": [],
+                "contextual_ids": [976,977,978],
+                "demographic_ids": [],
+                "interest_ids": [],
+                "keyword_ids": [],
+                "product_key_ids": []
+            },
+            "exclude": {
+                "audience_ids": [],
+                "contextual_ids": [979,980]
+            }
+        }
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <ul>
+        <li>
+         <p>
+          <code>
+           market_price
+          </code>
+          是賣價(含margin),
+          <code>
+           margin
+          </code>
+          是利潤
+         </p>
+        </li>
+       </ul>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="82b1fb88-4d33-47ad-bc3d-bc2c8f01c302" data-macro-name="expand" id="expander-1024262550">
+ <div class="expand-control" id="expander-control-1024262550">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   insertion_orders / {id} / metrics
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1024262550">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="3dee6a7a-0ca6-4e6a-a632-8f3777b2b112" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         GET
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/insertion_orders/{id}/metrics
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        old api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/insertion_orders_controller.rb metrics
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="57bccab6-a6c5-48bf-8b3d-01e604b05cac" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    data:{
+        campaigns: [
+            {
+                ......,
+                page_view_count: 1, //進站次數
+                complete_registration_count: 1, //註冊完成次數
+                add_to_cart_count: 1, //加入購物車次數
+                add_to_cart_cost: 1, //加入購物車金額
+                initial_checkout_count: 1, //開始結帳次數
+                initial_checkout_cost: 1, //開始結帳金額
+                purchase: 1, //完成購買次數
+                revenue: 10.0, //收益
+                cost_per_landing_page_view: 1.5, // 每次進站次數成本
+                cost_per_registration: 1.5, //每次註冊完成成本
+                cost_per_add_to_cart: 1.0, //每次加入購物車成本
+                cost_per_initial_checkout: 1.6, //每次開始結帳成本
+                cost_per_purchase: 1.9, //每次完成購買成本
+                roas: 0.7, //廣告投報率
+            }
+        ]
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <ul>
+        <li>
+         <p>
+          數據需要計算
+         </p>
+        </li>
+       </ul>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="f41c4021-6254-4cb9-9c55-707ae02ebfcb" data-macro-name="expand" id="expander-2019554535">
+ <div class="expand-control" id="expander-control-2019554535">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   campaigns / {id} / metrics
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-2019554535">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="ed63c6f0-9cd9-4c93-9a97-5705ceda6b84" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         GET
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/campaigns/{id}/metrics
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        old api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/campaigns_controller.rb metrics
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="cf1fc2ec-6017-449c-9d05-7daaa280fe1f" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    data:{
+        ad_groups: [
+            {
+                ......,
+                page_view_count: 1, //進站次數
+                complete_registration_count: 1, //註冊完成次數
+                add_to_cart_count: 1, //加入購物車次數
+                add_to_cart_cost: 1, //加入購物車金額
+                initial_checkout_count: 1, //開始結帳次數
+                initial_checkout_cost: 1, //開始結帳金額
+                purchase: 1, //完成購買次數
+                revenue: 10.0, //收益
+                cost_per_landing_page_view: 1.5, // 每次進站次數成本
+                cost_per_registration: 1.5, //每次註冊完成成本
+                cost_per_add_to_cart: 1.0, //每次加入購物車成本
+                cost_per_initial_checkout: 1.6, //每次開始結帳成本
+                cost_per_purchase: 1.9, //每次完成購買成本
+                roas: 0.7, //廣告投報率
+            }
+        ]
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="3017765d-43f2-4389-a374-bf63be1480c2" data-macro-name="expand" id="expander-1047194647">
+ <div class="expand-control" id="expander-control-1047194647">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   每日成效
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1047194647">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="2c04383a-7573-4ea8-87f6-0335e7bb35b1" data-table-width="988">
+    <colgroup>
+     <col style="width: 173.0px;"/>
+     <col style="width: 808.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        <code>
+         POST
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        api/v1/superdsp/campaigns/20835/ad_groups_daily_metrics
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        old api
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        request
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bc078bf2-53a9-4be2-bda3-81459d7503f5" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "ad_group_ids":[],
+    "columns":[
+        ........// 依照選擇吐給後端相對應的欄位, 此次新增 14 項(下面 response 列出項目)
+    ],
+    "start_date":"2024-09-23",
+    "end_date":"2024-10-31"
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a158507d-e0d1-46fa-98b3-04cee54defda" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    data: [
+        {
+            ........,
+            page_view_count: 1, //進站次數
+            complete_registration_count: 1, //註冊完成次數
+            add_to_cart_count: 1, //加入購物車次數
+            add_to_cart_cost: 1, //加入購物車金額
+            initial_checkout_count: 1, //開始結帳次數
+            initial_checkout_cost: 1, //開始結帳金額
+            purchase: 1, //完成購買次數
+            revenue: 10.0, //收益
+
+            cost_per_landing_page_view: 1.5, // 每次進站次數成本
+            cost_per_registration: 1.5, //每次註冊完成成本
+            cost_per_add_to_cart: 1.0, //每次加入購物車成本
+            cost_per_initial_checkout: 1.6, //每次開始結帳成本
+            cost_per_purchase: 1.9, //每次完成購買成本
+            roas: 0.7, //廣告投報率
+        }
+    ]
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+       <p>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>

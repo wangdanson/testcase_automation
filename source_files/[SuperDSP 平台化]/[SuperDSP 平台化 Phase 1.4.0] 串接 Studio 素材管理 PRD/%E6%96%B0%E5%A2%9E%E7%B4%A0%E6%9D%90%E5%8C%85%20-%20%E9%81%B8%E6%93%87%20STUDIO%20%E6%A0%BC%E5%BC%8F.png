@@ -1,0 +1,62 @@
+---
+title: 透過 "預覽 / 編輯 / 複製" 按鈕進入 Studio，並對素材包進行操作
+---
+flowchart TD
+Start([流程開始])
+End([流程結束])
+
+P0[素材管理頁面]
+P13[SuperDSP]
+
+Start --> P0
+P0 -- 點擊 --> D0{選擇功能類型}
+D0 --> P1("🔍 STUDIO 素材包<br>預覽 按鈕")
+D0 --> P2("✏️ STUDIO 素材包<br>編輯 按鈕")
+D0 --> P3("📋 STUDIO 素材包<br>複製 按鈕")
+
+P4[🔔 通知彈窗</br>將以開新視窗方式，帶您前往 STUDIO]
+
+P1 -- 觸發 --> P4
+P2 -- 觸發 --> P4
+P3 -- 觸發 --> P4
+
+P4 --> D4{使用者選擇}
+D4 -- 不，停留在此 --> P0
+D4 -- 是 --> P7[呼叫 redirect studio API]
+P7 --> D1{API Response}
+    D1 -- Success --> P5[取得 redirect URL]
+    P5 --> P6[開新視窗]
+    P6 -- 跳轉 STUDIO --> D5{STUDIO 轉址驗證}
+        D5 -- Error --> P8[顯示轉址失敗]
+        D5 --Success--> P9[✅ 進入 STUDIO 系統]
+            P9 -- 預覽 --> R1[顯示素材預覽抽屜]
+            R1 --> End
+
+            P9 -- 編輯 --> R2[顯示 STUDIO 素材包編輯頁]
+            R2 --> R21[更新素材包資訊]
+
+            P9 -- 複製 --> R3[顯示複製到 'xxx' 彈窗]
+            R3 --> R31[完成複製素材包]
+           
+            R21 -- 返回 (切回標籤) --> P13
+            R31 -- 返回 (切回標籤) --> P13
+            P13 -- 檢視 --> P14[素材包列表]
+            P14 --> P15[即時更新<br>素材包列表項目]
+
+            P15 --> End
+
+    D1 -- Error --> D2{錯誤類型判斷}
+        D2 -- 其他錯誤 --> P11[❌ 錯誤提示]
+        D2 -- 401 --> P12[跳轉登入頁]
+        P12 -- 重新登入 --> P0
+ 
+style Start fill:#e3f2fd
+style End fill:#e3f2fd
+style P1 fill:#e3f2fd,stroke:#1976d2
+style P2 fill:#e8f5e8,stroke:#388e3c  
+style P3 fill:#fff3e0,stroke:#f57c00
+style P9 fill:#c8e6c9
+style P4 fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+style P11 fill:#ffebee,stroke:#f44336,stroke-width:2px  
+style P12 fill:#ffebee,stroke:#f44336,stroke-width:2px
+style P8 fill:#ffebee,stroke:#f44336,stroke-width:2px

@@ -1,275 +1,552 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-
-<head>
-    <meta charset="UTF-8" />
-    <title>SuperDSP 權限整理</title>
-    <style>
-        body {
-            font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont,
-                "Segoe UI", system-ui, sans-serif;
-            line-height: 1.6;
-            padding: 24px;
-            max-width: 1100px;
-            margin: 0 auto;
-            background: #fafafa;
-            color: #222;
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin-top: 1.4em;
-            margin-bottom: 0.6em;
-            color: #1a237e;
-        }
-
-        h1 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 4px;
-        }
-
-        .meta {
-            color: #555;
-            font-size: 90%;
-            margin-bottom: 12px;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 12px 0 20px 0;
-            background: #fff;
-        }
-
-        th,
-        td {
-            border: 1px solid #bbb;
-            padding: 6px 10px;
-            vertical-align: top;
-            text-align: left;
-        }
-
-        th {
-            background: #f5f5f5;
-            white-space: nowrap;
-        }
-
-        ul {
-            margin: 6px 0 6px 22px;
-        }
-
-        code,
-        pre {
-            font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-                "Courier New", monospace;
-            background: #f3f3f3;
-            font-size: 90%;
-            border-radius: 3px;
-        }
-
-        code {
-            padding: 2px 4px;
-        }
-
-        pre {
-            padding: 8px 10px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>SuperDSP 權限整理</h1>
-
-    <p class="meta">
-        原始頁面：
-        <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3467149313/SuperDSP">
-            https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3467149313/SuperDSP
-        </a><br />
-        最後修改時間：Tuesday, March 11, 2025 at 02:51 AM UTC
+<p>
+ <style>
+  [data-colorid=rv0b9g3qv8]{color:#bf2600} html[data-color-mode=dark] [data-colorid=rv0b9g3qv8]{color:#ff6640}[data-colorid=qb3gozm9w8]{color:#bf2600} html[data-color-mode=dark] [data-colorid=qb3gozm9w8]{color:#ff6640}[data-colorid=vptw1olil9]{color:#bf2600} html[data-color-mode=dark] [data-colorid=vptw1olil9]{color:#ff6640}
+ </style>
+</p>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="7eaeecf9-3da6-4c94-a1ec-73d5a357e329" data-table-width="1510">
+  <colgroup>
+   <col style="width: 51.0px;"/>
+   <col style="width: 213.0px;"/>
+   <col style="width: 113.0px;"/>
+   <col style="width: 113.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 102.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh" data-highlight-colour="#f4f5f7" rowspan="2">
+     <p>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       權限
+      </strong>
+      <br/>
+      <strong>
+       (後端資料)
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       role
+      </strong>
+      <br/>
+      <strong>
+       (前端資料)
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       type
+      </strong>
+      <br/>
+      <strong>
+       (前端資料)
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       I/O 管理
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       受眾規劃
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" colspan="4">
+     <p>
+      <strong>
+       素材管理
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       OnePixel
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       帳務管理
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh" rowspan="2">
+     <p>
+      <strong>
+       設定
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      素材包
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      橫幅
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      影片
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      AI 文案
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_super_admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="7">
+     <p style="text-align: center;">
+      可看到所有(agency / client / media) 的資料, 不可編輯
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      X
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      X
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      2
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_super_agency
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="7">
+     <p style="text-align: center;">
+      可看到所有 agency 的資料, 不可編輯
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      3
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_super_client
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="7">
+     <p style="text-align: center;">
+      可看到所有 client 的資料, 不可編輯
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      4
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_super_media
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperAdmin
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="7">
+     <p style="text-align: center;">
+      可看到所有  media 的資料, 不可編輯(只有興趣受眾包)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      5
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_agency_admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Agency
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="9">
+     <p style="text-align: center;">
+      可看到自己 agency 底下的所有廣告主，可以編輯
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_client_admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Client
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="9">
+     <p style="text-align: center;">
+      可看到自己 client 底下的所有廣告主，可以編輯
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      7
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_media_admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Media
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="5">
+     <p style="text-align: center;">
+      可看到自己 media 底下的所有廣告主，可以編輯(只有興趣受眾包)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      需有AI合約才有功能
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="2">
+     <p style="text-align: center;">
+      可看到自己 media 底下的所有廣告主，可以編輯
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      8
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_agency
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      User
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Agency
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="7">
+     <p style="text-align: center;">
+      可看到自己擁有的廣告主權限，可以編輯
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <span data-colorid="qb3gozm9w8">
+       X
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      9
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_client
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      User
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Client
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="7">
+     <p style="text-align: center;">
+      可看到自己擁有的廣告主權限，可以編輯
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <span data-colorid="rv0b9g3qv8">
+       X
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      10
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      superdsp_media
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      User
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Media
+     </p>
+    </td>
+    <td class="confluenceTd" colspan="5">
+     <p style="text-align: center;">
+      可看到自己擁有的廣告主權限，可以編輯(只有興趣受眾包)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      需有AI合約才有功能
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <span data-colorid="vptw1olil9">
+       X
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      X
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<ul>
+ <li>
+  <p>
+   <strong>
+    SuperDSP 目前有 10 種權限, 當提供給前端的時候會依據不同的權限轉譯成 role / type
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   媒體需有 AI 文案合約, 才能看到 [素材管理 → AI 文案]
+   <br/>
+   (目前沒有使用者介面可以自行新增合約, PM 發需求, ITO 執行 seed 新增 AI 合約)
+   <br/>
+   <code>
+    rake db:seed:20230418_add_draft_ai_contract clinet_id=3
+   </code>
+  </p>
+ </li>
+ <li>
+  <p>
+   受眾規劃的受眾包, 受眾組合的受眾包設定及 OnePixel 不開放給 media
+  </p>
+ </li>
+ <li>
+  <p>
+   權限 superdsp_super_XXX(SuperAdmin) 只開給公司內部人員使用
+  </p>
+ </li>
+ <li>
+  <p>
+   檢視合約
+  </p>
+  <ul>
+   <li>
+    <p>
+     superdsp_super 會有選項但點擊不會有反應
     </p>
-
-    <h2>權限對照表</h2>
-
-    <table>
-        <tr>
-            <th>#</th>
-            <th>權限<br />(後端資料)</th>
-            <th>role<br />(前端資料)</th>
-            <th>type<br />(前端資料)</th>
-            <th>I/O 管理</th>
-            <th>受眾規劃</th>
-            <th>素材管理</th>
-            <th>OnePixel</th>
-            <th>帳務管理</th>
-            <th>設定</th>
-        </tr>
-        <tr>
-            <th colspan="10">素材包權限概觀：橫幅 / 影片 / AI 文案</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>superdsp_super_admin</td>
-            <td>SuperAdmin</td>
-            <td>SuperAdmin</td>
-            <td>可看到所有 (agency / client / media) 的資料，不可編輯</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>superdsp_super_agency</td>
-            <td>SuperAdmin</td>
-            <td>SuperAdmin</td>
-            <td>可看到所有 agency 的資料，不可編輯</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>superdsp_super_client</td>
-            <td>SuperAdmin</td>
-            <td>SuperAdmin</td>
-            <td>可看到所有 client 的資料，不可編輯</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>superdsp_super_media</td>
-            <td>SuperAdmin</td>
-            <td>SuperAdmin</td>
-            <td>可看到所有 media 的資料，不可編輯（只有興趣受眾包）</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>superdsp_agency_admin</td>
-            <td>Admin</td>
-            <td>Agency</td>
-            <td>可看到自己 agency 底下的所有廣告主，可以編輯</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>superdsp_client_admin</td>
-            <td>Admin</td>
-            <td>Client</td>
-            <td>可看到自己 client 底下的所有廣告主，可以編輯</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>superdsp_media_admin</td>
-            <td>Admin</td>
-            <td>Media</td>
-            <td>可看到自己 media 底下的所有廣告主，可以編輯（只有興趣受眾包）</td>
-            <td>需有 AI 合約才有功能</td>
-            <td>X</td>
-            <td>可看到自己 media 底下的所有廣告主，可以編輯</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>superdsp_agency</td>
-            <td>User</td>
-            <td>Agency</td>
-            <td>可看到自己擁有的廣告主權限，可以編輯</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>superdsp_client</td>
-            <td>User</td>
-            <td>Client</td>
-            <td>可看到自己擁有的廣告主權限，可以編輯</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>superdsp_media</td>
-            <td>User</td>
-            <td>Media</td>
-            <td>可看到自己擁有的廣告主權限，可以編輯（只有興趣受眾包）</td>
-            <td>需有 AI 合約才有功能</td>
-            <td>X</td>
-            <td>X</td>
-            <td>X</td>
-            <td></td>
-        </tr>
-    </table>
-
-    <h2>說明與補充</h2>
-    <ul>
-        <li>SuperDSP 目前有 <strong>10 種權限</strong>，當提供給前端的時候會依據不同的權限轉譯成 <code>role</code> / <code>type</code>。</li>
-        <li>媒體（Media）需有 <strong>AI 文案合約</strong>，才能看到「素材管理 → AI 文案」。</li>
-    </ul>
-
-    <h3>AI 文案合約建立方式</h3>
-    <p>目前沒有使用者介面可以自行新增合約，PM 發需求後，由 ITO 以 seed 新增 AI 合約：</p>
-    <pre><code>rake db:seed:20230418_add_draft_ai_contract clinet_id=3</code></pre>
-
-    <h3>Media 權限限制</h3>
-    <ul>
-        <li>「受眾規劃」中的：
-            <ul>
-                <li>受眾包</li>
-                <li>受眾組合的受眾包設定</li>
-                <li>OnePixel</li>
-            </ul>
-            皆<strong>不開放給 media</strong> 使用。
-        </li>
-    </ul>
-
-    <h3>SuperAdmin 權限用途</h3>
-    <ul>
-        <li><code>superdsp_super_XXX</code>（SuperAdmin）權限只開給<strong>公司內部人員</strong>使用，用於檢視全域資料，不具編輯能力。</li>
-    </ul>
-
-    <h3>檢視合約權限</h3>
-    <ul>
-        <li><strong>superdsp_super 系列：</strong>會看到「合約」選項，但點擊不會有反應（僅顯示，不提供操作）。</li>
-        <li><strong>Media：</strong>不顯示「合約」項目。</li>
-    </ul>
-
-    <h2>版本歷程</h2>
-    <ul>
-        <li>2025-03-11：JimmyTsai 更新內容。</li>
-        <li>2024-06-07：Ryan Meng 新增「檢視合約」相關說明。</li>
-    </ul>
-</body>
-
-</html>
-```[^01^]
+   </li>
+   <li>
+    <p>
+     Media 不顯示合約項目
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img alt="截圖 2024-06-07 下午2.37.18.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="962" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3467149313/%E6%88%AA%E5%9C%96%202024-06-07%20%E4%B8%8B%E5%8D%882.37.18.png?version=2&amp;modificationDate=1717742551301&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3467149313" data-linked-resource-container-version="18" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2024-06-07 下午2.37.18.png" data-linked-resource-id="3613065223" data-linked-resource-type="attachment" data-linked-resource-version="2" data-media-id="3aa9bae5-31dd-4abf-aa8d-c6cc14b6dc33" data-media-type="file" data-unresolved-comment-count="0" data-width="1528" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3467149313/%E6%88%AA%E5%9C%96%202024-06-07%20%E4%B8%8B%E5%8D%882.37.18.png?version=2&amp;modificationDate=1717742551301&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=478" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3467149313/%E6%88%AA%E5%9C%96%202024-06-07%20%E4%B8%8B%E5%8D%882.37.18.png?version=2&amp;modificationDate=1717742551301&amp;cacheVersion=1&amp;api=v2&amp;width=1520&amp;height=956 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3467149313/%E6%88%AA%E5%9C%96%202024-06-07%20%E4%B8%8B%E5%8D%882.37.18.png?version=2&amp;modificationDate=1717742551301&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=478 1x" width="760"/>
+</span>
+<p>
+</p>

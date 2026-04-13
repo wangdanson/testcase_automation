@@ -1,0 +1,5 @@
+flowchart TD
+    A1[素材管理頁] --> A2[點擊：前往 STUDIO 建立素材]
+    A2 --> A3[顯示提示：將以開新視窗方式帶您前往 STUDIO] -- 新開視窗 --> A4[呼叫 API： redirect 到 OneAD Studio]
+    A4 -->|成功| A5[OneAD Studio：檢查 token]
+    A4 -->|失敗| A6[OneAD Studio：檢查 Token 失敗，返回]

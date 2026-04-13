@@ -1,0 +1,92 @@
+<p>
+</p>
+<p>
+ 請參考前一版規格
+ <a data-linked-resource-id="3826024449" data-linked-resource-type="page" data-linked-resource-version="22" href="/wiki/spaces/ITO/pages/3826024449/SuperDSP+Phase+1.3.0">
+  [SuperDSP 平台化 Phase 1.3.0] 受眾鎖定 + 數據報告 + 權限設定
+ </a>
+ <strong>
+  廣告受眾鎖定功能
+ </strong>
+</p>
+<p>
+ 請參考
+ <a class="external-link" href="https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=4128-2196&amp;p=f&amp;t=JsrS0y7raMC3n4yO-0" rel="nofollow">
+  Wireframe
+ </a>
+</p>
+<h3 id="id-[功能需求]受眾鎖定-產業ShopperGraph-前端">
+ 前端
+</h3>
+<ul>
+ <li>
+  <p>
+   整體介面操作邏輯維持同
+   <strong>
+    數據鎖定 - 特定族群
+   </strong>
+   及
+   <strong>
+    數據鎖定 - 產業鑽石受眾
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   順序如下圖由上至下排序
+  </p>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+   <img alt="截圖 2025-04-21 下午2.57.32.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="770" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3848044614/%E6%88%AA%E5%9C%96%202025-04-21%20%E4%B8%8B%E5%8D%882.57.32.png?version=1&amp;modificationDate=1745218659837&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3848044614" data-linked-resource-container-version="11" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-04-21 下午2.57.32.png" data-linked-resource-id="3848306767" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="62350fbd-7f9a-4c46-83c6-20339a0426b8" data-media-type="file" data-unresolved-comment-count="0" data-width="480" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3848044614/%E6%88%AA%E5%9C%96%202025-04-21%20%E4%B8%8B%E5%8D%882.57.32.png?version=1&amp;modificationDate=1745218659837&amp;cacheVersion=1&amp;api=v2&amp;width=480&amp;height=770" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3848044614/%E6%88%AA%E5%9C%96%202025-04-21%20%E4%B8%8B%E5%8D%882.57.32.png?version=1&amp;modificationDate=1745218659837&amp;cacheVersion=1&amp;api=v2&amp;width=480&amp;height=770 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3848044614/%E6%88%AA%E5%9C%96%202025-04-21%20%E4%B8%8B%E5%8D%882.57.32.png?version=1&amp;modificationDate=1745218659837&amp;cacheVersion=1&amp;api=v2&amp;width=480&amp;height=770 1x" width="480"/>
+  </span>
+ </li>
+</ul>
+<p>
+</p>
+<h3 id="id-[功能需求]受眾鎖定-產業ShopperGraph-後端">
+ 後端
+</h3>
+<ul>
+ <li>
+  <p>
+   <strong>
+    產業 Shopper Graph 是 預打包受眾包 類型, 每日由 DTO 進行更新。
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   維持使用 table
+   <code>
+    segment_categories
+   </code>
+   根據
+   <code>
+    segement_category_id
+   </code>
+   做名稱對照
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a class="external-link" href="https://docs.google.com/spreadsheets/d/1RtBWTwOgovXpPohf9jZLNjcqHxcsiCM-m0rUltzHi7Y/edit?gid=0#gid=0" rel="nofollow">
+      請參考 ID 8
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     整體資料格式同
+     <strong>
+      數據鎖定 - 特定族群
+     </strong>
+     及
+     <strong>
+      數據鎖定 - 產業鑽石受眾
+     </strong>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>

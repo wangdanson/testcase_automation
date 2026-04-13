@@ -1,0 +1,617 @@
+<blockquote>
+ <p>
+  本文件說明使用者於 SuperDSP 系統中，從建立 I/O 單至完成廣告組合所需素材流程的完整操作路徑，並標註 Studio 格式導流的特殊邏輯與注意事項，供前端、後端與 PM、QA 團隊參考。
+ </p>
+</blockquote>
+<hr/>
+<h2 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-✅完整操作流程步驟">
+ ✅ 完整操作流程步驟
+</h2>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-1️⃣登入與建立I/O單">
+ 1️⃣ 登入與建立 I/O 單
+</h3>
+<ol start="1">
+ <li>
+  <p>
+   用戶登入 SuperDSP 系統
+  </p>
+ </li>
+ <li>
+  <p>
+   前往【I/O 單管理】
+  </p>
+ </li>
+ <li>
+  <p>
+   點擊「新增 I/O 單」
+  </p>
+ </li>
+ <li>
+  <p>
+   填寫：
+  </p>
+  <ul>
+   <li>
+    <p>
+     I/O 單名稱
+    </p>
+   </li>
+   <li>
+    <p>
+     廣告目的：Brand Building（可選：Brand Building / Drive Traffic /
+     <span class="inline-comment-marker" data-ref="42379180-0547-4ca6-8aa4-2c0ac912bf9d">
+      Push Conversion
+     </span>
+     ）
+    </p>
+   </li>
+   <li>
+    <p>
+     選擇產業主/子類型
+    </p>
+   </li>
+  </ul>
+ </li>
+</ol>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-2️⃣建立廣告活動">
+ 2️⃣ 建立廣告活動
+</h3>
+<ol start="1">
+ <li>
+  <p>
+   點擊「新增廣告活動」
+  </p>
+ </li>
+ <li>
+  <p>
+   填寫：
+  </p>
+  <ul>
+   <li>
+    <p>
+     廣告活動名稱
+    </p>
+   </li>
+   <li>
+    <p>
+     廣告品類：RichMedia（可選：InStream / RichMedia）
+    </p>
+   </li>
+   <li>
+    <p>
+     廣告走期
+    </p>
+   </li>
+   <li>
+    <p>
+     預算
+    </p>
+   </li>
+  </ul>
+ </li>
+</ol>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-3️⃣建立廣告組合">
+ 3️⃣ 建立廣告組合
+</h3>
+<ol start="1">
+ <li>
+  <p>
+   點擊「新增廣告組合」
+  </p>
+ </li>
+ <li>
+  <p>
+   填寫：
+  </p>
+  <ul>
+   <li>
+    <p>
+     廣告組合名稱
+    </p>
+   </li>
+   <li>
+    <p>
+     選擇數據鎖定
+    </p>
+   </li>
+   <li>
+    <p>
+     選擇格式：如
+     <code>
+      MIB Flash - MIB Flash Hit Banner
+     </code>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ol>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-📦Studio格式素材包處理情境">
+ 📦 Studio 格式素材包處理情境
+</h3>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-✅已有素材包（預先於Studio建立）">
+ <strong>
+  ✅ 已有素材包（預先於 Studio 建立）
+ </strong>
+</h3>
+<ul>
+ <li>
+  <p>
+   在「指定素材包」欄位中可選擇該 OneAD Studio 素材包
+  </p>
+ </li>
+ <li>
+  <p>
+   完成其他欄位（走期、計價單位等）後儲存完成
+  </p>
+ </li>
+</ul>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-❌無對應素材包（尚未建立）">
+ <strong>
+  ❌ 無對應素材包（尚未建立）
+ </strong>
+</h3>
+<ul>
+ <li>
+  <p>
+   「指定素材包」下拉選單找不到目標格式素材包
+  </p>
+ </li>
+ <li>
+  <p>
+   「新增素材包」按鈕點擊後顯示 message box，點擊確認後另開新分頁並且 redirect 到 OneAD Studio
+  </p>
+ </li>
+</ul>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-❌剛建立但下拉未更新">
+ <strong>
+  ❌ 剛建立但下拉未更新
+ </strong>
+</h3>
+<ul>
+ <li>
+  <p>
+   點擊 SELECT 會重新 fetch 列表，需做 debounce 防止短時間內重複點擊
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-🧭素材管理頁導向STUDIO建立素材流程">
+ 🧭 素材管理頁導向 STUDIO 建立素材流程
+</h2>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-➤使用左側選單路徑：">
+ ➤ 使用左側選單路徑：
+</h3>
+<ol start="1">
+ <li>
+  <p>
+   點擊左側 MENU BAR「素材管理」
+  </p>
+ </li>
+ <li>
+  <p>
+   進入後選擇
+   <code>
+    TAB：素材包
+   </code>
+  </p>
+ </li>
+ <li>
+  <p>
+   點擊「前往 Studio 建立素材」或「新增素材包」按鈕
+  </p>
+ </li>
+</ol>
+<h4 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-▶若點擊「前往Studio建立素材」：">
+ ▶ 若點擊「前往 Studio 建立素材」：
+</h4>
+<ul>
+ <li>
+  <p>
+   顯示 Message Box：
+   <code>
+    將以開新視窗方式，帶您前往 STUDIO
+   </code>
+  </p>
+ </li>
+ <li>
+  <p>
+   點擊【確認】
+  </p>
+  <ul>
+   <li>
+    <p>
+     表單抽屜關閉
+    </p>
+   </li>
+   <li>
+    <p>
+     呼叫
+     <code>
+      /studio/redirect
+     </code>
+     API 並開啟新視窗
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   OneAD Studio 驗證 token 成功後導入新增畫面
+  </p>
+ </li>
+ <li>
+  <p>
+   回到 SuperDSP 後須手動重新整理頁面
+  </p>
+ </li>
+</ul>
+<h4 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-▶若點擊「新增素材包」：">
+ ▶ 若點擊「新增素材包」：
+</h4>
+<ul>
+ <li>
+  <p>
+   顯示素材包表單：
+  </p>
+  <ul>
+   <li>
+    <p>
+     名稱、廣告品類、格式、素材上傳與備註
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   若選擇 Studio 格式：
+  </p>
+  <ul>
+   <li>
+    <p>
+     顯示 Message Box 並提示前往 OneAD Studio
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊【確認】 → 另開 Studio 畫面
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊【取消】 → 留在 SuperDSP 畫面
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-🔔注意事項">
+ 🔔 注意事項
+</h2>
+<ul>
+ <li>
+  <p>
+   所有 Studio 另開新視窗 redirect 動作需經過用戶手動確認
+  </p>
+ </li>
+ <li>
+  <p>
+   SuperDSP 無法主動偵測 Studio 中是否已有素材
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-🧩Mermaid流程圖示意">
+ 🧩 Mermaid 流程圖示意
+</h2>
+<p>
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-素材管理中的STUDIO導流行為">
+ <strong>
+  素材管理中的 STUDIO 導流行為
+ </strong>
+</h3>
+<div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="7dc1f70b-965d-4b0e-bd76-bee573045b27" data-macro-id="3bb8d048-2f5e-489b-962a-95eece793a34" data-macro-name="mermaid-cloud" id="ap-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud8863188324406502959">
+ <div class="ap-content" id="embedded-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud8863188324406502959">
+ </div>
+ <script class="ap-iframe-body-script" nonce="c95f0333462942e09432814ca04c253b">
+  //<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"com.stratusaddons.confluence.plugins.mermaid",
+    "uniqueKey":"com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud8863188324406502959",
+    "key":"mermaid-cloud",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"100%",
+    "h":"1px",
+    "url":"https://mermaid.stratus-addons.com/viewer.html?pageId=3848863805&filename=studio-material-actions-flow&revision=1&zoom=fit&toolbar=bottom&repository=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud8863188324406502959&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.stratusaddons.confluence.plugins.mermaid&lic=active&userAccess=true&cv=1000.0.0-aa67a93be910&traceId=d71b6088b37f0f9f0a87700af0823443&spanId=22aca3cce62bf196&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiZTAyYTQ4M2FjMmVhODU1OGM0YmZmYWYxY2M1NDZiMmVhMjY5NGI0YTljNWNjMWYyOGUxODNhMmEyMDI5M2ViYyIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzYwNzIxNjEsImlhdCI6MTc3NjA3MTk4MX0.Jz2WmZA44cDVStx6uIdjPM4VMQqMx8SZ3ScXF3W5YrA",
+     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6IjNiYjhkMDQ4LTJmNWUtNDg5Yi05NjJhLTk1ZWVjZTc5M2EzNCIsImlkIjoiM2JiOGQwNDgtMmY1ZS00ODliLTk2MmEtOTVlZWNlNzkzYTM0In0sInRyYWNpbmciOnsidHJhY2VJZCI6ImQ3MWI2MDg4YjM3ZjBmOWYwYTg3NzAwYWYwODIzNDQzIiwic3BhbklkIjoiMjJhY2EzY2NlNjJiZjE5NiIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiOSIsImlkIjoiMzg0ODg2MzgwNSJ9LCJzcGFjZSI6eyJrZXkiOiJJVE8iLCJpZCI6IjI5NzkyNjY1NjQifX19LCJleHAiOjE3NzYwNzI4ODEsImlhdCI6MTc3NjA3MTk4MX0.CxX0e6CQIF8nxfZciToYzdvdfnHLxM3ZZOYPauTnFDo",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"3bb8d048-2f5e-489b-962a-95eece793a34\",\"id\":\"3bb8d048-2f5e-489b-962a-95eece793a34\"},\"tracing\":{\"traceId\":\"d71b6088b37f0f9f0a87700af0823443\",\"spanId\":\"22aca3cce62bf196\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"9\",\"id\":\"3848863805\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"3848863805\",\"macro.hash\":\"3bb8d048-2f5e-489b-962a-95eece793a34\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"7dc1f70b-965d-4b0e-bd76-bee573045b27\",\": = | RAW | = :\":\"toolbar=bottom|filename=studio-material-actions-flow|zoom=fit|revision=1\",\"space.id\":\"2979266564\",\"tracing.traceId\":\"d71b6088b37f0f9f0a87700af0823443\",\"tracing.spanId\":\"22aca3cce62bf196\",\"user.isExternalCollaborator\":\"false\",\"space.key\":\"ITO\",\"content.version\":\"9\",\"page.title\":\"[SuperDSP \u5e73\u53f0\u5316] I/O \u5efa\u7acb\u81f3STUDIO\u7d20\u6750\u5305\u5efa\u7acb\u6d41\u7a0b\u8aaa\u660e\",\"zoom\":\"fit\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"display\",\"page.version\":\"9\",\"revision\":\"1\",\"toolbar\":\"bottom\",\"filename\":\"studio-material-actions-flow\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"3848863805\",\"macro.id\":\"3bb8d048-2f5e-489b-962a-95eece793a34\",\"editor.version\":\"v2\"}",
+    "timeZone":"UTC",
+    "origin":"https://mermaid.stratus-addons.com",
+    "hostOrigin":"https://guoshi.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",            "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+ </script>
+</div>
+<p>
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-建立I/O單至素材導流完整流程圖">
+ 建立 I/O 單至素材導流完整流程圖
+</h3>
+<div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="d7d80703-5723-4339-aff4-e69db9cabba6" data-macro-id="24b591cd-0bbd-4f1b-870c-bb7c89c571b3" data-macro-name="mermaid-cloud" id="ap-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud597233628834358560">
+ <div class="ap-content" id="embedded-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud597233628834358560">
+ </div>
+ <script class="ap-iframe-body-script" nonce="c95f0333462942e09432814ca04c253b">
+  //<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"com.stratusaddons.confluence.plugins.mermaid",
+    "uniqueKey":"com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud597233628834358560",
+    "key":"mermaid-cloud",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"100%",
+    "h":"1px",
+    "url":"https://mermaid.stratus-addons.com/viewer.html?pageId=3848863805&filename=%E6%B5%81%E7%A8%8B%E5%9C%96%E7%A4%BA%E6%84%8F&revision=4&zoom=fit&toolbar=bottom&repository=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud597233628834358560&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.stratusaddons.confluence.plugins.mermaid&lic=active&userAccess=true&cv=1000.0.0-aa67a93be910&traceId=32250e62b9d6d157cc940c59c13eabef&spanId=678536f6b4221df5&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiOTljM2VmM2NkNTI2ZDM1NTdjZmFmNmNhMWY4Zjk4OTcwMTAwMmRkZjdlZDAwMTUwZjBkYzdjOGEwM2I4NTRhNSIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzYwNzIxNjEsImlhdCI6MTc3NjA3MTk4MX0.6oTsKsDXXyfm_8zz5OY3t_a5EGp7Il8b9pd_n-DTgIM",
+     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6IjI0YjU5MWNkLTBiYmQtNGYxYi04NzBjLWJiN2M4OWM1NzFiMyIsImlkIjoiMjRiNTkxY2QtMGJiZC00ZjFiLTg3MGMtYmI3Yzg5YzU3MWIzIn0sInRyYWNpbmciOnsidHJhY2VJZCI6IjMyMjUwZTYyYjlkNmQxNTdjYzk0MGM1OWMxM2VhYmVmIiwic3BhbklkIjoiNjc4NTM2ZjZiNDIyMWRmNSIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiOSIsImlkIjoiMzg0ODg2MzgwNSJ9LCJzcGFjZSI6eyJrZXkiOiJJVE8iLCJpZCI6IjI5NzkyNjY1NjQifX19LCJleHAiOjE3NzYwNzI4ODEsImlhdCI6MTc3NjA3MTk4MX0.qezw4akHpEJWhMC9tZNX6Vt-9QLfeHuVzurgTRTpIRE",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"24b591cd-0bbd-4f1b-870c-bb7c89c571b3\",\"id\":\"24b591cd-0bbd-4f1b-870c-bb7c89c571b3\"},\"tracing\":{\"traceId\":\"32250e62b9d6d157cc940c59c13eabef\",\"spanId\":\"678536f6b4221df5\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"9\",\"id\":\"3848863805\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"3848863805\",\"macro.hash\":\"24b591cd-0bbd-4f1b-870c-bb7c89c571b3\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"d7d80703-5723-4339-aff4-e69db9cabba6\",\": = | RAW | = :\":\"toolbar=bottom|filename=\u6d41\u7a0b\u5716\u793a\u610f|zoom=fit|revision=4\",\"space.id\":\"2979266564\",\"tracing.traceId\":\"32250e62b9d6d157cc940c59c13eabef\",\"tracing.spanId\":\"678536f6b4221df5\",\"user.isExternalCollaborator\":\"false\",\"space.key\":\"ITO\",\"content.version\":\"9\",\"page.title\":\"[SuperDSP \u5e73\u53f0\u5316] I/O \u5efa\u7acb\u81f3STUDIO\u7d20\u6750\u5305\u5efa\u7acb\u6d41\u7a0b\u8aaa\u660e\",\"zoom\":\"fit\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"display\",\"page.version\":\"9\",\"revision\":\"4\",\"toolbar\":\"bottom\",\"filename\":\"\u6d41\u7a0b\u5716\u793a\u610f\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"3848863805\",\"macro.id\":\"24b591cd-0bbd-4f1b-870c-bb7c89c571b3\",\"editor.version\":\"v2\"}",
+    "timeZone":"UTC",
+    "origin":"https://mermaid.stratus-addons.com",
+    "hostOrigin":"https://guoshi.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",            "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+ </script>
+</div>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f395af06-fb96-4696-bdc6-d3897946ce8d" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">flowchart TD
+  A[登入系統] --&gt; B[進入 I/O 單管理]
+  B --&gt; C[新增 I/O 單]
+  C --&gt; D[填寫 I/O 表單資訊]
+  D --&gt; E[儲存後顯示提示框：繼續新增廣告活動？]
+  E --&gt;|是| F[新增廣告活動]
+  F --&gt; G[填寫活動資訊]
+  G --&gt; H[儲存後顯示提示框：繼續新增廣告組合？]
+  H --&gt;|是| I[新增廣告組合]
+  I --&gt; J[選擇格式與指定素材包]
+  J --&gt; K{Studio 格式素材包是否已建立？}
+  K --&gt;|是| L[選擇素材包 → 填完欄位 → 儲存完成]
+  K --&gt;|否| M[素材包下拉無資料]
+  M -.-&gt; N[點擊新增素材包]
+  N --&gt; O[顯示 Message box 轉址確認]
+  O --&gt; |是| P[新開視窗] -- redirect Studio --&gt; Q{該格式對應單一 Studio 格式?}
+  Q --&gt; |是| R[進入到 Studio 該格式建立畫面]
+  Q --&gt; |否| S[進入到 Studio 建立格式選擇畫面（僅顯示該格式對應之多格式）]
+  S --&gt; T[建立完成] --&gt; L
+
+  class N warning;</pre>
+ </div>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-⏱️補充：Studio導流行為時序圖">
+ ⏱️ 補充：Studio 導流行為時序圖
+</h2>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-操作流程（預覽/編輯/複製/建立）">
+ 操作流程（預覽 / 編輯 / 複製 / 建立）
+</h3>
+<div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="600d220b-eef1-47b0-8feb-35a035981a9a" data-macro-id="1769a729-2f1d-43b9-9c4b-529ab5a4410e" data-macro-name="mermaid-cloud" id="ap-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud2830663935017688236">
+ <div class="ap-content" id="embedded-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud2830663935017688236">
+ </div>
+ <script class="ap-iframe-body-script" nonce="c95f0333462942e09432814ca04c253b">
+  //<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"com.stratusaddons.confluence.plugins.mermaid",
+    "uniqueKey":"com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud2830663935017688236",
+    "key":"mermaid-cloud",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"100%",
+    "h":"1px",
+    "url":"https://mermaid.stratus-addons.com/viewer.html?pageId=3848863805&filename=studio-material-actions-sequence&revision=1&zoom=fit&toolbar=bottom&repository=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud2830663935017688236&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.stratusaddons.confluence.plugins.mermaid&lic=active&userAccess=true&cv=1000.0.0-aa67a93be910&traceId=9d283a965e38081c82b9920d22b13cc9&spanId=551c7f6bc10ed7b3&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiNjUzOGU5NjZkZmM3ZDA1MGU4ZmIzZjI4YjQ5NGQ3MzM1NDU4MDFlOWQwNTNkNGExODExYjEwMzVhNmEwNTBiYiIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzYwNzIxNjEsImlhdCI6MTc3NjA3MTk4MX0.pZVni-b29sMe4n2A0eB184Cl6o2jSe4Gc2tzq93JanE",
+     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6IjE3NjlhNzI5LTJmMWQtNDNiOS05YzRiLTUyOWFiNWE0NDEwZSIsImlkIjoiMTc2OWE3MjktMmYxZC00M2I5LTljNGItNTI5YWI1YTQ0MTBlIn0sInRyYWNpbmciOnsidHJhY2VJZCI6IjlkMjgzYTk2NWUzODA4MWM4MmI5OTIwZDIyYjEzY2M5Iiwic3BhbklkIjoiNTUxYzdmNmJjMTBlZDdiMyIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiOSIsImlkIjoiMzg0ODg2MzgwNSJ9LCJzcGFjZSI6eyJrZXkiOiJJVE8iLCJpZCI6IjI5NzkyNjY1NjQifX19LCJleHAiOjE3NzYwNzI4ODEsImlhdCI6MTc3NjA3MTk4MX0.iiq6DL16rxuHmAn0RXffs4hYDHJ_HyLNyCgJOHMECLI",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"1769a729-2f1d-43b9-9c4b-529ab5a4410e\",\"id\":\"1769a729-2f1d-43b9-9c4b-529ab5a4410e\"},\"tracing\":{\"traceId\":\"9d283a965e38081c82b9920d22b13cc9\",\"spanId\":\"551c7f6bc10ed7b3\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"9\",\"id\":\"3848863805\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"3848863805\",\"macro.hash\":\"1769a729-2f1d-43b9-9c4b-529ab5a4410e\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"600d220b-eef1-47b0-8feb-35a035981a9a\",\": = | RAW | = :\":\"toolbar=bottom|filename=studio-material-actions-sequence|zoom=fit|revision=1\",\"space.id\":\"2979266564\",\"tracing.traceId\":\"9d283a965e38081c82b9920d22b13cc9\",\"tracing.spanId\":\"551c7f6bc10ed7b3\",\"user.isExternalCollaborator\":\"false\",\"space.key\":\"ITO\",\"content.version\":\"9\",\"page.title\":\"[SuperDSP \u5e73\u53f0\u5316] I/O \u5efa\u7acb\u81f3STUDIO\u7d20\u6750\u5305\u5efa\u7acb\u6d41\u7a0b\u8aaa\u660e\",\"zoom\":\"fit\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"display\",\"page.version\":\"9\",\"revision\":\"1\",\"toolbar\":\"bottom\",\"filename\":\"studio-material-actions-sequence\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"3848863805\",\"macro.id\":\"1769a729-2f1d-43b9-9c4b-529ab5a4410e\",\"editor.version\":\"v2\"}",
+    "timeZone":"UTC",
+    "origin":"https://mermaid.stratus-addons.com",
+    "hostOrigin":"https://guoshi.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",            "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+ </script>
+</div>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="13963534-ba6a-4efc-9399-8a68962b74ab" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sequenceDiagram
+    participant User
+    participant SuperDSP
+    participant API
+    participant Studio
+    User-&gt;&gt;SuperDSP: 點擊「建立 / 預覽 / 編輯 / 複製」按鈕
+    SuperDSP-&gt;&gt;User: 顯示提示訊息
+    User-&gt;&gt;SuperDSP: 點選「是」
+    SuperDSP-&gt;&gt;API: 呼叫 /studio/redirect API（帶入操作類型）
+    API--&gt;&gt;Studio: 透過 HTTP Redirect 跳轉至 STUDIO URL（含 token）
+    Studio--&gt;&gt;User: 進入對應畫面（新增 / 預覽 / 編輯 / 複製）</pre>
+ </div>
+</div>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化]I/O建立至STUDIO素材包建立流程說明-Studio素材建立流程（redirect）">
+ Studio 素材建立流程（redirect）
+</h3>
+<div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="c905fd89-0f27-4b79-8124-3320383d124b" data-macro-id="336158d7-9847-4949-aa33-7686ff788622" data-macro-name="mermaid-cloud" id="ap-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3376037063862944248">
+ <div class="ap-content" id="embedded-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3376037063862944248">
+ </div>
+ <script class="ap-iframe-body-script" nonce="c95f0333462942e09432814ca04c253b">
+  //<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"com.stratusaddons.confluence.plugins.mermaid",
+    "uniqueKey":"com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3376037063862944248",
+    "key":"mermaid-cloud",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"100%",
+    "h":"1px",
+    "url":"https://mermaid.stratus-addons.com/viewer.html?pageId=3848863805&filename=Studio+%E5%B0%8E%E6%B5%81%E8%A1%8C%E7%82%BA%E6%99%82%E5%BA%8F%E5%9C%96&revision=2&zoom=fit&toolbar=bottom&repository=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3376037063862944248&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.stratusaddons.confluence.plugins.mermaid&lic=active&userAccess=true&cv=1000.0.0-aa67a93be910&traceId=d6564a3d2125079323d672fc23368c1a&spanId=c5c32b67a5c7f0f6&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiYWFmMDQ4YzJlMzAyNzk3NmJjNWY3ZGYzNTgwZGY2NzVkOTUwYWNmYTNkMzA3MDljNjY1ZTRkYTI0NzliMzRmMiIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzYwNzIxNjEsImlhdCI6MTc3NjA3MTk4MX0.ByR_mZ3NPlGcK9qhfSmK2TQvO6zXifg0-3WakiTcBuY",
+     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6IjMzNjE1OGQ3LTk4NDctNDk0OS1hYTMzLTc2ODZmZjc4ODYyMiIsImlkIjoiMzM2MTU4ZDctOTg0Ny00OTQ5LWFhMzMtNzY4NmZmNzg4NjIyIn0sInRyYWNpbmciOnsidHJhY2VJZCI6ImQ2NTY0YTNkMjEyNTA3OTMyM2Q2NzJmYzIzMzY4YzFhIiwic3BhbklkIjoiYzVjMzJiNjdhNWM3ZjBmNiIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiOSIsImlkIjoiMzg0ODg2MzgwNSJ9LCJzcGFjZSI6eyJrZXkiOiJJVE8iLCJpZCI6IjI5NzkyNjY1NjQifX19LCJleHAiOjE3NzYwNzI4ODEsImlhdCI6MTc3NjA3MTk4MX0.iVd6nnFB01WKVBSgmJEqyZV9K1lnOBVGi8cvII2CboI",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"336158d7-9847-4949-aa33-7686ff788622\",\"id\":\"336158d7-9847-4949-aa33-7686ff788622\"},\"tracing\":{\"traceId\":\"d6564a3d2125079323d672fc23368c1a\",\"spanId\":\"c5c32b67a5c7f0f6\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"9\",\"id\":\"3848863805\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"3848863805\",\"macro.hash\":\"336158d7-9847-4949-aa33-7686ff788622\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"c905fd89-0f27-4b79-8124-3320383d124b\",\": = | RAW | = :\":\"toolbar=bottom|filename=Studio \u5c0e\u6d41\u884c\u70ba\u6642\u5e8f\u5716|zoom=fit|revision=2\",\"space.id\":\"2979266564\",\"tracing.traceId\":\"d6564a3d2125079323d672fc23368c1a\",\"tracing.spanId\":\"c5c32b67a5c7f0f6\",\"user.isExternalCollaborator\":\"false\",\"space.key\":\"ITO\",\"content.version\":\"9\",\"page.title\":\"[SuperDSP \u5e73\u53f0\u5316] I/O \u5efa\u7acb\u81f3STUDIO\u7d20\u6750\u5305\u5efa\u7acb\u6d41\u7a0b\u8aaa\u660e\",\"zoom\":\"fit\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"display\",\"page.version\":\"9\",\"revision\":\"2\",\"toolbar\":\"bottom\",\"filename\":\"Studio \u5c0e\u6d41\u884c\u70ba\u6642\u5e8f\u5716\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"3848863805\",\"macro.id\":\"336158d7-9847-4949-aa33-7686ff788622\",\"editor.version\":\"v2\"}",
+    "timeZone":"UTC",
+    "origin":"https://mermaid.stratus-addons.com",
+    "hostOrigin":"https://guoshi.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",            "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+ </script>
+</div>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4681fcc9-3891-4d4c-ba0a-e19b295e930f" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sequenceDiagram
+    participant User
+    participant SuperDSP
+    participant API
+    participant Studio
+
+    User-&gt;&gt;SuperDSP: 點擊「前往 STUDIO 建立素材」
+    SuperDSP-&gt;&gt;API: 發送導向 Studio 請求（/studio/redirect）
+    alt token 成功
+        API--&gt;&gt;Studio: 透過 redirect 自動跳轉（含 token）
+        Studio--&gt;&gt;User: 顯示素材建立畫面
+    else token 失敗 / redirect 失敗
+        API--&gt;&gt;SuperDSP: 回傳錯誤訊息
+        SuperDSP--&gt;&gt;User: 顯示錯誤提示
+    end</pre>
+ </div>
+</div>

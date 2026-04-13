@@ -1,0 +1,1227 @@
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-📘修訂追蹤表">
+ 📘 修訂追蹤表
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="ab86d267-bae8-4f0a-9ae7-8e61e7af0bb4" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      版本號
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂日期
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂人
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂內容摘要
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Phase 1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-05-20">
+       2025年5月20日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      初版建立
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-📖項目概述">
+ 📖 項目概述
+</h2>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-📌項目背景">
+ 📌 項目背景
+</h3>
+<p>
+ 自 3 月上線後蒐集使用者回饋，PM 篩選緊急的改善需求，進行快速開發優化功能。
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-🎯項目目標">
+ 🎯 項目目標
+</h3>
+<ul>
+ <li>
+  <p>
+   admin 廣告主權限設定, 修改撈取邏輯
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    受眾管理 &gt; 廣告活動受眾包
+   </code>
+   擴充打包條件選項
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-🧩項目範圍">
+ 🧩 項目範圍
+</h3>
+<p>
+ <strong>
+  包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   admin 的角色包含：agency_admin / client_admin / media_admin
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    受眾管理 &gt; 廣告活動受眾包
+   </code>
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  不包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   admin 的角色不包含：super_agency_admin / super_client_admin / super_media_admin / super_super_admin
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    受眾管理 &gt; 網站活動受眾包
+   </code>
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-🧑‍💼目標受眾">
+ 🧑‍💼 目標受眾
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="c229a89e-a7c1-4666-b4a6-9535392c35c0" data-table-width="1011">
+  <colgroup>
+   <col style="width: 302.0px;"/>
+   <col style="width: 708.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      用戶類型
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      描述
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      SuperDSP - Agency_Admin
+      <br/>
+      SuperDSP - Client_Admin
+      <br/>
+      SuperDSP - Media_Admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      任一合約 (Agency / Client / Media) , 任意帳號建立 “廣告主“ 以後,
+      <br/>
+      Admin 帳號重整即可取得剛剛所建立之 “廣告主” 相關所有查看存取權限。
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      SuperDSP - User
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      該帳號擁有以下權限
+     </p>
+     <ul>
+      <li>
+       <p>
+        ☑ 查看 受眾管理
+       </p>
+      </li>
+      <li>
+       <p>
+        ☑ 編輯 受眾管理
+       </p>
+      </li>
+     </ul>
+     <p>
+     </p>
+     <p>
+      <code>
+       受眾管理 &gt; 廣告活動受眾包
+      </code>
+      多了 “看過廣告” 之打包選項，
+      <br/>
+      並且可 建立 → 打包 → 被選擇 → 投放 整套流程正常運作。
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-⚙️功能需求">
+ ⚙️ 功能需求
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="2ef69921-4afc-4d7e-a05a-6729a6c6a643" data-table-width="1800">
+  <colgroup>
+   <col style="width: 379.0px;"/>
+   <col style="width: 219.0px;"/>
+   <col style="width: 300.0px;"/>
+   <col style="width: 300.0px;"/>
+   <col style="width: 300.0px;"/>
+   <col style="width: 300.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      功能名稱
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      優先級
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簡要描述
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      狀態
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      負責人
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      詳細頁面
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [SuperDSP 優化需求]
+     </p>
+     <p>
+      新增廣告主時，admin 的廣告主權限需自動被加入
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增廣告主時，admin 的廣告主權限需自動被加入
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:4551d073-dc57-4b81-9f43-7e2682075087" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3599237175" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence" target="_blank">
+       stevesun
+      </a>
+      <br/>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3863969793" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/ITO/pages/3863969793/SuperDSP+admin">
+       [SuperDSP 優化需求] 新增廣告主時，admin 的廣告主權限需自動被加入
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [SuperDSP 優化需求]
+     </p>
+     <p>
+      廣告活動受眾打包，增加Impression事件（觀看廣告）
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      廣告活動受眾打包，增加打包選項 ( Impression事件 )
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+      <br/>
+      <a class="confluence-userlink user-mention" data-account-id="712020:4551d073-dc57-4b81-9f43-7e2682075087" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3599237175" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence" target="_blank">
+       stevesun
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3864035329" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3864035329/SuperDSP+Impression">
+       [SuperDSP 優化需求] 廣告活動受眾包，增加Impression事件（看過廣告的人）
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [SuperDSP 優化需求]
+     </p>
+     <p>
+      廣告活動報表輸出 sheet 命名規則修改
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      廣告活動報表輸出 sheet 命名規則修改
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3869048833" data-linked-resource-type="page" data-linked-resource-version="6" href="/wiki/spaces/ITO/pages/3869048833/SuperDSP+sheet">
+       [SuperDSP 優化需求] 廣告活動報表輸出 sheet 命名規格優化
+      </a>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-➕建立功能對應子頁（詳情/API/測試）">
+ <strong>
+  ➕ 建立功能對應子頁（詳情 / API / 測試）
+ </strong>
+</h3>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="edf759f0-2c19-4d26-b81a-7ac362e60ab6" data-table-width="1011">
+  <colgroup>
+   <col style="width: 233.0px;"/>
+   <col style="width: 777.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       子頁類型
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       建立連結
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      🧩 功能詳情子頁
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3863969793" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/ITO/pages/3863969793/SuperDSP+admin">
+       [SuperDSP 優化需求] 新增廣告主時，admin 的廣告主權限需自動被加入
+      </a>
+      <br/>
+      <a data-linked-resource-id="3864035329" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3864035329/SuperDSP+Impression">
+       [SuperDSP 優化需求] 廣告活動受眾包，增加Impression事件（看過廣告的人）
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      📡 API 規格子頁
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a href="https://guoshi.atlassian.net/wiki/pages/createpage-entervariables.action?templateName=API%20規格子頁範本&amp;spaceKey=ITO&amp;title=[API%20名稱]%20-%20API%20規格" rel="nofollow">
+       👉 建立 API 規格
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      🧪 測試用例子頁
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a href="https://guoshi.atlassian.net/wiki/pages/resumedraft.action?draftId=3856793683&amp;draftShareId=f9646587-f5e2-4592-adf0-d79db06b55e3" rel="nofollow">
+       👉 建立測試用例
+      </a>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-🧾非功能需求">
+ 🧾 非功能需求
+</h2>
+<blockquote>
+ <p>
+  <strong>
+   針對性能、安全、可用性、兼容性、可維護性等非功能特性列出需求
+  </strong>
+ </p>
+</blockquote>
+<ul>
+ <li>
+  <p>
+   <a href="#不包含" rel="nofollow">
+    角色權限的功能顯示差異
+   </a>
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-📚用戶故事與用例">
+ 📚 用戶故事與用例
+</h2>
+<blockquote>
+ <p>
+  <strong>
+   以角色 + 目的的方式撰寫使用者故事，並列出驗收標準
+  </strong>
+ </p>
+</blockquote>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="c2179249-7f03-4437-8396-38b52cabf099" data-table-width="1800">
+  <colgroup>
+   <col style="width: 300.0px;"/>
+   <col style="width: 300.0px;"/>
+   <col style="width: 334.0px;"/>
+   <col style="width: 276.0px;"/>
+   <col style="width: 127.0px;"/>
+   <col style="width: 457.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      標題
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      角色
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      需求
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      目的
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      優先級
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      驗收標準
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      新增廣告主時，admin 的廣告主權限需自動被加入
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Agency_Admin / Client_Admin /
+      <br/>
+      Media_Admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在新增「廣告主」時，自動取得該廣告主的所有查看存取權限
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      以便能即時查看與管理新建立之廣告主的所有資訊，無需額外申請權限
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ol start="1">
+      <li>
+       <p>
+        當任一合約(Agency/Client/Media)下的任意帳號建立新「廣告主」後
+       </p>
+      </li>
+      <li>
+       <p>
+        Admin 帳號（包含 agency_admin, client_admin, media_admin）重整頁面
+       </p>
+      </li>
+      <li>
+       <p>
+        Admin 帳號應自動取得新建立之「廣告主」的所有查看存取權限
+       </p>
+      </li>
+      <li>
+       <p>
+        若廣告主停用，權限變更應立即生效，無需人工干預
+       </p>
+      </li>
+     </ol>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      廣告活動受眾打包，增加 Impression 事件（看過廣告）
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperDSP 的 User
+      <br/>
+      （具有受眾管理權限的用戶）
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      我需要在受眾管理 &gt; 廣告活動受眾包中增加「看過廣告」的打包選項
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      以便能更精確地鎖定特定受眾群體，優化廣告投放效果
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ol start="1">
+      <li>
+       <p>
+        在「受眾管理 &gt; 廣告活動受眾包」介面中，新增「看過廣告」的打包條件選項
+       </p>
+      </li>
+      <li>
+       <p>
+        用戶可以成功選擇「看過廣告」條件進行受眾打包&lt;
+       </p>
+      </li>
+      <li>
+       <p>
+        用戶可以完成從建立 → 打包 → 被選擇 → 投放的整套流程
+       </p>
+      </li>
+      <li>
+       <p>
+        打包後的受眾資料能被正確儲存並在廣告投放時被調用
+       </p>
+      </li>
+      <li>
+       <p>
+        確保打包功能與其他現有條件選項相容，不產生衝突
+       </p>
+      </li>
+     </ol>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-🎨設計與界面">
+ 🎨 設計與界面
+</h2>
+<p>
+</p>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-🔧技術要求">
+ 🔧 技術要求
+</h2>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-技術棧">
+ 技術棧
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   列出本專案涉及的開發語言、框架、工具
+  </strong>
+ </p>
+</blockquote>
+<ul>
+ <li>
+  <p>
+   NA
+  </p>
+ </li>
+</ul>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-架構圖">
+ 架構圖
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   可附上系統互動圖或整合架構（嵌入/連結皆可）
+  </strong>
+ </p>
+</blockquote>
+<ul>
+ <li>
+  <p>
+   NA
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-🗓️時間表與里程碑">
+ 🗓️ 時間表與里程碑
+</h2>
+<blockquote>
+ <p>
+  <strong>
+   列出各項階段、交付物與預計完成時間
+  </strong>
+ </p>
+</blockquote>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="1baccd7e-ffd1-40e4-8e74-9d5291a43ab2" data-table-width="1800">
+  <colgroup>
+   <col style="width: 363.0px;"/>
+   <col style="width: 452.0px;"/>
+   <col style="width: 265.0px;"/>
+   <col style="width: 360.0px;"/>
+   <col style="width: 360.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      里程碑名稱
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      預計完成日期
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      負責人
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      交付物
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      狀態
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      PRD 初版完成
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-05-19">
+       2025年5月19日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      完整 PRD 草稿
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Kickoff
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-05-21">
+       2025年5月21日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      工項說明, 票卡
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      DEV
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-05-21">
+       2025年5月21日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-05-29">
+       2025年5月29日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:4551d073-dc57-4b81-9f43-7e2682075087" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3599237175" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence" target="_blank">
+       stevesun
+      </a>
+      <br/>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      SIT
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-06-02">
+       2025年6月2日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      UAT
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-06-03">
+       2025年6月3日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-06-05">
+       2025年6月5日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      UAT 修改
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-06-03">
+       2025年6月3日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-06-06">
+       2025年6月6日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Release
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-06-09">
+       2025年6月9日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-⚠️風險與依賴">
+ ⚠️ 風險與依賴
+</h2>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-風險">
+ 風險
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   列出潛在風險、可能性與緩解對策
+  </strong>
+ </p>
+</blockquote>
+<ul>
+ <li>
+  <p>
+   NA
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-依賴">
+ 依賴
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   列出專案依賴的其他人員或前置工作
+  </strong>
+ </p>
+</blockquote>
+<ul>
+ <li>
+  <p>
+   專案需求規範定義
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.2]功能優化admin廣告主權限設定&amp;廣告活動受眾包優化&amp;廣告活動報表輸出sheet命名規則優化-✍️審批與簽核">
+ ✍️ 審批與簽核
+</h2>
+<blockquote>
+ <p>
+  <strong>
+   請列出需審核與簽核的角色與狀態
+  </strong>
+ </p>
+</blockquote>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="4ac61dfb-bc0d-4733-bbb7-b3ece55e6ebd" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      姓名
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      角色/部門
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簽核狀態
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簽核日期
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      備註
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [簽核人]
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      [職稱]
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待簽核 / 已簽核
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      [日期]
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      [備註]
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ 📝
+ <em>
+  範例：
+ </em>
+</p>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="a78bf993-97cf-4162-8fff-99632573450b" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      姓名
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      角色/部門
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簽核狀態
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簽核日期
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      備註
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Paul Tseng
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      RD 部門主管
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待簽核
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Hanfour Huang
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Frontend Lead
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      N/A
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      文件作者
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+</p>

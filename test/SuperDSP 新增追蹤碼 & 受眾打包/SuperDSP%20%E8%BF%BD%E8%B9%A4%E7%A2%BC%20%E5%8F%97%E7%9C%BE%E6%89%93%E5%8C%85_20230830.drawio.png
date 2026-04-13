@@ -1,0 +1,135 @@
+<mxfile host="ac.draw.io" modified="2023-09-01T02:47:06.909Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.203" etag="HC68mJm7_PWWGDb_aU-0" version="21.6.8" type="embed">
+  <diagram id="l55m8eZkwgG0_grtJm7v" name="Page-1">
+    <mxGraphModel dx="1083" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BlQSghExG4c-8GiMmG3W-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-1" target="BlQSghExG4c-8GiMmG3W-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-1" value="" style="ellipse;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="155" y="60" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-3" target="BlQSghExG4c-8GiMmG3W-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-3" value="使用者讓 SuperDSP 廣告組合上刊" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="115" y="150" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-5" target="BlQSghExG4c-8GiMmG3W-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-22" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=1;labelBackgroundColor=none;" parent="BlQSghExG4c-8GiMmG3W-8" vertex="1" connectable="0">
+          <mxGeometry x="-0.8235" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-5" target="BlQSghExG4c-8GiMmG3W-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-23" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=1;labelBackgroundColor=none;" parent="BlQSghExG4c-8GiMmG3W-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.6194" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-5" value="素材包是否過審" style="rhombus;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="110" y="250" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-7" target="BlQSghExG4c-8GiMmG3W-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-7" value="&amp;nbsp;SuperDSP 廣告組合&lt;br&gt;狀態維持審核中" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry y="540" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-9" target="BlQSghExG4c-8GiMmG3W-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="70" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-25" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=1;labelBackgroundColor=none;" parent="BlQSghExG4c-8GiMmG3W-11" vertex="1" connectable="0">
+          <mxGeometry x="-0.8089" y="-4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-9" target="BlQSghExG4c-8GiMmG3W-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="400" />
+              <mxPoint x="360" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-24" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=1;labelBackgroundColor=none;" parent="BlQSghExG4c-8GiMmG3W-16" vertex="1" connectable="0">
+          <mxGeometry x="-0.7793" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-9" value="用到的受眾包是否皆已打包" style="rhombus;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="360" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-14" value="結束" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="155" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-15" target="BlQSghExG4c-8GiMmG3W-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-15" value="SuperDSP&amp;nbsp;廣告組合&lt;br&gt;狀態更改為上刊" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="230" y="540" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-26" value="SuperDSP 廣告組合上刊流程" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="120" y="18" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-27" target="BlQSghExG4c-8GiMmG3W-28" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-27" value="開始" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="590" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-28" target="BlQSghExG4c-8GiMmG3W-30" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-28" value="找出在走期內, 並且為 oncue 的 placement, 產生 sequence" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="470" y="150" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="BlQSghExG4c-8GiMmG3W-30" target="BlQSghExG4c-8GiMmG3W-39" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-30" value="根據 placement 調整受眾包的打包區間" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="540" y="240" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-32" value="如果 placement 的走期不在受眾包區間內, 調整受眾包區間" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="860" y="240" width="330" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-39" value="BDCD 打包受眾包" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="540" y="310" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="BlQSghExG4c-8GiMmG3W-39" target="BlQSghExG4c-8GiMmG3W-43" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650.0666666666666" y="450" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="1" source="BlQSghExG4c-8GiMmG3W-43" target="BlQSghExG4c-8GiMmG3W-48" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-43" value="檢查 reviewing 狀態的廣告組合&lt;br&gt;依據素材包審核狀態和使用的受眾包打包情形決定是否上刊" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="487" y="380" width="325" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BlQSghExG4c-8GiMmG3W-48" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;結束&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;arcSize=50;" parent="1" vertex="1">
+          <mxGeometry x="590" y="575" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iaWejzUbkZGDxNzbwKo8-1" value="&lt;blockquote style=&quot;box-sizing: inherit; margin: 4px 0px; padding: 0px 0px 0px 16px; position: relative; counter-reset: list-0 0 list-1 0 list-2 0 list-3 0 list-4 0 list-5 0 list-6 0 list-7 0 list-8 0 list-9 0; color: rgb(29, 28, 29); font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; font-size: 15px; font-variant-ligatures: common-ligatures; background-color: rgb(248, 248, 248);&quot; data-stringify-type=&quot;quote&quot; class=&quot;c-mrkdwn__quote&quot; type=&quot;cite&quot;&gt;placement 的狀態是on-cue，代表素材包和受眾包已準備好&lt;/blockquote&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="880" y="150" width="440" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iaWejzUbkZGDxNzbwKo8-6" value="每日排程" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="615" y="10" width="70" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

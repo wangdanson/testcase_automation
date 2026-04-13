@@ -1,0 +1,243 @@
+<h3 id="id-[SuperDSP功能需求]受眾鎖定之「Environment」新增內文比對項目-前端">
+ <style>
+  [data-colorid=lxucua4r9y]{color:#0747a6} html[data-color-mode=dark] [data-colorid=lxucua4r9y]{color:#5999f8}[data-colorid=ikb9xdqnq6]{color:#006644} html[data-color-mode=dark] [data-colorid=ikb9xdqnq6]{color:#99ffdd}[data-colorid=n4fatn5cp8]{color:#006644} html[data-color-mode=dark] [data-colorid=n4fatn5cp8]{color:#99ffdd}[data-colorid=zsk5jatloi]{color:#006644} html[data-color-mode=dark] [data-colorid=zsk5jatloi]{color:#99ffdd}[data-colorid=dscvirr9aa]{color:#006644} html[data-color-mode=dark] [data-colorid=dscvirr9aa]{color:#99ffdd}[data-colorid=gmwtllu8au]{color:#006644} html[data-color-mode=dark] [data-colorid=gmwtllu8au]{color:#99ffdd}
+ </style>
+ 前端
+</h3>
+<ul>
+ <li>
+  <p>
+   「Environment」之 內文比對 項目請參考
+   <a class="external-link" href="https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=4786-1504&amp;p=f&amp;t=3AkievQEr0Egt1Ad-0" rel="nofollow">
+    Figma UI/UX
+   </a>
+  </p>
+  <ul>
+   <li>
+    <p>
+     基本同 廣告活動受眾 的設定介面, 僅在右邊多了 filter icon 提供內文比對項目的分類清單
+    </p>
+    <ul>
+     <li>
+      <p>
+       下拉選單列表如下(後端提供)，
+       <strong>
+        Default 設定為 “所有類別“
+       </strong>
+      </p>
+      <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+       <img alt="截圖 2025-05-06 下午5.42.54.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="357" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3860135937/%E6%88%AA%E5%9C%96%202025-05-06%20%E4%B8%8B%E5%8D%885.42.54.png?version=1&amp;modificationDate=1746692619421&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3860135937" data-linked-resource-container-version="13" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-05-06 下午5.42.54.png" data-linked-resource-id="3859677259" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="028b1e73-56e8-49e5-9c1a-2119fe4bcd82" data-media-type="file" data-unresolved-comment-count="0" data-width="425" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3860135937/%E6%88%AA%E5%9C%96%202025-05-06%20%E4%B8%8B%E5%8D%885.42.54.png?version=1&amp;modificationDate=1746692619421&amp;cacheVersion=1&amp;api=v2&amp;width=425&amp;height=357" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3860135937/%E6%88%AA%E5%9C%96%202025-05-06%20%E4%B8%8B%E5%8D%885.42.54.png?version=1&amp;modificationDate=1746692619421&amp;cacheVersion=1&amp;api=v2&amp;width=425&amp;height=357 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3860135937/%E6%88%AA%E5%9C%96%202025-05-06%20%E4%B8%8B%E5%8D%885.42.54.png?version=1&amp;modificationDate=1746692619421&amp;cacheVersion=1&amp;api=v2&amp;width=425&amp;height=357 1x" width="425"/>
+      </span>
+     </li>
+     <li>
+      <p>
+       <span data-colorid="gmwtllu8au">
+        <span class="inline-comment-marker" data-ref="9553df57-e7b3-45bb-a5ae-eeb3cf51af59">
+         請 Nancy 改名將 CCT_ 及 CCA_ 做字串移除
+        </span>
+       </span>
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        <span data-colorid="lxucua4r9y">
+         PS: 此次 1.4.0 版本沿用現有分類(上圖)進行，下一階段會有一套專屬 SuperDSP 的分類系統
+        </span>
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    切換「Environment」時，量體預估功能於畫面移除，
+   </strong>
+   由於 OneAD 並沒有環境的數據, 所以內文比對無法作量體預估。
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h3 id="id-[SuperDSP功能需求]受眾鎖定之「Environment」新增內文比對項目-後端">
+ 後端
+</h3>
+<ul>
+ <li>
+  <p>
+   「Environment」之 內文比對 整體功能 CRUD
+  </p>
+  <ul>
+   <li>
+    <p>
+     <strong>
+      當選擇「Environment」時, Sequence 是將所有的性別年齡全選做輸出
+     </strong>
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <span data-colorid="dscvirr9aa">
+    情境卡控：
+   </span>
+   <br/>
+   <span data-colorid="n4fatn5cp8">
+    廣告組合 Create / Update
+   </span>
+   <strong>
+    <span data-colorid="zsk5jatloi">
+     若是鎖定內容為空就會跳出以下 popup
+    </span>
+   </strong>
+   <br/>
+   <span data-colorid="ikb9xdqnq6">
+    按下確定, 該廣告組合點擊編輯會看到受眾模式且年齡性別全選。
+   </span>
+  </p>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+   <img alt="截圖 2025-05-23 下午5.02.55.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="402" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3860135937/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.02.55.png?version=1&amp;modificationDate=1747991000917&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3860135937" data-linked-resource-container-version="13" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-05-23 下午5.02.55.png" data-linked-resource-id="3869016166" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="b1924b2c-174b-486a-9433-72cfd6f62835" data-media-type="file" data-unresolved-comment-count="0" data-width="788" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3860135937/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.02.55.png?version=1&amp;modificationDate=1747991000917&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=375" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3860135937/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.02.55.png?version=1&amp;modificationDate=1747991000917&amp;cacheVersion=1&amp;api=v2&amp;width=788&amp;height=402 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3860135937/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.02.55.png?version=1&amp;modificationDate=1747991000917&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=375 1x" width="736"/>
+  </span>
+ </li>
+</ul>
+<p>
+</p>
+<h3 id="id-[SuperDSP功能需求]受眾鎖定之「Environment」新增內文比對項目-查看權限">
+ 查看權限
+</h3>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="16892ca3-77aa-4b3f-b61d-7fc161e0bae4" data-table-width="1011">
+  <colgroup>
+   <col style="width: 302.0px;"/>
+   <col style="width: 708.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+     <p>
+      SuperDSP - Agency_User
+      <br/>
+      SuperDSP - Client_User
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+     <ul>
+      <li>
+       <p>
+        <strong>
+         在 RichMedia, Quality Traffic 品類之 Placement 條件下
+        </strong>
+       </p>
+       <ul>
+        <li>
+         <p>
+          擁有
+          <span style="background-color: rgb(198,237,251);">
+           ☑ 查看 I/O單管理
+          </span>
+          權限時
+         </p>
+         <ul>
+          <li>
+           <p>
+            可
+            <strong>
+             查看
+            </strong>
+            廣告組合 之
+            <code>
+             內文比對
+            </code>
+            及其功能項目
+           </p>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <p>
+          擁有 ☑ 編輯 I/O單管理 權限時
+         </p>
+         <ul>
+          <li>
+           <p>
+            可
+            <strong>
+             建立
+            </strong>
+            廣告組合 之
+            <code>
+             內文比對
+            </code>
+            及其功能項目
+           </p>
+          </li>
+          <li>
+           <p>
+            可
+            <strong>
+             編輯
+            </strong>
+            廣告組合 之
+            <code>
+             內文比對
+            </code>
+            及其功能項目
+           </p>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <p>
+        <strong>
+         在 InStream 品類之 Placement 條件下
+        </strong>
+       </p>
+       <ul>
+        <li>
+         <p>
+          擁有
+          <span style="background-color: rgb(198,237,251);">
+           ☑ 查看 I/O單管理
+          </span>
+          權限時
+          <br/>
+          擁有 ☑ 編輯 I/O單管理 權限時
+         </p>
+         <ul>
+          <li>
+           <p>
+            維持舊畫面
+           </p>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+     <p>
+      SuperDSP - Media_User
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
+     <ul>
+      <li>
+       <p>
+        維持舊畫面
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>

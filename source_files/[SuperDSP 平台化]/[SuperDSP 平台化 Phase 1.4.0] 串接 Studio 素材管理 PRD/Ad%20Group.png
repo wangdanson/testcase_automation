@@ -1,0 +1,48 @@
+---
+title: 透過新增投放條件，建立 STUDIO 素材，並選擇素材包
+---
+flowchart TD
+Start([流程開始])
+End([流程結束])
+
+P0[廣告組合頁面]
+
+Start --> P0
+P0 -- 點擊 --> P1(新增素材包)
+P1 -- 顯示 --> P2[新增廣告組合抽屜]
+P2 -- 選擇 --> P3(廣告格式)
+P3 -->  D1{檢查格式是否為 Studio}
+    D1 -- 否 --> P4[開啟新增素材包抽屜]
+    D1 -- 是 --> N1[🔔 通知彈窗</br>將以開新視窗方式，帶您前往 STUDIO]
+    N1 --> D2{使用者選擇}
+        D2 -- 不，停留在此 --> P2
+        D2 -- 是 --> P5[呼叫 redirect studio API]
+            P5 --> D3{API Response}
+            D3 --Success--> P6[取得 redirect URL]
+            P6 --> P7[開新視窗]
+            P7 -- 跳轉 STUDIO --> D5{STUDIO 轉址驗證}
+                D5 --Error--> E3[顯示轉址失敗]
+                D5 --Success--> P8[✅ 進入 STUDIO 系統]
+                P8 -- 顯示 --> P9[指定格式素材建立頁]
+                P9 --> P10[完成素材包建立]
+                P10 -- 返回 (切回標籤) --> P12[SuperDSP]
+                P12 -- 選擇--> P13(指定素材包選擇器)
+                P13 --選單展開時--> P14{重新取得素材包列表}
+                    P14 -- Success --> P15[顯示最新的素材包列表]
+                    P15 --> End
+                    
+                    P14 -- Error --> E4[❌ 錯誤提示]
+
+            D3 --Error--> D4{錯誤類型判斷}
+                D4 --其他錯誤--> E1[❌ 錯誤提示]
+                D4 --401--> E2[跳轉登入頁]
+                E2 --重新登入 --> P0
+ 
+style Start fill:#e3f2fd
+style End fill:#e3f2fd
+style P8 fill:#c8e6c9
+style N1 fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+style E1 fill:#ffebee,stroke:#f44336,stroke-width:2px
+style E2 fill:#ffebee,stroke:#f44336,stroke-width:2px
+style E3 fill:#ffebee,stroke:#f44336,stroke-width:2px
+style E4 fill:#ffebee,stroke:#f44336,stroke-width:2px

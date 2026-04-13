@@ -1,0 +1,299 @@
+<h3 id="id-[SuperDSP功能需求]第三方量測設定介面邏輯-FigmaUIUX">
+ <style>
+  [data-colorid=l39jt8r0x9]{color:#ff5630} html[data-color-mode=dark] [data-colorid=l39jt8r0x9]{color:#cf2600}[data-colorid=xncc0itdzx]{color:#ff5630} html[data-color-mode=dark] [data-colorid=xncc0itdzx]{color:#cf2600}
+ </style>
+ <a class="external-link" href="https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=4648-1204&amp;p=f&amp;t=7rq4IcOq5GgY2Sk0-0" rel="nofollow">
+  Figma UIUX
+ </a>
+</h3>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img alt="截圖 2025-06-18 下午3.41.09.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="914" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.09.png?version=1&amp;modificationDate=1750232477488&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3873701889" data-linked-resource-container-version="20" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-06-18 下午3.41.09.png" data-linked-resource-id="3884482593" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="57a2e02f-cbbe-4701-9f06-0840d1f60431" data-media-type="file" data-unresolved-comment-count="0" data-width="1051" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.09.png?version=1&amp;modificationDate=1750232477488&amp;cacheVersion=1&amp;api=v2&amp;width=1000&amp;height=869" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.09.png?version=1&amp;modificationDate=1750232477488&amp;cacheVersion=1&amp;api=v2&amp;width=1051&amp;height=914 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.09.png?version=1&amp;modificationDate=1750232477488&amp;cacheVersion=1&amp;api=v2&amp;width=1000&amp;height=869 1x" width="1000"/>
+</span>
+<ul>
+ <li>
+  <p>
+   在 Create/Edit Ad Group 介面將
+   <code>
+    品牌安全
+   </code>
+   區塊移至
+   <code>
+    地區
+   </code>
+   與
+   <code>
+    第三方量測設定(i)
+   </code>
+   之間
+  </p>
+ </li>
+ <li>
+  <p>
+   在 Create/Edit Ad Group 介面最下方新增
+   <code>
+    第三方量測設定(i)
+   </code>
+   區塊，點擊後顯示設定介面
+  </p>
+  <ul>
+   <li>
+    <p>
+     <code>
+      第三方量測設定(i)
+     </code>
+     區塊內所有欄位非必填
+    </p>
+   </li>
+   <li>
+    <p>
+     說明文字
+     <code>
+      (i)
+     </code>
+     ：請向第三方公司取得正確 URL 後再進行設定
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊 (x) 對該資料條 input 欄位內容做清除
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊各家量測公司 ( i )：顯示各家 URL 標準範本（詳細如下）
+    </p>
+   </li>
+   <li>
+    <p>
+     輸入各家 URL：
+    </p>
+    <ul>
+     <li>
+      <p>
+       使用者可能會將引號連同 URL 一起貼上（如 "http://…"）
+       <strong>
+        系統需自動辨識並移除多餘的引號
+       </strong>
+      </p>
+     </li>
+     <li>
+      <p>
+       輸入內容驗證機制：針對各廠商 URL 檢查是否包含 '必要資料'，
+       <br/>
+       <strong>
+        若缺少 '必要資訊' 則顯示錯誤訊息提示使用者，且廣告組合此時將無法儲存
+       </strong>
+      </p>
+      <ul>
+       <li>
+        <p>
+         <strong>
+          <span data-colorid="xncc0itdzx">
+           已知限制：系統僅能檢查 URL 格式是否符合各廠商規範，但無法驗證追蹤碼是否實際有效。
+          </span>
+         </strong>
+         <br/>
+         <strong>
+          <span data-colorid="l39jt8r0x9">
+           經多方討論決議，針對此限制不另行處理。
+          </span>
+         </strong>
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       類型為 IAS｜對 input 做內容驗證
+      </p>
+      <ul>
+       <li>
+        <p>
+         未填寫以前, 提示之文本：請輸入 JS URL
+        </p>
+       </li>
+       <li>
+        <p>
+         必要資料：
+        </p>
+        <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1786410a-755d-45d5-aaf1-1f426514ce4a" data-macro-name="code" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl">
+          <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">pixel.adsafeprotected.com
+skeleton.js</pre>
+         </div>
+        </div>
+       </li>
+       <li>
+        <p>
+         標準 URL 範本：
+         <br/>
+         <a class="external-link" href="https://pixel.adsafeprotected.com/rjss/st/2445107/86638691/skeleton.js" rel="nofollow">
+          https://pixel.adsafeprotected.com/rjss/st/2445107/86638691/skeleton.js
+         </a>
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       類型為 DoubleVerify｜對 input 做內容驗證
+      </p>
+      <ul>
+       <li>
+        <p>
+         未填寫以前, 提示之文本：請輸入 JS URL
+        </p>
+       </li>
+       <li>
+        <p>
+         必要資料：
+        </p>
+        <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9871809b-2e35-42e7-a755-4dd352b88972" data-macro-name="code" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl">
+          <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">dvtp_src.js 
+ctx= 
+cmp= 
+sid= 
+plc= </pre>
+         </div>
+        </div>
+       </li>
+       <li>
+        <p>
+         標準 URL 範本：
+         <a class="external-link" href="https://cdn.doubleverify.com/dvtp_src.js#ctx=34550021&amp;cmp=UM25010002Onead&amp;sid=9015496&amp;plc=20250113OneadMPistachio&amp;adsrv=0&amp;btreg=&amp;btadsrv=&amp;crt=&amp;tagtype=&amp;dvtagver=6.1.src" rel="nofollow">
+          https://cdn.doubleverify.com/dvtp_src.js#ctx=34550021&amp;cmp=UM25010002Onead&amp;sid=9015496&amp;plc=20250113OneadMPistachio&amp;adsrv=0&amp;btreg=&amp;btadsrv=&amp;crt=&amp;tagtype=&amp;dvtagver=6.1.src
+         </a>
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       類型為 DCM｜對 input 做內容驗證
+      </p>
+      <ul>
+       <li>
+        <p>
+         未填寫以前, 提示之文本：請輸入 1x1 Pixel URL
+        </p>
+       </li>
+       <li>
+        <p>
+         必要資料：
+        </p>
+        <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="624eb319-bef3-4b19-b081-51e5a71b4e56" data-macro-name="code" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl">
+          <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">ad.doubleclick.net/ddm/trackimp/
+dc_trk_aid=
+dc_trk_cid=
+ord=</pre>
+         </div>
+        </div>
+       </li>
+       <li>
+        <p>
+         標準 URL 範本：
+         <a class="external-link" href="https://ad.doubleclick.net/ddm/trackimp/N1243037.3423655ONEAD/B32946675.409801516;dc_trk_aid=602154690;dc_trk_cid=227279496;ord=%5Btimestamp%5D;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;ltd=;dc_tdv=1" rel="nofollow">
+          https://ad.doubleclick.net/ddm/trackimp/N1243037.3423655ONEAD/B32946675.409801516;dc_trk_aid=602154690;dc_trk_cid=227279496;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;ltd=;dc_tdv=1
+         </a>
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       類型為 Nielsen｜對 input 做內容驗證
+      </p>
+      <ul>
+       <li>
+        <p>
+         未填寫以前, 提示之文本：請輸入 1x1 Pixel URL
+        </p>
+       </li>
+       <li>
+        <p>
+         必要資料：
+        </p>
+       </li>
+      </ul>
+      <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fb52d2bb-7cf0-4514-9965-02d41081b06d" data-macro-name="code" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl">
+        <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">secure-gl.imrworldwide.com/cgi-bin/m
+ca=nlsn
+cr=
+ce=
+pc=
+ci=nlsnci
+r=</pre>
+       </div>
+      </div>
+     </li>
+     <li>
+      <p>
+       標準 URL 範本：
+       <br/>
+       <a class="external-link" href="https://secure-gl.imrworldwide.com/cgi-bin/m?ca=nlsn677659&amp;cr=crtve&amp;ce=onead&amp;pc=onead_plc0003&amp;ci=nlsnci1446&amp;am=3&amp;at=view&amp;rt=banner&amp;st=image&amp;r=%5Btimestamp" rel="nofollow">
+        https://secure-gl.imrworldwide.com/cgi-bin/m?ca=nlsn677659&amp;cr=crtve&amp;ce=onead&amp;pc=onead_plc0003&amp;ci=nlsnci1446&amp;am=3&amp;at=view&amp;rt=banner&amp;st=image&amp;r=[timestamp
+       </a>
+       ]
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+</p>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img alt="截圖 2025-06-18 下午3.41.53.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="730" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.53.png?version=1&amp;modificationDate=1750232530543&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3873701889" data-linked-resource-container-version="20" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-06-18 下午3.41.53.png" data-linked-resource-id="3884810257" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="080a49d3-73eb-4120-981b-cc76c28e600d" data-media-type="file" data-unresolved-comment-count="0" data-width="1703" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.53.png?version=1&amp;modificationDate=1750232530543&amp;cacheVersion=1&amp;api=v2&amp;width=988&amp;height=423" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.53.png?version=1&amp;modificationDate=1750232530543&amp;cacheVersion=1&amp;api=v2&amp;width=1703&amp;height=730 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3873701889/%E6%88%AA%E5%9C%96%202025-06-18%20%E4%B8%8B%E5%8D%883.41.53.png?version=1&amp;modificationDate=1750232530543&amp;cacheVersion=1&amp;api=v2&amp;width=988&amp;height=423 1x" width="988"/>
+</span>
+<p>
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    舊資料處理對策
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <strong>
+      僅顯示曾經設定過追蹤碼的素材包
+     </strong>
+    </p>
+    <ul>
+     <li>
+      <p>
+       過去素材包最多可以設定２條追蹤碼, 所以可能會出現 1~2 條舊資料
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     標題：追蹤碼
+    </p>
+   </li>
+   <li>
+    <p>
+     說明文字 ( i )：此追蹤碼為廣告組合綁定之素材包設定的 Pixel Tag，現已遷移至此處統一管理。
+    </p>
+   </li>
+   <li>
+    <p>
+     input 內容：僅顯示 URL 查看, 不能做任何修改
+     <br/>
+     <br/>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>

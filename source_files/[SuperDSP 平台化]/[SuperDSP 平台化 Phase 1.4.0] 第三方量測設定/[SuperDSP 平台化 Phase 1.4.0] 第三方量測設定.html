@@ -1,0 +1,1159 @@
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-📘修訂追蹤表">
+ 📘 修訂追蹤表
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="31181f91-c96f-426b-b1c0-eeb02fe7f270" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      版本號
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂日期
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂人
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂內容摘要
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Phase 1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2025-05-23
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Hanfour Huang
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      依照 OneAD PRD 模板初版整理
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Phase 2
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2025-06-04
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Jimmy Tsai
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      整體 Review 及功能需求頁面撰寫
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Phase 3
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2025-06-20
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Jimmy Tsai
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      將 Media 不能使用第三方量測追蹤碼, 列為開發工項明確定義規格
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-📖項目概述">
+ 📖 項目概述
+</h2>
+<h3 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-📌項目背景">
+ 📌 項目背景
+</h3>
+<p>
+ SuperDSP 上設定的廣告需要支援第三方量測，
+ <br/>
+ 客戶需求來自 4 家第三方公司：IAS / DoubleVerify / DCM / Neilson
+ <br/>
+ <br/>
+ 針對 SuperDSP 的廣告進行可視量測的設定。這需要前端操作來新增追蹤區塊，並提供相應的設定介面。
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-🎯項目目標">
+ 🎯 項目目標
+</h3>
+<ol start="1">
+ <li>
+  <p>
+   原本於素材包設定的 DCM / Neilson 追蹤碼功能，將整個功能移至廣告組合的第三方量測
+  </p>
+ </li>
+ <li>
+  <p>
+   IAS / DoubleVerify / DCM / Neilson 四種第三方量測服務
+  </p>
+ </li>
+ <li>
+  <p>
+   提供友善的操作介面和資料驗證機制
+  </p>
+ </li>
+ <li>
+  <p>
+   確保量測設定能正確產出 xml 並做儲存
+  </p>
+ </li>
+</ol>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-🧩項目範圍">
+ 🧩 項目範圍
+</h3>
+<p>
+ <strong>
+  包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   Edit/Create Ad Group 介面新增追蹤區塊和設定介面
+  </p>
+ </li>
+ <li>
+  <p>
+   支援 IAS / DoubleVerify / DCM / Neilson 四種第三方量測服務
+  </p>
+  <ul>
+   <li>
+    <p>
+     廣告品類 RichMedia ＆ QualityTraffic：支援 IAS / DoubleVerify / DCM / Neilson
+    </p>
+   </li>
+   <li>
+    <p>
+     廣告品類 Instream：支援 DCM / Neilson
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   JS 輸入驗證功能
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  不包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   pre-roll 格式廣告的 VPAID 資料整合 (待定義)
+  </p>
+ </li>
+ <li>
+  <p>
+   第三方素材進稿的處理流程
+  </p>
+ </li>
+</ul>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-🧑‍💼目標受眾">
+ 🧑‍💼 目標受眾
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="095406f4-c159-4323-86fb-4d0bd74dd17c" data-table-width="1011">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      用戶類型
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      描述
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Agency User
+      <br/>
+      Client User
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      能設定第三方量測追蹤碼
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Media User
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      不能使用第三方量測追蹤碼
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      super_admin
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      依照切換的廣告主身份，維持相同視角瀏覽所有設定
+      <br/>
+      (切換到 Media 時, 設定介面就不會看到追蹤碼及內文比對)
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-⚙功能需求">
+ ⚙ 功能需求
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="70c88d26-3ef2-441d-88dc-890082b57d63" data-table-width="1800">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      功能名稱
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      優先級
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簡要描述
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      狀態
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      負責人
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      詳細頁面
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [SuperDSP 功能需求]
+      <br/>
+      追蹤設定介面
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在 Edit/Create Ad Group 新增追蹤區塊及設定介面
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="557058:508ea223-fd64-4316-9665-ea32c2261a02" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="2981959" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/557058:508ea223-fd64-4316-9665-ea32c2261a02?ref=confluence" target="_blank">
+       Ryan Meng
+      </a>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3873701889" data-linked-resource-type="page" data-linked-resource-version="20" href="/wiki/spaces/ITO/pages/3873701889/SuperDSP">
+       [SuperDSP 功能需求] 追蹤設定介面
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       [SuperDSP 功能需求]
+      </del>
+      <br/>
+      <del>
+       Viewability 快捷按鈕
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       中
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       在廣告組合列表新增 Viewability 快捷按鈕
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       待辦
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+     </p>
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <a data-linked-resource-id="3873341442" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/ITO/pages/3873341442/SuperDSP+Viewability">
+       <del>
+        [SuperDSP 功能需求] Viewability 快捷按鈕
+       </del>
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      [SuperDSP 功能需求]
+      <br/>
+      Media 不能使用第三方量測追蹤碼
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      Media 身份的任何權限, 皆不能使用第三方追蹤碼
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="557058:508ea223-fd64-4316-9665-ea32c2261a02" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="2981959" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/557058:508ea223-fd64-4316-9665-ea32c2261a02?ref=confluence" target="_blank">
+       Ryan Meng
+      </a>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      <a data-linked-resource-id="3873701906" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/ITO/pages/3873701906/SuperDSP+Media">
+       [SuperDSP 功能需求] Media 不能使用第三方量測追蹤碼
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [SuperDSP 功能需求]
+      <br/>
+      第三方量測模版
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      準備 SuperDSP 用的第三方量測模版
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      MTO Team
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      第三方量測模版詳情
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h3 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-第三方量測模版詳情">
+ 第三方量測模版詳情
+</h3>
+<ul>
+ <li>
+  <p>
+   MTO 需準備 SuperDSP 用的第三方量測模版
+  </p>
+ </li>
+ <li>
+  <p>
+   IAS 需自動判斷格式以調整量測位置，參考模版 D 與 TextDrive 兩種模式
+  </p>
+ </li>
+ <li>
+  <p>
+   DV 只需一個模式
+  </p>
+ </li>
+ <li>
+  <p>
+   量測時間固定在廣告曝光事件
+  </p>
+ </li>
+ <li>
+  <p>
+   僅適用於非 pre-roll 格式
+  </p>
+ </li>
+ <li>
+  <p>
+   pre-roll 需要 IAS 和 DoubleVerify 產生 VPAID 資料，使用第三方素材進稿（待定義）
+  </p>
+ </li>
+ <li>
+  <p>
+   <span class="inline-comment-marker" data-ref="f5cbb950-d488-40c1-bad2-03714260bc5b">
+    輸入後，產生的資料會在 occ lxml 及查廣告的 lxml
+   </span>
+  </p>
+ </li>
+</ul>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-🧾非功能需求">
+ 🧾 非功能需求
+</h2>
+<ul>
+ <li>
+  <p>
+   使用者介面需直觀易用
+  </p>
+ </li>
+ <li>
+  <p>
+   <span class="inline-comment-marker" data-ref="ac408531-27bf-44ec-a0c0-f66823844723">
+    JS 驗證功能需提供明確的錯誤提示
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   系統需要與現有的 occ lxml 及查廣告的 lxml 整合
+  </p>
+ </li>
+ <li>
+  <p>
+   需參考 odm 目前實作方式
+  </p>
+ </li>
+ <li>
+  <p>
+   響應時間需符合系統標準
+  </p>
+ </li>
+</ul>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-📚用戶故事與用例">
+ 📚 用戶故事與用例
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="3e35a1b8-fba0-4577-afbd-51bc27a537fd" data-table-width="1800">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      標題
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      角色
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      需求
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      目的
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      優先級
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      驗收標準
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      設定 Viewability 量測
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      品牌主
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在廣告組中設定 Viewability 量測
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      監測廣告的可視性
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      能成功設定並驗證 JS 格式
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      編輯 Viewability 設定
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      品牌主
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      修改現有的 Viewability 設定
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      更新量測參數
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      能成功編輯並保存更改
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-🎨設計與界面">
+ 🎨 設計與界面
+</h2>
+<p>
+ 設計來源：Figma（SuperDSP Wireframe） URL：
+ <a class="external-link" data-card-appearance="inline" href="https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=4648-1204&amp;p=f&amp;t=7rq4IcOq5GgY2Sk0-0" rel="nofollow">
+  https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=4648-1204&amp;p=f&amp;t=7rq4IcOq5GgY2Sk0-0
+ </a>
+</p>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-🔧技術要求">
+ 🔧 技術要求
+</h2>
+<h3 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-資料儲存流程">
+ 資料儲存流程
+</h3>
+<div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="6463d418-8cec-4f48-a2d3-90d6d01bda78" data-macro-id="29ea8f8c-954d-491b-8c55-795fb19711c5" data-macro-name="mermaid-cloud" id="ap-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3292826152994582663">
+ <div class="ap-content" id="embedded-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3292826152994582663">
+ </div>
+ <script class="ap-iframe-body-script" nonce="c95f0333462942e09432814ca04c253b">
+  //<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"com.stratusaddons.confluence.plugins.mermaid",
+    "uniqueKey":"com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3292826152994582663",
+    "key":"mermaid-cloud",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"100%",
+    "h":"1px",
+    "url":"https://mermaid.stratus-addons.com/viewer.html?pageId=3847421967&filename=URL+%E8%87%B3+xml+%E6%B5%81%E7%A8%8B&revision=3&zoom=fit&toolbar=bottom&repository=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3292826152994582663&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.stratusaddons.confluence.plugins.mermaid&lic=active&userAccess=true&cv=1000.0.0-aa67a93be910&traceId=233774c9d9a601ca9858ed1768fb1599&spanId=ced004159a9ba3d7&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiODIzNjc4ZDU0ZTgzMDEzYzQ5ODcxOWNiMTNlODQzYzUyMmFiNDBlOGViNGRlNjllYzgyMjA5MTNiMGQyOTJlYyIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzYwNzIxNjIsImlhdCI6MTc3NjA3MTk4Mn0.29ZJtugSgGJ2Sczfz47wcdwuvnN8n9dm03lOM6qdsEw",
+     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6IjI5ZWE4ZjhjLTk1NGQtNDkxYi04YzU1LTc5NWZiMTk3MTFjNSIsImlkIjoiMjllYThmOGMtOTU0ZC00OTFiLThjNTUtNzk1ZmIxOTcxMWM1In0sInRyYWNpbmciOnsidHJhY2VJZCI6IjIzMzc3NGM5ZDlhNjAxY2E5ODU4ZWQxNzY4ZmIxNTk5Iiwic3BhbklkIjoiY2VkMDA0MTU5YTliYTNkNyIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiMjIiLCJpZCI6IjM4NDc0MjE5NjcifSwic3BhY2UiOnsia2V5IjoiSVRPIiwiaWQiOiIyOTc5MjY2NTY0In19fSwiZXhwIjoxNzc2MDcyODgyLCJpYXQiOjE3NzYwNzE5ODJ9.5wK6B8yBsTHYwkpHVcTVWlGY0fWFIU4XjhYEKYwuNY4",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"29ea8f8c-954d-491b-8c55-795fb19711c5\",\"id\":\"29ea8f8c-954d-491b-8c55-795fb19711c5\"},\"tracing\":{\"traceId\":\"233774c9d9a601ca9858ed1768fb1599\",\"spanId\":\"ced004159a9ba3d7\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"22\",\"id\":\"3847421967\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"3847421967\",\"macro.hash\":\"29ea8f8c-954d-491b-8c55-795fb19711c5\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"6463d418-8cec-4f48-a2d3-90d6d01bda78\",\": = | RAW | = :\":\"toolbar=bottom|filename=URL \u81f3 xml \u6d41\u7a0b|zoom=fit|revision=3\",\"space.id\":\"2979266564\",\"tracing.traceId\":\"233774c9d9a601ca9858ed1768fb1599\",\"tracing.spanId\":\"ced004159a9ba3d7\",\"user.isExternalCollaborator\":\"false\",\"space.key\":\"ITO\",\"content.version\":\"22\",\"page.title\":\"[SuperDSP \u5e73\u53f0\u5316 Phase 1.4.0] \u7b2c\u4e09\u65b9\u91cf\u6e2c\u8a2d\u5b9a\",\"zoom\":\"fit\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"display\",\"page.version\":\"22\",\"revision\":\"3\",\"toolbar\":\"bottom\",\"filename\":\"URL \u81f3 xml \u6d41\u7a0b\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"3847421967\",\"macro.id\":\"29ea8f8c-954d-491b-8c55-795fb19711c5\",\"editor.version\":\"v2\"}",
+    "timeZone":"UTC",
+    "origin":"https://mermaid.stratus-addons.com",
+    "hostOrigin":"https://guoshi.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",            "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+ </script>
+</div>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-🗓時間表與里程碑">
+ 🗓 時間表與里程碑
+</h2>
+<p>
+</p>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="cc0a14cb-6dc1-4347-b925-a4db4ab6c5f0" data-table-width="1800">
+  <colgroup>
+   <col style="width: 363.0px;"/>
+   <col style="width: 394.0px;"/>
+   <col style="width: 321.0px;"/>
+   <col style="width: 360.0px;"/>
+   <col style="width: 360.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f0f1f2">
+     <p>
+      里程碑名稱
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f0f1f2">
+     <p>
+      預計完成日期
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f0f1f2">
+     <p>
+      負責人
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f0f1f2">
+     <p>
+      交付物
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f0f1f2">
+     <p>
+      狀態
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      PRD 初版完成
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-05-23">
+       2025年5月23日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Hanfour Huang
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      完整 PRD 草稿
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      完成
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      PRD 改版並完善
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-06-13">
+       2025年6月13日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Jimmy Tsai
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      修改需求並完善 PRD
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      完成
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      Kickoff
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      <time class="date-past" datetime="2025-06-13">
+       2025年6月13日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      DEV
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      <time class="date-past" datetime="2025-06-16">
+       2025年6月16日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-06-23">
+       2025年6月23日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      UAT
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      <time class="date-past" datetime="2025-06-24">
+       2025年6月24日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-06-27">
+       2025年6月27日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      UAT 修改
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      <time class="date-past" datetime="2025-06-24">
+       2025年6月24日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-06-27">
+       2025年6月27日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      Release
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+      <time class="date-past" datetime="2025-06-30">
+       2025年6月30日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#ffffff">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-⚠風險與依賴">
+ ⚠ 風險與依賴
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="696970ae-3334-4123-87f4-852279072ca0" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      描述
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      可能性
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      影響程度
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      緩解措施
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      負責人
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      第三方量測格式變更
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      建立定期驗證機制
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      [Name]
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      與現有系統整合問題
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      提前與開發團隊協調
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      [Name]
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      JS 驗證邏輯複雜
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      詳細文件化驗證規則
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      [Name]
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="id-[SuperDSP平台化Phase1.4.0]第三方量測設定-✍審批與簽核">
+ ✍ 審批與簽核
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="d9ed6dd0-00db-49aa-af18-ca2e50aa116f" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      姓名
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      角色/部門
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簽核狀態
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簽核日期
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      備註
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Hanfour Huang
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Frontend Lead
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      N/A
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      文件作者
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [Name]
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      MTO Team Lead
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待簽核
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>

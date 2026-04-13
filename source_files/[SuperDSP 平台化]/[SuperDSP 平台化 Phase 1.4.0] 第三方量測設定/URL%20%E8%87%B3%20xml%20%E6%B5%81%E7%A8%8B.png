@@ -1,0 +1,29 @@
+flowchart TD
+    %% subgraph Expected["期望流程"]
+    %%     A2[使用者於介面 keyin URL] --> B2[MASA 打到 ad_spec 得到 URL 組合之 xml]
+    %%     B2 --> C2[MASA 接收 xml]
+    %%     C2 --> D2[MASA 將 xml 提供給後端]
+    %%     D2 --> E2[後端將 xml 做儲存 DB]
+    %% end
+
+    subgraph Current["現況流程"]
+        A1[使用者於介面 keyin URL] --> B1[Front end fetch Tobby's JS_ad_spec 得到 URL 組合之 content]
+        B1 --> C1[前端呼叫 function 取得 result, 將 result 塞入 content 及 type]
+        C1 --> D1[前端重組過的 result 提供給後端]
+        D1 --> E1[後端將 result 儲存 DB]
+    end
+    
+
+    
+    style Current fill:#ffebee
+    %% style Expected fill:#e8f5e8
+    style A1 fill:#2196f3,color:#fff
+    %% style A2 fill:#2196f3,color:#fff
+    style B1 fill:#ff9800,color:#fff
+    %% style B2 fill:#4caf50,color:#fff
+    style C1 fill:#ff9800,color:#fff
+    %% style C2 fill:#4caf50,color:#fff
+    style D1 fill:#ff9800,color:#fff
+    %% style D2 fill:#4caf50,color:#fff
+    style E1 fill:#9c27b0,color:#fff
+    %% style E2 fill:#9c27b0,color:#fff

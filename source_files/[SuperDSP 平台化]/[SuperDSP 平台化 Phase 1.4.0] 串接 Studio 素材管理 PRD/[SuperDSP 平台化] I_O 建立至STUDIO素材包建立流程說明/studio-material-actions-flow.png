@@ -1,0 +1,27 @@
+flowchart TD
+
+start[進入素材管理頁] --> A1{使用者操作？}
+
+A1 -->|建立 STUDIO 素材| B1[點擊「前往 STUDIO 建立素材」]
+B1 --> B2[顯示 Message Box：跳轉提示]
+B2 --> B3[點擊「是」]
+B3 --> B4[開啟新視窗 → 呼叫 /studio/redirect API]
+B4 --> B5[API Redirect → STUDIO 建立素材畫面]
+
+A1 -->|預覽素材| C1[點擊 Studio 素材「預覽」]
+C1 --> C2[顯示 Message Box：跳轉提示]
+C2 --> C3[點擊「是」]
+C3 --> C4[開啟新視窗 → 呼叫 /studio/redirect API]
+C4 --> C5[API Redirect → STUDIO 素材預覽畫面]
+
+A1 -->|編輯素材| D1[點擊 Studio 素材「編輯」]
+D1 --> D2[顯示 Message Box：跳轉提示]
+D2 --> D3[點擊「是」]
+D3 --> D4[開啟新視窗 → 呼叫 /studio/redirect API]
+D4 --> D5[API Redirect → STUDIO 素材編輯畫面]
+
+A1 -->|複製素材| E1[點擊 Studio 素材「複製」]
+E1 --> E2[顯示 Message Box：跳轉提示]
+E2 --> E3[點擊「是」]
+E3 --> E4[開啟新視窗 → 呼叫 /studio/redirect API]
+E4 --> E5[API Redirect → STUDIO 素材複製畫面]

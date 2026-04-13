@@ -1,0 +1,143 @@
+graph TB
+    %% 樣式定義 - 優化配色與視覺層次
+    classDef newContract fill:#E1F5FE,stroke:#0288D1,stroke-width:3px,color:#01579B
+    classDef oldContract fill:#FFF8E1,stroke:#F9A825,stroke-width:3px,color:#F57F17
+    classDef sync fill:#F1F8E9,stroke:#689F38,stroke-width:3px,color:#33691E
+    classDef decision fill:#FCE4EC,stroke:#AD1457,stroke-width:3px,color:#880E4F
+    classDef startEnd fill:#F3E5F5,stroke:#6A1B9A,stroke-width:4px,color:#4A148C
+    classDef process fill:#FFFFFF,stroke:#424242,stroke-width:2px,color:#212121
+    classDef highlight fill:#FFEBEE,stroke:#D32F2F,stroke-width:3px
+    
+    %% 階段1：初始判斷
+    subgraph stage1["📋 階段1：合約狀態檢查"]
+        Start([🚀 開始建立 RTB 合約]):::startEnd
+        Check{是否已有<br/>RTB 合約？}:::decision
+    end
+    
+    Start --> Check
+    
+    %% 階段2A：無合約路徑（首次建立） - 最左側
+    subgraph stage2a["🆕 階段2A：首次建立合約"]
+        direction TB
+        FirstContract[建立第一份合約<br/>💡 首次與媒體合作]:::newContract
+        Manual[✅ 可手動設定底價<br/>預設 $2.00<br/>💰 新合作商談價格]:::process
+        SetDate1[選擇生效日期<br/>📅 最早可選：下個月 1 日]:::process
+        Save1[儲存合約<br/>⚠️ 不產生歷史紀錄]:::highlight
+        Wait1[合約狀態：待生效]:::sync
+    end
+    
+    Check -->|❌ 否<br/>（無合約）| FirstContract
+    FirstContract --> Manual
+    Manual --> SetDate1
+    SetDate1 --> Save1
+    Save1 --> Wait1
+    
+    %% 階段2B：已有合約路徑 - 右側
+    subgraph stage2b["📑 階段2B：已有合約處理"]
+        CheckStatus{判斷合約類型}:::decision
+    end
+    
+    Check -->|✅ 是<br/>（有合約）| CheckStatus
+    
+    %% 階段3A：只有失效合約（重新合作） - 中間偏左
+    subgraph stage3a["🔄 階段3A：重新合作"]
+        direction TB
+        NewContract2[建立新合約<br/>💡 重新合作 = 視同首次建立]:::newContract
+        Manual2[✅ 可手動設定底價<br/>預設 $2.00<br/>💰 重新商談價格]:::process
+        SetDate3[選擇生效日期<br/>📅 最早可選：下個月 1 日]:::process
+        Save3[儲存合約<br/>⚠️ 不產生歷史紀錄]:::highlight
+        Wait2[合約狀態：待生效]:::sync
+    end
+    
+    CheckStatus -->|⚫ 只有失效合約<br/>（重新合作）| NewContract2
+    NewContract2 --> Manual2
+    Manual2 --> SetDate3
+    SetDate3 --> Save3
+    Save3 --> Wait2
+    
+    %% 階段3B：有生效合約 - 右側
+    subgraph stage3b["📊 階段3B：有生效合約"]
+        HasPending{當前是否有<br/>待生效合約？}:::decision
+    end
+    
+    CheckStatus -->|🟢 有生效合約<br/>（延續合作）| HasPending
+    
+    %% 階段4A：建立新合約（無待生效）
+    subgraph stage4a["🔄 階段4A：延續合作 - 正常建立"]
+        direction TB
+        NewContract[建立新合約<br/>💡 延續現有合作]:::newContract
+        CheckFormat{該格式是否<br/>第一次設定？}:::decision
+        NoPrice[❌ 不預填價格<br/>顯示提示文字：<br/>「合約生效日當天會抓取<br/>最新的合約價格」]:::highlight
+        AllowManual[✅ 可手動設定底價<br/>（該格式首次設定）]:::process
+        SetDate2[選擇生效日期<br/>📅 最早可選：下個月 1 日]:::process
+        Save2[儲存合約<br/>⚠️ 不產生歷史紀錄]:::highlight
+        State2[合約狀態：待生效<br/>🔸 等待生效時不更新紀錄]:::sync
+    end
+    
+    HasPending -->|❌ 否<br/>（常見情況）| NewContract
+    NewContract --> CheckFormat
+    CheckFormat -->|❌ 否<br/>格式已設定過| NoPrice
+    CheckFormat -->|✅ 是<br/>格式首次| AllowManual
+    NoPrice --> SetDate2
+    AllowManual --> SetDate2
+    SetDate2 --> Save2
+    Save2 --> State2
+    
+    %% 階段4B：覆蓋待生效合約
+    subgraph stage4b["⚠️ 階段4B：覆蓋待生效"]
+        direction TB
+        Replace[覆蓋待生效情境]:::decision
+        NewReplace[建立新合約<br/>💡 取代原待生效合約（NEW ID）]:::newContract
+        InvalidateOld[❌ 失效原待生效合約<br/>（原 ID，狀態改為失效）]:::process
+    end
+    
+    HasPending -->|✅ 是<br/>（少見情況）| Replace
+    Replace --> NewReplace
+    Replace --> InvalidateOld
+    NewReplace --> CheckFormat
+    
+    %% 階段5：等待生效期
+    subgraph stage5["⏳ 階段5：等待生效期"]
+        WaitPeriod[待生效期間<br/>---------------------------------<br/>🔸 新合約不更新紀錄<br/>🔸 舊合約正常運作並記錄<br/>🔸 不產生重疊紀錄]:::highlight
+        CheckTime{是否到達<br/>新合約生效時間？<br/>📅 下月1日 00:00}:::decision
+    end
+    
+    Wait1 --> WaitPeriod
+    Wait2 --> WaitPeriod
+    State2 --> WaitPeriod
+    WaitPeriod --> CheckTime
+    CheckTime -->|❌ 否| WaitPeriod
+    
+    %% 階段6：合約生效切換
+    subgraph stage6["✅ 階段6：合約生效切換"]
+        Activate[新合約生效時刻]:::newContract
+        GetLastPrice[🔍 抓取前一份合約<br/>最後的生效價格<br/>（若無則用手動設定值）]:::process
+        CreateFirstLog[📝 產生新合約<br/>第一筆歷史紀錄<br/>（使用抓取的價格）]:::highlight
+        UpdateSeq[🔄 更新 Sequence<br/>使用新合約價格]:::process
+        
+        StopOld[舊合約（如存在）<br/>---------------------------------<br/>📝 最後一筆紀錄：<br/>價格 + 合約終止標記<br/>狀態：生效 → 失效]:::oldContract
+        
+        NewActive[✅ 新合約開始執行<br/>合約狀態：生效<br/>開始記錄價格變動]:::newContract
+    end
+    
+    CheckTime -->|✅ 是| Activate
+    Activate --> GetLastPrice
+    GetLastPrice --> CreateFirstLog
+    CreateFirstLog --> UpdateSeq
+    UpdateSeq --> StopOld
+    UpdateSeq --> NewActive
+    
+    NewActive --> End([🎯 結束]):::startEnd
+    
+    %% 重要規則說明
+    PriceRule[💡 價格設定規則 <br/>-------------------------------<br/>✅ 可手動設定情境：<br/>• 首次建立（無合約）<br/>• 重新合作（只有失效合約）<br/>• 延續合作但格式首次<br/><br/>❌ 自動抓取情境：<br/>• 延續合作且格式已存在<br/><br/>⚠️ 歷史紀錄原則：<br/>• 建立時不產生紀錄<br/>• 生效時才開始記錄<br/>• 各合約獨立記錄]:::info
+    
+    %% 標註重要節點
+    Manual2 -.- note1[💡 重新合作<br/>視同首次建立]
+    NoPrice -.- note2[💡 延續時<br/>不預填、不記錄]
+    GetLastPrice -.- note3[💡 生效瞬間<br/>抓取並記錄]
+    
+    style note1 fill:#FFFDE7,stroke:#F57F17,stroke-dasharray: 5 5,color:#E65100
+    style note2 fill:#FFFDE7,stroke:#F57F17,stroke-dasharray: 5 5,color:#E65100
+    style note3 fill:#FFFDE7,stroke:#F57F17,stroke-dasharray: 5 5,color:#E65100
+    style PriceRule fill:#E8F5E9,stroke:#4CAF50,stroke-width:3px,color:#1B5E20

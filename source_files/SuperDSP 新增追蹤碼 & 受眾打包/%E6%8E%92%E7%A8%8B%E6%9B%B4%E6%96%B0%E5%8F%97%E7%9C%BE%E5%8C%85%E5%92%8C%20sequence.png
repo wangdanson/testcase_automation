@@ -1,0 +1,74 @@
+sequenceDiagram
+participant c as CronJob
+participant m as Segmant<br>Module
+participant d as gspadmin
+participant s as sequence.json
+
+%% ==== Loop1 =====
+loop 00:00<br>產當天 sequence.json
+ activate c
+ c->>+ d: 查詢當天 oncue 的廣告活動
+ d-->>-c: result
+ c->>s: 產生當天 oncue 的廣告活動對應的 sequence.json
+ deactivate c
+end
+
+%% ==== Loop2 =====
+loop 00:30<br>設定受眾包的打包間隔
+activate c
+
+c->>+ m: 取得受眾包清單
+m-->>- c: result
+
+c->>+ d: 查詢廣告活動清單(審核中, 上刊, 停刊)
+d-->>-c: 取得廣告活動清單及關連的受眾組合, 受眾包資訊
+
+alt 廣告活動的走期在受眾包的打包區間外
+ %% 這個動作要更新 DB 嗎?
+ c->>+d: 更新受眾包的打包區間(和廣告活動比較, start_date 取小, end_date 取大)
+ d-->>-c: result
+ 
+ alt SuperDSP 受眾包已打包
+  activate c
+  c->>+m: 更新(?)
+  m-->>-c: result
+  deactivate c 
+ else SuperDSP 受眾包未打包
+  activate c
+  c->>+m: 建立(?)
+  m-->>-c: uuid
+  c->+ d: 更新 SuperDSP 受眾包對應 uuid
+  d-->>-c: result
+  deactivate c 
+ end
+end
+
+deactivate c
+end
+
+%% ==== Loop3 =====
+Note over c,m: 02:00<br>BDCD 打包受眾包
+
+﻿%% ==== Loop4 =====
+loop 05:00<br>更新 sequence.json<br>當天建立的受眾包
+activate c
+c->>+d: 查詢審核中廣告組合清單
+d-->>-c: 廣告組合清單及關連的素材包, 受眾組合, 受眾包資料
+
+alt 素材包狀態為審核通過
+  c->>+m: 取得廣告活動使用的受眾包清單
+  m-->>-c: 回傳受眾包清單(uuid, is_pack, lastest_pack_date)
+  
+  alt 廣告活動使用的受眾包皆已打包
+   c->>+d: 廣告活動狀態更改為上刊
+   d-->>-c: result(?)
+  end
+end
+
+ alt 廣告活動的走期包含今天
+  c->>s: 從 usecase plaids 產生 sequence.json(?)
+ end
+
+deactivate c﻿
+﻿end
+

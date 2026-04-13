@@ -1,0 +1,145 @@
+graph TB
+    %% 定義樣式
+    classDef start fill:#E8EAF6,stroke:#3F51B5,stroke-width:3px
+    classDef adGroupStatus fill:#E1F5FE,stroke:#0277BD,stroke-width:3px
+    classDef checkPoint fill:#FFF3E0,stroke:#FF6F00,stroke-width:2px
+    classDef statusChange fill:#FFCDD2,stroke:#D32F2F,stroke-width:3px
+    classDef maintain fill:#C8E6C9,stroke:#43A047,stroke-width:2px
+    classDef condition fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
+    classDef userAction fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px
+    classDef updated fill:#FF5722,stroke:#BF360C,stroke-width:4px,color:#fff
+
+    %% 主流程起點
+    Start[在產出 Sequence 以前<br/>觸發檢查機制]:::start
+    
+    Trigger{上刊類型}:::checkPoint
+    ImmediateUpload[即時上刊<br/>立即觸發檢查]:::condition
+    ScheduledUpload[定期上刊<br/>每日凌晨重新打包 Sequence<br/>觸發檢查]:::condition
+    
+    %% Ad Group 當前狀態
+    CurrentStatus[檢查 Ad Group 當前狀態<br/>及 受眾包組合]:::adGroupStatus
+    
+    %% 🆕 重要：只檢查 Include 受眾包
+    IncludeOnly["🆕 重要規則更新:<br/>只檢查 Include 受眾包<br/>排除受眾包不納入判斷"]:::updated
+    
+    %% 檢查受眾包組合類型
+    CheckAudienceType{"🔄 檢查 Ad Group<br/>【Include】受眾包組合類型"}:::updated
+    
+    %% === 情境 1: 只有客製受眾包 ===
+    subgraph Scenario1["📦 情境 1: Include 只有客製受眾包"]
+        S1_Check{"🔄 檢查【Include 內】所有<br/>客製受眾包的<br/>targeting_status & end_date<br/>是否全部過期?"}:::updated
+        S1_Pause[Ad Group 狀態變更:<br/>上刊中 → ⏸️ 暫停<br/>+ Hover 提示訊息]:::statusChange
+        S1_Maintain[Ad Group 狀態:<br/>✅ 維持上刊中]:::maintain
+    end
+    
+    %% === 情境 2: 只有廣告活動/網站流量受眾包 ===
+    subgraph Scenario2["📊 情境 2: Include 只有廣告活動/網站流量受眾包"]
+        S2_Check{"🔄 【Include 內】所有<br/>廣告活動/網站流量<br/>受眾包是否【全部】Not Ready?"}:::updated
+        S2_CampaignReview[Campaign 狀態變更:<br/>🔄 審核中<br/>Ad Group 間接受影響]:::statusChange
+        S2_Maintain[Ad Group 狀態:<br/>✅ 維持上刊中]:::maintain
+    end
+    
+    %% === 情境 3: 兩者都有 ===
+    subgraph Scenario3["🔀 情境 3: Include 有客製 + 廣告活動/網站流量受眾包"]
+        S3_CheckBoth{"🔄 檢查【Include 內】<br/>兩種受眾包狀態"}:::updated
+        
+        S3_Case1[Case A:<br/>任一 客製 Expired +<br/>所有 廣告活動/網站流量 Ready]:::condition
+        S3_Case2[Case B:<br/>所有 客製 Completed +<br/>任一 廣告活動/網站流量 Not Ready]:::condition
+        S3_Case3[Case C:<br/>所有 客製 Expired +<br/>所有 廣告活動/網站流量 Not Ready]:::condition
+        
+        S3_Maintain1[Ad Group 狀態:<br/>✅ 維持上刊中<br/>理由: 廣告活動/網站流量可用]:::maintain
+        S3_Maintain2[Ad Group 狀態:<br/>✅ 維持上刊中<br/>理由: 客製受眾包可用]:::maintain
+        S3_CampaignReview[Campaign 狀態變更:<br/>🔄 審核中<br/>Ad Group 無法投放]:::statusChange
+        
+        %% Case C 後續操作分支
+        S3_UserAction{Campaign 審核中後<br/>使用者可能的操作}:::userAction
+        
+        S3_Action1[操作 1:<br/>移除所有客製受眾包]:::userAction
+        S3_Action2[操作 2:<br/>移除所有廣告活動/<br/>網站流量受眾包]:::userAction
+        S3_Action3[操作 3:<br/>等待廣告活動/網站流量<br/>受眾包變成 Ready]:::userAction
+        S3_Action4[操作 4:<br/>更新客製受眾包<br/>使其變成 Completed]:::userAction
+        
+        S3_ToScenario2[→ 轉變為情境 2<br/>只剩廣告活動/網站流量<br/>但全部 Not Ready<br/>維持 Campaign 審核中]:::statusChange
+        S3_ToScenario1[→ 轉變為情境 1<br/>只剩客製受眾包<br/>且全部 Expired<br/>Ad Group 變成暫停]:::statusChange
+        S3_BackToNormal1[Campaign 狀態恢復:<br/>審核中 → ✅ 上刊中<br/>Ad Group 可正常投放]:::maintain
+        S3_BackToNormal2[Campaign 狀態恢復:<br/>審核中 → ✅ 上刊中<br/>Ad Group 可正常投放]:::maintain
+    end
+    
+    %% 最終狀態匯總
+    FinalStatus[Ad Group 最終狀態]:::adGroupStatus
+    Status1[⏸️ 暫停<br/>需手動處理受眾包問題]:::statusChange
+    Status2[✅ 上刊中<br/>正常投放]:::maintain
+    Status3[🔄 Campaign 審核中<br/>Ad Group 無法投放]:::statusChange
+    
+    %% 主流程連接
+    Start --> Trigger
+    Trigger -->|即時上刊| ImmediateUpload
+    Trigger -->|定期上刊<br/>每日凌晨| ScheduledUpload
+    ImmediateUpload --> CurrentStatus
+    ScheduledUpload --> CurrentStatus
+    CurrentStatus --> IncludeOnly
+    IncludeOnly --> CheckAudienceType
+    
+    %% 情境 1 連接
+    CheckAudienceType -->|Include 只有<br/>客製受眾包| S1_Check
+    S1_Check -->|是<br/>全部過期| S1_Pause
+    S1_Check -->|否<br/>至少一個 Completed| S1_Maintain
+    
+    %% 情境 2 連接
+    CheckAudienceType -->|Include 只有<br/>廣告活動/網站流量受眾包| S2_Check
+    S2_Check -->|是<br/>全部 Not Ready| S2_CampaignReview
+    S2_Check -->|否<br/>至少一個 Ready| S2_Maintain
+    
+    %% 情境 3 連接
+    CheckAudienceType -->|Include 兩者都有| S3_CheckBoth
+    S3_CheckBoth --> S3_Case1
+    S3_CheckBoth --> S3_Case2
+    S3_CheckBoth --> S3_Case3
+    
+    S3_Case1 --> S3_Maintain1
+    S3_Case2 --> S3_Maintain2
+    S3_Case3 --> S3_CampaignReview
+    
+    %% Case C 的後續操作分支
+    S3_CampaignReview --> S3_UserAction
+    S3_UserAction --> S3_Action1
+    S3_UserAction --> S3_Action2
+    S3_UserAction --> S3_Action3
+    S3_UserAction --> S3_Action4
+    
+    S3_Action1 --> S3_ToScenario2
+    S3_Action2 --> S3_ToScenario1
+    S3_Action3 --> S3_BackToNormal1
+    S3_Action4 --> S3_BackToNormal2
+    
+    %% 最終狀態連接
+    S1_Pause --> FinalStatus
+    S1_Maintain --> FinalStatus
+    S2_CampaignReview --> FinalStatus
+    S2_Maintain --> FinalStatus
+    S3_Maintain1 --> FinalStatus
+    S3_Maintain2 --> FinalStatus
+    S3_ToScenario2 --> FinalStatus
+    S3_ToScenario1 --> FinalStatus
+    S3_BackToNormal1 --> FinalStatus
+    S3_BackToNormal2 --> FinalStatus
+    
+    FinalStatus --> Status1
+    FinalStatus --> Status2
+    FinalStatus --> Status3
+    
+    %% 說明區塊
+    subgraph Summary["📋 Ad Group 狀態檢查說明"]
+        Sum0["🆕 本次更新: 只判斷 Include 受眾包，排除受眾包不納入判斷"]
+        Sum1["🔄 觸發機制:<br/>• 即時上刊: 立即執行檢查<br/>• 定期上刊: 每日凌晨重新打包 Sequence 時檢查"]
+        Sum2["⏸️ 暫停: Include 只有客製受眾包且全部過期"]
+        Sum3["✅ 上刊中: Include 至少有一種受眾包可用"]
+        Sum4["🔄 Campaign 審核中: Include 廣告活動/網站流量受眾包全部 Not Ready"]
+        Sum5["🟠 橘色粗框節點 = 本次更新內容"]
+    end
+    
+    %% 設定 subgraph 樣式
+    style Scenario1 fill:#FFF3E0,stroke:#FF6F00,stroke-width:2px
+    style Scenario2 fill:#E1F5FE,stroke:#0277BD,stroke-width:2px
+    style Scenario3 fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
+    style Summary fill:#E8F5E9,stroke:#43A047,stroke-width:2px

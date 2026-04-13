@@ -1,0 +1,77 @@
+<p>
+ <style>
+  [data-colorid=cqdckautby]{color:#006644} html[data-color-mode=dark] [data-colorid=cqdckautby]{color:#99ffdd}[data-colorid=qrayfrfe67]{color:#006644} html[data-color-mode=dark] [data-colorid=qrayfrfe67]{color:#99ffdd}[data-colorid=kc1ced0xwv]{color:#006644} html[data-color-mode=dark] [data-colorid=kc1ced0xwv]{color:#99ffdd}
+ </style>
+</p>
+<p>
+ 現況：現在只有「點擊廣告的人」、「完整觀看的人」（ click、q100 ）
+</p>
+<p>
+ 期望：於事件選擇中 新增選項「廣告曝光」( Impression ）
+</p>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img alt="截圖 2025-05-15 中午12.29.39.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="561" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3864035329/%E6%88%AA%E5%9C%96%202025-05-15%20%E4%B8%AD%E5%8D%8812.29.39.png?version=1&amp;modificationDate=1747283386547&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3864035329" data-linked-resource-container-version="11" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-05-15 中午12.29.39.png" data-linked-resource-id="3863838781" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="8695b3e7-f242-4ce9-b25f-18b28a6a5aa1" data-media-type="file" data-unresolved-comment-count="0" data-width="574" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3864035329/%E6%88%AA%E5%9C%96%202025-05-15%20%E4%B8%AD%E5%8D%8812.29.39.png?version=1&amp;modificationDate=1747283386547&amp;cacheVersion=1&amp;api=v2&amp;width=574&amp;height=561" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3864035329/%E6%88%AA%E5%9C%96%202025-05-15%20%E4%B8%AD%E5%8D%8812.29.39.png?version=1&amp;modificationDate=1747283386547&amp;cacheVersion=1&amp;api=v2&amp;width=574&amp;height=561 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3864035329/%E6%88%AA%E5%9C%96%202025-05-15%20%E4%B8%AD%E5%8D%8812.29.39.png?version=1&amp;modificationDate=1747283386547&amp;cacheVersion=1&amp;api=v2&amp;width=574&amp;height=561 1x" width="574"/>
+</span>
+<p>
+</p>
+<h3 id="id-[SuperDSP優化需求]廣告活動受眾包，增加Impression事件（看過廣告）-前端">
+ 前端
+</h3>
+<p>
+ 現況：
+</p>
+<p>
+ *事件選擇 (可複選)
+</p>
+<p>
+ 口 點擊廣告的人
+</p>
+<p>
+ 口 完整觀看影音廣告的人
+</p>
+<p>
+</p>
+<p>
+ 期望：
+</p>
+<p>
+ *事件選擇 (可複選)
+</p>
+<p>
+ <span data-colorid="cqdckautby">
+  口 廣告曝光
+ </span>
+</p>
+<p>
+ <span data-colorid="qrayfrfe67">
+  口 廣告點擊
+ </span>
+</p>
+<p>
+ <span data-colorid="kc1ced0xwv">
+  口 100%觀看影音廣告
+ </span>
+</p>
+<p>
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP優化需求]廣告活動受眾包，增加Impression事件（看過廣告）-後端">
+ 後端
+</h3>
+<p>
+ 跟 DTO 確認 filter_event 的 op1_val 要帶
+ <code>
+  impression
+ </code>
+ ，並更新
+ <code>
+  AudienceOptions
+ </code>
+ 的
+ <code>
+  EVENT_OPTIONS
+ </code>
+</p>
+<p>
+</p>

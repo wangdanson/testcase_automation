@@ -9,3 +9,4 @@ google_service_account/
 service_account/
 .env
 knology_management/
+confluence_state.json

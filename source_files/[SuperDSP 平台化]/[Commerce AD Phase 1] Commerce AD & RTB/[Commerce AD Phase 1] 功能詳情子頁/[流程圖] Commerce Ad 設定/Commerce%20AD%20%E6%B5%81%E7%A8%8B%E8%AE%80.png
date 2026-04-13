@@ -1,0 +1,166 @@
+graph TB
+    %% 主流程：Commerce Ad 系統流程
+    Start([🚀 開始]) --> CreateIO[建立 I/O 單]
+    CreateIO --> SelectPush{選擇廣告目的}
+    SelectPush -->|Push Conversion| CreateCampaign[建立廣告活動<br/>Campaign]
+    SelectPush -->|其他廣告目的| OtherFlow[維持現況廣告流程<br/>❌ 無法使用 Commerce Ad]
+    
+    %% 廣告活動品類選擇
+    CreateCampaign --> SelectCategory{選擇廣告品類}
+    SelectCategory -->|Commerce Ad| CreatePlacement[建立廣告組合<br/>Placement]
+    SelectCategory -->|RichMedia/Quality Traffic| TraditionalAd[維持現況廣告流程]
+    
+    %% 廣告組合設定區塊
+    CreatePlacement --> PlacementStart([⚙️ 設定開始])
+    
+    subgraph PlacementConfig [" 📝 廣告組合設定 "]
+        PlacementStart --> BasicInfo[基本資訊設定<br/>廣告組合名稱]
+        
+        %% Commerce Ad 新增功能區塊
+        BasicInfo --> DataTargeting{數據鎖定<br/>⚠️ 上刊後鎖定數據模式<br/>（模式內容仍可調整）}
+        
+        DataTargeting -->|Audience| AudienceMode["受眾模式<br/>原有：年齡/性別/興趣...<br/>新增 AdLearn（選用）：<br/>・Initial 全域型<br/>　- 高點擊族群<br/>　- 高進站族群<br/>・Campaign 活動型<br/>　- 高點擊族群<br/>　- 高進站族群<br/>(僅包含鎖定)<br/><br/>📝 上刊後可調整模式內項目"]
+        DataTargeting -->|Environment| EnvironmentMode["環境模式<br/>原有：內文比對<br/>新增：ProductKey<br/>⚠️ 二選一設定<br/>(僅包含鎖定)<br/><br/>📝 上刊後可調整模式內項目"]
+        
+        AudienceMode --> AdFormat
+        EnvironmentMode --> AdFormat
+        
+        %% 格式與競價設定
+        AdFormat[廣告格式<br/>NDG改 / 文中320x480] --> BidAndMargin["CPC 出價與 Margin 設定<br/>出價：$3.00 | Margin：50%<br/>實際競標價 = $1.50"]
+        
+        %% 素材連結
+        BidAndMargin --> StudioLink[連結 Studio<br/>選擇素材包]
+        
+        %% 其他設定（維持現況）
+        StudioLink --> OtherSettings[其他設定<br/>走期/預算/裝置/時段/地區]
+        
+        OtherSettings --> PlacementEnd([✅ 設定完成])
+    end
+    
+    PlacementEnd --> SavePlacement[廣告組合完成]
+    
+    SavePlacement --> LaunchAd[儲存並上刊<br/>🔒 鎖定數據模式類型<br/>（Audience 或 Environment）<br/>⚠️ 上刊後無法切換模式<br/>✅ 但可調整模式內設定]
+    
+    %% RTB 投放流程（簡化版）
+    LaunchAd --> RTBStart([💰 RTB 開始])
+    
+    subgraph RTBFlow [" 🎯 RTB 即時競價流程 "]
+        RTBStart --> GenerateSeq[產生 Sequence<br/>包含地板價/競標價/出價<br/>綁定受眾包 ID<br/>新增 contextual key]
+        GenerateSeq --> WaitRequest[等待 Ad Server 請求<br/>攜帶 OneID]
+        WaitRequest --> TAMatch{TA 比對與優先級}
+        TAMatch -->|固定價格優先| FixedPrice[投放固定價格廣告]
+        TAMatch -->|進入 RTB| RTBBid[RTB 即時競價<br/>最高價得標]
+        
+        FixedPrice --> NextOpp[等待下次機會]
+        NextOpp --> WaitRequest
+        
+        RTBBid --> RTBEnd([🎯 RTB 結束])
+    end
+    
+    %% 廣告展示與追蹤
+    RTBEnd --> AdDisplayStart([📱 展示開始])
+    
+    subgraph AdDisplay [" 🖼️ 廣告展示與即時數據 "]
+        AdDisplayStart --> ShowCommerce[展示 Commerce Ad<br/>NDG改 或 文中320x480<br/>3-6 個商品]
+        ShowCommerce --> RecordImp[收集即時事件<br/>Impression]
+        RecordImp --> UserClick{用戶點擊商品?}
+        UserClick -->|是| RecordClick[收集即時事件<br/>Click<br/>用戶跳轉至電商頁面]
+        UserClick -->|否| OnlyImp[僅有 Impression]
+        
+        RecordClick --> LandingPage[抵達 Landing Page<br/>開始收集歸因事件]
+        OnlyImp --> AdDisplayEnd([🖼️ 展示結束])
+        LandingPage --> AdDisplayEnd
+    end
+    
+    %% 成效追蹤
+    AdDisplayEnd --> DataStart([📊 數據開始])
+    
+    subgraph DataTracking [" 📈 成效數據收集 "]
+        DataStart --> RealTimeData[即時數據<br/>廣告格式收集<br/>Impression / Click / CPC]
+        DataStart --> AttributionData[歸因數據<br/>電商頁面收集<br/>7 天追蹤期]
+        
+        AttributionData --> ConversionFunnel[轉換漏斗<br/>Landing Page Views<br/>Add to Cart<br/>Purchase<br/>Revenue]
+        ConversionFunnel --> ROASCalc[計算 ROAS<br/>Revenue / Cost]
+        
+        RealTimeData --> ReportOutput{報表輸出方式}
+        ROASCalc --> ReportOutput
+        
+        ReportOutput -->|即時查看| Dashboard[廣告儀表板<br/>即時監控各項指標]
+        ReportOutput -->|批次下載| Download[報表下載<br/>自選廣告組合<br/>批次輸出]
+        
+        Dashboard --> DataEnd([📈 數據結束])
+        Download --> DataEnd
+    end
+    
+    %% AdLearn 模型優化（獨立流程）
+    LaunchAd --> ModelStart([🤖 模型開始])
+    
+    subgraph ModelOptimization [" 🎯 AdLearn 受眾包優化 "]
+        ModelStart --> CheckAdLearn{檢查 AdLearn 設定}
+        
+        %% Initial 路徑（全域型）
+        CheckAdLearn -->|Initial 選用| InitialPath[Initial 全域型訓練<br/>收集高點擊 + 高進站族群]
+        InitialPath --> InitialUpdate[每日更新 Initial 受眾包<br/>ID 不變，內容更新]
+        
+        %% Campaign 路徑（活動型）
+        CheckAdLearn -->|Campaign 選用| CampaignPath[Campaign 活動型訓練<br/>收集該 Campaign<br/>高點擊 + 高進站族群]
+        CampaignPath --> CampaignUpdate[每日更新 Campaign 受眾包<br/>以 Campaign 為單位共用]
+        
+        %% 兩者都選用
+        CheckAdLearn -->|兩者都選用| BothPath[並行訓練<br/>Initial + Campaign]
+        BothPath --> InitialUpdate
+        BothPath --> CampaignUpdate
+        
+        %% 都沒選用
+        CheckAdLearn -->|都未選用| NoAdLearn[不使用 AdLearn]
+        
+        InitialUpdate --> ModelEnd([🎯 模型結束])
+        CampaignUpdate --> ModelEnd
+        NoAdLearn --> ModelEnd
+    end
+    
+    ModelEnd --> DailyRoutine[每日例行更新<br/>回到模型開始]
+    DailyRoutine --> ModelStart
+    
+    %% 帳務管理（即時顯示）
+    RealTimeData --> AccountingStart([💳 帳務開始])
+    
+    subgraph AccountingSystem [" 💵 帳務管理系統 "]
+        AccountingStart --> RealTimeAccounting[即時帳務顯示<br/>依廣告主身分檢視]
+        RealTimeAccounting --> ShowMetrics[顯示關鍵指標<br/>累計金額 + 平均 CPC]
+        ShowMetrics --> MonthlySum[當月累計計算<br/>以 Placement 為單位]
+        
+        MonthlySum --> AccountingEnd([💵 帳務結束])
+    end
+    
+    AccountingEnd --> MonthCheck{月底?}
+    MonthCheck -->|是| AdminProcess[行政流程<br/>月結報表新增「交易模式」欄位<br/>區分 RTB 競價與固定價格<br/>開立發票請款]
+    MonthCheck -->|否| NextMonth[進入下月計費週期]
+    
+    AdminProcess --> End([🏁 流程結束])
+    NextMonth --> AccountingStart
+    
+    %% 樣式定義
+    classDef startStyle fill:#9C27B0,stroke:#6A1B9A,stroke-width:3px,color:#fff
+    classDef endStyle fill:#F44336,stroke:#C62828,stroke-width:3px,color:#fff
+    classDef startEnd fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff
+    classDef placementStyle fill:#FFE0B2,stroke:#F57C00,stroke-width:2px
+    classDef rtbStyle fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef adDisplayStyle fill:#E8EAF6,stroke:#3F51B5,stroke-width:2px
+    classDef dataStyle fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px
+    classDef modelStyle fill:#E0F2F1,stroke:#00796B,stroke-width:2px
+    classDef billingStyle fill:#FFF3E0,stroke:#E65100,stroke-width:2px
+    classDef newFeature fill:#FFF9C4,stroke:#F57F17,stroke-width:3px
+    classDef highlightPath fill:#C8E6C9,stroke:#388E3C,stroke-width:4px
+    
+    class Start startStyle
+    class End endStyle
+    class PlacementStart,PlacementEnd,RTBStart,RTBEnd,AdDisplayStart,AdDisplayEnd,DataStart,DataEnd,ModelStart,ModelEnd,AccountingStart,AccountingEnd startEnd
+    class PlacementConfig placementStyle
+    class RTBFlow rtbStyle
+    class AdDisplay adDisplayStyle
+    class DataTracking dataStyle
+    class ModelOptimization modelStyle
+    class AccountingSystem billingStyle
+    class DataTargeting,AudienceMode,EnvironmentMode,BidAndMargin,SelectCategory newFeature
+    class SelectPush,CreateCampaign,SelectCategory highlightPath

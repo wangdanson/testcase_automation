@@ -1,0 +1,55 @@
+<p>
+</p>
+<p>
+ 現況：新廣告主建立後，admin 需手動設定廣告主權限，將自己加入該廣告主。
+</p>
+<p>
+ 期望：新廣告主建立後，系統自動將 admin 全部的廣告主撈出, 且 admin 的廣告主權限自動帶入不用再額外設定。
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP優化需求]新增廣告主時，admin的廣告主權限需自動被加入-前端">
+ 前端
+</h3>
+<p>
+ Admin 編輯頁
+</p>
+<ol start="1">
+ <li>
+  <p>
+   更名：廣告主權限設定 → 廣告主權限
+  </p>
+ </li>
+ <li>
+  <p>
+   移除功能：(+) icon 移除 (新規格是自動加入, 所以不需要再設定)
+  </p>
+ </li>
+ <li>
+  <p>
+   顯示所有廣告主 tag
+  </p>
+ </li>
+</ol>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img alt="截圖 2025-05-21 上午11.53.43.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="984" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3863969793/%E6%88%AA%E5%9C%96%202025-05-21%20%E4%B8%8A%E5%8D%8811.53.43.png?version=1&amp;modificationDate=1747799632642&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3863969793" data-linked-resource-container-version="5" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-05-21 上午11.53.43.png" data-linked-resource-id="3867115623" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="5415fd0e-33e0-48b5-b9e5-643eb5ca9edb" data-media-type="file" data-unresolved-comment-count="0" data-width="1914" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3863969793/%E6%88%AA%E5%9C%96%202025-05-21%20%E4%B8%8A%E5%8D%8811.53.43.png?version=1&amp;modificationDate=1747799632642&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=390" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3863969793/%E6%88%AA%E5%9C%96%202025-05-21%20%E4%B8%8A%E5%8D%8811.53.43.png?version=1&amp;modificationDate=1747799632642&amp;cacheVersion=1&amp;api=v2&amp;width=1520&amp;height=780 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3863969793/%E6%88%AA%E5%9C%96%202025-05-21%20%E4%B8%8A%E5%8D%8811.53.43.png?version=1&amp;modificationDate=1747799632642&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=390 1x" width="760"/>
+</span>
+<p>
+</p>
+<h3 id="id-[SuperDSP優化需求]新增廣告主時，admin的廣告主權限需自動被加入-後端">
+ 後端
+</h3>
+<ol start="1">
+ <li>
+  <p>
+   admin 帳號將該合約底下全部的啟用廣告主撈出
+  </p>
+ </li>
+ <li>
+  <p>
+   該廣告主關閉時, admin 帳號之廣告主權限應同步關閉
+  </p>
+ </li>
+</ol>
+<p>
+</p>

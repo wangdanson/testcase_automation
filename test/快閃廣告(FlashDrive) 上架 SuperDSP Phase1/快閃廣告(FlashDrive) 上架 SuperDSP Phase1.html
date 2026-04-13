@@ -1,0 +1,1080 @@
+<div class="toc-macro client-side-toc-macro conf-macro output-block" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-layout="default" data-local-id="5c8d3c24-2546-4c1e-8aa8-50808129cd23" data-macro-id="b3c821c6-83a5-400e-8e84-d44efcb930c8" data-macro-name="toc">
+ <style>
+  [data-colorid=weevxeyd63]{color:#ff5630} html[data-color-mode=dark] [data-colorid=weevxeyd63]{color:#cf2600}[data-colorid=mm0nd52oat]{color:#ff5630} html[data-color-mode=dark] [data-colorid=mm0nd52oat]{color:#cf2600}
+ </style>
+</div>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-目標">
+ 目標
+</h1>
+<p>
+ 新增CPC計價的圖文產品FlashDrive，提供使用者高CTR、強勢曝光的產品。尺寸等同於GDN常用尺寸，使用者可無痛轉移素材至SuperDSP投放廣告。
+</p>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-User">
+ User
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="c4bc964f-9c44-4594-bb70-5e08f48c9b8b" data-table-width="760">
+  <colgroup>
+   <col style="width: 236.0px;"/>
+   <col style="width: 524.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       User
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       權責
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      代理商, 經銷商, 直客,
+     </p>
+     <p>
+      媒體(暫不開放)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      可在 SuperDSP 投放FlashDrive快閃廣告
+     </p>
+     <blockquote>
+      <p>
+       媒體基本上不會簽這個格式的合約, 但如果有簽合約還是可以設定
+      </p>
+     </blockquote>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      CIS
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      審核素材包
+     </p>
+     <blockquote>
+      <p>
+       媒體投放快閃廣告 導外連結仍需審核
+      </p>
+     </blockquote>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      PM
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      指定 SuperDSP FlashDrive 可投放的媒體白名單(人工設定)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-UseCase&amp;UserStory&amp;驗收標準">
+ UseCase &amp; UserStory &amp; 驗收標準
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="cd1d78ac-5572-4882-8045-87b01ac15047" data-table-width="1011">
+  <colgroup>
+   <col style="width: 140.0px;"/>
+   <col style="width: 271.0px;"/>
+   <col style="width: 600.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       User
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       功能
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       項目
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="6">
+     <p>
+      代理商, 經銷商, 直客
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增編輯使用快閃廣告的廣告組合
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增編輯時, 能設定資料並儲存(重新進入編輯畫面, 設定為最新設定資料)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="3">
+     <p>
+      新增編輯快閃廣告的素材包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增編輯時, 能設定資料並儲存(重新進入編輯畫面, 設定為最新設定資料)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      設定素材時, 可在右側所見即所得區域看到對應的區塊顯示對應的素材內容
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      儲存後, 可在右側預覽區域看到實際的廣告預覽頁(素材與設定相同), 並和廣告進行互動(只有手機格式)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      相關報告能夠正常顯示並下載
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      使用 FlashDrive 投放的廣告組合, 可在 Dashboard 看到成效
+     </p>
+     <p>
+      可下載成效報告, 受眾洞察報告
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      媒體白名單
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      建立的 FlashDrive 廣告組合只能投放在 PM 指定的媒體白名單
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      CIS
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      可對 FlashDrive 的素材包進行審核
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        新增編輯後會進行審核, 審核後才能進行廣告投放
+       </p>
+      </li>
+      <li>
+       <p>
+        (暫不開放)使用者是媒體時, 快閃廣告和快訊廣告(TextDrive)一樣, 不需要經過審核
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Sequence
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperDSP新增Adgroup後於走期開始會自動依媒體白名單生成Sequence
+     </p>
+     <p>
+      媒體白名單異動後，現有SuperDSP中Adgroup如異動儲存後會更新Sequence為最新的媒體投放白名單
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-Wireframe">
+ Wireframe
+</h1>
+<p>
+</p>
+<iframe class="conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="0b3a2751-a264-42dc-af4a-7be5a9bb2e59" data-macro-id="eb778ef13a30b1468afc736dd25775bc" data-macro-name="iframe" frameborder="1" height="600" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6DLe9B0rw9V7YgBaSllgOQ%2FSuper-dsp%3Ftype%3Ddesign%26node-id%3D2533%253A10483%26mode%3Ddesign%26t%3DBOvD1T0kwmbtgZ8X-1" width="100%">
+</iframe>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-功能細項">
+ 功能細項
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="full-width" data-local-id="aced97cc-a3d1-464e-8206-190e4b2ddbd2" data-table-width="1232">
+  <colgroup>
+   <col/>
+   <col style="width: 107.0px;"/>
+   <col style="width: 283.0px;"/>
+   <col style="width: 324.0px;"/>
+   <col style="width: 166.0px;"/>
+   <col style="width: 94.0px;"/>
+   <col style="width: 216.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="numberingColumn confluenceTh">
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       系統
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       功能
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       細項
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       Who
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       <span class="inline-comment-marker" data-ref="0f7ec3f8-9853-4a1d-829a-72baba5f77ee">
+        開發時間
+       </span>
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       描述
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     1
+    </td>
+    <td class="confluenceTd" rowspan="6">
+     <p>
+      SuperDSP
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增編輯使用快閃廣告的廣告組合
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      設定資料並儲存
+     </p>
+     <p>
+      權限卡控：
+     </p>
+     <p>
+      暫不開放給媒體廣告主使用FlashDrive - 合約卡控即可
+     </p>
+    </td>
+    <td class="confluenceTd" rowspan="4">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="557058:508ea223-fd64-4316-9665-ea32c2261a02" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="2981959" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/557058:508ea223-fd64-4316-9665-ea32c2261a02?ref=confluence" target="_blank">
+       Ryan Meng
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     2
+    </td>
+    <td class="confluenceTd" rowspan="3">
+     <p>
+      新增編輯使用快閃廣告的素材包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      設定資料並儲存
+     </p>
+     <p>
+      註記：
+     </p>
+     <p>
+      格式選擇樣式依AdGroup樣式為準。Figma樣式後續再調整
+     </p>
+     <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+      <img class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="338" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%883.49.09.png?version=1&amp;modificationDate=1699948156466&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3478650902" data-linked-resource-container-version="27" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2023-11-14 下午3.49.09.png" data-linked-resource-id="3485794417" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="0082f1a4-17c8-4623-8b08-da03b1dbbb0d" data-media-type="file" data-unresolved-comment-count="0" data-width="194" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%883.49.09.png?version=1&amp;modificationDate=1699948156466&amp;cacheVersion=1&amp;api=v2&amp;width=194&amp;height=338" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%883.49.09.png?version=1&amp;modificationDate=1699948156466&amp;cacheVersion=1&amp;api=v2&amp;width=194&amp;height=338 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%883.49.09.png?version=1&amp;modificationDate=1699948156466&amp;cacheVersion=1&amp;api=v2&amp;width=194&amp;height=338 1x" width="194"/>
+     </span>
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" rowspan="3">
+     <p>
+      2d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     3
+    </td>
+    <td class="confluenceTd">
+     <p>
+      設定快閃廣告素材時, 即時看到示意圖
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     4
+    </td>
+    <td class="confluenceTd">
+     <p>
+      預覽區塊
+     </p>
+     <p>
+      1。設定快閃廣告素材後, 看到廣告預覽畫面
+     </p>
+     <p>
+      2。下方警語調整
+     </p>
+     <p>
+      <span class="inline-comment-marker" data-ref="730eab02-1827-4ca5-bce2-d438a0137d34">
+       中文：
+      </span>
+     </p>
+     <p>
+      <span class="inline-comment-marker" data-ref="730eab02-1827-4ca5-bce2-d438a0137d34">
+       FlashDrive廣告會因為使用者裝置大小，而可能無法展示完整廣告
+      </span>
+     </p>
+     <p>
+      <span class="inline-comment-marker" data-ref="730eab02-1827-4ca5-bce2-d438a0137d34">
+       英文：
+      </span>
+     </p>
+     <p>
+      <span class="inline-comment-marker" data-ref="730eab02-1827-4ca5-bce2-d438a0137d34">
+       FlashDrive advertisements may not be fully displayed due to the size of the user's device.
+      </span>
+     </p>
+     <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+      <img class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="592" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%882.12.09.png?version=1&amp;modificationDate=1699942337659&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3478650902" data-linked-resource-container-version="27" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2023-11-14 下午2.12.09.png" data-linked-resource-id="3485794363" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="8a3d52b9-118e-449d-9793-852fac2a5f47" data-media-type="file" data-unresolved-comment-count="0" data-width="301" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%882.12.09.png?version=1&amp;modificationDate=1699942337659&amp;cacheVersion=1&amp;api=v2&amp;width=301&amp;height=592" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%882.12.09.png?version=1&amp;modificationDate=1699942337659&amp;cacheVersion=1&amp;api=v2&amp;width=602&amp;height=1184 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/%E6%88%AA%E5%9C%96%202023-11-14%20%E4%B8%8B%E5%8D%882.12.09.png?version=1&amp;modificationDate=1699942337659&amp;cacheVersion=1&amp;api=v2&amp;width=301&amp;height=592 1x" width="301"/>
+     </span>
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      MTO 上線代碼即可跟著更新
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     5
+    </td>
+    <td class="confluenceTd">
+     <p>
+      BE API
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      更新SuperDSP產品線&amp;格式資料更新 。
+     </p>
+     <p>
+      人工更新rake檔 -
+      <code>
+       create_superdsp_categories.rake
+      </code>
+     </p>
+     <p>
+      撈取指定 ad_formate_type_ids
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0.5d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      執行
+     </p>
+     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8183f747-31cc-4a87-8706-f3c0aa8a6e49" data-macro-name="code" style="border-width: 1px;">
+      <div class="codeContent panelContent pdl">
+       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">rake superdsp:create_categories insertion_order_purpose_id=2 product_category_id=3 ad_format_type_ids='[193]'</pre>
+      </div>
+     </div>
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     6
+    </td>
+    <td class="confluenceTd">
+     <p>
+      投放項目
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增：
+      <del>
+       建立Adgroup( PreCampaignDetail )時判斷媒體白名單，直接存入可以投放的媒體。
+      </del>
+      正常新增pcd，於Sequence判斷白名單。
+     </p>
+     <p>
+      編輯：取得最新的媒體白名單，同步更新Sequence。
+     </p>
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      ex:
+     </p>
+     <p>
+      如果可投放 FlashDrive 的媒體總共有10家, 其中有7家設定白名單, 此時pcd總共會產10筆, 但sequence只會產7筆。
+     </p>
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     7
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      多國語言
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperDSP相關功能對應中英翻譯 - 警語v
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     8
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Sequence
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Sequence需依白名單媒體正確產出
+     </p>
+     <p>
+      白名單有新增或調整時，現有Campaign需待SuperDSP用戶重新儲存或異動才會更新Sequence為最新媒體白名單。
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     9
+    </td>
+    <td class="confluenceTd">
+     <p>
+      ODM
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SuperDSP素材審核
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      需審核條件
+     </p>
+     <p>
+      1。非媒體類型廣告主
+     </p>
+     <h4 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-MTO的preview頁結構不需調整ODMpreview正常">
+      <span data-colorid="weevxeyd63">
+       MTO 的 preview 頁結構不需調整
+      </span>
+      <br/>
+      <span data-colorid="mm0nd52oat">
+       ODM preview 正常
+      </span>
+     </h4>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     10
+    </td>
+    <td class="confluenceTd">
+     <p>
+      OSS
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      媒體白名單
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      FlashDrive專用媒體白名單
+     </p>
+     <p>
+      供Sequence產生時使用。
+     </p>
+     <p>
+      1。廣告格式資表新增 - 開關SuperDSP該格式是否啟用白名單，沒有啟用則預設為全投。
+     </p>
+     <p>
+      2。 新增資料表紀錄哪些媒體在某格式(如…FlashDrive)設定為白名單。
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        ad_format_type 新增欄位
+        <code>
+         superdsp_enable_whitelist
+        </code>
+        儲存是否啟用白名單。
+       </p>
+      </li>
+      <li>
+       <p>
+        新增
+        <code>
+         ad_format_type_whitelist_relations
+        </code>
+        紀錄白名單
+       </p>
+      </li>
+      <li>
+       <p>
+        <a href="#table-relation" rel="nofollow">
+         Table relation 說明
+        </a>
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     11
+    </td>
+    <td class="confluenceTd">
+     <p>
+      OSS
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Seed 開通第一次白名單
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      開通媒體格式&amp;白名單
+     </p>
+     <p>
+      透過 seed ENV 來手動開通
+      <code>
+       格式
+      </code>
+      和
+      <code>
+       媒體
+      </code>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="766ff917-7518-476c-9d2c-753aa14db894" data-macro-name="code" style="border-width: 1px;">
+      <div class="codeContent panelContent pdl">
+       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">新增白名單
+rake db:seed:20231115_add_media_whitelists ad_format_type_id=:id media_ids=:ids
+
+移除白名單
+rake db:seed:20231115_add_media_whitelists ad_format_type_id=:id</pre>
+      </div>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-table-relation白名單Tablerelation">
+ <span class="confluence-anchor-link conf-macro output-inline" data-hasbody="false" data-local-id="acdb8fba-78bb-49b5-832b-9f20424e786f" data-macro-id="749f794fbe6547a6b2ee97796747b003" data-macro-name="anchor" id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-table-relation">
+  <span class="confluence-anchor-link" id="table-relation">
+  </span>
+ </span>
+ 白名單 Table relation
+</h1>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="3645" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3478650902/SuperDSP%20-%20MediaWhiteList%20Table%20Relation-2023-11-15-101027.png?version=1&amp;modificationDate=1700103392915&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3478650902" data-linked-resource-container-version="27" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="SuperDSP - MediaWhiteList Table Relation-2023-11-15-101027.png" data-linked-resource-id="3487072353" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="356f97dd-49b4-4182-a0a9-8f2be78cb6bf" data-media-type="file" data-unresolved-comment-count="0" data-width="3840" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/SuperDSP%20-%20MediaWhiteList%20Table%20Relation-2023-11-15-101027.png?version=1&amp;modificationDate=1700103392915&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=721" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/SuperDSP%20-%20MediaWhiteList%20Table%20Relation-2023-11-15-101027.png?version=1&amp;modificationDate=1700103392915&amp;cacheVersion=1&amp;api=v2&amp;width=1520&amp;height=1442 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/SuperDSP%20-%20MediaWhiteList%20Table%20Relation-2023-11-15-101027.png?version=1&amp;modificationDate=1700103392915&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=721 1x" width="760"/>
+</span>
+<p>
+</p>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-WBS">
+ WBS
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="919d98f6-dfe1-48e6-9d16-87356e841015" data-table-width="573">
+  <colgroup>
+   <col style="width: 173.0px;"/>
+   <col style="width: 171.0px;"/>
+   <col style="width: 229.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       項目
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       Owner
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       Duration
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      提需求
+      <br/>
+      UIUX設計
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      PM、UIUX
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      10/30-11/3
+     </p>
+     <ul>
+      <li>
+       <p>
+        11/1 Emma 完成初版
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Andy approve
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      PM
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/6
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      ITO sync需求
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      PM
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/7
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      DEV-FE
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="557058:508ea223-fd64-4316-9665-ea32c2261a02" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="2981959" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/557058:508ea223-fd64-4316-9665-ea32c2261a02?ref=confluence" target="_blank">
+       Ryan Meng
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/14-11/20 (4d)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      DEV-BE
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/14-11/20(3d)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      RD-SIT
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/21-11/22(2d)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      UAT(RD 機)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/23-11/24(2d)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      UAT 調整
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/27-11/28(2d)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      正式廣告投放測試
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/29-11/30(2d)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      正式機調整
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      12/1(1d)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Release
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      12/4
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-SIT/UAT問題回報紀錄表">
+ SIT/UAT 問題回報紀錄表
+</h1>
+<iframe class="conf-macro output-block" data-hasbody="false" data-layout="full-width" data-local-id="66a79a15-a592-49ee-be48-45649f8113f1" data-macro-id="1a522986ef557ad52fbe1c34de390936" data-macro-name="iframe" frameborder="1" height="600" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://docs.google.com/spreadsheets/d/129lC36VfQZfrJWsGJ2d6BA4qkG8nItBS45GuwsulXLs/edit#gid=1144744285" width="100%">
+</iframe>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-參考資料">
+ 參考資料
+</h1>
+<p>
+ <a class="external-link" href="https://docs.google.com/document/d/1mB8wLBzF_2jueOcHkg8oENLsxEZ6m6kMHCCpcnwdn2k/edit" rel="nofollow">
+  4 快閃廣告上架SuperDSP
+ </a>
+</p>
+<p>
+ 參考：上架格式規格
+</p>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="356" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3478650902/image-20231027-063911.png?version=1&amp;modificationDate=1698388755749&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3478650902" data-linked-resource-container-version="27" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="image-20231027-063911.png" data-linked-resource-id="3478782003" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="546fb695-7f55-4bfe-b9da-1dac43297021" data-media-type="file" data-unresolved-comment-count="0" data-width="445" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/image-20231027-063911.png?version=1&amp;modificationDate=1698388755749&amp;cacheVersion=1&amp;api=v2&amp;width=356&amp;height=285" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/image-20231027-063911.png?version=1&amp;modificationDate=1698388755749&amp;cacheVersion=1&amp;api=v2&amp;width=356&amp;height=285 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3478650902/image-20231027-063911.png?version=1&amp;modificationDate=1698388755749&amp;cacheVersion=1&amp;api=v2&amp;width=356&amp;height=285 1x" width="445"/>
+</span>
+<ul>
+ <li>
+  <p>
+   AI 文案不開放的原因：時程
+  </p>
+ </li>
+</ul>
+<p>
+ 與此相關的規劃中需求：
+ <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3480879117/-+SuperDSP+FlashDrive+Instream+Pacing" rel="nofollow">
+  前端智慧 - SuperDSP FlashDrive媒體 / Instream 裝置Pacing - Super-ITO - Confluence (atlassian.net)
+ </a>
+</p>
+<h1 id="id-快閃廣告(FlashDrive)上架SuperDSPPhase1-後續問題">
+ 後續問題
+</h1>
+<ol start="1">
+ <li>
+  <p>
+   因應白名單後續改善，可能會新增 CTR by 媒體 報表
+   <br/>
+   (for PM 去開關 CTR 過低媒體，避免成本過高)
+  </p>
+ </li>
+ <li>
+  <p>
+   提供畫面供 PM 能夠手動開關媒體，細節仍需開會討論
+   <br/>
+   (ex: 自動開關日期？)
+  </p>
+ </li>
+</ol>

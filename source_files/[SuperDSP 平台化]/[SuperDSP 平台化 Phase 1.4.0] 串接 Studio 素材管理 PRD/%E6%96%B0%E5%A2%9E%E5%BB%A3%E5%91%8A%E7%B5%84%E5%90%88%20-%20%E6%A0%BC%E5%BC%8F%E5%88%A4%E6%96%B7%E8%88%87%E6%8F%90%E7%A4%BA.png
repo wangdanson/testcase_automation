@@ -1,0 +1,50 @@
+---
+title: 透過 "新增素材包" 選擇 STUDIO 格式，進入 STUDIO 系統，並進行素材包建立 
+---
+flowchart TD
+Start([流程開始])
+End([流程結束])
+
+P0[素材管理頁面]
+
+Start --> P0
+P0 -- 點擊 --> P1(新增素材包)
+P1 -- 展開 --> P2[新增素材包抽屜]
+P2 -- 選擇廣告品類 --> P3(RichMedia)
+
+P3 --> D1{檢查品類格式項目<br>是否只有 Studio 格式}
+D1 -- 否 --> P4[顯示廣告格式]
+P4 -- 選擇 --> P11[Studio 格式]
+P11 --> P5
+
+D1 -- 是 --> P5[🔔 通知彈窗</br>將以開新視窗方式，帶您前往 STUDIO]
+P5 --> D2{使用者選擇}
+D2 -- 不，停留在此 --> P2
+D2 -- 是 --> P6[呼叫 redirect studio API]
+    P6 --> D3{API Response}
+    D3 --Success--> P7[取得 redirect URL]
+    P7 --> P8[1.關閉素材包抽屜<br>2.開新視窗]
+    P8 -- 跳轉 STUDIO --> D5{STUDIO 轉址驗證}
+        D5 --Error--> E3[顯示轉址失敗]
+        D5 --Success--> P9[✅ 進入 STUDIO 系統]
+        P9 -- 顯示 --> P10[指定格式素材建立頁]
+            P10 --> P101[完成素材包建立]
+            P101 -- 返回 (切回標籤) --> P12[SuperDSP]
+            P12 -- 檢視 --> P13[素材包列表]
+            P13 --> P14[素材包項目<br>即時更新]
+            P14 --> End
+
+    D3 --Error--> D4{錯誤類型判斷}
+        D4 --其他錯誤--> E1[❌ 錯誤提示]
+        D4 --401--> E2[跳轉登入頁]
+        E2 --重新登入 --> P0
+
+
+ 
+style Start fill:#e3f2fd
+style End fill:#e3f2fd
+style P9 fill:#c8e6c9
+style P5 fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+style E1 fill:#ffebee,stroke:#f44336,stroke-width:2px
+style E2 fill:#ffebee,stroke:#f44336,stroke-width:2px
+style E3 fill:#ffebee,stroke:#f44336,stroke-width:2px

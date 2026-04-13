@@ -1,0 +1,32 @@
+flowchart TD
+    A[用戶點擊「聯絡我們」按鈕] --> B[開啟抽屜式表單]
+    B --> C[用戶填寫標題與問題描述]
+    C --> D[用戶點擊「提交」按鈕]
+    D --> E{前端驗證表單內容}
+    
+    E -->|驗證失敗| F[顯示錯誤訊息]
+    F --> C
+    
+    E -->|驗證成功| G[顯示 Loading 狀態]
+    G --> H[發送 API 請求到後端]
+    H --> I{後端處理}
+    
+    I -->|處理失敗| J[回傳錯誤狀態]
+    J --> K[顯示錯誤 Toast 訊息]
+    K --> L[保持抽屜開啟]
+    
+    I -->|處理成功| M[發送郵件至客服信箱]
+    M --> N[回傳成功狀態]
+    N --> O[顯示成功 Toast 訊息]
+    O --> P[2秒後自動關閉抽屜]
+    P --> Q[完成]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style E fill:#fff3e0
+    style I fill:#fff3e0
+    style F fill:#ffebee
+    style J fill:#ffebee
+    style K fill:#ffebee
+    style O fill:#e8f5e8
+    style Q fill:#e8f5e8

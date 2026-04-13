@@ -1,0 +1,96 @@
+<h3 id="id-[功能需求]受眾鎖定-預估量體-範例說明">
+ <style>
+  [data-colorid=gtwssunqve]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=gtwssunqve]{color:#004eb3}[data-colorid=biihip4iv5]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=biihip4iv5]{color:#004eb3}[data-colorid=m7mzbyxzrg]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=m7mzbyxzrg]{color:#004eb3}[data-colorid=p0vh5intxi]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=p0vh5intxi]{color:#004eb3}
+ </style>
+ 範例說明
+</h3>
+<p>
+ <strong>
+  年齡 + 興趣特定議題
+ </strong>
+ <strong>
+  +
+ </strong>
+ <br/>
+ <strong>
+  包含 ( 產業鑽石受眾 + 特定族群 +
+  <span data-colorid="p0vh5intxi">
+   產業 Shopper Graph
+  </span>
+  +
+  <span data-colorid="m7mzbyxzrg">
+   Webb 購買數據
+  </span>
+  +
+ </strong>
+ <br/>
+ <strong>
+  網站流量受眾(已打包) + 廣告活動受眾(未打包)) +
+ </strong>
+ <br/>
+ <strong>
+  排除 ( 網站流量受眾(未打包)
+ </strong>
+ +
+ <strong>
+  廣告活動受眾(已打包))
+ </strong>
+</p>
+<p>
+ <br/>
+ step 1     Call
+ <a class="external-link" href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-UV-PV-%E4%BE%9D-segments" rel="nofollow">
+  API
+ </a>
+ [ 年齡 &amp; ( 產業鑽石受眾數 + 特定族群 +
+ <strong>
+  <span data-colorid="biihip4iv5">
+   產業 Shopper Graph
+  </span>
+  +
+  <span data-colorid="gtwssunqve">
+   Webb 購買數據
+  </span>
+ </strong>
+ + 網站流量受眾(已打包) ) ] = 150萬人
+ <br/>
+ step 2    Call MASA [ 年齡 &amp; 廣告流量受眾(未打包) ] = 5萬人
+ <br/>
+ step 3    計算所有包含, 150萬人 + 5萬人 = 155萬人
+ <br/>
+ step 4    使用者選取 年齡：男性 25-34, 女性 25-34｜取 DB(戶政司資料), 台灣人口數: 17,000,000 男性 25-34 比例 0.14, 女性 25-34 比例 0.13
+ <br/>
+ step 5    17,000,000 * ( 0.14 + 0.13 ) = 4,590,000
+ <br/>
+ <strong>
+  上限值公式：min [戶政司人口數, 包含uu] * 興趣 ratio
+ </strong>
+ <br/>
+ step 6    min[4,590,000, 1,550,000] = 1,550,000
+ <br/>
+ step 7    使用者選取 新聞時事, 娛樂追星, 體育運動｜取 DB(OneID 興趣比例資料), 新聞時事 比例 0.17, 娛樂追星 比例 0.12, 體育運動 比例 0.07
+ <br/>
+ step 8    1,550,000 * ( 0.17 + 0.12 + 0.07 ) = 558,000 (上限值)
+ <br/>
+ step 9    558,000 (上限值) * 0.85 = 474,300 (下限值)
+ <br/>
+ step 10   Call MASA [ 年齡 &amp; 網站流量受眾(未打包) ] = 3萬人
+ <br/>
+ step 11   3萬人 * ( 0.17 + 0.12 + 0.07 ) = 10,800
+ <br/>
+ step 12   Call
+ <a class="external-link" href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-UV-PV-%E4%BE%9D-segments" rel="nofollow">
+  API
+ </a>
+ [ 年齡 &amp;  廣告活動受眾(已打包) ] = 20萬人
+ <br/>
+ step 13   20萬人 * ( 0.17 + 0.12 + 0.07 ) = 72,000
+ <br/>
+ step 14   計算所有排除, 10,800 + 72,000 = 82,800
+ <br/>
+ step 15   474,300 (下限值) - 排除uu 82,800 = 391,500
+ <br/>
+ step 16   計算結果：391,500 ~ 558,000 UU
+ <br/>
+ step 17   介面顯示：391,000 ~ 558,000 UU
+</p>

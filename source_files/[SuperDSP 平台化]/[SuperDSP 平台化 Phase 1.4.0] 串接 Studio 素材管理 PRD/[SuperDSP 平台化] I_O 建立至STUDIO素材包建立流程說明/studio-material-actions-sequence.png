@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant SuperDSP
+    participant API
+    participant Studio
+
+    User->>SuperDSP: 點擊「建立 / 預覽 / 編輯 / 複製」按鈕
+    SuperDSP->>User: 顯示提示訊息
+    User->>SuperDSP: 點選「是」
+    SuperDSP->>API: 呼叫 /studio/redirect API（帶入操作類型）
+    API-->>Studio: 透過 HTTP Redirect 跳轉至 STUDIO URL（含 token）
+    Studio-->>User: 進入對應畫面（新增 / 預覽 / 編輯 / 複製）

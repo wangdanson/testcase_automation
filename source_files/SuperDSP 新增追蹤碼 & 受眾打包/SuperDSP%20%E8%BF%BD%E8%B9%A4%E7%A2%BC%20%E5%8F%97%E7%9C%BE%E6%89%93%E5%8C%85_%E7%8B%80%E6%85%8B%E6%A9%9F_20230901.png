@@ -1,0 +1,23 @@
+%% Generated with Stately Studio
+stateDiagram-v2
+  state "AdGroup" as AdGroup {
+    [*] --> AdGroup.DRAFT
+    AdGroup.DRAFT --> AdGroup.REVIEWING : userClickOnCue\nif [package && BDCD segments ready]
+    AdGroup.REVIEWING --> AdGroup.ONCUE : package && segments ready
+    AdGroup.DRAFT --> AdGroup.ABORTED : CIS aborted package
+    AdGroup.REVIEWING --> AdGroup.ABORTED : CIS abort package
+    AdGroup.ONCUE --> AdGroup.PENDING : user pend adGroup
+    AdGroup.REVIEWING --> AdGroup.CLOSED : userClose
+    AdGroup.REVIEWING --> AdGroup.PENDING : user pause
+    AdGroup.PENDING --> AdGroup.ONCUE : userOnCue\nif [package && BDCD segments ready]
+    AdGroup.PENDING --> AdGroup.CLOSED : userClose
+    state "DRAFT" as AdGroup.DRAFT
+    state "REVIEWING" as AdGroup.REVIEWING
+    state "ONCUE" as AdGroup.ONCUE
+    state "PENDING" as AdGroup.PENDING
+    state "ABORTED" as AdGroup.ABORTED
+    state "CLOSED" as AdGroup.CLOSED
+  }
+
+
+  

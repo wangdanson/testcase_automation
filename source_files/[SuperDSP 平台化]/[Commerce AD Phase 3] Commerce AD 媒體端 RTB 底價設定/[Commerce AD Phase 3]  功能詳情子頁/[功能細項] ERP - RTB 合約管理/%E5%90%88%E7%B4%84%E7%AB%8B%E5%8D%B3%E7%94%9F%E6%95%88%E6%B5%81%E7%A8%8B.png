@@ -1,0 +1,126 @@
+graph TB
+    %% 樣式定義
+    classDef pending fill:#FFE0B2,stroke:#EF6C00,stroke-width:3px,color:#E65100
+    classDef action fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef result fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    classDef warning fill:#FFCDD2,stroke:#C62828,stroke-width:3px,color:#B71C1C
+    classDef info fill:#E1BEE7,stroke:#6A1B9A,stroke-width:3px,color:#4A148C
+    classDef startEnd fill:#F3E5F5,stroke:#6A1B9A,stroke-width:4px,color:#4A148C
+    classDef decision fill:#FFF9C4,stroke:#F57F17,stroke-width:3px,color:#E65100
+    classDef instant fill:#C5E1A5,stroke:#558B2F,stroke-width:4px,color:#1B5E20
+    
+    %% 階段0：時間背景
+    subgraph stage0["📅 時間背景說明"]
+        TimeContext[📅 當前日期：<br/>2025/9/15<br/>📍 新合約預設生效：<br/>2025/10/1]:::info
+    end
+    
+    TimeContext --> Start
+    
+    %% 階段1：初始狀態檢查
+    subgraph stage1["🔍 階段1：狀態檢查"]
+        Start([📋 合約查看頁面]):::startEnd
+        Check{合約狀態<br/>是否為待生效？}:::decision
+        NoButton[❌ 不顯示立即生效按鈕]:::warning
+        ShowButton[✅ 顯示「立即生效」按鈕<br/>（僅出現在待生效的新合約）]:::action
+    end
+    
+    Start --> Check
+    Check -->|❌ 否| NoButton
+    NoButton --> End1([結束]):::startEnd
+    Check -->|✅ 是| ShowButton
+    
+    %% 階段2：按鈕操作與確認
+    subgraph stage2["🖱️ 階段2：使用者操作"]
+        ClickButton[PAD 點擊新合約的立即生效按鈕]:::action
+        Confirm[⚠️ 顯示確認對話框<br/>「此操作將立即生效新合約<br/>並影響計費，是否確定？」]:::warning
+    end
+    
+    ShowButton --> ClickButton
+    ClickButton --> Confirm
+    
+    Confirm -->|❌ 取消| End2([取消操作]):::startEnd
+    
+    %% 階段3：情境判斷
+    subgraph stage3["🔀 階段3：情境判斷"]
+        Scenario{判斷合約<br/>情境}:::decision
+    end
+    
+    Confirm -->|✅ 確認| Scenario
+    
+    %% 階段4A：情境1 - 第一份合約
+    subgraph stage4a["📝 情境1：第一份合約（無舊合約）"]
+        FirstContract[🆕 第一份合約<br/>（無舊合約存在）]:::pending
+        Update1[更新合約起始日期]:::action
+        Change1[📆 起始日：<br/>2025/10/1 → 2025/9/1<br/>📆 結束日：<br/>維持 2099/12/31]:::info
+        GetPrice1[🔍 抓取設定的底價<br/>（首次合約使用手動設定值）]:::action
+        CreateLog1[📝 產生第一筆歷史紀錄<br/>價格：手動設定值<br/>時間：2025/9/15（當下）]:::info
+        Effect1[✅ 合約立即生效<br/>狀態：待生效 → 生效]:::result
+        InstantSeq1[⚡ 立即更新 Sequence<br/>底價馬上啟用<br/>❌ 不需等待整點]:::instant
+    end
+    
+    Scenario -->|情境1：無舊合約| FirstContract
+    FirstContract --> Update1
+    Update1 --> Change1
+    Change1 --> GetPrice1
+    GetPrice1 --> CreateLog1
+    CreateLog1 --> Effect1
+    Effect1 --> InstantSeq1
+    
+    %% 階段4B：情境2 - 新舊合約並存
+    subgraph stage4b["🔄 情境2：新舊合約並存"]
+        BothContract[📑 新舊合約同時存在<br/>（僅新合約有立即生效按鈕）]:::pending
+        Update2[同時更新兩份合約日期]:::action
+    end
+    
+    subgraph stage4b2["📝 合約日期調整"]
+        UpdateNew[🆕 新合約<br/>-------------------------------<br/>📆 起始日：<br/>2025/10/1 → 2025/9/1<br/>📆 結束日：<br/>維持 2099/12/31]:::info
+        UpdateOld[📛 舊合約<br/>-------------------------------<br/>📆 起始日：<br/>維持 2024/6/1<br/>📆 結束日：<br/>2099/12/31 → 2025/8/31<br/>（改為當月初前一天）]:::info
+    end
+    
+    subgraph stage4b3["📊 價格處理與記錄"]
+        GetLastPrice[🔍 抓取舊合約<br/>最後的生效價格]:::action
+        CreateNewLog[📝 新合約產生第一筆紀錄<br/>價格：舊合約最後價格<br/>時間：2025/9/15（當下）]:::info
+        CreateOldLog[📝 舊合約產生最後一筆紀錄<br/>價格：當前價格 + 終止標記<br/>時間：2025/9/15（當下）]:::info
+    end
+    
+    subgraph stage4b4["✅ 狀態更新"]
+        Effect2[✅ 新合約立即生效<br/>狀態：待生效 → 生效]:::result
+        StopOld[🛑 舊合約立即停止<br/>狀態：生效 → 失效]:::warning
+        InstantSeq2[⚡ 立即更新 Sequence<br/>使用新合約底價<br/>❌ 不需等待整點]:::instant
+    end
+    
+    Scenario -->|情境2：有舊合約| BothContract
+    BothContract --> Update2
+    Update2 --> UpdateNew
+    Update2 --> UpdateOld
+    UpdateNew --> GetLastPrice
+    UpdateOld --> CreateOldLog
+    GetLastPrice --> CreateNewLog
+    CreateNewLog --> Effect2
+    CreateOldLog --> StopOld
+    Effect2 --> InstantSeq2
+    
+    %% 結束節點
+    InstantSeq1 --> End3([✅ 完成<br/>底價立即生效]):::startEnd
+    InstantSeq2 --> End4([✅ 完成<br/>底價立即生效]):::startEnd
+    
+    %% 核心邏輯說明（垂直排列）
+    subgraph rule ["⚠️ 核心邏輯說明 v2.0"]
+        direction TB
+        style rule fill:#FFF3E0,stroke:#F57C00,stroke-width:4px,color:#E65100
+        R1["1️⃣ <br/>同一時間只能有一份生效合約"]:::warning
+        R2["2️⃣ <br/>建立合約時，只能建立未來的合約<br/>(9月任一天只能建立 10/1 起始的合約)"]:::warning
+        R3["3️⃣ <br/>立即生效 = 起始日提前到當月初<br/>(2025/10/1 → 2025/9/1)"]:::warning
+        R4["4️⃣ <br/>⚡ 底價立即啟用，不需等待整點<br/>（按下按鈕的當下馬上生效）"]:::instant
+        R5["5️⃣ <br/>新合約生效時才產生第一筆紀錄<br/>（使用舊合約最後價格或手動設定值）"]:::info
+        
+        R1 ---|&nbsp;| R2
+        R2 ---|&nbsp;| R3
+        R3 ---|&nbsp;| R4
+        R4 ---|&nbsp;| R5
+    end
+    
+    %% 標註關鍵變更
+    GetLastPrice -.- priceNote[💡 價格承接<br/>使用舊合約最後價格]
+    
+    style priceNote fill:#FFFDE7,stroke:#F57F17,stroke-dasharray: 5 5,color:#E65100

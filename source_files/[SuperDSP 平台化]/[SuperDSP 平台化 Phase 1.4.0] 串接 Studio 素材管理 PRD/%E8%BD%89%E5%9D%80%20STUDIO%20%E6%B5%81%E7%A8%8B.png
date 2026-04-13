@@ -1,0 +1,6 @@
+flowchart TD
+    A1[素材管理頁] --> A2[點擊：前往 STUDIO 建立素材]
+    A2 --> A3[顯示提示：將以開新視窗方式帶您前往 STUDIO]
+    A3 --> A4[呼叫 API：取得 user token]
+    A4 -->|成功| A5[開啟新視窗：導入 token 的 STUDIO URL]
+    A4 -->|失敗| A6[顯示錯誤訊息：取得 STUDIO Token 失敗，請稍後再試]

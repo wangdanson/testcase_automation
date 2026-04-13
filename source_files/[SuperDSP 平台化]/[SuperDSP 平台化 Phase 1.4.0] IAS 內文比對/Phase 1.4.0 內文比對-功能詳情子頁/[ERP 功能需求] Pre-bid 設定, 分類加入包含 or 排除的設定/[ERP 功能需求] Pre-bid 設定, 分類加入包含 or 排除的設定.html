@@ -1,0 +1,66 @@
+<p>
+ 將中文及英文的 CCT 及 CCA 前綴移除後, 為了讓 PM 可以順利繼續維護且具有辨識性, 所以做以下修改
+</p>
+<p>
+</p>
+<ul>
+ <li>
+  <p>
+   <code>
+    設定 -&gt; Pre-bid 設定 -&gt; 系統 Contextual 分類
+   </code>
+   ：內文比對之分類
+   <br/>
+   Create / 編輯 之 popup 需新增
+   <br/>
+   - 標題： *大分類
+   <br/>
+   - 下拉選單：包含 / 排除 單選
+   <br/>
+   - 並且大表新增 類別欄位可以方便檢視
+  </p>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+   <img alt="截圖 2025-05-23 下午5.58.42.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="591" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.58.42.png?version=1&amp;modificationDate=1747994328036&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3869048854" data-linked-resource-container-version="2" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-05-23 下午5.58.42.png" data-linked-resource-id="3868655812" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="fb8dda7f-81c0-45d9-b9fe-3044ebf17a10" data-media-type="file" data-unresolved-comment-count="0" data-width="1259" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.58.42.png?version=1&amp;modificationDate=1747994328036&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=345" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.58.42.png?version=1&amp;modificationDate=1747994328036&amp;cacheVersion=1&amp;api=v2&amp;width=1472&amp;height=690 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%885.58.42.png?version=1&amp;modificationDate=1747994328036&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=345 1x" width="736"/>
+  </span>
+  <p>
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    設定 -&gt; Pre-bid 設定 -&gt; 系統 Contextual Avoidance
+   </code>
+   ：排除內文比對
+   <br/>
+   大分類的列表內容僅顯示 被 設定為
+   <strong>
+    排除
+   </strong>
+   之內容
+  </p>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+   <img alt="截圖 2025-05-23 下午6.03.46.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="796" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.03.46.png?version=1&amp;modificationDate=1747994634141&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3869048854" data-linked-resource-container-version="2" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-05-23 下午6.03.46.png" data-linked-resource-id="3868590286" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="7f9c130a-df25-4fb1-af81-e12086db9116" data-media-type="file" data-unresolved-comment-count="0" data-width="1461" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.03.46.png?version=1&amp;modificationDate=1747994634141&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=400" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.03.46.png?version=1&amp;modificationDate=1747994634141&amp;cacheVersion=1&amp;api=v2&amp;width=1472&amp;height=800 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.03.46.png?version=1&amp;modificationDate=1747994634141&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=400 1x" width="736"/>
+  </span>
+  <p>
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    設定 -&gt; Pre-bid 設定 -&gt; 系統 Contextual Targeting
+   </code>
+   ：包含內文比對
+   <br/>
+   大分類的列表內容僅顯示 被 設定為
+   <strong>
+    包含
+   </strong>
+   之內容
+  </p>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+   <img alt="截圖 2025-05-23 下午6.06.19.png" class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="829" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.06.19.png?version=1&amp;modificationDate=1747994783732&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3869048854" data-linked-resource-container-version="2" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-05-23 下午6.06.19.png" data-linked-resource-id="3868655821" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="1f0b99a0-1b27-4f27-9cca-cc20db50fc21" data-media-type="file" data-unresolved-comment-count="0" data-width="1467" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.06.19.png?version=1&amp;modificationDate=1747994783732&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=415" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.06.19.png?version=1&amp;modificationDate=1747994783732&amp;cacheVersion=1&amp;api=v2&amp;width=1472&amp;height=830 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3869048854/%E6%88%AA%E5%9C%96%202025-05-23%20%E4%B8%8B%E5%8D%886.06.19.png?version=1&amp;modificationDate=1747994783732&amp;cacheVersion=1&amp;api=v2&amp;width=736&amp;height=415 1x" width="736"/>
+  </span>
+  <p>
+  </p>
+ </li>
+</ul>

@@ -1,0 +1,2659 @@
+<div class="toc-macro client-side-toc-macro conf-macro output-block" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-layout="default" data-local-id="5c8d3c24-2546-4c1e-8aa8-50808129cd23" data-macro-id="b3c821c6-83a5-400e-8e84-d44efcb930c8" data-macro-name="toc">
+ <style>
+  [data-colorid=ajgt9sgb8q]{color:#ff5630} html[data-color-mode=dark] [data-colorid=ajgt9sgb8q]{color:#cf2600}[data-colorid=z5a7jbckh5]{color:#bf2600} html[data-color-mode=dark] [data-colorid=z5a7jbckh5]{color:#ff6640}[data-colorid=xp7c8467rn]{color:#ff5630} html[data-color-mode=dark] [data-colorid=xp7c8467rn]{color:#cf2600}[data-colorid=f9ji9m06qv]{color:#ff5630} html[data-color-mode=dark] [data-colorid=f9ji9m06qv]{color:#cf2600}[data-colorid=ax2k1jnpre]{color:#bf2600} html[data-color-mode=dark] [data-colorid=ax2k1jnpre]{color:#ff6640}[data-colorid=wo6fit50fo]{color:#bf2600} html[data-color-mode=dark] [data-colorid=wo6fit50fo]{color:#ff6640}[data-colorid=xbojbr60fy]{color:#bf2600} html[data-color-mode=dark] [data-colorid=xbojbr60fy]{color:#ff6640}
+ </style>
+</div>
+<h1 id="SuperDSP受眾包ver2-目標">
+ 目標
+</h1>
+<p>
+ 調整架構和 UI, 避免使用者做太多過濾, 讓受眾 UU 數過少
+</p>
+<h1 id="SuperDSP受眾包ver2-UserStory">
+ <span class="inline-comment-marker" data-ref="13278846-b8fa-441f-a01b-686b12449849">
+  UserStory
+ </span>
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="27f29dca-b834-476a-af4d-af2c9c9f23d2" data-table-width="760">
+  <colgroup>
+   <col style="width: 79.0px;"/>
+   <col style="width: 425.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       User
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       行為
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="4">
+     <p>
+      <span class="inline-comment-marker" data-ref="bd96ae54-c158-4261-8500-dfc55905147f">
+       經銷商, 直客
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在廣告組合中使用受眾包進行 Targeting
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      管理受眾包(新增, 編輯, 複製, 啟用停用)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      組合不同受眾包以符合 Targeting 需求
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      獲得受眾包的預估 UU 數(網站流量, 廣告流量)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      媒體
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      不能使用受眾包所有功能
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="SuperDSP受眾包ver2-功能">
+ 功能
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="3842ed3d-fabd-4eca-858c-8168a92578fc" data-table-width="760">
+  <colgroup>
+   <col style="width: 73.0px;"/>
+   <col style="width: 433.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       系統
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       項目
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="3">
+     <p>
+      SuperDSP
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      管理受眾包(新增, 編輯, 複製, 啟用停用)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      在廣告組合中使用受眾包進行 Targeting
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      舊資料遷移
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="SuperDSP受眾包ver2-驗收標準">
+ <span class="inline-comment-marker" data-ref="1488c7ed-163d-4f18-952d-e640ed725836">
+  驗收標準
+ </span>
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="3de50f88-2477-4f17-9ec7-2a1518458400" data-table-width="1438">
+  <colgroup>
+   <col style="width: 209.0px;"/>
+   <col style="width: 166.0px;"/>
+   <col style="width: 1063.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       項目
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       小項目
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       確認項目
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      舊資料遷移
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      既有的受眾組合改成等價的興趣受眾包
+     </p>
+     <p>
+      既有的廣告組合綁定的受眾組合改成轉換後的興趣受眾包
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      廣告組合(AdGroup)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      受眾包只能單選
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="3">
+     <p>
+      受眾包總覽
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      列表頁
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      複製受眾包, 成功後列表即時更新
+     </p>
+     <p>
+      點擊使用中, 顯示使用該受眾包的廣告組合
+     </p>
+     <p>
+     </p>
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      啟用受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在廣告組合可選擇該受眾包
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      停用受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <span data-colorid="z5a7jbckh5">
+       在受眾包的選項中不能「看到」該受眾包
+      </span>
+     </p>
+     <p>
+      <span data-colorid="xbojbr60fy">
+       使用中不可被停用
+      </span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      年齡興趣受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增編輯
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        新增編輯後的結果確實存入資料庫
+       </p>
+      </li>
+      <li>
+       <p>
+        新增時, 興趣特定議題全部不選
+       </p>
+      </li>
+      <li>
+       <p>
+        全選/全不選 的文字按鈕顯示是否正常：
+       </p>
+       <ul>
+        <li>
+         <p>
+          沒有全選時, 文字顯示 “全選”, 點擊可選取全部選項
+         </p>
+        </li>
+        <li>
+         <p>
+          全選時, 文字顯示 “全不選“, 點擊可取消選取全部選項
+         </p>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <p>
+        防呆機制符合預期：
+       </p>
+       <ul>
+        <li>
+         <p>
+          年齡性別至少選一筆
+         </p>
+        </li>
+        <li>
+         <p>
+          興趣特定議題至少選一筆
+         </p>
+        </li>
+        <li>
+         <p>
+          受眾包名稱長度 1-80
+         </p>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <p>
+        選擇排除的受眾包時
+       </p>
+       <ul>
+        <li>
+         <p>
+          跳出對應的受眾包列表
+         </p>
+         <ul>
+          <li>
+           <p>
+            <del>
+             已停用的受眾包, 除非已選擇, 否則不顯示在列表中
+            </del>
+            <span data-colorid="ax2k1jnpre">
+             使用中不可被停用，故停用中不顯示在列表中
+            </span>
+           </p>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <p>
+          已選擇的受眾包在清單中被勾選
+         </p>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      網站流量受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增編輯
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        新增編輯後的結果確實存入資料庫
+       </p>
+      </li>
+      <li>
+       <p>
+        條件變更後, 3 秒內沒有再設定其他選項時才發出預估量體 API 獲得預估 UU 數
+       </p>
+      </li>
+      <li>
+       <p>
+        年齡性別, 興趣特定議題
+       </p>
+       <ul>
+        <li>
+         <p>
+          預設全選, 且 UI 隱藏不展開
+         </p>
+        </li>
+        <li>
+         <p>
+          UI 展開後
+         </p>
+         <ul>
+          <li>
+           <p>
+            選項預設全不選
+           </p>
+          </li>
+          <li>
+           <p>
+            選擇選項後, “預設” 字樣改為 “已自訂“
+           </p>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      廣告活動受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        新增編輯後的結果確實存入資料庫
+       </p>
+      </li>
+      <li>
+       <p>
+        條件變更後, 3 秒內沒有再設定其他選項時才發出預估量體 API 獲得預估 UU 數
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      <span data-colorid="ajgt9sgb8q">
+       受眾包共用邏輯
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        <span data-colorid="xp7c8467rn">
+         受眾包可用其他受眾包做為排除條件
+        </span>
+       </p>
+      </li>
+      <li>
+       <p>
+        <span data-colorid="f9ji9m06qv">
+         若該受眾包已使用其他受眾包做排除, 則該受眾包不能被其他受眾包用來排除(該受眾包不出現在清單當中)
+        </span>
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      sequence.json
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      (待捕)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      uu數計算邏輯來源與驗證
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      (待捕)
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="SuperDSP受眾包ver2-Diagram">
+ Diagram
+</h1>
+<h2 id="SuperDSP受眾包ver2-Wireframe">
+ Wireframe
+</h2>
+<iframe allowfullscreen="" class="conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="266231a9-f7ca-4ffe-8301-9b74f4835258" data-macro-id="b743f8829eaff21f9c321b8860e75dc5" data-macro-name="iframe" frameborder="1" height="600" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6DLe9B0rw9V7YgBaSllgOQ%2FSuper-dsp%3Ftype%3Ddesign%26mode%3Ddesign%26t%3Dh0BQoRc6CLy53KXM-1" width="100%">
+</iframe>
+<h1 id="SuperDSP受眾包ver2-關鍵設計或問題">
+ 關鍵設計或問題
+</h1>
+<p>
+ 廣告投放時匹配的順序：
+</p>
+<ol start="1">
+ <li>
+  <p>
+   獲取當前使用者 ID, 從 ID 得知對應的年齡性別, 興趣
+  </p>
+ </li>
+ <li>
+  <p>
+   根據使用者年齡性別, 篩掉不符的廣告活動
+  </p>
+ </li>
+ <li>
+  <p>
+   根據使用者其他資料, 計算各個廣告活動對應的積分, 得分最高的廣告投放給使用者
+  </p>
+ </li>
+ <li>
+  <p>
+   小結：有可能出現使用者沒有對應的興趣標籤, 但還是投廣告給他的情形; 比如說：
+  </p>
+  <ol start="1">
+   <li>
+    <p>
+     當下只有這隻廣告活動
+    </p>
+   </li>
+  </ol>
+ </li>
+</ol>
+<h2 id="SuperDSP受眾包ver2-UU計算(編輯中)">
+ UU 計算(編輯中)
+</h2>
+<p>
+ 參考資料：
+ <a class="external-link" href="https://docs.google.com/document/d/1yiuYucmJlHM8FYCuTe-OtaI3aTxvo9Jp_2MnIYZGRqs/edit" rel="nofollow">
+  6 受眾包量體預估計算公式 - Google 文件
+ </a>
+</p>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="c23fc688-41b4-40d4-86e4-bb38d18a8830" data-table-width="1150">
+  <colgroup>
+   <col/>
+   <col style="width: 238.0px;"/>
+   <col style="width: 261.0px;"/>
+   <col style="width: 331.0px;"/>
+   <col style="width: 320.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="numberingColumn confluenceTh">
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       當下編輯的受眾包
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       用來排除的受眾包
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       期望結果
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       sequence.json 產出數量
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     1
+    </td>
+    <td class="confluenceTd">
+     <p>
+      興趣受眾包
+      <br/>
+      - 年齡性別：18-32F, 18-32M
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      受眾包A(網站流量)
+      <br/>
+      - 年齡性別：18-24 F
+      <br/>
+      - 興趣議題：保養
+     </p>
+     <p>
+      受眾包B(廣告流量)
+      <br/>
+      - 年齡性別：24-32 M
+      <br/>
+      - 興趣議題：機車
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     2
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="49b61008-f0e7-414c-8fd1-855df4d02a3b" data-table-width="1518">
+  <colgroup>
+   <col style="width: 324.0px;"/>
+   <col style="width: 305.0px;"/>
+   <col style="width: 277.0px;"/>
+   <col style="width: 279.0px;"/>
+   <col style="width: 333.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       AdGroup
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       受眾包
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       目前的受眾
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       期望打到的受眾
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      受眾包A(興趣受眾包)
+     </p>
+     <ul>
+      <li>
+       <p>
+        年齡性別：18-24 F
+       </p>
+      </li>
+      <li>
+       <p>
+        興趣議題：保養
+       </p>
+      </li>
+     </ul>
+     <p>
+      受眾包B(興趣受眾包)
+     </p>
+     <ul>
+      <li>
+       <p>
+        年齡性別：25-32 M
+       </p>
+      </li>
+      <li>
+       <p>
+        興趣議題：機車
+       </p>
+      </li>
+     </ul>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="SuperDSP受眾包ver2-功能細項">
+ 功能細項
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="full-width" data-local-id="aced97cc-a3d1-464e-8206-190e4b2ddbd2" data-table-width="1800">
+  <colgroup>
+   <col/>
+   <col style="width: 102.0px;"/>
+   <col style="width: 213.0px;"/>
+   <col style="width: 381.0px;"/>
+   <col style="width: 311.0px;"/>
+   <col style="width: 172.0px;"/>
+   <col style="width: 579.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="numberingColumn confluenceTh">
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       系統
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       功能
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       細項
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       Who
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       開發時間(小時)
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       描述
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     1
+    </td>
+    <td class="confluenceTd" rowspan="33">
+     <p>
+      SuperDSP
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      側邊欄
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      受眾規劃改為「受眾管理」
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0.1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     2
+    </td>
+    <td class="confluenceTd" rowspan="5">
+     <p>
+      受眾管理列表
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      index
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      打一支 API 取得所有類型 or 特定(type)受眾包，不需排序及分類。
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     3
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Tab 改為單一顯示「受眾包總覽」
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0.5
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     4
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增受眾組合改為
+      <strong>
+       下拉菜單
+      </strong>
+      「新增受眾包」：
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        興趣受眾包
+       </p>
+      </li>
+      <li>
+       <p>
+        廣告受眾包
+       </p>
+      </li>
+      <li>
+       <p>
+        網站受眾包
+       </p>
+      </li>
+     </ol>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0.5
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     5
+    </td>
+    <td class="confluenceTd">
+     <p>
+      列表欄位修改：
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        類型
+       </p>
+      </li>
+      <li>
+       <p>
+        受眾包名稱
+       </p>
+      </li>
+      <li>
+       <p>
+        預估量體
+       </p>
+      </li>
+      <li>
+       <p>
+        建立時間
+       </p>
+      </li>
+      <li>
+       <p>
+        狀態 (Switch)
+       </p>
+      </li>
+      <li>
+       <p>
+        功能
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          使用中(0)
+         </p>
+         <ol start="1">
+          <li>
+           <p>
+            onClick Open 抽屜：
+            <br/>
+            列表顯示目前使用中的廣告組合名稱
+           </p>
+          </li>
+         </ol>
+        </li>
+        <li>
+         <p>
+          編輯
+         </p>
+        </li>
+        <li>
+         <p>
+          複製
+         </p>
+        </li>
+       </ol>
+      </li>
+     </ol>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     6
+    </td>
+    <td class="confluenceTd">
+     <p>
+      啟用 / 停用 update
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      不分受眾包類型，都打同一支(同更新)(原本受眾組合分為三支 更新, 啟用, 停用)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     7
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      使用中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      確認關聯是否可正常拉取資料
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     8
+    </td>
+    <td class="confluenceTd" rowspan="5">
+     <p>
+      興趣受眾包表單
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      變更「興趣特定議題」區塊 UI：
+      <span data-colorid="wo6fit50fo">
+       （與
+       <del>
+        Andy
+       </del>
+       Jamie
+       <del>
+       </del>
+       定案）
+      </span>
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        受眾包名稱、年齡與興趣特定議題都為必填
+       </p>
+      </li>
+      <li>
+       <p>
+        興趣與議題為母子層關係
+       </p>
+      </li>
+     </ol>
+     <p>
+      新增「排除項目」區塊（共用組件）：
+     </p>
+     <ol start="2">
+      <li>
+       <p>
+        網站受眾包區塊
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          「+網站受眾包」按鈕
+         </p>
+        </li>
+        <li>
+         <p>
+          網站受眾包排除清單列表
+         </p>
+        </li>
+       </ol>
+      </li>
+      <li>
+       <p>
+        廣告受眾包區塊
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          「+廣告受眾包」按鈕
+         </p>
+        </li>
+        <li>
+         <p>
+          廣告受眾包排除清單列表
+         </p>
+        </li>
+       </ol>
+      </li>
+     </ol>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      UU 即時計算功能調整為
+      <strong>
+       3秒後無動作才 call API
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     9
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增 create
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      可設定排除 受眾包
+     </p>
+     <p>
+      table調整(audience, audience_pack_relations)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     10
+    </td>
+    <td class="confluenceTd">
+     <p>
+      取得 show
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     11
+    </td>
+    <td class="confluenceTd">
+     <p>
+      更新 update
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      同 啟用 / 停用
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     12
+    </td>
+    <td class="confluenceTd">
+     <p>
+      計算uu
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      如計算結果為負數，需警示user放寬受眾鎖定條件
+     </p>
+     <p>
+      排除E, 拿受眾包上限計算
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     13
+    </td>
+    <td class="confluenceTd" rowspan="6">
+     <p>
+      網站受眾包表單
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      資料抓取天數：
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        新增 Default Value「30天」
+       </p>
+      </li>
+     </ol>
+     <p>
+      新增「年齡性別」收合區塊：
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        預設全選，畫面上顯示「預設」
+       </p>
+      </li>
+      <li>
+       <p>
+        用戶點擊編輯時候，文字改為「已自訂」，如果仍為空，則依然顯示「預設」
+       </p>
+      </li>
+     </ol>
+     <p>
+      新增「興趣特定議題」收合區塊：
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        預設全選，畫面上顯示「預設」
+       </p>
+      </li>
+      <li>
+       <p>
+        用戶點擊編輯時候，文字改為「已自訂」，如果仍為空，則依然顯示「預設」
+       </p>
+      </li>
+      <li>
+       <p>
+        興趣與議題為母子層關係
+       </p>
+      </li>
+     </ol>
+     <p>
+      新增「排除項目」區塊（共用組件）：
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        網站受眾包區塊
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          「+網站受眾包」按鈕
+         </p>
+        </li>
+        <li>
+         <p>
+          網站受眾包排除清單列表
+         </p>
+        </li>
+       </ol>
+      </li>
+      <li>
+       <p>
+        廣告受眾包區塊
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          「+廣告受眾包」按鈕
+         </p>
+        </li>
+        <li>
+         <p>
+          廣告受眾包排除清單列表
+         </p>
+        </li>
+       </ol>
+      </li>
+     </ol>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      8
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      UU 即時計算功能調整為
+      <strong>
+       3秒後無動作才 call API
+      </strong>
+     </p>
+     <p>
+      年齡、興趣特定議題，在 call API 時候，如果是空值，需要給在前端組合成完整陣列（需要包含全部項目）。
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     14
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增 create
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      5
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      可設定排除 受眾包
+     </p>
+     <p>
+      可設定興趣, 特定議題
+     </p>
+     <p>
+      table調整(audience, audience_pack_relations)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     15
+    </td>
+    <td class="confluenceTd">
+     <p>
+      取得 show
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     16
+    </td>
+    <td class="confluenceTd">
+     <p>
+      更新 update
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      同 啟用 / 停用
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     17
+    </td>
+    <td class="confluenceTd">
+     <p>
+      選項 options
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      無需修改
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     18
+    </td>
+    <td class="confluenceTd">
+     <p>
+      計算uu
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      如計算結果為負數，需警示user放寬受眾鎖定條件
+     </p>
+     <p>
+      排除E, 拿受眾包上限計算
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     19
+    </td>
+    <td class="confluenceTd" rowspan="6">
+     <p>
+      廣告受眾包表單
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增「排除項目」區塊（共用組件）：
+     </p>
+     <ol start="1">
+      <li>
+       <p>
+        網站受眾包區塊
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          「+網站受眾包」按鈕
+         </p>
+        </li>
+        <li>
+         <p>
+          網站受眾包排除清單列表
+         </p>
+        </li>
+       </ol>
+      </li>
+      <li>
+       <p>
+        廣告受眾包區塊
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          「+廣告受眾包」按鈕
+         </p>
+        </li>
+        <li>
+         <p>
+          廣告受眾包排除清單列表
+         </p>
+        </li>
+       </ol>
+      </li>
+     </ol>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <span class="inline-comment-marker" data-ref="4fc6f2ea-dda5-45ca-aef9-9d84d4762a2c">
+       Jamie:「
+      </span>
+      <br/>
+      <span class="inline-comment-marker" data-ref="4fc6f2ea-dda5-45ca-aef9-9d84d4762a2c">
+       廣告就是打有點擊、完整觀看廣告的人，
+      </span>
+      <br/>
+      <span class="inline-comment-marker" data-ref="4fc6f2ea-dda5-45ca-aef9-9d84d4762a2c">
+       所以不需要給使用者選擇年齡興趣，
+      </span>
+      <br/>
+      <span class="inline-comment-marker" data-ref="4fc6f2ea-dda5-45ca-aef9-9d84d4762a2c">
+       而且他先前打廣告的時候，應該就已經鎖定過某一年齡興趣了，
+      </span>
+      <br/>
+      <span class="inline-comment-marker" data-ref="4fc6f2ea-dda5-45ca-aef9-9d84d4762a2c">
+       所以不給他再篩了。
+      </span>
+      <br/>
+      <span class="inline-comment-marker" data-ref="4fc6f2ea-dda5-45ca-aef9-9d84d4762a2c">
+       」
+      </span>
+     </p>
+     <p>
+      UU 即時計算功能調整為
+      <strong>
+       3秒後無動作才 call API
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     20
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增 create
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      可設定排除 受眾包
+     </p>
+     <p>
+      table調整(audience, audience_pack_relations)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     21
+    </td>
+    <td class="confluenceTd">
+     <p>
+      取得 show
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     22
+    </td>
+    <td class="confluenceTd">
+     <p>
+      更新 update
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      同 啟用 / 停用
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     23
+    </td>
+    <td class="confluenceTd">
+     <p>
+      選項 options
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      無需修改
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     24
+    </td>
+    <td class="confluenceTd">
+     <p>
+      計算uu
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      如計算結果為負數，需警示user放寬受眾鎖定條件
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     25
+    </td>
+    <td class="confluenceTd">
+     <p>
+      網頁瀏覽受眾列表
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      展開此頁面時, 原先已經勾選的項目應該要被勾選
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     26
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增/編輯廣告組合表單
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ol start="1">
+      <li>
+       <p>
+        原「受眾組合」改為「受眾包」
+       </p>
+       <ol start="1">
+        <li>
+         <p>
+          改為按鈕
+         </p>
+        </li>
+        <li>
+         <p>
+          點擊打開抽屜
+         </p>
+         <ol start="1">
+          <li>
+           <p>
+            Search Bar
+           </p>
+          </li>
+          <li>
+           <p>
+            Type Select
+           </p>
+          </li>
+          <li>
+           <p>
+            List
+           </p>
+           <ol start="1">
+            <li>
+             <p>
+              Checkbox
+             </p>
+            </li>
+           </ol>
+          </li>
+         </ol>
+        </li>
+       </ol>
+      </li>
+     </ol>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     27
+    </td>
+    <td class="confluenceTd">
+     <p>
+      因應前端UI需求，整合 interest &amp; keywords  API
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      interest &amp; keywords API 兩隻統整成一隻,
+      <br/>
+      以利 UI 改成子母抽屜呈現.
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     28
+    </td>
+    <td class="confluenceTd">
+     <p>
+      ad_group 受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      show
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     29
+    </td>
+    <td class="confluenceTd">
+     <p>
+      ad_group oncue
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      更新 usecase
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      usecase 受眾包撈取需修改
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     30
+    </td>
+    <td class="confluenceTd">
+     <p>
+      修改 sequence 排除邏輯
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      撈取受眾包排除資料關聯需修改
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      12
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      受眾包有三種類型：興趣 / 廣告 / 網頁
+     </p>
+     <ul>
+      <li>
+       <p>
+        興趣受眾包
+       </p>
+       <ul>
+        <li>
+         <p>
+          使用者可以設定 年齡及興趣(必選)
+         </p>
+         <ul>
+          <li>
+           <p>
+            DB 必定有值, 依設定值 id 帶入產 sequence
+           </p>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <p>
+        廣告受眾包
+       </p>
+       <ul>
+        <li>
+         <p>
+          使用者無法設定 年齡及興趣,
+         </p>
+         <ul>
+          <li>
+           <p>
+            DB 必為空值, 年齡及興趣以空值產 sequence
+            <br/>
+            當 sequence 年齡及興趣為空值時,  SEO 會對全部 id 投放
+           </p>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <p>
+        網頁受眾包
+       </p>
+       <ul>
+        <li>
+         <p>
+          使用者可以設定 年齡及興趣(非必選)
+         </p>
+         <ul>
+          <li>
+           <p>
+            DB 若為空值, 年齡及興趣以空值產 sequence
+            <br/>
+            當 sequence 年齡及興趣為空值時,  SEO 會對全部 id 投放
+           </p>
+          </li>
+          <li>
+           <p>
+            DB 若有數值, 依設定值 id 帶入產 sequence
+           </p>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <p>
+          ad_group 綁 網頁受眾包Ａ (網頁受眾包Ａ設定排除 網頁受眾包Ｂ)
+         </p>
+         <ul>
+          <li>
+           <p>
+            網頁受眾包Ａ條件 年齡 24-35, 34-45 電動
+            <br/>
+            網頁受眾包Ｂ條件 年齡 34-46, 保養
+           </p>
+          </li>
+          <li>
+           <p>
+            僅將 網頁受眾包Ａ 年齡 24-35, 34-45 電動 條件帶入產 sequence,
+            <br/>
+            <strong>
+             排除之受眾包各自年齡興趣條件不會涉入影響產 sequence.
+            </strong>
+           </p>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     31
+    </td>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      排程
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      新增/更新受眾包
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      12:30排程，受眾包撈取需修改(與MASA的介接參數)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     32
+    </td>
+    <td class="confluenceTd">
+     <p>
+      更新 ad_group
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      05:00排程，受眾包撈取需修改
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="numberingColumn confluenceTd">
+     33
+    </td>
+    <td class="confluenceTd">
+     <p>
+      預估UU更新
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      預估UU更新
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      七天更新一次
+     </p>
+     <p>
+      新增欄位紀錄uu更新的時間
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="SuperDSP受眾包ver2-GenerateSequence(TA)fromDBrelations">
+ Generate Sequence(TA) from DB relations
+</h2>
+<p>
+ <strong>
+  Diagram 描述在不同的系統, Sequence 是如何取用資料, 以及這些資料觸發產生的時機點
+ </strong>
+</p>
+<p>
+ 結論：
+</p>
+<ul>
+ <li>
+  <p>
+   Generate Sequence(TA) 不管在
+   <code>
+    SuperDSP
+   </code>
+   or
+   <code>
+    ODM
+   </code>
+   系統,
+   <br/>
+   皆源自於
+   <code>
+    PreCampaignTargets
+   </code>
+   <code>
+    CampaignTargetPids
+   </code>
+   這兩張表.
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    SuperDSP
+   </code>
+   <code>
+    ODM
+   </code>
+   兩系統最大的差異在於,
+   <br/>
+   <code>
+    PreCampaignTargets
+   </code>
+   <code>
+    CampaignTargetPids
+   </code>
+   這兩張表資料的
+   <strong>
+    產生時機及觸發點不同
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     <code>
+      ODM
+     </code>
+     是先行的架構, 所以在 placement 產生以後, 後續兩張表的資料多為利用 ORM relation 達成
+    </p>
+   </li>
+   <li>
+    <p>
+     <code>
+      SuperDSP
+     </code>
+     為配合已有架構, 所以在很多地方是分開的,
+     <strong>
+      直到關鍵步驟觸發才會做兩張表格同步
+     </strong>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="2948" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3473997825/SuperDSP%20Generate%20Sequence(TA)-2023-11-03-070421.png?version=1&amp;modificationDate=1698995188540&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3473997825" data-linked-resource-container-version="69" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="SuperDSP Generate Sequence(TA)-2023-11-03-070421.png" data-linked-resource-id="3480912223" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="44c0dd37-7af8-4b57-bcfb-e309c0f912fd" data-media-type="file" data-unresolved-comment-count="0" data-width="3840" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3473997825/SuperDSP%20Generate%20Sequence(TA)-2023-11-03-070421.png?version=1&amp;modificationDate=1698995188540&amp;cacheVersion=1&amp;api=v2&amp;width=1800&amp;height=1381" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3473997825/SuperDSP%20Generate%20Sequence(TA)-2023-11-03-070421.png?version=1&amp;modificationDate=1698995188540&amp;cacheVersion=1&amp;api=v2&amp;width=3600&amp;height=2762 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3473997825/SuperDSP%20Generate%20Sequence(TA)-2023-11-03-070421.png?version=1&amp;modificationDate=1698995188540&amp;cacheVersion=1&amp;api=v2&amp;width=1800&amp;height=1381 1x" width="1800"/>
+</span>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+ <img class="confluence-embedded-image image-center" data-base-url="https://guoshi.atlassian.net/wiki" data-height="2288" data-image-src="https://guoshi.atlassian.net/wiki/download/attachments/3473997825/ODM%20Generate%20Sequence(TA)-2023-11-03-070403.png?version=1&amp;modificationDate=1698995203991&amp;cacheVersion=1&amp;api=v2" data-linked-resource-container-id="3473997825" data-linked-resource-container-version="69" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="ODM Generate Sequence(TA)-2023-11-03-070403.png" data-linked-resource-id="3480879649" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="96b0f65c-9337-400a-a9e5-385f5f715b5d" data-media-type="file" data-unresolved-comment-count="0" data-width="3840" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3473997825/ODM%20Generate%20Sequence(TA)-2023-11-03-070403.png?version=1&amp;modificationDate=1698995203991&amp;cacheVersion=1&amp;api=v2&amp;width=1800&amp;height=1072" srcset="https://guoshi.atlassian.net/wiki/download/thumbnails/3473997825/ODM%20Generate%20Sequence(TA)-2023-11-03-070403.png?version=1&amp;modificationDate=1698995203991&amp;cacheVersion=1&amp;api=v2&amp;width=3600&amp;height=2144 2x, https://guoshi.atlassian.net/wiki/download/thumbnails/3473997825/ODM%20Generate%20Sequence(TA)-2023-11-03-070403.png?version=1&amp;modificationDate=1698995203991&amp;cacheVersion=1&amp;api=v2&amp;width=1800&amp;height=1072 1x" width="1800"/>
+</span>
+<p>
+</p>
+<h1 id="SuperDSP受眾包ver2-WBS">
+ <span class="inline-comment-marker" data-ref="a5c592e6-5c70-4d48-ba6b-c6c263735128">
+  WBS
+ </span>
+</h1>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="919d98f6-dfe1-48e6-9d16-87356e841015" data-table-width="760">
+  <colgroup>
+   <col style="width: 127.0px;"/>
+   <col style="width: 181.0px;"/>
+   <col style="width: 124.0px;"/>
+   <col style="width: 328.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       項目檢查
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       Owner
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       需時
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       Duration
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      wireframe
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Emma
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      DEV-FE
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence" target="_blank">
+       mariodeng (Unlicensed)
+      </a>
+      32h
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      10/23 - 10/30
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      DEV-BE
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+      47h
+     </p>
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+      40h
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      8d+0.5d(緩衝)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      10/23 - 11/2
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      RD 機資料準備
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/3 - 11/7
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      前後端介接
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/8 - 11/9
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      SIT(RD)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2 d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/10 - 11/13
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      UAT(RD)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/14 - 11/16
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      <span class="inline-comment-marker" data-ref="37f994ff-9d0b-48bf-9ebc-058e976e3f9d">
+       UAT 調整
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/17 - 11/20
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      UAT(正式機)
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/21 - 11/22
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      UAT 調整
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2d
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/23 - 11/24
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Release
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      11/27
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="SuperDSP受眾包ver2-參考資料">
+ 參考資料
+</h1>
+<h2 id="SuperDSP受眾包ver2-i18n(英文)">
+ i18n(英文)
+</h2>
+<p>
+ <a class="external-link" data-card-appearance="inline" href="https://www.figma.com/file/2KPvpzWge0SMCXzf0yFzMg/Super-dsp-(%E5%8F%97%E7%9C%BE%E5%8C%85%E8%8B%B1%E6%96%87%E7%89%88)?type=design&amp;node-id=1979%3A18465&amp;mode=design&amp;t=EGZr2S9hABkyZIVq-1" rel="nofollow">
+  https://www.figma.com/file/2KPvpzWge0SMCXzf0yFzMg/Super-dsp-(%E5%8F%97%E7%9C%BE%E5%8C%85%E8%8B%B1%E6%96%87%E7%89%88)?type=design&amp;node-id=1979%3A18465&amp;mode=design&amp;t=EGZr2S9hABkyZIVq-1
+ </a>
+</p>
+<h2 id="SuperDSP受眾包ver2-UAT問題回報">
+ UAT 問題回報
+</h2>
+<p>
+ <a class="external-link" href="https://docs.google.com/spreadsheets/d/1EB3P57bSlq1le1XFz9Y804VlU4bZGahB7odXasz4FC8/edit#gid=1901421993" rel="nofollow">
+  追蹤碼 ＆ 受眾組合 SIT &amp; UAT - Google 試算表
+ </a>
+</p>
+<h1 id="SuperDSP受眾包ver2-注意事項">
+ 注意事項
+</h1>
+<p>
+ 待確認: API 規格請照
+ <a data-linked-resource-id="3407052977" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITOOperationManual/pages/3407052977/API">
+  API 制定規則
+ </a>
+ 或其他規範填寫, 需
+ <a class="confluence-userlink user-mention" data-account-id="617fa87616119e00697e0b94" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="2945810442" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence" target="_blank">
+  Rocco
+ </a>
+ 協助確認
+</p>
+<h1 id="SuperDSP受眾包ver2-文件撰寫參考範例">
+ 文件撰寫參考範例
+</h1>
+<p>
+ 實際使用的情形, 可參考
+</p>
+<p>
+ <a data-linked-resource-id="3433267201" data-linked-resource-type="page" data-linked-resource-version="93" href="/wiki/spaces/ITO/pages/3433267201/ODM+Segment+Tool+SDD">
+  [ODM] Segment Tool SDD
+ </a>
+</p>
+<p>
+ <a data-linked-resource-id="3439493196" data-linked-resource-type="page" data-linked-resource-version="14" href="/wiki/spaces/ITO/pages/3439493196/segment+target+v2">
+  segment target v2
+ </a>
+</p>

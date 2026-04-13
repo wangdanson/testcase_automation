@@ -1,0 +1,1283 @@
+<h2 id="id-[SPEC]interest_eventAPI-Projectrepository:api-gateway">
+ <style>
+  [data-colorid=w1tylv8djh]{color:#ff5630} html[data-color-mode=dark] [data-colorid=w1tylv8djh]{color:#cf2600}
+ </style>
+ Project repository:
+ <a class="external-link" href="https://github.com/onead/api-gateway" rel="nofollow">
+  api-gateway
+ </a>
+</h2>
+<h2 id="id-[SPEC]interest_eventAPI-APIdoc:interest_event">
+ API doc:
+ <a class="external-link" href="http://api-gateway.onead.com.tw:3000/apidoc#!/interest_event/getV1InterestEvent" rel="nofollow">
+  interest_event
+ </a>
+</h2>
+<h2 id="id-[SPEC]interest_eventAPI-資料來源:">
+ 資料來源:
+</h2>
+<ul>
+ <li>
+  <p>
+   daily row data: kafka.
+   <code>
+    summing_day_event_dicts
+   </code>
+  </p>
+ </li>
+ <li>
+  <p>
+   example
+  </p>
+ </li>
+</ul>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="full-width" data-local-id="e2c918f9-7d05-418e-8b29-f059f8ec2efe">
+  <colgroup>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+   <col style="width: 42.5px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       plaid
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       report_date
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       ig
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       cv
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       impression
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       videoClick
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       bannerClick
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q0
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q25
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q50
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q75
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q100
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view2s
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view3s
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view5s
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view30s
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2020-11-17
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      601
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      4746
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3299
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      8
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      9
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3153
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1002
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      568
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      327
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      192
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1702
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1313
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1002
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2020-11-17
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      602
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6221
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      4353
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      9
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      16
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      4148
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1336
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      727
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      408
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      246
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2285
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1766
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1336
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2020-11-17
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      403
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      275
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      164
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      157
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      78
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      48
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      29
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      19
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      115
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      91
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      78
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2020-11-18
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      601
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      5222
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3660
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      25
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3522
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1668
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      944
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      590
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      393
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2445
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2075
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1668
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2020-11-18
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      602
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3691
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2490
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      5
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      21
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2400
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1079
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      623
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      393
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      264
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1616
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1347
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1079
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<ul>
+ <li>
+  <p>
+   group row data: kafka.
+   <code>
+    summing_interest_groups
+   </code>
+  </p>
+ </li>
+ <li>
+  <p>
+   example
+  </p>
+ </li>
+</ul>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="full-width" data-local-id="5c448bef-c305-4e42-9d13-6b72eafd7fc8">
+  <colgroup>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+   <col style="width: 45.33px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       plaid
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       report_date
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       cv
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       impression
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       videoClick
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       bannerClick
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q0
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q25
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q50
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q75
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       q100
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view2s
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view3s
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view5s
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       view30s
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2020-11-17
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      21273
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      14439
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      30
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      57
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      13632
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      4615
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2557
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1548
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      965
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      7687
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      6071
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      4615
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2020-11-18
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      21324
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      14261
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      32
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      57
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      13537
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      5568
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      3193
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      2015
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      1345
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      8730
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      7169
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      5568
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h3 id="id-[SPEC]interest_eventAPI-Version(date_array)">
+ Version(
+ <code>
+  date_array
+ </code>
+ )
+</h3>
+<ul>
+ <li>
+  <p>
+   example
+  </p>
+ </li>
+</ul>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="98ac7a9c-1f41-4a99-a73c-7f24fa62ee17" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  24999:
+  [
+    {
+      start_date: 2020-11-17,
+      end_date: 2020-11-18,
+      interests: [601, 602]
+    },
+    {
+      start_date: 2020-11-19,
+      end_date: 2020-11-30,
+      interests: [601, 602, 214]
+    }
+  ]
+}</pre>
+ </div>
+</div>
+<ul>
+ <li>
+  <p>
+   <span data-colorid="w1tylv8djh">
+    待補充邏輯
+   </span>
+  </p>
+ </li>
+</ul>
+<h2 id="id-[SPEC]interest_eventAPI-資料計算邏輯">
+ 資料計算邏輯
+</h2>
+<h3 id="id-[SPEC]interest_eventAPI-數據計算">
+ 數據計算
+</h3>
+<ol>
+ <li>
+  <p>
+   依據 version 將
+   <code>
+    daily row data
+   </code>
+   資料區分出來
+  </p>
+  <ul>
+   <li>
+    <p>
+     example
+    </p>
+    <ul>
+     <li>
+      <p>
+       資料 id=
+       <code>
+        24999
+       </code>
+       &amp;&amp; start_date&gt;=
+       <code>
+        2020-11-17
+       </code>
+       &amp;&amp; end_date&lt;=
+       <code>
+        2020-11-18
+       </code>
+      </p>
+     </li>
+     <li>
+      <p>
+       資料 interests in
+       <code>
+        [601, 602]
+       </code>
+       , 其他皆為 0 （others）
+      </p>
+     </li>
+     <li>
+      <p>
+       所有項目(cv, impression…)數值都為 0 的資料直接剔除不用處理
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   將 version 區分出來的
+   <code>
+    daily row data
+   </code>
+   資料進行權重計算
+  </p>
+  <ul>
+   <li>
+    <p>
+     將 others 數值依據權重分配給 interests
+    </p>
+   </li>
+   <li>
+    <p>
+     權重計算公式：
+     <code>
+      FLOOR(all_dataset * dataset / sum(dataset))
+     </code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       example:
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        ig 601 cv 權重計算 = FLOOR((9968+9912+275) * 9968 / (9968+9912))=10105
+       </code>
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        ig 602 cv 權重計算 = FLOOR((9968+9912+275) * 9912 / (9968+9912))=10049
+       </code>
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ol>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="da5a34ee-f55d-4fd5-8e7a-8f3d6cf72f6d">
+  <colgroup>
+   <col style="width: 226.67px;"/>
+   <col style="width: 226.67px;"/>
+   <col style="width: 226.67px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       id
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       ig
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       cv
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      601
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      9968
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      602
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      9912
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      0
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      275
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<ul>
+ <li>
+  <p>
+   依據 version 將
+   <code>
+    group row data
+   </code>
+   資料區分出來，接著將該 version 同 id 資料加總
+  </p>
+  <ul>
+   <li>
+    <p>
+     資料 id=
+     <code>
+      24999
+     </code>
+     &amp;&amp; start_date&gt;=
+     <code>
+      2020-11-17
+     </code>
+     &amp;&amp; end_date&lt;=
+     <code>
+      2020-11-18
+     </code>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="95ffdf6e-6899-4864-8d20-1c247e4014dd">
+  <colgroup>
+   <col style="width: 340.0px;"/>
+   <col style="width: 340.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       id
+      </strong>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <strong>
+       cv
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      24999
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      42597
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<ul>
+ <li>
+  <p>
+   將 version 區分出來的
+   <code>
+    group row data
+   </code>
+   資料與初步權重整理完的
+   <code>
+    daily row data
+   </code>
+   進行權重計算
+  </p>
+  <ul>
+   <li>
+    <p>
+     將
+     <code>
+      group row data
+     </code>
+     數值依據權重分配給
+     <code>
+      daily row data
+     </code>
+    </p>
+   </li>
+   <li>
+    <p>
+     權重計算公式：
+     <code>
+      FLOOR(group_dataset * daily_dataset / sum(daily_dataset))
+     </code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       example:
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        ig 601 cv 權重計算 = FLOOR(42597 * 10105 / (10105+10049))=21357
+       </code>
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        ig 602 cv 權重計算 = FLOOR(42597 * 10049 / (10105+10049))=21239
+       </code>
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul>
+ <li>
+  <p>
+   權重計算無條件捨去的差異值，需加到該 version 最小的數值
+  </p>
+  <ul>
+   <li>
+    <p>
+     找出該 version 相對應項目最小數值(
+     <code>
+      Min(...)
+     </code>
+     )
+    </p>
+   </li>
+   <li>
+    <p>
+     將差異值加到該項目數值，
+     <code>
+      Min(cv)+(group_dataset-sum(權重計算結果))= Min(cv)+(42597-(21357+21239))
+     </code>
+    </p>
+   </li>
+   <li>
+    <p>
+     若有多筆相等的最小值，則將差異值依據
+     <code>
+      ig
+     </code>
+     排序小 -&gt; 大，依序 +1 分配，直到差異值歸 0 為止
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   將所有 version 的權重計算結果依據
+   <strong>
+    id
+   </strong>
+   ＆
+   <strong>
+    ig
+   </strong>
+   &amp; 項目(例如：cv)加總，作為 API response
+  </p>
+ </li>
+</ul>
+<p>
+</p>

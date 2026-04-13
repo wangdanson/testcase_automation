@@ -1,0 +1,1091 @@
+<div class="toc-macro client-side-toc-macro conf-macro output-block" data-cssliststyle="none" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6" data-layout="default" data-local-id="ee14c7eb-4e93-4f89-a305-06c48d2da6db" data-macro-id="f8f73f48-3824-4879-a0fb-1e6d276b6b91" data-macro-name="toc" data-numberedoutline="false" data-structure="list">
+</div>
+<h1 id="id-[SuperDSP平台化]第三方素材包-API規格文件-MASA">
+ MASA
+</h1>
+<h2 id="id-[SuperDSP平台化]第三方素材包-API規格文件-API規格">
+ API 規格
+</h2>
+<h3 id="id-[SuperDSP平台化]第三方素材包-API規格文件-第三方素材包">
+ 第三方素材包
+</h3>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="81a56d11-d8f2-429e-b0fb-8f1d7b4a3c17" data-macro-name="expand" id="expander-2123769824">
+ <div class="expand-control" id="expander-control-2123769824">
+  <span class="expand-control-icon icon">
+  </span>
+  <span class="expand-control-text">
+   按一下此處以展開...
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-2123769824">
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="0e8aea36-59d9-489b-a0cd-a6f09758807d" data-table-width="988">
+    <colgroup>
+     <col style="width: 146.0px;"/>
+     <col style="width: 584.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        name
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        撈取第三方素材包列表 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        Get
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        <code>
+         /api/v1/advertisers/:advertiser_id/material/external_packs/option
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        新 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        開發狀態
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request type
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3a7957a5-d089-4fb5-83f3-bdfd766d55f1" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: string, required: true
+  X-User: string, required: false
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request sample
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="5103eb4d-fe67-493c-bd4e-b7bb9961a830" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: 'a123f'
+  X-User: 'abcde'
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        app/controllers/api/v1/material/external_packs_controller.rb
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c9cf3f33-c9cd-4f89-8c36-f4854e60d8df" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "一起遊戲《刀鋒無雙》_55s_MIR_03",
+      "ad_format_type_id": 1,
+      "ad_format_type_universal_id": "xxxx",
+      "ad_format_type_name": "MIB(Bottom_Flash_Location)"
+    },
+    ...
+  ]
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        who
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <ol start="1">
+        <li>
+         <p>
+          有帶入 x-user 代表為 SuperDSP 素材包
+         </p>
+        </li>
+       </ol>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="b2fdb1b6-746c-4a1b-933e-0c64cd58201a" data-table-width="988">
+    <colgroup>
+     <col style="width: 146.0px;"/>
+     <col style="width: 584.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        name
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        撈取第三方素材包 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        Get
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        <code>
+         /api/v1/advertisers/:advertiser_id/material/external_packs/{pack_id}
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        新 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        開發狀態
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request type
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bb69c691-3f1e-4ea7-8492-9810171f3dd7" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: string, required: true
+  X-User: string, required: false
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request sample
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a6a4fac0-9da9-4fb8-8808-99de223fd69c" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: 'a123f'
+  X-User: 'abcde'
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        app/controllers/api/v1/material/external_packs_controller.rb
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8ec016bb-1181-4d8c-b292-9072d9199315" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "status": "success",
+    "data": {
+      "id": 1,
+      "title": 'Onead',
+      "source": 'CreativeCloud',
+      "source_id": '5ajklsajdlifsfklas',
+      "preview_url": "https://dev-occ.onead.tw/api/v1/packs/34825/preview",
+      "created_at": "2016-07-15T08:28:21+08:00"
+      "updated_at": "2016-07-15T08:28:21+08:00"
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        who
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <ol start="1">
+        <li>
+         <p>
+          有帶入 x-user 代表為 SuperDSP 素材包
+         </p>
+        </li>
+       </ol>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="b3fbc7fb-beab-4494-b7dd-76abd3505883" data-table-width="988">
+    <colgroup>
+     <col style="width: 146.0px;"/>
+     <col style="width: 584.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        name
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        創建第三方素材包 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        Post
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        <code>
+         /api/v1/advertisers/:advertiser_id/material/external_packs
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        新 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        開發狀態
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request type
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="05e23205-7468-4cb7-850b-857069c7431b" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: string, required: true
+  X-User: string, required: true
+}
+
+body
+{
+  "title": string, 必填
+  "source_id": string, 必填, # binding occ id
+  "ad_format_id": integer, 必填,
+  "ad_format_type_id": integer, 必填
+  "vast_feature": enum string, ['NONE', 'VAPID', 'SIMID']
+  "source": enum string
+  "description": string, default: ""
+  "ron": boolean
+  "content": string
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request sample
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="0203a2d4-fe91-4348-ba13-d5481d72ff8e" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: 'a123f'
+  X-User: 'abcde'
+}
+
+body
+{
+  "title": "ssssss",
+  "source_id": "507f191e810c19729de860ea",
+  "ad_format_id": 1,
+  "ad_format_type_id": 1,
+  "vast_feature": "NONE",
+  "source": "superdsp",
+  "description": "",
+  "ron": false,
+  "content": "aaaaa"
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        app/controllers/api/v1/material/external_packs_controller.rb
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a0e0b317-88b5-486d-97e5-e255eb8fd232" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "status": "success",
+    "data":{
+      "id": 1,
+      "title": 'Onead',
+      "source": 'CreativeCloud',
+      "source_id": '5ajklsajdlifsfklas',
+      "preview_url": "https://dev-occ.onead.tw/api/v1/packs/34825/preview",
+      "created_at": "2016-07-15T08:28:21+08:00"
+      "updated_at": "2016-07-15T08:28:21+08:00"
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        who
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <ol start="1">
+        <li>
+         <p>
+          有帶入 x-user 代表為 SuperDSP 素材包
+         </p>
+        </li>
+       </ol>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="04d8ce59-2b71-4662-9261-1b6be9e8d52e" data-table-width="988">
+    <colgroup>
+     <col style="width: 146.0px;"/>
+     <col style="width: 584.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        name
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        更新第三方素材包 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        Put
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        <code>
+         /api/v1/advertisers/:advertiser_id/material/external_packs/:pack_id
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        新 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        開發狀態
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request type
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="03d4f67b-adab-4879-a618-556dc22d930e" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: string, required: true
+  X-User: string, required: true
+}
+
+body
+{
+  "title": string, 必填
+  "source_id": string, 必填, # binding occ id
+  "ad_format_id": integer, 必填,
+  "ad_format_type_id": integer, 必填
+  "vast_feature": enum string, ['NONE', 'VAPID', 'SIMID']
+  "source": enum string
+  "description": string, default: ""
+  "ron": boolean
+  "content": string
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request sample
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c462520b-c5db-4ee1-aed2-9e0ddde2521b" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: 'a123f'
+  X-User: 'abcde'
+}
+
+body
+{
+  "title": "ssssss",
+  "source_id": "507f191e810c19729de860ea",
+  "ad_format_id": 1,
+  "ad_format_type_id": 1,
+  "vast_feature": "NONE",
+  "source": "superdsp",
+  "description": "",
+  "ron": false,
+  "content": "aaaaa"
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        app/controllers/api/v1/material/external_packs_controller.rb
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="efc8ef65-3d65-4fc4-bd94-15ce62fc5eed" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "status": "success",
+    "data":{
+      "id": 1,
+      "title": 'Onead',
+      "source": 'CreativeCloud',
+      "source_id": '5ajklsajdlifsfklas',
+      "preview_url": "https://dev-occ.onead.tw/api/v1/packs/34825/preview",
+      "created_at": "2016-07-15T08:28:21+08:00"
+      "updated_at": "2016-07-15T08:28:21+08:00"
+    }
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        who
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <ol start="1">
+        <li>
+         <p>
+          有帶入 x-user 代表為 SuperDSP 素材包
+         </p>
+        </li>
+       </ol>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="8881f4df-b25b-431c-926b-5397132d0433" data-table-width="988">
+    <colgroup>
+     <col style="width: 146.0px;"/>
+     <col style="width: 584.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        name
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        刪除第三方素材包 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        Delete
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        <code>
+         /api/v1/advertisers/:advertiser_id/material/external_packs/:pack_id
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        新 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        開發狀態
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request type
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="0da5e173-4cfd-4fac-873a-3af2472af702" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: string, required: true
+  X-User: string, required: true
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request sample
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fb6e5a7b-de84-43ee-a5b7-c0efeaebf96d" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: 'a123f'
+  X-User: 'abcde'
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        app/controllers/api/v1/material/external_packs_controller.rb
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="aae740cf-a7a1-4486-88e6-2e063c156e6d" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "status": "success"
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        who
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <ol start="1">
+        <li>
+         <p>
+          有帶入 x-user 代表為 SuperDSP 素材包
+         </p>
+        </li>
+       </ol>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="table-wrap">
+   <table class="confluenceTable" data-layout="default" data-local-id="2014fa90-6673-4bec-a811-ec2c8f377990" data-table-width="988">
+    <colgroup>
+     <col style="width: 146.0px;"/>
+     <col style="width: 584.0px;"/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        name
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        撈取第三方素材包關聯活動 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        methods
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        Get
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        path
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        <code>
+         /api/v1/advertisers/:advertiser_id/material/external_packs/:pack_id/related_placement
+        </code>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        status
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        新 API
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        開發狀態
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request type
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="10322cb5-4b58-4cbc-be05-203590f87a93" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: string, required: true
+  X-User: string, required: true
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        request sample
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="074a8c97-adfc-41b3-bab1-33b169bc0453" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+{
+  Authorization: 'a123f'
+  X-User: 'abcde'
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        controller
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+        app/controllers/api/v1/material/external_packs_controller.rb
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        response
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b396441a-07da-4786-bed4-c3c68ae3ecfb" data-macro-name="code" style="border-width: 1px;">
+        <div class="codeContent panelContent pdl">
+         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    "status": "success",
+    "data": [
+      {
+        id: 1,
+        name: "Volkswagen-Tiguan Allspace 原素材 _新聞",
+        status: "draft"
+      },
+      ...
+    ]
+}</pre>
+        </div>
+       </div>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        who
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       <p>
+        備註
+       </p>
+      </td>
+      <td class="confluenceTd">
+       <ol start="1">
+        <li>
+         <p>
+          有帶入 x-user 代表為 SuperDSP 素材包，活動為廣告組合
+         </p>
+        </li>
+       </ol>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>

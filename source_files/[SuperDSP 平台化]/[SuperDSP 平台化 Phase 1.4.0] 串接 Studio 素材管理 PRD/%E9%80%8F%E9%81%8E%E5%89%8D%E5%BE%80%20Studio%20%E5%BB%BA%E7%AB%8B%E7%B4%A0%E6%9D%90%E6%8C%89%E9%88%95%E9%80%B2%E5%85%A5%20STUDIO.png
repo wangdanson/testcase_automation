@@ -1,0 +1,35 @@
+---
+title: 透過 "前往 STUDIO 建立素材" 進入 STUDIO，並建立素材包
+---
+flowchart TD
+Start([流程開始]) --> P0[素材管理頁面]
+P0 -- 點擊 --> P1[前往 Studio 建立素材]
+P1 -- 觸發 --> P6[🔔 通知彈窗</br>將以開新視窗方式，帶您前往 STUDIO]
+P6 --> D4{使用者選擇}
+    D4 -- 不，停留在此 --> P0
+    D4 -- 是 --> P2[呼叫 redirect studio API]
+        P2 --> D1{API Response}
+        D1 --Success--> P3[取得 redirect URL]
+        P3 --> P7[開新視窗]
+        P7 -- 跳轉 STUDIO --> D5{STUDIO 轉址驗證}
+            D5 --Error--> P8[顯示轉址失敗]
+            D5 --Success--> P9[✅ 進入 STUDIO 系統]
+            P9 -- 彈出 --> P10[選擇建立格式彈窗]
+            P10 --> P11[完成素材包建立]
+            P11 -- 返回 (切回標籤) --> P12[SuperDSP]
+            P12 -- 檢視 --> P13[素材包列表]
+            P13 --> P14[即時更新<br>素材包項目]
+            P14 --> End([流程結束])
+
+        D1 --Error--> D2{錯誤類型判斷}
+            D2 --其他錯誤--> P4[❌ 錯誤提示]
+            D2 --401--> P5[跳轉登入頁]
+            P5 --重新登入 --> P0
+ 
+style Start fill:#e3f2fd
+style End fill:#e3f2fd
+style P9 fill:#c8e6c9
+style P6 fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+style P4 fill:#ffebee,stroke:#f44336,stroke-width:2px  
+style P5 fill:#ffebee,stroke:#f44336,stroke-width:2px
+style P8 fill:#ffebee,stroke:#f44336,stroke-width:2px

@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant SuperDSP
+    participant API
+    participant Studio
+    participant User
+
+    SuperDSP->>API: 請求 Studio redirect URL（帶 token）
+    API-->>SuperDSP: 回傳 Studio 轉址網址
+    SuperDSP->>User: 開新視窗前提示（MessageBox）
+    User->>Studio: 新視窗跳轉 Studio URL
+    Studio->>Studio: 檢查登入狀態
+    alt 未登入
+        Studio-->>User: 顯示登入畫面
+        User->>Studio: Sign in
+        Studio->>API: 再次驗證 token
+    end
+    Studio-->>User: 顯示對應格式建立畫面
+    Studio->>User: 完成後使用 postMessage 傳回素材 ID

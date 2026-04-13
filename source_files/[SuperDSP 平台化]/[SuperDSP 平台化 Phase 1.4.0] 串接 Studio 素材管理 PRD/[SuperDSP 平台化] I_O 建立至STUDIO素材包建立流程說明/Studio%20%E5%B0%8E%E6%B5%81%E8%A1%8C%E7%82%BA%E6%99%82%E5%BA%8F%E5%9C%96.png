@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant User
+    participant SuperDSP
+    participant API
+    participant Studio
+
+    User->>SuperDSP: 點擊「前往 STUDIO 建立素材」
+    SuperDSP->>API: 發送導向 Studio 請求（/studio/redirect）
+    alt token 成功
+        API-->>Studio: 透過 redirect 自動跳轉（含 token）
+        Studio-->>User: 顯示素材建立畫面
+    else token 失敗 / redirect 失敗
+        API-->>SuperDSP: 回傳錯誤訊息
+        SuperDSP-->>User: 顯示錯誤提示
+    end

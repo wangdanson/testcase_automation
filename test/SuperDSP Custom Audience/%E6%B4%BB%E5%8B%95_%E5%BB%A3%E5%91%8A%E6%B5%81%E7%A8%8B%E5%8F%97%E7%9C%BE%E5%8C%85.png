@@ -1,0 +1,120 @@
+graph TB
+    %% 定義樣式
+    classDef create fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef dailyTask fill:#FFF3E0,stroke:#F57C00,stroke-width:3px
+    classDef status fill:#E8F5E9,stroke:#43A047,stroke-width:2px
+    classDef check fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
+    classDef action fill:#FFEBEE,stroke:#D32F2F,stroke-width:2px
+    classDef design fill:#E0F2F1,stroke:#00897B,stroke-width:2px
+
+    %% ============ 系統架構設計 (左側) ============
+    subgraph CoreDesign["🎯 系統架構設計"]
+        Design1["📋 延遲打包機制<br/>Lazy Loading:<br/>受眾包建立時不執行打包<br/>延遲至綁定 Ad Group 後觸發<br/>避免無效資源消耗"]
+        
+        Design2["🔗 Segment 打包實體:<br/>Segment 與受眾包一對一關係<br/>作為實際打包的資料載體<br/>首次綁定 Ad Group 時建立"]
+        
+        Design3["⏰ 三階段每日排程:<br/>00:00 生命週期檢查<br/>00:30 Segment 更新與打包<br/>05:00 打包狀態驗證"]
+        
+        Design4["🔑 生命週期綁定機制:<br/>有效期限由 Ad Group end_date 決定<br/>隨 Ad Group 延長自動更新<br/>實現動態生命週期管理"]
+        
+        Design5["💾 資料來源限制:<br/>Clickhouse 保存期限 1 年<br/>超過期限 UU 查詢返回 0<br/>觸發終止更新機制"]
+        
+        Design6["📢 狀態連動機制:<br/>打包狀態影響 Ad Group 投放<br/>全部 Not Ready 時<br/>Campaign 自動進入審核"]
+    end
+
+    %% ============ 階段 1: 受眾包初始化 ============
+    subgraph Stage1["📦 階段 1: 受眾包初始化"]
+        Start[使用者建立受眾包]:::create
+        SelectType[選擇類型:<br/>Campaign Audience /<br/>Website Audience]:::create
+        SetParams[配置參數]:::create
+        EstimateUU[預估 UU]:::create
+        SaveAudience[儲存受眾包<br/>Status: Active]:::status
+        
+        Start --> SelectType --> SetParams --> EstimateUU --> SaveAudience
+    end
+    
+    %% ============ 階段 2: 綁定 Ad Group ============
+    subgraph Stage2["🔗 階段 2: 綁定 Ad Group"]
+        BindAd[Campaign/Website Audience<br/>綁定至 Ad Group]:::create
+        SaveAudience --> BindAd
+    end
+    
+    %% ============ 階段 3: 每日 00:00 生命週期檢查 ============
+    subgraph Stage3["🕛 每日 00:00 - 生命週期檢查"]
+        Task0000[執行生命週期檢查]:::dailyTask
+        
+        CheckStop{"終止條件判斷<br/><br/>終止條件:<br/>• 所有綁定 Ad Group 已結束<br/>• 受眾包有效期限已到<br/>• UU = 0<br/>💾 資料來源保存期限 1 年"}:::check
+        
+        StopUpdate[終止自動更新<br/>受眾包維持 Active]:::action
+        ContinueUpdate[繼續自動更新流程]:::status
+        
+        BindAd --> Task0000
+        Task0000 --> CheckStop
+        
+        CheckStop -->|符合任一條件| StopUpdate
+        CheckStop -->|全部不符合| ContinueUpdate
+    end
+    
+    %% ============ 階段 4: 每日 00:30 Segment 更新 ============
+    subgraph Stage4["🕐 每日 00:30 - Segment 更新"]
+        Task0030[執行 Segment 更新作業]:::dailyTask
+        
+        CalcDateAndUU[計算有效期限與 UU<br/>• 基於 Ad Group end_date<br/>• 重新查詢 UU]:::action
+        
+        CheckUUValue{UU > 0?}:::check
+        SkipUpdate[跳過更新]:::status
+        
+        CheckSegment{Segment<br/>是否存在?}:::check
+        CreateSegment[建立 Segment<br/>執行首次打包]:::action
+        UpdateSegment[更新 Segment<br/>• 更新 end_date<br/>• 重新打包]:::action
+        
+        ContinueUpdate --> Task0030
+        Task0030 --> CalcDateAndUU
+        CalcDateAndUU --> CheckUUValue
+        CheckUUValue -->|否| SkipUpdate
+        CheckUUValue -->|是| CheckSegment
+        
+        CheckSegment -->|否| CreateSegment
+        CheckSegment -->|是| UpdateSegment
+    end
+    
+    %% ============ 階段 5: 每日 05:00 打包狀態驗證 ============
+    subgraph Stage5["🕔 每日 05:00 - 打包狀態驗證"]
+        Task0500[驗證 Segment 打包狀態]:::dailyTask
+        
+        CheckPack{打包狀態}:::check
+        
+        PackSuccess[✅ Ready]:::status
+        PackFail[❌ Not Ready]:::status
+        
+        ImpactAdGroup[連動 Ad Group 狀態]:::action
+        
+        AdGroupReady[Ad Group 正常投放]:::status
+        AdGroupNotReady[Ad Group 受影響<br/>全部 Not Ready → Campaign 審核中]:::action
+        
+        CreateSegment --> Task0500
+        UpdateSegment --> Task0500
+        SkipUpdate --> Task0500
+        
+        Task0500 --> CheckPack
+        CheckPack -->|Success| PackSuccess
+        CheckPack -->|Failed| PackFail
+        
+        PackSuccess --> ImpactAdGroup
+        PackFail --> ImpactAdGroup
+        
+        ImpactAdGroup -->|Ready| AdGroupReady
+        ImpactAdGroup -->|Not Ready| AdGroupNotReady
+    end
+    
+    %% ============ 階段 6: 持續循環 ============
+    subgraph Stage6["🔄 持續循環機制"]
+        Loop[次日 00:00 繼續檢查]:::status
+        End1[終止自動更新<br/>受眾包維持 Active]:::action
+        
+        AdGroupReady --> Loop
+        AdGroupNotReady --> Loop
+        
+        StopUpdate --> End1
+        Loop -.->|循環| Task0000
+    end

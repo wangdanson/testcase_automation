@@ -1,0 +1,61 @@
+sequenceDiagram
+    participant User as 👤 使用者
+    participant System as 🖥️ 系統前端
+    participant Schedule as ⏰ 排程服務<br/>(每日凌晨)
+    participant Check as 🔍 檢查邏輯
+    participant DB as 💾 資料庫
+
+    Note over User,DB: 📅 Day 1: 2025/01/31 (受眾包最後可用日)
+    
+    rect rgb(232, 245, 229)
+    Note over DB: Ad Group 受眾包配置<br/>客製受眾包 A (end_date: 2025-01-31)<br/>客製受眾包 B (end_date: 2025-01-31)<br/>客製受眾包 C (end_date: 2025-02-28)<br/>所有狀態: Completed
+    Note over DB: Ad Group 狀態<br/>✅ 上刊中 (Active)
+    
+    User->>System: 查看 Ad Group 狀態
+    System->>DB: 查詢 Ad Group & 受眾包狀態
+    DB-->>System: Ad Group: Active<br/>3 個受眾包皆 Completed
+    System-->>User: 顯示: ✅ 上刊中<br/>正常投放中
+    end
+
+    Note over User,DB: ⏰ 時間推進: 2025/02/01 00:00 (凌晨)
+    
+    rect rgb(255, 243, 224)
+    Schedule->>Check: 觸發定期檢查<br/>(重新打包 Sequence)
+    
+    Check->>DB: 查詢 Ad Group 受眾包組合
+    DB-->>Check: 只有客製受眾包<br/>受眾包 A (end_date: 2025-01-31)<br/>受眾包 B (end_date: 2025-01-31)<br/>受眾包 C (end_date: 2025-02-28)
+    
+    Note over Check: 判斷邏輯:<br/>當前日期 2025-02-01<br/>包 A: 2025-01-31 < 2025-02-01 → 已過期<br/>包 B: 2025-01-31 < 2025-02-01 → 已過期<br/>包 C: 2025-02-28 >= 2025-02-01 → 仍有效<br/><br/>情境 1: 只有客製受眾包<br/>檢查: 是否全部已過期？<br/>→ 否！還有包 C 可用
+    
+    Check->>DB: 維持 Ad Group 狀態<br/>Active (不變)
+    
+    Check-->>Schedule: 檢查完成
+    end
+
+    Note over User,DB: 📅 Day 2: 2025/02/01 (白天) - 情境 1-B: 部分過期
+
+    rect rgb(200, 230, 201)
+    User->>System: 查看 Ad Group 狀態
+    System->>DB: 查詢 Ad Group & 受眾包狀態
+    DB-->>System: Ad Group: Active<br/>包 A, B 過期 / 包 C 有效
+    System-->>User: 顯示: ✅ 上刊中<br/>正常投放中<br/>(系統使用包 C 投放)
+    end
+
+    Note over User,DB: 🔄 假設情境: 如果包 C 也在 1/31 過期
+
+    rect rgb(255, 243, 224)
+    Note over Check: 假設包 C end_date 也是 2025-01-31<br/><br/>判斷邏輯:<br/>包 A: 已過期<br/>包 B: 已過期<br/>包 C: 已過期<br/><br/>情境 1: 只有客製受眾包<br/>檢查: 是否全部已過期？<br/>→ 是！全部過期
+    
+    Check->>DB: 更新 Ad Group 狀態<br/>Active → Paused<br/>+ 記錄暫停原因
+    end
+
+    Note over User,DB: 📅 Day 2: 2025/02/01 (白天) - 情境 1-A: 全部過期
+    
+    rect rgb(255, 205, 210)
+    User->>System: 查看 Ad Group 狀態
+    System->>DB: 查詢 Ad Group & 受眾包狀態
+    DB-->>System: Ad Group: Paused<br/>所有受眾包都已過期
+    System-->>User: 顯示: ⏸️ 暫停<br/>+ Hover 提示:<br/>"所有客製受眾包已過期<br/>請更新受眾包設定"
+    
+    Note over User: 使用者發現狀態變化<br/>需要處理受眾包問題
+    end

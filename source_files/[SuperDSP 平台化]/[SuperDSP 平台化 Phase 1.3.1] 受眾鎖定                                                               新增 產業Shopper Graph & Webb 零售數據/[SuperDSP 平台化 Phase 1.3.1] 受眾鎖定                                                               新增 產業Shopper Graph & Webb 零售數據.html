@@ -1,0 +1,1844 @@
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-📘修訂追蹤表">
+ 📘 修訂追蹤表
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="ab86d267-bae8-4f0a-9ae7-8e61e7af0bb4" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      版本號
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂日期
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂人
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      修訂內容摘要
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      Phase1
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <time class="date-past" datetime="2025-04-18">
+       2025年4月18日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      初版建立
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-📖項目概述">
+ 📖 項目概述
+</h2>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-📌項目背景">
+ 📌 項目背景
+</h3>
+<p>
+ 在前一次改版受眾鎖定的基礎上，新增兩種受眾鎖定方式，以豐富產品的目標市場定位策略。
+ <br/>
+ 同時，相關連的功能（如數據報告、量體預估）也將更完善地呈現及提供使用。
+</p>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-🎯項目目標">
+ 🎯 項目目標
+</h3>
+<ul>
+ <li>
+  <p>
+   廣告組合 之 受眾鎖定, 新增
+   <code>
+    產業 Shopper Graph
+   </code>
+   項目
+  </p>
+ </li>
+ <li>
+  <p>
+   廣告組合 之 受眾鎖定, 新增
+   <code>
+    Webb 零售數據
+   </code>
+   項目
+  </p>
+ </li>
+ <li>
+  <p>
+   廣告組合 之 受眾鎖定, 優化項目
+  </p>
+ </li>
+ <li>
+  <p>
+   受眾洞察報告 匯出時新增
+   <code>
+    產業 Shopper Graph
+   </code>
+   及
+   <code>
+    Webb 零售數據
+   </code>
+  </p>
+ </li>
+ <li>
+  <p>
+   受眾洞察報告 輸出格式優化
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-🧩項目範圍">
+ 🧩 項目範圍
+</h3>
+<p>
+ <strong>
+  包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   廣告組合 之 受眾鎖定, 新增 UI/UX for
+   <code>
+    產業 Shopper Graph
+   </code>
+   &amp;
+   <code>
+    Webb 零售數據
+   </code>
+  </p>
+  <ul>
+   <li>
+    <p>
+     受眾鎖定
+     <code>
+      產業 Shopper Graph
+     </code>
+     &amp;
+     <code>
+      Webb 零售數據
+     </code>
+     能正常 建立 編輯
+    </p>
+   </li>
+   <li>
+    <p>
+     受眾鎖定 所有鎖定項目組合, 能夠正常 建立 編輯
+    </p>
+   </li>
+   <li>
+    <p>
+     受眾鎖定 所有鎖定項目組合, 能夠正常計算預估量體
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   受眾洞察報告 能順利產出包含
+   <code>
+    產業 Shopper Graph
+   </code>
+   &amp;
+   <code>
+    Webb 零售數據
+   </code>
+   且具有格式規範的報表
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  不包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   受眾洞察報告介面 UI/UX
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-🧑‍💼目標受眾">
+ 🧑‍💼 目標受眾
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="c229a89e-a7c1-4666-b4a6-9535392c35c0" data-table-width="1011">
+  <colgroup>
+   <col style="width: 260.0px;"/>
+   <col style="width: 751.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      用戶類型
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      描述
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      User-Agency
+     </p>
+    </td>
+    <td class="confluenceTd" rowspan="2">
+     <ul>
+      <li>
+       <p>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         可
+        </span>
+        <strong>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          查看
+         </span>
+        </strong>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         廣告組合 之 受眾鎖定
+        </span>
+        <code>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          產業 Shopper Graph
+         </span>
+        </code>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         及
+        </span>
+        <code>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          Webb 零售數據
+         </span>
+        </code>
+       </p>
+      </li>
+      <li>
+       <p>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         可
+        </span>
+        <strong>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          建立
+         </span>
+        </strong>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         廣告組合 之 受眾鎖定
+        </span>
+        <code>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          產業 Shopper Graph
+         </span>
+        </code>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         及
+        </span>
+        <code>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          Webb 零售數據
+         </span>
+        </code>
+       </p>
+      </li>
+      <li>
+       <p>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         可
+        </span>
+        <strong>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          編輯
+         </span>
+        </strong>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         廣告組合 之 受眾鎖定
+        </span>
+        <code>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          產業 Shopper Graph
+         </span>
+        </code>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         及
+        </span>
+        <code>
+         <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+          Webb 零售數據
+         </span>
+        </code>
+       </p>
+      </li>
+      <li>
+       <p>
+        受眾洞察報告 可看到
+        <code>
+         產業 Shopper Graph
+        </code>
+        及
+        <code>
+         Webb 零售數據
+        </code>
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      User-Client
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      User-Media
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        <strong>
+         無法 查看
+        </strong>
+        <span class="inline-comment-marker" data-ref="6116200a-a871-4ce1-b138-fda656ed8bee">
+         廣告組合 之 受眾鎖定
+        </span>
+        <code>
+         產業 Shopper Graph
+        </code>
+        及
+        <code>
+         Webb 零售數據
+        </code>
+       </p>
+      </li>
+      <li>
+       <p>
+        受眾洞察報告無此項目
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-⚙️功能需求">
+ ⚙️ 功能需求
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="2ef69921-4afc-4d7e-a05a-6729a6c6a643" data-table-width="1800">
+  <colgroup>
+   <col style="width: 400.0px;"/>
+   <col style="width: 199.0px;"/>
+   <col style="width: 300.0px;"/>
+   <col style="width: 300.0px;"/>
+   <col style="width: 300.0px;"/>
+   <col style="width: 300.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      功能名稱
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      優先級
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      簡要描述（Story）
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      狀態
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      負責人
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      詳細頁面
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      [功能需求]
+      <br/>
+      受眾鎖定 - 產業Shopper Graph
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在受眾鎖定-指定項目有一套完整的 UI/UX
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      <a data-linked-resource-id="3848044614" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3848044614/-+Shopper+Graph">
+       [功能需求] 受眾鎖定 - 產業Shopper Graph
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在廣告組合有一套完整的 CRUD
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      [功能需求]
+      <br/>
+      受眾鎖定 - Webb 零售數據
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在受眾鎖定-指定項目有一套完整的 UI/UX
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      <a data-linked-resource-id="3848241153" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3848241153/-+Webb">
+       [功能需求] 受眾鎖定 - Webb 零售數據
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      在廣告組合有一套完整的 CRUD
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [功能需求]
+      <br/>
+      受眾鎖定 - 預估量體
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      不會因為此次新增的項目, 而運作失常失效
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3848241164" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3848241164/-">
+       [功能需求] 受眾鎖定 - 預估量體
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [功能需求]
+      <br/>
+      受眾洞察報告輸出
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      不會因為此次新增的項目, 而運作失常失效，且依照指定格式規範做報表輸出
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3848241175" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3848241175">
+       [功能需求] 受眾洞察報告輸出
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      <span class="inline-comment-marker" data-ref="a429cd16-bf6f-4087-bce2-4a91693a3fd9">
+       [功能需求]
+      </span>
+      <br/>
+      <span class="inline-comment-marker" data-ref="a429cd16-bf6f-4087-bce2-4a91693a3fd9">
+       查看受眾鎖定之身份及權限
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Agency / Clinet / Media 在不同的權限下, 會看到不同的數據鎖定呈現
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3848208391" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3848208391">
+       <ac:inline-comment-marker ac:ref="a429cd16-bf6f-4087-bce2-4a91693a3fd9">
+        [功能需求] 查看受眾鎖定之身份及權限
+       </ac:inline-comment-marker>
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [優化需求] 受眾鎖定 - 預估量體顯示
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      優化文本, 減少使用者疑慮
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3848208402" data-linked-resource-type="page" data-linked-resource-version="7" href="/wiki/spaces/ITO/pages/3848208402/-">
+       [優化需求] 受眾鎖定 - 預估量體顯示
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      <span class="inline-comment-marker" data-ref="b3dda4a9-d7a6-4888-8a33-4efdf53da677">
+       [優化需求] Ｍedia 合約帳號使用者權限設定優化
+      </span>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      根據情境, 移除不必要頁面
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      <a data-linked-resource-id="3847913487" data-linked-resource-type="page" data-linked-resource-version="9" href="/wiki/spaces/ITO/pages/3847913487/Media">
+       <ac:inline-comment-marker ac:ref="b3dda4a9-d7a6-4888-8a33-4efdf53da677">
+        [優化需求] Ｍedia 合約帳號使用者權限設定優化
+       </ac:inline-comment-marker>
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      根據情境, 移除權限
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="3">
+     <p>
+      [優化需求] 受眾洞察報告輸出
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      優化輸出規範, 減少使用者疑慮
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3847913475" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3847913475/-">
+       [優化需求] 受眾洞察報告輸出 - 輸出規範優化
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      根據產品品類, 移除不必要項目
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3851059201" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/ITO/pages/3851059201/-">
+       [優化需求] 受眾洞察報告輸出 - 產品品類差異優化
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      根據產品命名規格, 避免出現相同的文本
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3851157505" data-linked-resource-type="page" data-linked-resource-version="3" href="/wiki/spaces/ITO/pages/3851157505/-+Segment">
+       [優化需求] 受眾洞察報告輸出 - 預打包Segment名稱異動
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      [優化需求]
+      <br/>
+      數據鎖定 - 整體介面導入英文版
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      近幾次開發的介面補上英文版
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd" rowspan="2">
+     <p>
+      <a data-linked-resource-id="3855220737" data-linked-resource-type="page" data-linked-resource-version="9" href="/wiki/spaces/ITO/pages/3855220737/SuperDSP+-">
+       <u>
+        [優化需求] 數據鎖定 - 整體介面導入英文版
+       </u>
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      中
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      提供中英文對照給前端
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Elain
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      [優化需求]
+      <br/>
+      數據鎖定 - 年齡 tag 排序方式優化
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      低
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      優化 UX
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      待辦
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      Steve
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3851059212" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3851059212/-+tag">
+       [優化需求] 受眾鎖定 - 年齡 tag 排序方式優化
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       <span class="inline-comment-marker" data-ref="0c6878bf-a916-4b44-bc76-f321f889deb0">
+        [優化需求]
+       </span>
+      </del>
+      <br/>
+      <del>
+       <span class="inline-comment-marker" data-ref="0c6878bf-a916-4b44-bc76-f321f889deb0">
+        廣告組合/活動 列表讀取時間縮短
+       </span>
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       低
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       減少整體等待時間
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       待辦
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <del>
+       待討論
+      </del>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
+     <p>
+      <a data-linked-resource-id="3847913498" data-linked-resource-type="page" data-linked-resource-version="7" href="/wiki/spaces/ITO/pages/3847913498">
+       <del>
+        [優化需求] 廣告組合/活動 列表讀取時間縮短
+       </del>
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-➕建立功能對應子頁（詳情/API/測試）">
+ <strong>
+  ➕ 建立功能對應子頁（詳情 / API / 測試）
+ </strong>
+</h3>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="edf759f0-2c19-4d26-b81a-7ac362e60ab6" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       子頁類型
+      </strong>
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      <strong>
+       建立連結
+      </strong>
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      🧩 功能詳情子頁
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3848044614" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3848044614/-+Shopper+Graph">
+       [功能需求] 受眾鎖定 - 產業Shopper Graph
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3848241153" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3848241153/-+Webb">
+       [功能需求] 受眾鎖定 - Webb 零售數據
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3848241164" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3848241164/-">
+       [功能需求] 受眾鎖定 - 預估量體
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3848241175" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3848241175">
+       [功能需求] 受眾洞察報告輸出
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3848208391" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3848208391">
+       [功能需求] 查看受眾鎖定之身份及權限
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3848208402" data-linked-resource-type="page" data-linked-resource-version="7" href="/wiki/spaces/ITO/pages/3848208402/-">
+       [優化需求] 受眾鎖定 - 預估量體顯示
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3847913487" data-linked-resource-type="page" data-linked-resource-version="9" href="/wiki/spaces/ITO/pages/3847913487/Media">
+       [優化需求] Ｍedia 合約帳號使用者權限設定優化
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3847913475" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3847913475/-">
+       [優化需求] 受眾洞察報告輸出 - 輸出規範優化
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3851059201" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/ITO/pages/3851059201/-">
+       [優化需求] 受眾洞察報告輸出 - 產品品類差異優化
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3851157505" data-linked-resource-type="page" data-linked-resource-version="3" href="/wiki/spaces/ITO/pages/3851157505/-+Segment">
+       [優化需求] 受眾洞察報告輸出 - 預打包Segment名稱異動
+      </a>
+     </p>
+     <p>
+      <a data-linked-resource-id="3851059212" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3851059212/-+tag">
+       [優化需求] 受眾鎖定 - 年齡tag排序方式優化
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      📄 功能細項
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3850141697" data-linked-resource-type="page" data-linked-resource-version="8" href="/wiki/spaces/ITO/pages/3850141697/-+Shopper+Graph+Webb">
+       [功能細項] 受眾鎖定 - 新增 產業Shopper Graph &amp; Webb 零售數據
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      📡 API 規格子頁
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3849715713" data-linked-resource-type="page" data-linked-resource-version="11" href="/wiki/spaces/ITO/pages/3849715713/-+Shopper+Graph+Webb">
+       [開發規格文件] 受眾鎖定 - 新增 產業Shopper Graph &amp; Webb 零售數據
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      🧪 測試用例子頁
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      <a data-linked-resource-id="3854761985" data-linked-resource-type="page" data-linked-resource-version="7" href="/wiki/spaces/ITO/pages/3854761985/Shopper+Graph+Webb">
+       [驗收標準] 數據鎖定 新增 Shopper Graph &amp; Webb 零售數據
+      </a>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-🧾非功能需求">
+ 🧾 非功能需求
+</h2>
+<ul>
+ <li>
+  <p>
+   <a data-linked-resource-id="3851059212" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITO/pages/3851059212/-+tag">
+    <span style="color: rgb(255,153,31);">
+     <ac:inline-comment-marker ac:ref="d5438aa0-0161-4ad4-b80b-e3a9d11416b1">
+      [優化需求] 受眾鎖定 - 年齡tag排序方式優化
+     </ac:inline-comment-marker>
+    </span>
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a data-linked-resource-id="3847913498" data-linked-resource-type="page" data-linked-resource-version="7" href="/wiki/spaces/ITO/pages/3847913498">
+    <del>
+     [優化需求] 廣告組合/活動 列表讀取時間縮短
+    </del>
+   </a>
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-📚用戶故事與用例">
+ 📚 用戶故事與用例
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="417f4027-cdbb-4889-a3d7-6c3aa4bcee5a" data-table-width="1800">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      標題
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      角色
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      需求
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      目的
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      優先級
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      驗收標準
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+      設定
+      <code>
+       產業 Shopper Graph
+      </code>
+     </p>
+     <p>
+      設定
+      <code>
+       Webb 零售數據
+      </code>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      User - Agency
+     </p>
+     <p>
+      User - Client
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      廣告組合做該項目數據鎖定
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      豐富系統的投放鎖定選項
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+      高
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <ul>
+      <li>
+       <p>
+        可順利設定更新，預估量體正常顯示，受眾報表產出正確
+       </p>
+      </li>
+      <li>
+       <p>
+        帳號需有相應權限, 才能達成上述條件
+       </p>
+      </li>
+     </ul>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+</p>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-🎨設計與界面">
+ 🎨 設計與界面
+</h2>
+<ul>
+ <li>
+  <p>
+   <a class="external-link" href="https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=4128-2196&amp;p=f&amp;t=HU0j8maTntyu7YoO-0" rel="nofollow">
+    受眾鎖定 Wireframe
+   </a>
+  </p>
+ </li>
+</ul>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-技術棧">
+ 技術棧
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   列出本專案涉及的開發語言、框架、工具
+  </strong>
+ </p>
+</blockquote>
+<p>
+</p>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-架構圖">
+ 架構圖
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   可附上系統互動圖或整合架構（嵌入/連結皆可）
+  </strong>
+ </p>
+</blockquote>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-🗓️時間表與里程碑">
+ 🗓️ 時間表與里程碑
+</h2>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="center" data-local-id="880af2e4-730a-4af1-9131-463f3b95ed05" data-table-width="1168">
+  <colgroup>
+   <col style="width: 340.0px;"/>
+   <col style="width: 335.0px;"/>
+   <col style="width: 154.0px;"/>
+   <col style="width: 100.0px;"/>
+   <col style="width: 233.0px;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      里程碑名稱
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      預計完成日期
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      負責人
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      交付物
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      狀態
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      PRD 完成
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <time class="date-past" datetime="2025-04-23">
+       2025年4月23日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      此份文件
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      文件 review
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:2a0a6948-6165-44a2-8547-4f55bebf29bb" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence" target="_blank">
+       Jamie Yeh (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      此份文件
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      文件 review
+     </p>
+     <p>
+      撰寫功能細項
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:4551d073-dc57-4b81-9f43-7e2682075087" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3599237175" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence" target="_blank">
+       stevesun
+      </a>
+     </p>
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      功能細項
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      API 規格定稿
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      API 文件
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      Kickoff Meeting
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <time class="date-past" datetime="2025-04-23">
+       2025年4月23日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      ＤＥＶ
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <time class="date-past" datetime="2025-04-24">
+       2025年4月24日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-04-30">
+       2025年4月30日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:4551d073-dc57-4b81-9f43-7e2682075087" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3599237175" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence" target="_blank">
+       stevesun
+      </a>
+     </p>
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      ＳＩＴ
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <time class="date-past" datetime="2025-05-02">
+       2025年5月2日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-05-07">
+       2025年5月7日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:4551d073-dc57-4b81-9f43-7e2682075087" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3599237175" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence" target="_blank">
+       stevesun
+      </a>
+     </p>
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      ＵＡＴ
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <time class="date-past" datetime="2025-05-08">
+       2025年5月8日
+      </time>
+      ~
+      <time class="date-past" datetime="2025-05-13">
+       2025年5月13日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:2a0a6948-6165-44a2-8547-4f55bebf29bb" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence" target="_blank">
+       Jamie Yeh (Unlicensed)
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      Release
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <time class="date-past" datetime="2025-05-14">
+       2025年5月14日
+      </time>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-⚠️風險與依賴">
+ ⚠️ 風險與依賴
+</h2>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-風險">
+ 風險
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   列出潛在風險、可能性與緩解對策
+  </strong>
+ </p>
+</blockquote>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="e089db2d-0f65-46dd-ad40-eab7f51ff599" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     <p>
+      描述
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      可能性
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      影響程度
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      緩解措施
+     </p>
+    </th>
+    <th class="confluenceTh">
+     <p>
+      負責人
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h3 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-依賴">
+ 依賴
+</h3>
+<blockquote>
+ <p>
+  <strong>
+   列出專案依賴的其他人員或前置工作
+  </strong>
+ </p>
+</blockquote>
+<ul>
+ <li>
+  <p>
+   NA
+  </p>
+ </li>
+</ul>
+<hr/>
+<h2 id="id-[SuperDSP平台化Phase1.3.1]受眾鎖定新增產業ShopperGraph&amp;Webb零售數據-✍️審批與簽核">
+ ✍️ 審批與簽核
+</h2>
+<blockquote>
+ <p>
+  <strong>
+   請列出需審核與簽核的角色與狀態
+  </strong>
+ </p>
+</blockquote>
+<div class="table-wrap">
+ <table class="confluenceTable" data-layout="default" data-local-id="7eef4914-d512-43dd-8a06-369ba509b840" data-table-width="760">
+  <tbody>
+   <tr>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      姓名
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      角色/部門
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      簽核狀態
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      簽核日期
+     </p>
+    </th>
+    <th class="confluenceTh" data-highlight-colour="var(--ds-background-accent-gray-subtlest,var(--ds-background-accent-gray-subtlest,#f1f2f4))">
+     <p>
+      備註
+     </p>
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
+       JimmyTsai
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      TPM
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      N/A
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      文件撰寫者
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="712020:4551d073-dc57-4b81-9f43-7e2682075087" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3599237175" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence" target="_blank">
+       stevesun
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      ITO 前端工程師
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      待簽核
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
+       Elain Wu
+      </a>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      ITO 後端工程師
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+      待簽核
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+    <td class="confluenceTd" data-highlight-colour="var(--ds-surface,#fff)">
+     <p>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+</p>
