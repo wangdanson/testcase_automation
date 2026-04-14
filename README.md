@@ -29,13 +29,6 @@
 ├── knology_management/      # [紀錄] 存放專案技術決策、優化策略與績效評估 (已忽略)
 ├── service_account/         # [資安] 存放 Google 服務帳號憑證
 ├── source_files/            # 原始規格文件儲存區 (依 Confluence 階層自動還原)
-│   ├── [SuperDSP]/
-│   │   ├── [SuperDSP 平台化]/
-│   │   │   └── [IAS Pre-bid]/
-│   │   │       ├── IAS Pre-bid.html
-│   │   │       └── screenshot_48abecac.png
-│   │   └── SuperDSP 從IO到Sequence/
-│   └── SuperDSP 大數據API/
 ├── generated_test_cases/    # 產出的測試案例儲存區 (依來源專案分類)
 └── .gemini/                 # Gemini CLI 配置資料夾
     ├── commands/            # 自定義 Speckit 系列指令
@@ -61,7 +54,24 @@ npm run setup
 ### 2. 安全性設置 (Security Setup)
 
 #### A. Google Sheets API (用於測試案例同步)
-請參閱 `credentials_stepsImg/` 資料夾下的截圖教學，獲取服務帳號金鑰並存放於 `service_account/google_credentials.json`。
+根據 Google Drive API 標準設定流程，請執行以下步驟：
+
+1.  **建立新專案**: 登入 [Google Cloud Console](https://console.cloud.google.com/)，點選「選取專案」並選擇「新增專案」，為專案命名後點擊「建立」。
+2.  **啟用 Google Drive API**: 在左側選單點擊「API 和服務」>「啟用 API 和服務」。搜尋「**Google Drive API**」並將其啟用。
+    ![啟用 Google Drive API](credentials_stepsImg/credentials_step0.png)
+3.  **前往憑證頁面**: 在左側選單選擇「API 和服務」>「憑證」。
+    ![前往憑證頁面](credentials_stepsImg/credentials_step1.png)
+4.  **授予服務帳號權限**: 到 google sheet 表單中，將產出的電子郵件帳號加入共用名單，並設定為「編輯者」。
+    ![授予服務帳號權限](credentials_stepsImg/credentials_step2.png)
+5.  **產生並下載 JSON 金鑰**: 
+    *   在服務帳戶列表中點擊該帳戶的 Email。
+    *   切換至「**金鑰 (Keys)**」頁籤。
+        ![切換至金鑰頁籤](credentials_stepsImg/credentials_step3.png)
+    *   點擊「新增金鑰」>「建立新的金鑰」> 選擇「**JSON**」並建立。
+        ![建立新的金鑰](credentials_stepsImg/credentials_step4.png)
+    *   系統會自動下載 JSON 檔案，請將其重新命名為 `google_credentials.json` 並放入 `service_account/` 資料夾。
+6.  **啟用 Google Sheets API**: 在左側選單點擊「API 和服務」>「啟用 API 和服務」。搜尋「**Google Sheets API**」並將其啟用。
+    ![啟用 Google Sheets API](credentials_stepsImg/credentials_step5.png)
 
 #### B. Atlassian API Token (用於 Jira 與 Confluence)
 1.  前往 [Atlassian API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens) 建立一個名為 `Testcase-Automation` 的 Token。
@@ -69,12 +79,12 @@ npm run setup
 
 #### C. 設定環境變數
 1.  將 `.env.example` 複製為 `.env`。
-2.  填入 `SPREADSHEET_ID` 與 `CONFLUENCE_PARENT_ID`。
+2.  填入您的 `SPREADSHEET_ID` 與 `CONFLUENCE_PARENT_ID`。
 3.  **API Token 共用**: `JIRA_API_TOKEN` 與 `CONFLUENCE_API_TOKEN` 可填入同一個值。
 
 ---
 
-### ☁️ 3. 雲端規格同步 (Confluence Sync)
+## ☁️ 3. 雲端規格同步 (Confluence Sync)
 
 本功能可自動將雲端規格書下載至本地，方便 AI 進行深度讀取。
 
@@ -91,7 +101,7 @@ python3 sync_from_confluence.py
 
 ---
 
-### 🤖 4. 自動化產生測試案例 (Workflow)
+## 🤖 4. 自動化產生測試案例 (Workflow)
 
 啟動 Gemini CLI：
 ```bash
@@ -109,10 +119,22 @@ gemini
 
 ---
 
-### 🔄 5. 反向同步 (Reverse Sync)
+## 🔄 5. 反向同步 (Reverse Sync)
 
-若在 **Google Sheets** 修改了內容，請下令：
+若您在 **Google Sheets** 上直接修改了內容，請對 Gemini CLI 下令：
 > 「同步刚刚產出的 test case」 或 「Sync [專案名稱]」
+
+手動執行指令：
+```bash
+python3 sync_from_sheets.py "generated_test_cases/[專案路徑]/[檔名].csv"
+```
+
+---
+
+## 🛡️ 自動記錄錯誤 (Automatic Error Recording)
+
+1.  **指正即學習 (Self-Learning)**: 當使用者指出錯誤時，Gemini 將自動分析並增補至 `GEMINI_ERROR_LOG.md`。
+2.  **產出前預檢 (Pre-output Validation)**: 執行任何產出前，Gemini 必須強制讀取 Error Log 進行校驗。
 
 ---
 
