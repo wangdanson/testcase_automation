@@ -59,12 +59,22 @@ def download_file(url, output_path):
     if url.startswith("/"):
         url = CONFLUENCE_URL + url
     
-    # Use session for retry and timeout
     response = session.get(url, stream=True, timeout=60)
     response.raise_for_status()
+    
+    # Safety Check: Ensure we're not downloading a login HTML page as an image
+    content_type = response.headers.get('Content-Type', '')
+    if 'text/html' in content_type:
+        raise Exception(f"Redirected to HTML page instead of file download. Check permissions or Token.")
+
+    # Save the file
     with open(output_path, "wb") as f:
         for chunk in response.iter_content(chunk_size=8192):
             f.write(chunk)
+    
+    # Final check: is it an empty or too small file?
+    if os.path.getsize(output_path) < 100:
+        print(f"        [!] Warning: Downloaded file is suspiciously small ({os.path.getsize(output_path)} bytes)")
 
 def get_attachments(page_id):
     url = f"{CONFLUENCE_URL}/rest/api/content/{page_id}/child/attachment"

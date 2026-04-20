@@ -20,13 +20,17 @@
 ├── README.md                # 專案說明文件與快速上手指南
 ├── requirements.txt         # Python 環境相依套件清單
 ├── package.json             # 專案配置文件
+├── LICENSE                  # 專案授權條款
 ├── upload_to_sheets.py      # 自動化腳本：將產出的 CSV 上傳至 Google Sheets
 ├── validate_csv.py          # [守門員] 業務驗證腳本：檢查格式、標籤與「全角色隔離」矩陣
 ├── sync_from_sheets.py      # 反向同步腳本：將雲端變更同步回本地 CSV
 ├── sync_from_confluence.py  # 雲端同步腳本：從 Confluence 搜尋並抓取層級化規格文件
 ├── confluence_state.json    # [本地] 紀錄 Confluence 頁面版本號，用於增量同步 (已忽略)
 ├── .env.example             # 環境變數設定範例
-├── knology_management/      # [紀錄] 存放專案技術決策、優化策略與績效評估 (已忽略)
+├── knology_management/      # [紀錄] 存放專案技術決策、優化策略 (已忽略)
+├── archive/                 # [封存] 存放舊版 SOP 或過時文件
+├── credentials_stepsImg/    # [教學] 存放 README 使用的設置步驟截圖
+├── user_manual/             # [手冊] 存放系統使用說明書 (如 ODM)
 ├── service_account/         # [資安] 存放 Google 服務帳號憑證
 ├── source_files/            # 原始規格文件儲存區 (依 Confluence 階層自動還原)
 ├── generated_test_cases/    # 產出的測試案例儲存區 (依來源專案分類)
@@ -86,8 +90,16 @@ npm run setup
 
 ## ☁️ 3. 雲端規格同步 (Confluence Sync)
 
-本功能可自動將雲端規格書下載至本地，方便 AI 進行深度讀取。
+本功能可自動將雲端規格書下載至本地，方便 AI 進行深度讀取。透過 `sync_from_confluence.py` 腳本，能精準還原雲端目錄結構並處理圖文一致性。
 
+### A. 環境設定 (Environment Setup)
+請在 `.env` 檔案中設定以下變數：
+*   `CONFLUENCE_URL`: 您的 Confluence 基礎網址 (例如 `https://example.atlassian.net/wiki/`)。
+*   `CONFLUENCE_EMAIL`: 登入 Confluence 的電子郵件。
+*   `CONFLUENCE_API_TOKEN`: Atlassian API Token (參閱 [Atlassian API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens))。
+*   `CONFLUENCE_PARENT_ID`: 目標規格目錄的 Parent ID (支援多個，以逗號分隔)。
+
+### B. 執行與運作邏輯
 **執行指令：**
 ```bash
 python3 sync_from_confluence.py
@@ -95,9 +107,10 @@ python3 sync_from_confluence.py
 
 **功能特色：**
 *   **全深度搜尋**：採用 CQL 技術，一鍵抓取 Parent ID 下的所有子孫頁面，自動克服 API 斷鏈問題。
-*   **階層還原**：自動還原雲端的資料夾樹狀結構於 `source_files/` 下。
-*   **增量下載**：自動比對頁面版本，僅下載有變動的內容與圖片。
-*   **圖文一致性**：自動下載圖片附件並附加 **MD5 Hash** 確保唯一性，同時修正 HTML 內部連結，支援離線閱讀。
+*   **階層還原**：自動解析 ancestors 數據鏈，並於 `source_files/` 下還原雲端的嵌套目錄結構。
+*   **增量下載**：自動比對頁面版本號，僅針對有變動的內容進行更新。
+*   **圖文一致性**：自動下載圖片附件，並修正 HTML 內部連結，支援完全離線讀取。
+*   **自動化穩定性**：實作工業級重試機制與超時控制，並透過 MD5 映射處理超長檔名問題。
 
 ---
 

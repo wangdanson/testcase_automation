@@ -1,0 +1,341 @@
+Delivered-To: joetseng@guoshipartners.com
+Received: by 2002:a05:6358:750b:b0:1f6:9655:4fa with SMTP id k11csp643391rwg;
+        Mon, 7 Jul 2025 02:54:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXnp5i0Pr1OWLx7mEKkqPshPxrF2Mc8F26JyJ12A/SrsFZQqoPppawnE+QwiX4yRTcKs+/2vVtgIg==@guoshipartners.com
+X-Received: by 2002:a05:690c:6b0e:b0:708:6a2c:147b with SMTP id 00721157ae682-7166b5db11bmr132798367b3.7.1751882086619;
+        Mon, 07 Jul 2025 02:54:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1751882086; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GGYs/DvzyFWevcnlk7+tJSnQS4fpOqlFO6j6Sj8lSiaspyKaECXmzG81vb07rbZNaU
+         bU6LwPBocDVtYbGqHUzBTl16ThG/rIQU7VhvFHuvt6KJTPY4nK4lgnP1qxTNxCsZbASv
+         8+b1xRWjzeGG9LW8QfXNGGtpWNjX9ZxYu3opS6qWnvR2LZ5i7A3q4x8hBHWjVwLjVQUD
+         OfpsPu2eLTwHbcjGgQculbXxmZAgf4h2cBu3SdUOtDts4T3MizPWtnN+N4BRZOcOP5La
+         ut5082jR5gl9xILBQSYbHY6SI16+LEGMruyBd9U1zNF1XNhCkDqgemgX1Blu91kA6FM8
+         yT0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=CDjGfVmHSJ4apKPKsqyl/4UYx9bIEiqWY56DjzdZ2ug=;
+        fh=zLD3DdRz1R7pAKHuSXSyAUQTWIXaAp/ox9ufAAspBzE=;
+        b=Et9NnOo9rxOzCM0oeBJlIRHcIshbRNe0y67Pi+baXjeGIWFSv7X5c7ey1sQPTOgFwQ
+         Qgv4OgNuvaNNkKL0NTY5Z++sQclZa9aAblh+HCPpBU1VYr/Vib2gz1DppAq81GIVw5fR
+         7W0N4X6Ep922mfwFJnUqR70m6Phpi2D8EoJMMKJzo6PTSGgMZO9Afl0s97ZLZjBFkX5S
+         T7/D8bW20b+eTeNC4tNQaYTC0km3ZDQBExPcUwJbj60NCmWAuQpCKa5wdZo0nyQ2wWDO
+         2ldIq47Wc73TOphSGTUiTjR6v3eqfZ6XtTc/GOR0uOprZO5RI2MUDxWKmzKbANQkyug4
+         yr9Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@guoshipartners-com.20230601.gappssmtp.com header.s=20230601 header.b=1TWlmDRf;
+       spf=none (google.com: jimmytsai@guoshipartners.com does not designate permitted sender hosts) smtp.mailfrom=jimmytsai@guoshipartners.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=onead.com.tw;
+       dara=pass header.i=@guoshipartners.com
+Return-Path: <jimmytsai@guoshipartners.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-7166598f1casor45044407b3.3.2025.07.07.02.54.46
+        for <joetseng@guoshipartners.com>
+        (Google Transport Security);
+        Mon, 07 Jul 2025 02:54:46 -0700 (PDT)
+Received-SPF: none (google.com: jimmytsai@guoshipartners.com does not designate permitted sender hosts) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@guoshipartners-com.20230601.gappssmtp.com header.s=20230601 header.b=1TWlmDRf;
+       spf=none (google.com: jimmytsai@guoshipartners.com does not designate permitted sender hosts) smtp.mailfrom=jimmytsai@guoshipartners.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=onead.com.tw;
+       dara=pass header.i=@guoshipartners.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=guoshipartners-com.20230601.gappssmtp.com; s=20230601; t=1751882086; x=1752486886; darn=guoshipartners.com;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=CDjGfVmHSJ4apKPKsqyl/4UYx9bIEiqWY56DjzdZ2ug=;
+        b=1TWlmDRf7TNhSXO80Owl5RSMm68obD7ADFFuhzK2cIJfUnE3fdoSkQGQP7bsqCoshp
+         PdGkC+YTRThJrSmCAoxkx+q3YnhtO8uHTlgHS9VxCObX865KzNxVhu6WGeOrQAjXsCba
+         6R0Imti923xtg2yLW+zgqDca39GzXu37tc9dN7wTfYYZVKPwbUfEPnUQ5LVDWKTxOE5O
+         X+2wsTFxnr5nCjupX7TdxQ4APr+Oev4R5WtocijkXCmWxMCW4hw9q9VxlLsR0no5t83Q
+         SNwvjGc2l8BFq8+zTn9KZFPNFTiDQZOwKRP7Fp2OBdiQf7wZlh2SiHMmQWvz02z+iii7
+         OOBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751882086; x=1752486886;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CDjGfVmHSJ4apKPKsqyl/4UYx9bIEiqWY56DjzdZ2ug=;
+        b=IL73ziHAl3ljw/FKTrA23V7szT6Cn7VauCJyWSHMwMa7T0cis3oJ86Tlpx2PIVri2t
+         0XKje/RLoxnwKId2qyFTryB7mIphhQrNt3C/vACslfQMjkVpCJFDnHGGQVvdmC1dDOy7
+         Jlq6DKqNhuST4spEtli+3IV27UMmX29k1WCs9PjIHFLcLlNAww+UBDLNBrCDS64VJ1hV
+         TXrchWslUCZD4XptTv2Y96/KRzntlaCPrRX2qneeuNUbjlf6xEujy0hk9Bj56gWfoeCZ
+         A48kXsL7S4/I2MAVlhSfp/c2qg2Xs8qjD+9oKbWymCOt7NK/hJduCj2CQ7uWvKaaOyxB
+         Rjvg==
+X-Forwarded-Encrypted: i=1; AJvYcCW68YecWDXF5rWhUQ/FPSZgEYPn3OfnJqKmyoXpKqsR5AJG7+OZCVGFb9AsndVJF7nKu7fNBw/qFA==@guoshipartners.com
+X-Gm-Message-State: AOJu0YzlWaxr1Z6GeUi8SogQE2usBuJ/SFPGhssl4aOd2HHN+ai5MlCc
+	lvjX7O5xBWuFyFzvqj6Agz8oAnJ+WghmCgmmIEsZlgERz+Hd39cQX0RMWwtvkwFDi0soE0aJeiM
+	uIHfK8ypCT9aJWRzlYnrvSrn6poLewnjGq78BQRjxzpbb
+X-Gm-Gg: ASbGncuU4x3RMqoiDQVanX81el/dFDJKWTvS2Fpyd9KiCo7wuoY3SGIUWIbfDgPSftw
+	+qBJGw69VGoPeMZwUxnDDPVZkph6G7xw3sqI7KfsKuCDdz1RuB1VI1H3LNZBBGEfvGaLWpoXDb3
+	YNWZkkAsg2/9hRnOtek/d4spmOnd3/dthcDnd7bh3Emd/D
+X-Google-Smtp-Source: AGHT+IEoygYIdDe4a37GDMoprjB36iByvChF8xSMijxEeLALAzRxTJ9+Crv8r2JvwRSYAi/dhMCSsRVarf8UmaEWB2o=
+X-Received: by 2002:a05:690c:30d:b0:709:197d:5d3c with SMTP id
+ 00721157ae682-7166b5f6bcfmr160726317b3.11.1751882086141; Mon, 07 Jul 2025
+ 02:54:46 -0700 (PDT)
+MIME-Version: 1.0
+From: Jimmy Tsai <jimmytsai@onead.com.tw>
+Date: Mon, 7 Jul 2025 17:54:35 +0800
+X-Gm-Features: Ac12FXzleeJM-gG-Cl_JKrd2sCt5EGHQs9uq9Ks_4O1X6NFXVx9G3SmxAlHbXO8
+Message-ID: <CAB06GWEDXL-2_ORM9mDtxxaE3oP2G3WvnbxjHzocyaZpGGZa3A@mail.gmail.com>
+Subject: =?UTF-8?B?TWVldGluZyBTdW1tYXJ5IG9mIFtDb21tZXJjZSBBRF0g5bCO5YWl5pa85ZCE57O757Wx?=
+	=?UTF-8?B?6ZyA5rGC6Kiq6KuHIEAgTW9uIEp1bCA3LCAyMDI1IDJwbSAtIDRwbQ==?=
+To: Emma Wang <emmawang@guoshipartners.com>, Patricia Chan <patriciachan@onead.com.tw>, 
+	Zack Chiang <zackchiang@guoshipartners.com>, Nick Chiang <nickchiang@guoshipartners.com>, 
+	Steve Sun <stevesun@guoshipartners.com>, Jamie Lee <jamielee@onead.com.tw>, 
+	Joe Tseng <joetseng@guoshipartners.com>, Jimmy Tsai <jimmytsai@onead.com.tw>
+Cc: Hanfour Huang <hanfourhuang@guoshipartners.com>, 
+	Rocco Chen <roccochen@guoshipartners.com>
+Content-Type: multipart/alternative; boundary="0000000000006ee011063953d52b"
+
+--0000000000006ee011063953d52b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+SGkgQWxsDQoNCuS7iuWkqeato+W8j+WVn+WLlSBDb21tZXJjZSBBRCDpnIDmsYLoqI7oq5bvvIzo
+tbfmraXnqI1+fn7mmZrvvIwNCuacquS+huS4gOWFqemAseeahOaZgumWk+mbmeaWueacg+avlOi8
+g+Wvhumbhua6nemAmu+8jOmChOiri+WQhOS9jeWkmuWkmuWNlOWKqSDwn6SdDQoNCuacrOasoeac
+g+itsOiBmueEpuaWvCBDb21tZXJjZSBBRCDlsI7lhaXoqIjnlavvvIzlvp4gUEFEIOWPiuWqkumr
+lOerr+eahOS9v+eUqOmcgOaxguWHuueZvO+8jA0K55uk6bue5ZCE57O757Wx6ZyA6KaB6Kq/5pW0
+55qE5Yqf6IO96aCF55uu44CCDQoNCuS7peS4i+eCuuacg+itsOiomOmMhOiIh+W+jOe6jOihjOWL
+leS6i+mghe+8mg0KDQoNCipFUlAqIFBBRCBBY3Rpb24gSXRlbXM6DQoNCiAgIC0g5o+Q5L6b44CM
+5bu656uL5ZCI57SEL+W7uueri+WqkumrlOOAjeWQhOmggemdoueahOmcgOaxguiqquaYjuaWh+S7
+tg0KICAgLSDmj5DkvpsgUlRCIOWQiOe0hOW7uueri+acn+acm+a1geeoiw0KICAgLSAq6KuL56K6
+6KqN5Lul5LiK5paH5Lu25Lqk5LuY5pmC6ZaTKg0KDQpJVE8gQWN0aW9uIEl0ZW1zOg0KDQogICAt
+IOW+hSBQQUQg5paH5Lu25o+Q5L6b5b6M77yM5a6J5o6S5rWB56iL5ZyW6KiO6KuW5pyD6K2wDQoN
+Cg0KDQoqT1lNIOWwiOahiCogUEFEIEFjdGlvbiBJdGVtczoNCg0KICAgLSA3Lzkg5YmN5o+Q5L6b
+IEdvb2dsZSBFeGNoYW5nZSDmjIfmqJnpgbjpoIXvvIjopIfpm5zniYjvvIkNCg0KSVRPIEFjdGlv
+biBJdGVtczoNCg0KICAgLSDnq4vljbPln7fooYzph43mp4vkvZzmpa3vvIznp7vpmaTkuI3lv4Xo
+poHpoIXnm64NCiAgIC0g5pS25YiwIEdvb2dsZSBFeGNoYW5nZSDmjIfmqJnpgbjpoIXvvIzlgZrm
+lbjmk5rnmoTlj6/ooYzmgKfnorroqo3vvIzkuKblronmjpIgVUkvVVgg6KiO6KuW5pyD6K2wDQoN
+Cg0KDQoqUGFydG5lcnMg5bCI5qGIKiBQQUQgQWN0aW9uIEl0ZW1zOg0KDQogICAtIDcvOSDliY3m
+j5DkvpsgR29vZ2xlIEV4Y2hhbmdlIOaMh+aomemBuOmghe+8iOewoeWMlueJiO+8iQ0KDQpJVE8g
+QWN0aW9uIEl0ZW1zOg0KDQogICAtIOa6luWCmeOAjOW8leWwjuS9v+eUqOiAhemWi+WVnyBSVELj
+gI3mtYHnqIvlnJbliJ3nqL8NCiAgIC0g5pS25YiwIEdvb2dsZSBFeGNoYW5nZSDmjIfmqJnpgbjp
+oIXvvIzlgZrmlbjmk5rnmoTlj6/ooYzmgKfnorroqo3vvIzkuKblronmjpIgVUkvVVgg6KiO6KuW
+5pyD6K2wDQoNCg0KDQoq6YeN6KaB5pmC56iLKg0KDQoqNy8wOe+8iOS4ie+8iSoNCg0KICAgLSBQ
+QUQg5o+Q5L6bIEdvb2dsZSBFeGNoYW5nZSDmjIfmqJnos4fmlpkNCg0KKjcvMTHvvIjkupTvvIkt
+IE9ZTSAmIFBhcnRuZXJzIOmcgOaxguiojuirluacg+itsCoNCg0KICAgLSDorbDnqIsgMe+8mltP
+WU1dIFtQYXJ0bmVyc10g5pW45pOa5aCx6KGo56K66KqN5oyH5qiZ6YG46aCF5Y+v6KGM5oCn5Y+K
+IFVJL1VYDQogICAtIOitsOeoiyAy77yaW1BhcnRuZXJzXSDoqI7oq5blvJXlsI7kvb/nlKjogIXp
+lovllZ8gUlRCIOa1geeoi+Wclg0KDQoNCg0KDQoNCirolKHlgpHlkI0gSmltbXkgVHNhaSoNClNv
+ZnR3YXJlIEVuZ2luZWVyDQpJbnRlbGxpZ2VuY2UgVGVjaG5pY2FsIE9wZXJhdGlvbg0K5p6c5a+m
+5aSl5Ly06IKh5Lu95pyJ6ZmQ5YWs5Y+4IE9uZUFEIEluYy4NClQgKDAyKTc3MjAtMjg4MA0KRSBq
+aW1teXRzYWlAb25lYWQuY29tLnR3DQpBIOWPsOWMl+W4guWFp+a5luWNgOeRnuWFiei3rzYxMOiZ
+nzLmqJMNClcgT25lQUQuY29tLnR3IDxodHRwOi8vd3d3Lm9uZWFkLmNvbS50dy8+DQo8aHR0cHM6
+Ly93d3cuZmFjZWJvb2suY29tL09uZUFELnR3Pg0KPGh0dHBzOi8vdHcubGlua2VkaW4uY29tL2Nv
+bXBhbnkvb25lYWQtZ3NwP3Ryaz1wdWJsaWNfcHJvZmlsZV90b3BjYXJkLWN1cnJlbnQtY29tcGFu
+eT4NCiAgPGh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2NoYW5uZWwvVUN6UGZxS29rMVlKN0tqRU5v
+RVZQZU1nPg0KPGh0dHBzOi8vbGluZS5tZS9SL3RpL3AvQDc0MWVnYnBzPg0KDQrlj7DngaPmnIDl
+pKfmlbjkvY3lvbHpn7Plu6PlkYrnp5HmioDlhazlj7jjgILku6Xmlbjmk5roiIflu6PlkYrnp5Hm
+ioDlu7rmp4vmmbrmhaflu6PlkYrvvIzlnKjot6jntrLnkrDlooPlr6bnj77mnInmhJ/mup3pgJrv
+vJvmiJDlsLHlkIjkvZzlpKXkvLTpoJjlhYjluILloLTnmoTmlbjkvY3lk4HniYzlipsNCue+juWc
+i+efveiwt+enkeaKgOacn+WIiiBBUEFDIENJTyBPdXRsb29rIDIwMjUg5bm05Lqe5aSq5Y2A44CM
+5pyA5L2z6KGM6Yq356eR5oqA6Kej5rG65pa55qGI44CN77yMMjAxOOOAgTIwMTnjgIEyMDIxDQrl
+ubToqZXngrrkup7lpKrljYDjgIzljYHlpKfmlbjmk5rop6PmsbrmlrnmoYjmj5DkvpvogIXjgI0N
+Cuefveiwt+enkeaKgOmbnOiqjCBUaGUgU2lsaWNvbiBSZXZpZXcg6KmV54K644CMMjAyMSDlgLzl
+vpfpl5zms6jnmoQgNTAg5a625Ym15paw5YWs5Y+444CNDQo=
+--0000000000006ee011063953d52b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><p class=3D"gmail-whitespace-normal gmail-break-words">Hi =
+All</p><p class=3D"gmail-whitespace-normal gmail-break-words">=E4=BB=8A=E5=
+=A4=A9=E6=AD=A3=E5=BC=8F=E5=95=9F=E5=8B=95 Commerce AD =E9=9C=80=E6=B1=82=
+=E8=A8=8E=E8=AB=96=EF=BC=8C=E8=B5=B7=E6=AD=A5=E7=A8=8D~~~=E6=99=9A=EF=BC=8C=
+<br>=E6=9C=AA=E4=BE=86=E4=B8=80=E5=85=A9=E9=80=B1=E7=9A=84=E6=99=82=E9=96=
+=93=E9=9B=99=E6=96=B9=E6=9C=83=E6=AF=94=E8=BC=83=E5=AF=86=E9=9B=86=E6=BA=9D=
+=E9=80=9A=EF=BC=8C=E9=82=84=E8=AB=8B=E5=90=84=E4=BD=8D=E5=A4=9A=E5=A4=9A=E5=
+=8D=94=E5=8A=A9=C2=A0=F0=9F=A4=9D</p>
+<p class=3D"gmail-whitespace-normal gmail-break-words">=E6=9C=AC=E6=AC=A1=
+=E6=9C=83=E8=AD=B0=E8=81=9A=E7=84=A6=E6=96=BC Commerce AD =E5=B0=8E=E5=85=
+=A5=E8=A8=88=E7=95=AB=EF=BC=8C=E5=BE=9E PAD =E5=8F=8A=E5=AA=92=E9=AB=94=E7=
+=AB=AF=E7=9A=84=E4=BD=BF=E7=94=A8=E9=9C=80=E6=B1=82=E5=87=BA=E7=99=BC=EF=BC=
+=8C<br>=E7=9B=A4=E9=BB=9E=E5=90=84=E7=B3=BB=E7=B5=B1=E9=9C=80=E8=A6=81=E8=
+=AA=BF=E6=95=B4=E7=9A=84=E5=8A=9F=E8=83=BD=E9=A0=85=E7=9B=AE=E3=80=82</p><p=
+ class=3D"gmail-whitespace-normal gmail-break-words">
+
+</p><p class=3D"gmail-whitespace-normal gmail-break-words">=E4=BB=A5=E4=B8=
+=8B=E7=82=BA=E6=9C=83=E8=AD=B0=E8=A8=98=E9=8C=84=E8=88=87=E5=BE=8C=E7=BA=8C=
+=E8=A1=8C=E5=8B=95=E4=BA=8B=E9=A0=85=EF=BC=9A</p><p class=3D"gmail-whitespa=
+ce-normal gmail-break-words"><br></p><h2 class=3D"gmail-text-xl gmail-font-=
+bold gmail-text-text-100 gmail-mt-1 gmail--mb-0.5"><strong>ERP</strong></h2=
+>
+<h3 class=3D"gmail-text-lg gmail-font-bold gmail-text-text-100 gmail-mt-1 g=
+mail--mb-1.5">PAD Action Items:</h3>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E6=8F=90=E4=BE=9B=
+=E3=80=8C=E5=BB=BA=E7=AB=8B=E5=90=88=E7=B4=84/=E5=BB=BA=E7=AB=8B=E5=AA=92=
+=E9=AB=94=E3=80=8D=E5=90=84=E9=A0=81=E9=9D=A2=E7=9A=84=E9=9C=80=E6=B1=82=E8=
+=AA=AA=E6=98=8E=E6=96=87=E4=BB=B6</li>
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E6=8F=90=E4=BE=9B =
+RTB =E5=90=88=E7=B4=84=E5=BB=BA=E7=AB=8B=E6=9C=9F=E6=9C=9B=E6=B5=81=E7=A8=
+=8B</li>
+<li class=3D"gmail-whitespace-normal gmail-break-words"><strong><font color=
+=3D"#ff0000">=E8=AB=8B=E7=A2=BA=E8=AA=8D=E4=BB=A5=E4=B8=8A=E6=96=87=E4=BB=
+=B6=E4=BA=A4=E4=BB=98=E6=99=82=E9=96=93</font></strong></li>
+</ul>
+<h3 class=3D"gmail-text-lg gmail-font-bold gmail-text-text-100 gmail-mt-1 g=
+mail--mb-1.5">ITO Action Items:</h3>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E5=BE=85 PAD =E6=
+=96=87=E4=BB=B6=E6=8F=90=E4=BE=9B=E5=BE=8C=EF=BC=8C=E5=AE=89=E6=8E=92=E6=B5=
+=81=E7=A8=8B=E5=9C=96=E8=A8=8E=E8=AB=96=E6=9C=83=E8=AD=B0</li>
+</ul><div><br></div><br><h2 class=3D"gmail-text-xl gmail-font-bold gmail-te=
+xt-text-100 gmail-mt-1 gmail--mb-0.5"><strong>OYM =E5=B0=88=E6=A1=88</stron=
+g></h2>
+<h3 class=3D"gmail-text-lg gmail-font-bold gmail-text-text-100 gmail-mt-1 g=
+mail--mb-1.5">PAD Action Items:</h3>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">7/9 =E5=89=8D=E6=8F=
+=90=E4=BE=9B Google Exchange =E6=8C=87=E6=A8=99=E9=81=B8=E9=A0=85=EF=BC=88=
+=E8=A4=87=E9=9B=9C=E7=89=88=EF=BC=89</li>
+</ul>
+<h3 class=3D"gmail-text-lg gmail-font-bold gmail-text-text-100 gmail-mt-1 g=
+mail--mb-1.5">ITO Action Items:</h3>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E7=AB=8B=E5=8D=B3=
+=E5=9F=B7=E8=A1=8C=E9=87=8D=E6=A7=8B=E4=BD=9C=E6=A5=AD=EF=BC=8C=E7=A7=BB=E9=
+=99=A4=E4=B8=8D=E5=BF=85=E8=A6=81=E9=A0=85=E7=9B=AE</li>
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E6=94=B6=E5=88=B0=
+=C2=A0Google Exchange =E6=8C=87=E6=A8=99=E9=81=B8=E9=A0=85=EF=BC=8C=E5=81=
+=9A=E6=95=B8=E6=93=9A=E7=9A=84=E5=8F=AF=E8=A1=8C=E6=80=A7=E7=A2=BA=E8=AA=8D=
+=EF=BC=8C=E4=B8=A6=E5=AE=89=E6=8E=92 UI/UX =E8=A8=8E=E8=AB=96=E6=9C=83=E8=
+=AD=B0</li>
+</ul><div><br></div><br><h2 class=3D"gmail-text-xl gmail-font-bold gmail-te=
+xt-text-100 gmail-mt-1 gmail--mb-0.5"><strong>Partners =E5=B0=88=E6=A1=88</=
+strong></h2>
+<h3 class=3D"gmail-text-lg gmail-font-bold gmail-text-text-100 gmail-mt-1 g=
+mail--mb-1.5">PAD Action Items:</h3>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">7/9 =E5=89=8D=E6=8F=
+=90=E4=BE=9B Google Exchange =E6=8C=87=E6=A8=99=E9=81=B8=E9=A0=85=EF=BC=88=
+=E7=B0=A1=E5=8C=96=E7=89=88=EF=BC=89</li>
+</ul>
+<h3 class=3D"gmail-text-lg gmail-font-bold gmail-text-text-100 gmail-mt-1 g=
+mail--mb-1.5">ITO Action Items:</h3>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E6=BA=96=E5=82=99=
+=E3=80=8C=E5=BC=95=E5=B0=8E=E4=BD=BF=E7=94=A8=E8=80=85=E9=96=8B=E5=95=9F RT=
+B=E3=80=8D=E6=B5=81=E7=A8=8B=E5=9C=96=E5=88=9D=E7=A8=BF</li><li class=3D"gm=
+ail-whitespace-normal gmail-break-words">=E6=94=B6=E5=88=B0=C2=A0Google Exc=
+hange =E6=8C=87=E6=A8=99=E9=81=B8=E9=A0=85=EF=BC=8C=E5=81=9A=E6=95=B8=E6=93=
+=9A=E7=9A=84=E5=8F=AF=E8=A1=8C=E6=80=A7=E7=A2=BA=E8=AA=8D=EF=BC=8C=E4=B8=A6=
+=E5=AE=89=E6=8E=92 UI/UX =E8=A8=8E=E8=AB=96=E6=9C=83=E8=AD=B0</li>
+</ul><div><br></div><br><h2 class=3D"gmail-text-xl gmail-font-bold gmail-te=
+xt-text-100 gmail-mt-1 gmail--mb-0.5"><strong>=E9=87=8D=E8=A6=81=E6=99=82=
+=E7=A8=8B</strong></h2>
+<p class=3D"gmail-whitespace-normal gmail-break-words"><strong>7/09=EF=BC=
+=88=E4=B8=89=EF=BC=89</strong></p>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">PAD =E6=8F=90=E4=BE=
+=9B Google Exchange =E6=8C=87=E6=A8=99=E8=B3=87=E6=96=99</li>
+</ul>
+<p class=3D"gmail-whitespace-normal gmail-break-words"><strong>7/11=EF=BC=
+=88=E4=BA=94=EF=BC=89- OYM &amp; Partners =E9=9C=80=E6=B1=82=E8=A8=8E=E8=AB=
+=96=E6=9C=83=E8=AD=B0</strong></p>
+<ul class=3D"gmail-[&amp;:not(:last-child)_ul]:pb-1 gmail-[&amp;:not(:last-=
+child)_ol]:pb-1 gmail-list-disc gmail-space-y-1.5 gmail-pl-7">
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E8=AD=B0=E7=A8=8B =
+1=EF=BC=9A[OYM] [Partners] =E6=95=B8=E6=93=9A=E5=A0=B1=E8=A1=A8=E7=A2=BA=E8=
+=AA=8D=E6=8C=87=E6=A8=99=E9=81=B8=E9=A0=85=E5=8F=AF=E8=A1=8C=E6=80=A7=E5=8F=
+=8A UI/UX</li>
+<li class=3D"gmail-whitespace-normal gmail-break-words">=E8=AD=B0=E7=A8=8B =
+2=EF=BC=9A[Partners]=C2=A0=E8=A8=8E=E8=AB=96=E5=BC=95=E5=B0=8E=E4=BD=BF=E7=
+=94=A8=E8=80=85=E9=96=8B=E5=95=9F RTB =E6=B5=81=E7=A8=8B=E5=9C=96</li>
+</ul><br><div><br></div><div><br></div><div><br clear=3D"all"></div><div><d=
+iv dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"=
+><div dir=3D"ltr"><table width=3D"500" style=3D"color:rgb(0,0,0);font-famil=
+y:&quot;PingFang TC&quot;;font-size:medium;border:none;border-collapse:coll=
+apse"><tbody><tr style=3D"font-size:12px"><td style=3D"border-right:0px sol=
+id rgb(255,153,0);vertical-align:top;padding:0px 5px 0px 0px;overflow:hidde=
+n"><table width=3D"240" style=3D"min-width:220px"><tbody><tr style=3D"paddi=
+ng:0px"><td colspan=3D"2"><font color=3D"#000000" size=3D"4"><b style=3D"fo=
+nt-family:&quot;Nunito Sans&quot;,&quot;noto sans&quot;,sans-serif">=E8=94=
+=A1=E5=82=91=E5=90=8D Jimmy Tsai</b></font></td></tr><tr style=3D"padding:0=
+px"><td colspan=3D"2"><font style=3D"color:rgb(68,68,68);line-height:1.2em;=
+font-family:&quot;Nunito Sans&quot;,&quot;noto sans&quot;,sans-serif">Softw=
+are Engineer<br>Intelligence Technical Operation</font></td></tr><tr style=
+=3D"padding:0px"><td nowrap colspan=3D"2" style=3D"padding-top:8px"><font s=
+tyle=3D"font-weight:700;color:rgb(68,68,68);line-height:1.2em;font-family:&=
+quot;Nunito Sans&quot;,&quot;noto sans&quot;,sans-serif">=E6=9E=9C=E5=AF=A6=
+=E5=A4=A5=E4=BC=B4=E8=82=A1=E4=BB=BD=E6=9C=89=E9=99=90=E5=85=AC=E5=8F=B8 On=
+eAD Inc.</font></td></tr><tr style=3D"padding:0px"><td valign=3D"top"><span=
+ style=3D"font-family:&quot;Nunito Sans&quot;,&quot;noto sans&quot;,sans-se=
+rif;color:rgb(255,144,0);font-weight:700;vertical-align:baseline;white-spac=
+e:pre-wrap">T</span></td><td><font color=3D"#000000" style=3D"font-family:&=
+quot;Nunito Sans&quot;,&quot;noto sans&quot;,sans-serif">(02)7720-2880</fon=
+t></td></tr><tr style=3D"padding:0px"><td valign=3D"top"><span style=3D"fon=
+t-family:&quot;Nunito Sans&quot;,&quot;noto sans&quot;,sans-serif;color:rgb=
+(255,144,0);font-weight:700;vertical-align:baseline;white-space:pre-wrap">E=
+</span></td><td><font color=3D"#000000" style=3D"font-family:&quot;Nunito S=
+ans&quot;,&quot;noto sans&quot;,sans-serif"><a href=3D"mailto:jimmytsai@one=
+ad.com.tw" target=3D"_blank">jimmytsai@onead.com.tw</a></font></td></tr><tr=
+ style=3D"padding:0px"><td valign=3D"top"><span style=3D"font-family:&quot;=
+Nunito Sans&quot;,&quot;noto sans&quot;,sans-serif;color:rgb(255,144,0);fon=
+t-weight:700;vertical-align:baseline;white-space:pre-wrap">A</span></td><td=
+ nowrap><font color=3D"#000000" style=3D"font-family:&quot;Nunito Sans&quot=
+;,&quot;noto sans&quot;,sans-serif">=E5=8F=B0=E5=8C=97=E5=B8=82=E5=85=A7=E6=
+=B9=96=E5=8D=80=E7=91=9E=E5=85=89=E8=B7=AF610=E8=99=9F2=E6=A8=93</font></td=
+></tr><tr style=3D"padding:0px"><td valign=3D"top"><span style=3D"font-fami=
+ly:&quot;Nunito Sans&quot;,&quot;noto sans&quot;,sans-serif;color:rgb(255,1=
+44,0);font-weight:700;vertical-align:baseline;white-space:pre-wrap">W</span=
+></td><td><font color=3D"#000000" style=3D"font-family:&quot;Nunito Sans&qu=
+ot;,&quot;noto sans&quot;,sans-serif"><a href=3D"http://www.onead.com.tw/" =
+target=3D"_blank">OneAD.com.tw</a></font></td></tr><tr style=3D"padding:0px=
+"><td colspan=3D"2" style=3D"padding-top:8px"><a href=3D"https://www.facebo=
+ok.com/OneAD.tw" target=3D"_blank"><img height=3D"24" width=3D"24" src=3D"h=
+ttps://www.onead.com.tw/wp-content/uploads/2021/05/2021_signature_social_fb=
+2x.png"></a>=C2=A0<a href=3D"https://tw.linkedin.com/company/onead-gsp?trk=
+=3Dpublic_profile_topcard-current-company" target=3D"_blank"><img height=3D=
+"24" width=3D"24" src=3D"https://www.onead.com.tw/wp-content/uploads/2021/0=
+5/2021_signature_social_ln2x.png"></a>=C2=A0<a href=3D"https://www.youtube.=
+com/channel/UCzPfqKok1YJ7KjENoEVPeMg" target=3D"_blank"><img height=3D"24" =
+width=3D"24" src=3D"https://www.onead.com.tw/wp-content/uploads/2021/05/202=
+1_signature_social_yt2x.png"></a>=C2=A0<a href=3D"https://line.me/R/ti/p/@7=
+41egbps" target=3D"_blank"><img height=3D"24" width=3D"24" src=3D"https://l=
+ive.staticflickr.com/65535/52545586512_2ce52ae668_t.jpg"></a></td></tr></tb=
+ody></table></td><td style=3D"border-left:1.5pt solid rgb(255,153,0);vertic=
+al-align:top;padding:0px 0px 0px 5pt;overflow:hidden"><table><tbody><tr><td=
+ style=3D"padding-left:5px;padding-bottom:8px"><img src=3D"https://www.onea=
+d.com.tw/wp-content/uploads/2021/05/2021_signature_OneAD_Logo.png" width=3D=
+"180"><br></td></tr></tbody></table><div dir=3D"ltr" align=3D"left" style=
+=3D"margin-left:0pt"><table width=3D"240" style=3D"border:none;border-colla=
+pse:collapse"><tbody><tr style=3D"height:0pt"><td style=3D"vertical-align:t=
+op;padding:5pt;overflow:hidden"><table width=3D"240" style=3D"font-family:&=
+quot;Times New Roman&quot;;font-size:small;border:medium;border-collapse:co=
+llapse"><tbody><tr style=3D"height:0pt"><td style=3D"vertical-align:top;pad=
+ding:5pt;overflow:hidden"><span style=3D"font-family:&quot;Nunito Sans&quot=
+;,&quot;noto sans&quot;,sans-serif;vertical-align:baseline">=E5=8F=B0=E7=81=
+=A3=E6=9C=80=E5=A4=A7=E6=95=B8=E4=BD=8D=E5=BD=B1=E9=9F=B3=E5=BB=A3=E5=91=8A=
+=E7=A7=91=E6=8A=80=E5=85=AC=E5=8F=B8=E3=80=82=E4=BB=A5=E6=95=B8=E6=93=9A=E8=
+=88=87=E5=BB=A3=E5=91=8A=E7=A7=91=E6=8A=80=E5=BB=BA=E6=A7=8B=E6=99=BA=E6=85=
+=A7=E5=BB=A3=E5=91=8A=EF=BC=8C=E5=9C=A8=E8=B7=A8=E7=B6=B2=E7=92=B0=E5=A2=83=
+=E5=AF=A6=E7=8F=BE=E6=9C=89=E6=84=9F=E6=BA=9D=E9=80=9A=EF=BC=9B=E6=88=90=E5=
+=B0=B1=E5=90=88=E4=BD=9C=E5=A4=A5=E4=BC=B4=E9=A0=98=E5=85=88=E5=B8=82=E5=A0=
+=B4=E7=9A=84=E6=95=B8=E4=BD=8D=E5=93=81=E7=89=8C=E5=8A=9B</span></td></tr><=
+tr style=3D"height:0pt"><td style=3D"vertical-align:top;padding:5pt;overflo=
+w:hidden"><span style=3D"font-family:&quot;Nunito Sans&quot;,&quot;noto san=
+s&quot;,sans-serif;vertical-align:baseline">=E7=BE=8E=E5=9C=8B=E7=9F=BD=E8=
+=B0=B7=E7=A7=91=E6=8A=80=E6=9C=9F=E5=88=8A APAC CIO Outlook 2025 =E5=B9=B4=
+=E4=BA=9E=E5=A4=AA=E5=8D=80=E3=80=8C=E6=9C=80=E4=BD=B3=E8=A1=8C=E9=8A=B7=E7=
+=A7=91=E6=8A=80=E8=A7=A3=E6=B1=BA=E6=96=B9=E6=A1=88=E3=80=8D=EF=BC=8C2018=
+=E3=80=812019=E3=80=812021 =E5=B9=B4=E8=A9=95=E7=82=BA=E4=BA=9E=E5=A4=AA=E5=
+=8D=80=E3=80=8C=E5=8D=81=E5=A4=A7=E6=95=B8=E6=93=9A=E8=A7=A3=E6=B1=BA=E6=96=
+=B9=E6=A1=88=E6=8F=90=E4=BE=9B=E8=80=85=E3=80=8D</span></td></tr><tr style=
+=3D"height:0pt"><td style=3D"vertical-align:top;padding:5pt;overflow:hidden=
+"><span style=3D"font-family:&quot;Nunito Sans&quot;,&quot;noto sans&quot;,=
+sans-serif;vertical-align:baseline">=E7=9F=BD=E8=B0=B7=E7=A7=91=E6=8A=80=E9=
+=9B=9C=E8=AA=8C The Silicon Review =E8=A9=95=E7=82=BA=E3=80=8C2021 =E5=80=
+=BC=E5=BE=97=E9=97=9C=E6=B3=A8=E7=9A=84 50 =E5=AE=B6=E5=89=B5=E6=96=B0=E5=
+=85=AC=E5=8F=B8=E3=80=8D<br></span></td></tr></tbody></table></td></tr></tb=
+ody></table></div></td></tr></tbody></table></div></div></div></div>
+
+--0000000000006ee011063953d52b--
