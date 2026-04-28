@@ -196,18 +196,13 @@ def get_img_name_from_url(url):
     if raw_name.startswith('~') or '.tmp' in raw_name.lower():
         return None
     clean_name = sanitize_filename(raw_name, is_image=True, original_url=url)
-    excluded_extensions = (
-        '.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', 
-        '.drawio', '.eml', 
-        '.xlsx', '.xls', '.docx', '.doc', '.pptx', '.ppt', '.pdf', 
-        '.zip', '.rar', '.7z', '.csv', '.txt', '.md',
-        '.numbers', '.pages', '.key', 
-        '.sql', '.py', '.js', '.json',
-        '.xml', '.html', '.htm',
-        '.mp4', '.mov', '.avi'
-    )
-    if not clean_name.lower().endswith(excluded_extensions):
+    
+    # 只要原本就有副檔名，就不要強行加上 .png
+    # 這樣可以確保如 .sql, .py, .sh 等未定義在規則內的檔案能以原名下載
+    base, ext = os.path.splitext(clean_name)
+    if not ext:
         clean_name += ".png"
+        
     return clean_name
 
 def build_hierarchical_path(page, root_id):
