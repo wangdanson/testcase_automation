@@ -1,0 +1,82 @@
+sequenceDiagram
+    participant User as 廣告主/代理商
+    participant DSP as SuperDSP 平台
+    participant SeqDB as Sequence 資料庫
+    participant AdServer as Ad Server
+    participant Media as 媒體網站
+    participant Visitor as 網站訪客
+    participant CH as ClickHouse<br/>數據資料庫
+
+    %% 關鍵機制說明（置於頂部）
+    Note over User,CH: 🔑 關鍵機制說明<br/><br/>1. 媒體地板價：媒體動態設定，DSP 不可見<br/>2. 競價優先級：固定價格 > RTB<br/>3. Margin 機制：代理商利潤 = CPC出價 × Margin%<br/>4. 實際競標價：CPC出價 - (CPC出價 × Margin%)<br/>5. 未來優化：可能提供地板價覆蓋率參考
+
+    %% 階段1：Sequence 產生
+    rect rgb(255, 248, 225)
+        Note over User,SeqDB: 🔧 階段1：廣告設定與 Sequence 產生
+        User->>DSP: 設定廣告組合 (Placement)
+        Note over User,DSP: CPC出價: $3.00<br/>Margin: 50%<br/>(代理商期望利潤)
+        User->>DSP: 點擊上刊
+        DSP->>DSP: 計算實際競標價<br/>$3.00 - ($3.00 × 50%) = $1.50
+        DSP->>SeqDB: 產生 Sequence
+        Note over SeqDB: Sequence 包含：<br/>1. 媒體地板價 (Floor Price)<br/>2. 競標價格 ($1.50)<br/>3. 出價價格 ($3.00)<br/>4. TA 條件設定<br/>5. 其他廣告設定
+    end
+
+    %% 階段2：訪客觸發廣告請求
+    rect rgb(225, 245, 254)
+        Note over Visitor,AdServer: 👤 階段2：訪客瀏覽觸發廣告請求
+        Visitor->>Media: 瀏覽電商網站
+        Media->>Media: 記錄商品瀏覽/購物車行為
+        Visitor->>Media: 離開電商，瀏覽其他網站
+        Media->>AdServer: 發送廣告請求<br/>攜帶 OneID
+    end
+
+    %% 階段3：TA 比對與優先級判斷
+    rect rgb(232, 245, 233)
+        Note over AdServer,SeqDB: 🎯 階段3：TA 比對與投放優先級判斷
+        AdServer->>SeqDB: 查詢符合 OneID 的 Sequences
+        SeqDB-->>AdServer: 返回符合 TA 的候選廣告
+        
+        AdServer->>AdServer: 判斷投放優先級
+        alt 有固定價格廣告且流量未滿
+            AdServer->>AdServer: 優先投放固定價格廣告
+            AdServer-->>Media: 返回固定價格廣告
+        else 固定價格流量已滿，進入 RTB
+            AdServer->>AdServer: 進入 RTB 競價流程
+        end
+    end
+
+    %% 階段4：RTB 競價
+    rect rgb(243, 229, 245)
+        Note over AdServer,DSP: 💰 階段4：RTB 即時競價
+        AdServer->>AdServer: 收集所有符合 TA 的 RTB Sequences
+        Note over AdServer: 候選 Sequences：<br/>Seq A: $1.00 (OneAD Client A)<br/>Seq B: $1.50 (OneAD Client B)<br/>Seq C: $0.80 (OneAD Client C)
+        
+        AdServer->>AdServer: 比較競標價格
+        AdServer->>AdServer: 選出最高出價者<br/>Seq B 獲勝 ($1.50)
+    end
+
+    %% 階段5：廣告投放與計費
+    rect rgb(255, 235, 238)
+        Note over AdServer,CH: 📊 階段5：廣告投放與計費
+        AdServer-->>Media: 返回獲勝廣告 (Seq B)
+        Media-->>Visitor: 展示 Commerce Ad<br/>(3-6 個商品)
+        
+        alt 訪客點擊廣告
+            Visitor->>Media: 點擊廣告
+            Media->>CH: 記錄點擊事件
+            Note over CH: 事件數據存儲：<br/>- Impression<br/>- Click<br/>- 時間戳記<br/>- OneID<br/>- 廣告相關資訊
+            CH-->>DSP: 即時事件通知
+            DSP->>DSP: 扣除 CPC 費用
+            Note over DSP: 代理商向客戶收取: $3.00<br/>代理商付給 OneAD: $1.50<br/>代理商利潤: $1.50 (50% Margin)
+            DSP->>User: 更新花費報表
+        else 訪客未點擊
+            Media->>CH: 記錄曝光事件
+            Note over CH: 僅記錄曝光，不計費
+            CH-->>DSP: 即時曝光通知
+        end
+    end
+
+    %% 階段6：未得標處理
+    rect rgb(245, 245, 245)
+        Note right of DSP: ⚠️ 階段6：未得標情況<br/><br/>Seq A 和 Seq C 未得標<br/>目前系統不記錄未得標資訊<br/>廣告主需透過投放量觀察<br/>來判斷是否需要調整出價
+    end
