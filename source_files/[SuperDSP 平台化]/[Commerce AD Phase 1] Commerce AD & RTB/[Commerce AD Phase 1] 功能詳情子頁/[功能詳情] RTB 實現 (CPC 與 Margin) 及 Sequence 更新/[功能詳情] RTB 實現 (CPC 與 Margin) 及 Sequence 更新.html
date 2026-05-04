@@ -1,1857 +1,1724 @@
-<div class="contentLayout2">
- <style>
-  [data-colorid=cubxkwo9ah]{color:#bf2600} html[data-color-mode=dark] [data-colorid=cubxkwo9ah]{color:#ff6640}[data-colorid=p01nlkpl21]{color:#36b37e} html[data-color-mode=dark] [data-colorid=p01nlkpl21]{color:#4cc994}[data-colorid=rehqrvborl]{color:#bf2600} html[data-color-mode=dark] [data-colorid=rehqrvborl]{color:#ff6640}[data-colorid=wkbq976rp9]{color:#36b37e} html[data-color-mode=dark] [data-colorid=wkbq976rp9]{color:#4cc994}[data-colorid=hyabrbtjg4]{color:#bf2600} html[data-color-mode=dark] [data-colorid=hyabrbtjg4]{color:#ff6640}[data-colorid=kxy2k2r1qi]{color:#36b37e} html[data-color-mode=dark] [data-colorid=kxy2k2r1qi]{color:#4cc994}[data-colorid=y7w90wmgik]{color:#bf2600} html[data-color-mode=dark] [data-colorid=y7w90wmgik]{color:#ff6640}[data-colorid=dlc8knyxck]{color:#bf2600} html[data-color-mode=dark] [data-colorid=dlc8knyxck]{color:#ff6640}
- </style>
- <div class="columnLayout fixed-width" data-layout="fixed-width">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <h2 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-功能概述">
-     功能概述
-    </h2>
+<h2>
+ 功能概述
+</h2>
+<p>
+ CPC 與 Margin 設定是 Commerce AD RTB（Real-Time Bidding）競價模式的核心定價機制。此功能讓廣告主能在廣告組合（Placement）層級設定期望的點擊成本（CPC）與利潤空間（Margin），系統會自動計算實際參與競標的價格，上刊後將 Sequence 更新必要 key value，讓競標流程啟動。
+</p>
+<p>
+ <strong>
+  UIUX：
+ </strong>
+ <a href="https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=5657-37629&amp;t=OZB1ZQfmjGoWMf0R-1">
+  RTB 競標價格設定介面
+ </a>
+</p>
+<p>
+ <strong>
+  Wireframe：
+ </strong>
+ <a href="https://claude.ai/public/artifacts/16c58705-4e77-4c7f-ba75-db96b2ef4bf5">
+  RTB 競標價格設定介面
+ </a>
+</p>
+<h3>
+ 📍 功能位置
+</h3>
+<p>
+ 路徑：I/O 單管理 &gt; 廣告活動 &gt; 廣告組合管理 &gt; 新增廣告組合 &gt; RTB設定
+</p>
+<img alt="截圖 2025-07-16 下午3.11.59.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3924131865/%E6%88%AA%E5%9C%96%202025-07-16%20%E4%B8%8B%E5%8D%883.11.59.png?version=1&amp;modificationDate=1752650025375&amp;cacheVersion=1&amp;api=v2&amp;width=482&amp;height=255"/>
+<p>
+</p>
+<img alt="截圖 2025-07-16 下午3.12.58.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3924131865/%E6%88%AA%E5%9C%96%202025-07-16%20%E4%B8%8B%E5%8D%883.12.58.png?version=1&amp;modificationDate=1752650035058&amp;cacheVersion=1&amp;api=v2&amp;width=482&amp;height=262"/>
+<p>
+</p>
+<h3>
+ 現況與待開發說明
+</h3>
+<table>
+ <tbody>
+  <tr>
+   <th>
     <p>
-     CPC 與 Margin 設定是 Commerce AD RTB（Real-Time Bidding）競價模式的核心定價機制。此功能讓廣告主能在廣告組合（Placement）層級設定期望的點擊成本（CPC）與利潤空間（Margin），系統會自動計算實際參與競標的價格，上刊後將 Sequence 更新必要 key value，讓競標流程啟動。
+     項目
     </p>
+   </th>
+   <th>
     <p>
-     <strong>
-      UIUX：
-     </strong>
-     <a class="external-link" href="https://www.figma.com/design/6DLe9B0rw9V7YgBaSllgOQ/Super-dsp?node-id=5657-37629&amp;t=OZB1ZQfmjGoWMf0R-1" rel="nofollow">
-      RTB 競標價格設定介面
-     </a>
+     ✅ 現況（已實現）
     </p>
+   </th>
+   <th>
     <p>
-     <strong>
-      Wireframe：
-     </strong>
-     <a class="external-link" href="https://claude.ai/public/artifacts/16c58705-4e77-4c7f-ba75-db96b2ef4bf5" rel="nofollow">
-      RTB 競標價格設定介面
-     </a>
+     🆕 待開發（本次需求）
     </p>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-📍功能位置">
-     📍 功能位置
-    </h3>
+   </th>
+  </tr>
+  <tr>
+   <td>
     <p>
-     路徑：I/O 單管理 &gt; 廣告活動 &gt; 廣告組合管理 &gt; 新增廣告組合 &gt; RTB設定
+     定價模式
     </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout two-equal" data-layout="two-equal">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-07-16 下午3.11.59.png" class="confluence-embedded-image image-center" data-height="658" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3924131865/%E6%88%AA%E5%9C%96%202025-07-16%20%E4%B8%8B%E5%8D%883.11.59.png?version=1&amp;modificationDate=1752650025375&amp;cacheVersion=1&amp;api=v2&amp;width=482&amp;height=255" data-linked-resource-container-id="3924131865" data-linked-resource-container-version="32" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-07-16 下午3.11.59.png" data-linked-resource-id="3934453772" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="a6dcb436-1b0b-41ef-a34b-93330e4247bd" data-media-type="file" data-unresolved-comment-count="0" data-width="1240" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3924131865/%E6%88%AA%E5%9C%96%202025-07-16%20%E4%B8%8B%E5%8D%883.11.59.png?version=1&amp;modificationDate=1752650025375&amp;cacheVersion=1&amp;api=v2&amp;width=482&amp;height=255" width="482"/>
-    </span>
+   </td>
+   <td>
     <p>
+     固定價格（含 Margin）
     </p>
-   </div>
-  </div>
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-07-16 下午3.12.58.png" class="confluence-embedded-image image-center" data-height="525" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3924131865/%E6%88%AA%E5%9C%96%202025-07-16%20%E4%B8%8B%E5%8D%883.12.58.png?version=1&amp;modificationDate=1752650035058&amp;cacheVersion=1&amp;api=v2&amp;width=482&amp;height=262" data-linked-resource-container-id="3924131865" data-linked-resource-container-version="32" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-07-16 下午3.12.58.png" data-linked-resource-id="3935240196" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="9e206177-d802-4fc2-b0cb-f84932ae3782" data-media-type="file" data-unresolved-comment-count="0" data-width="965" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3924131865/%E6%88%AA%E5%9C%96%202025-07-16%20%E4%B8%8B%E5%8D%883.12.58.png?version=1&amp;modificationDate=1752650035058&amp;cacheVersion=1&amp;api=v2&amp;width=482&amp;height=262" width="482"/>
-    </span>
+   </td>
+   <td>
     <p>
+     RTB 動態競價（CPC + Margin）
     </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout fixed-width" data-layout="fixed-width">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-現況與待開發說明">
-     現況與待開發說明
-    </h3>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="center" data-local-id="37ee7ccd-5358-4018-bd36-1d04a533abaa" data-table-width="1011">
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          項目
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          ✅ 現況（已實現）
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          🆕 待開發（本次需求）
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          定價模式
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          固定價格（含 Margin）
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          RTB 動態競價（CPC + Margin）
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          價格調整範圍
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          可調整價格，Margin 藉由價格系統計算得出
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          可調整 出價CPC 及 期望利潤
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          計算方式
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          即時顯示 Margin 結果
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          即時顯示 實際競標CPC
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          Sequence 更新
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          固定價格邏輯
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          RTB 競價邏輯 (新增 Key Value)
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="27029c74-8128-49b0-9e87-abcbd1aa5efa" data-macro-name="expand" id="expander-1149085643">
-     <div class="expand-control" id="expander-control-1149085643">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       統一術語說明
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1149085643">
-      <ul>
-       <li>
-        <p>
-         <strong>
-          CPC
-         </strong>
-         ：Cost Per Click（每次點擊成本）
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          Margin
-         </strong>
-         ：利潤空間，平台與廣告主之間的費用分配比例
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          RTB
-         </strong>
-         ：Real-Time Bidding，OneAD Commerce AD 採用的核心競標模式
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          Placement
-         </strong>
-         ：廣告組合
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          Sequence
-         </strong>
-         ：廣告投放系統的執行序列配置
-        </p>
-       </li>
-      </ul>
-     </div>
-    </div>
-    <h2 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-核心功能說明">
-     核心功能說明
-    </h2>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-功能規則/邏輯">
-     功能規則/邏輯
-    </h3>
-    <h4 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-RTB詳細流程與分潤機制時序圖">
-     <a class="external-link" href="https://claude.ai/public/artifacts/c16d9129-ffd7-4574-a2ed-97231716c124" rel="nofollow">
-      RTB 詳細流程與分潤機制時序圖
-     </a>
-    </h4>
-    <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="62f300e6-91de-4696-86b6-38f3e697eb70" data-macro-name="code" style="border-width: 1px;">
-     <div class="codeContent panelContent pdl">
-      <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Commerce AD RTB 商業策略
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     價格調整範圍
+    </p>
+   </td>
+   <td>
+    <p>
+     可調整價格，Margin 藉由價格系統計算得出
+    </p>
+   </td>
+   <td>
+    <p>
+     可調整 出價CPC 及 期望利潤
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     計算方式
+    </p>
+   </td>
+   <td>
+    <p>
+     即時顯示 Margin 結果
+    </p>
+   </td>
+   <td>
+    <p>
+     即時顯示 實際競標CPC
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Sequence 更新
+    </p>
+   </td>
+   <td>
+    <p>
+     固定價格邏輯
+    </p>
+   </td>
+   <td>
+    <p>
+     RTB 競價邏輯 (新增 Key Value)
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+統一術語說明
+<ul>
+ <li>
+  <p>
+   <strong>
+    CPC
+   </strong>
+   ：Cost Per Click（每次點擊成本）
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Margin
+   </strong>
+   ：利潤空間，平台與廣告主之間的費用分配比例
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    RTB
+   </strong>
+   ：Real-Time Bidding，OneAD Commerce AD 採用的核心競標模式
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Placement
+   </strong>
+   ：廣告組合
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Sequence
+   </strong>
+   ：廣告投放系統的執行序列配置
+  </p>
+ </li>
+</ul>
+<h2>
+ 核心功能說明
+</h2>
+<h3>
+ 功能規則/邏輯
+</h3>
+<h4>
+ <a href="https://claude.ai/public/artifacts/c16d9129-ffd7-4574-a2ed-97231716c124">
+  RTB 詳細流程與分潤機制時序圖
+ </a>
+</h4>
+<pre>Commerce AD RTB 商業策略
 ├── 專注競標媒體剩餘流量庫存
 ├── 以量大價優的方式獲得曝光
 └── 不與固定價格廣告競爭高價版位
 </pre>
-     </div>
-    </div>
-    <h4 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-CPC與Margin設定規則">
-     CPC 與 Margin 設定規則
-    </h4>
+<h4>
+ CPC 與 Margin 設定規則
+</h4>
+<p>
+ <strong>
+  CPC 出價設定
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   設定範圍：$0.1 ~ $100
+  </p>
+ </li>
+ <li>
+  <p>
+   步進單位：0.1（支援小數點後一位）
+  </p>
+ </li>
+ <li>
+  <p>
+   貨幣單位：新台幣（TWD）
+  </p>
+ </li>
+ <li>
+  <p>
+   必填欄位：是
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  Margin 設定
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   設定範圍：0% ~ 99%
+  </p>
+ </li>
+ <li>
+  <p>
+   步進單位：1%
+  </p>
+ </li>
+ <li>
+  <p>
+   預設值：無（使用者必須主動設定）
+  </p>
+ </li>
+ <li>
+  <p>
+   必填欄位：是
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  實際競標價
+  (8/20 新增)
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   規格：顯示小數點後三位
+  </p>
+  <ul>
+   <li>
     <p>
+     計算結果為 0.1｜介面顯示 0.1，
      <strong>
-      CPC 出價設定
+      不會
      </strong>
+     顯示 0.100
     </p>
-    <ul>
-     <li>
-      <p>
-       設定範圍：$0.1 ~ $100
-      </p>
-     </li>
-     <li>
-      <p>
-       步進單位：0.1（支援小數點後一位）
-      </p>
-     </li>
-     <li>
-      <p>
-       貨幣單位：新台幣（TWD）
-      </p>
-     </li>
-     <li>
-      <p>
-       必填欄位：是
-      </p>
-     </li>
-    </ul>
+   </li>
+   <li>
     <p>
+     計算結果為 0.15｜介面顯示 0.15，
      <strong>
-      Margin 設定
+      不會
      </strong>
+     顯示 0.150
     </p>
-    <ul>
-     <li>
-      <p>
-       設定範圍：0% ~ 99%
-      </p>
-     </li>
-     <li>
-      <p>
-       步進單位：1%
-      </p>
-     </li>
-     <li>
-      <p>
-       預設值：無（使用者必須主動設定）
-      </p>
-     </li>
-     <li>
-      <p>
-       必填欄位：是
-      </p>
-     </li>
-    </ul>
+   </li>
+   <li>
     <p>
-     <strong>
-      實際競標價
-      <span data-colorid="p01nlkpl21">
-       (8/20 新增)
-      </span>
-     </strong>
+     計算結果為 0.155｜介面顯示 0.155
     </p>
-    <ul>
-     <li>
-      <p>
-       規格：顯示小數點後三位
-      </p>
-      <ul>
-       <li>
-        <p>
-         計算結果為 0.1｜介面顯示 0.1，
-         <strong>
-          不會
-         </strong>
-         顯示 0.100
-        </p>
-       </li>
-       <li>
-        <p>
-         計算結果為 0.15｜介面顯示 0.15，
-         <strong>
-          不會
-         </strong>
-         顯示 0.150
-        </p>
-       </li>
-       <li>
-        <p>
-         計算結果為 0.155｜介面顯示 0.155
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       顯示小數點後三位是為了滿足 出價＊Margin 的所有可能數值相乘之結果
-      </p>
-      <ul>
-       <li>
-        <p>
-         舉例：出價 0.1 ＊ Margin 0.01 = 實際競標價 0.001
-         <br/>
-        </p>
-       </li>
-      </ul>
-     </li>
-    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   顯示小數點後三位是為了滿足 出價＊Margin 的所有可能數值相乘之結果
+  </p>
+  <ul>
+   <li>
     <p>
-     <strong>
-      計算公式及範例
-     </strong>
+     舉例：出價 0.1 ＊ Margin 0.01 = 實際競標價 0.001
+     <br/>
     </p>
-    <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c15e9e02-7d6a-4af7-a4b8-05daa6f629f2" data-macro-name="code" style="border-width: 1px;">
-     <div class="codeContent panelContent pdl">
-      <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">實際競標價計算公式
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+ <strong>
+  計算公式及範例
+ </strong>
+</p>
+<pre>實際競標價計算公式
 實際競標價 = CPC出價 - (CPC出價 × Margin%)
 
 CPC 設定：$3.00
 Margin 設定：20%
 實際競標價 = $3.00 - ($3.00 × 20%) = $2.40
 </pre>
-     </div>
-    </div>
+<p>
+ <strong>
+  上刊後之設定行為
+  (8/06 新增)
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    鎖住 期望利潤欄位(Margin)，上刊後僅能藉由更改出價 CPC 欄位來調整競標價格
+   </strong>
+  </p>
+ </li>
+</ul>
+<p>
+ PM：使帳務管理的 Margin 單純且統一, 不會造成 Margin 也必須用平均價格才能計算得出
+</p>
+<p>
+ <strong>
+  出價設定 與 預算卡控邏輯
+  (8/20 新增)
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   規格：
+   <strong>
+    預算
+   </strong>
+   &gt;=
+   <strong>
+    出價
+   </strong>
+   的2倍才能儲存。
+  </p>
+  <ul>
+   <li>
+    <p>
+     預算需考量已花費
+    </p>
+   </li>
+   <li>
     <p>
      <strong>
-      上刊後之設定行為
-      <span data-colorid="kxy2k2r1qi">
-       (8/06 新增)
-      </span>
+      情境說明 - 預算可能會無法花完
      </strong>
+     <br/>
+     假設條件：Campaign 預算 $1,000, Campaign 已花費 $990, 且 Placement 走期皆已結束,
+     <br/>
+     此時 Create Placement
+     <strong>
+      預算
+     </strong>
+     設為 $10
     </p>
     <ul>
      <li>
       <p>
-       <strong>
-        鎖住 期望利潤欄位(Margin)，上刊後僅能藉由更改出價 CPC 欄位來調整競標價格
-       </strong>
-      </p>
-     </li>
-    </ul>
-    <blockquote>
-     <p>
-      PM：使帳務管理的 Margin 單純且統一, 不會造成 Margin 也必須用平均價格才能計算得出
-     </p>
-    </blockquote>
-    <p>
-     <strong>
-      出價設定 與 預算卡控邏輯
-      <span data-colorid="wkbq976rp9">
-       (8/20 新增)
-      </span>
-     </strong>
-    </p>
-    <ul>
-     <li>
-      <p>
-       規格：
-       <strong>
-        預算
-       </strong>
-       &gt;=
        <strong>
         出價
        </strong>
-       的2倍才能儲存。
+       設為 $10,
+       <strong>
+        預算
+       </strong>
+       $10 未滿足&gt;= (10*2), 此條件“無法”被建立
       </p>
-      <ul>
-       <li>
-        <p>
-         預算需考量已花費
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          情境說明 - 預算可能會無法花完
-         </strong>
-         <br/>
-         假設條件：Campaign 預算 $1,000, Campaign 已花費 $990, 且 Placement 走期皆已結束,
-         <br/>
-         此時 Create Placement
-         <strong>
-          預算
-         </strong>
-         設為 $10
-        </p>
-        <ul>
-         <li>
-          <p>
-           <strong>
-            出價
-           </strong>
-           設為 $10,
-           <strong>
-            預算
-           </strong>
-           $10 未滿足&gt;= (10*2), 此條件“無法”被建立
-          </p>
-         </li>
-         <li>
-          <p>
-           <strong>
-            出價
-           </strong>
-           設為 $5,
-           <strong>
-            預算
-           </strong>
-           $10 滿足&gt;= (5*2), 此條件“可以”被建立
-          </p>
-         </li>
-         <li>
-          <p>
-           <span data-colorid="rehqrvborl">
-            由於
-           </span>
-           <strong>
-            <span data-colorid="hyabrbtjg4">
-             預算
-            </span>
-           </strong>
-           <span data-colorid="y7w90wmgik">
-            僅剩 $10 額度, 若使用者堅持設定
-           </span>
-           <strong>
-            <span data-colorid="dlc8knyxck">
-             出價
-            </span>
-           </strong>
-           <span data-colorid="cubxkwo9ah">
-            &gt; $5 做 Create 會面臨“無法”建立 Placement 之情況, 意味著最後這 $10 無法被花費掉。(與PM-Sharon/Helen達成共識)
-           </span>
-          </p>
-         </li>
-        </ul>
-       </li>
-      </ul>
      </li>
      <li>
-      <p>
-       當 Placement 無法建立之卡控訊息：預算不得低於出價的2倍。
-      </p>
-     </li>
-    </ul>
-    <p>
-    </p>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="c9b45dc6-4d0e-4e8a-8b0f-149f49d14e89" data-macro-name="expand" id="expander-1596052000">
-     <div class="expand-control" id="expander-control-1596052000">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       與其他功能的交互關聯
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1596052000">
-      <h4 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-數據鎖定的影響">
-       數據鎖定的影響
-      </h4>
-      <ul>
-       <li>
-        <p>
-         精準鎖定需要較高 CPC 才能贏得競標
-        </p>
-       </li>
-       <li>
-        <p>
-         Environment 模式會影響可競標的流量大小
-        </p>
-       </li>
-       <li>
-        <p>
-         過度精準 + 低出價 = 可能無法獲得曝光
-        </p>
-       </li>
-      </ul>
-      <h4 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-廣告格式的考量">
-       廣告格式的考量
-      </h4>
-      <ul>
-       <li>
-        <p>
-         Desktop vs Mobile：不同裝置競價環境差異大
-        </p>
-       </li>
-       <li>
-        <p>
-         熱門尺寸（如 300x250）：競爭激烈需提高出價
-        </p>
-       </li>
-       <li>
-        <p>
-         特殊格式：可能需要差異化定價策略
-        </p>
-       </li>
-      </ul>
-      <h4 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-投放策略建議">
-       投放策略建議
-      </h4>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="8bc90c0d-c0b9-4a30-8a7a-28357ae94a5a">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            策略類型
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            受眾設定
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            CPC 建議
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            Margin 建議
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            適用情境
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            品牌曝光
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            寬鬆
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            較低
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            較高
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            提升品牌認知
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            精準導流
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            精準
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            較高
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            較低
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            特定受眾轉換
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            平衡策略
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            適中
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            適中
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            適中
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            一般投放需求
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-     </div>
-    </div>
-    <h2 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-使用情境與系統行為">
-     使用情境與系統行為
-    </h2>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="d9b4b996-3629-4979-893b-ddef295f6dea" data-macro-name="expand" id="expander-133658098">
-     <div class="expand-control" id="expander-control-133658098">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       情境一：初次建立廣告組合設定出價並上刊
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-133658098">
       <p>
        <strong>
-        場景描述
+        出價
        </strong>
-       ：使用者首次為 Commerce AD 廣告組合設定競價參數
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="2923148f-ee41-4063-84f3-964e6ee85eed">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            操作步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="1">
-            <li>
-             <p>
-              進入廣告組合建立頁面
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示 RTB 設定區塊
-             </p>
-            </li>
-            <li>
-             <p>
-              CPC 與 Margin 欄位為空白狀態
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="2">
-            <li>
-             <p>
-              在「出價設定」區塊輸入 CPC，輸入 $3.50
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 即時驗證輸入格式
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 顯示貨幣符號與格式化數值
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 即時計算實際競標價
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="3">
-            <li>
-             <p>
-              設定 Margin 百分比，輸入 20%
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 即時驗證輸入格式
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 顯示百分比與格式化數值
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 即時計算實際競標價
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="4">
-            <li>
-             <p>
-              系統顯示實際競標價
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 醒目顯示 $2.80
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 提供 tooltip 說明計算邏輯
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="5">
-            <li>
-             <p>
-              確認並儲存廣告組合
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              <span class="inline-comment-marker" data-ref="5eac6687-e49e-4568-ad5d-94c3a8323842">
-               驗證所有必填欄位
-              </span>
-             </p>
-            </li>
-            <li>
-             <p>
-              儲存 CPC 與 Margin 設定值
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="6">
-            <li>
-             <p>
-              上刊
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 觸發 Sequence 更新，將競價參數寫入
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="26da49f9-2601-4d4d-91a7-44275822026d" data-macro-name="expand" id="expander-1382912672">
-     <div class="expand-control" id="expander-control-1382912672">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       情境二：上刊後發現無曝光需調整出價
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1382912672">
-      <p>
+       設為 $5,
        <strong>
-        場景描述
+        預算
        </strong>
-       ：廣告上刊後因出價過低無法獲得曝光，需要調整價格
+       $10 滿足&gt;= (5*2), 此條件“可以”被建立
       </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="ac48a511-8af1-453c-9fb1-91ab068d9e93">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            操作步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="1">
-            <li>
-             <p>
-              監控發現問題，
-              <br/>
-              上刊 2-3 小時後 Impression 仍為 0
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              系統正常運作但無競標成功
-             </p>
-            </li>
-            <li>
-             <p>
-              判斷可能是出價過低
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="2">
-            <li>
-             <p>
-              進入廣告組合編輯頁面
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              載入當前設定
-             </p>
-            </li>
-            <li>
-             <p>
-              顯示 CPC $2.00、Margin 30%
-             </p>
-            </li>
-            <li>
-             <p>
-              實際競標價 $1.40
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="3">
-            <li>
-             <p>
-              調整出價策略
-              <br/>
-              提高 CPC 至 $3.00 或降低 期望利潤 至 20%
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 即時更新實際競標價
-             </p>
-            </li>
-            <li>
-             <p>
-              新競標價：$2.40（提高 CPC）或 $1.60（降低 期望利潤）
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="4">
-            <li>
-             <p>
-              儲存變更
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              驗證新設定值
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 觸發 Sequence 更新流程
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="5">
-            <li>
-             <p>
-              生效監控
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              Sequence 更新後開始以新價格競標
-             </p>
-            </li>
-            <li>
-             <p>
-              持續觀察 Impression 變化
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
+     </li>
+     <li>
       <p>
-      </p>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="abf41b3d-6702-4c9b-adae-bed516a9a99a" data-macro-name="expand" id="expander-1100240713">
-     <div class="expand-control" id="expander-control-1100240713">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       情境三：多組合差異化定價管理
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1100240713">
-      <p>
+       由於
        <strong>
-        場景描述
+        預算
        </strong>
-       ：同一廣告活動針對不同受眾群體設定不同價格策略
+       僅剩 $10 額度, 若使用者堅持設定
+       <strong>
+        出價
+       </strong>
+       &gt; $5 做 Create 會面臨“無法”建立 Placement 之情況, 意味著最後這 $10 無法被花費掉。(與PM-Sharon/Helen達成共識)
       </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="5e26d98c-37ad-437d-80ac-a6cbaf5132be">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            操作步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="1">
-            <li>
-             <p>
-              建立廣告活動架構「2025 Q1 品牌推廣」
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              建立廣告活動
-             </p>
-            </li>
-            <li>
-             <p>
-              準備建立多個廣告組合
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="2">
-            <li>
-             <p>
-              建立組合 A「VIP 客群」
-              <br/>
-              • 受眾：高消費力族群
-              <br/>
-              • CPC：$5.00
-              <br/>
-              • Margin：10%
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 實際競標價 $4.50
-             </p>
-            </li>
-            <li>
-             <p>
-              針對高價值客群的高出價策略
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="3">
-            <li>
-             <p>
-              建立組合 B「潛在客群」
-              <br/>
-              • 受眾：興趣相關族群
-              <br/>
-              • CPC：$3.00
-              <br/>
-              • Margin：20%
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 實際競標價 $2.40
-             </p>
-            </li>
-            <li>
-             <p>
-              平衡成本與觸及的策略
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="4">
-            <li>
-             <p>
-              建立組合 C「廣泛觸及」
-              <br/>
-              • 受眾：無特定限制
-              <br/>
-              • CPC：$1.50
-              <br/>
-              • Margin：30%
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 實際競標價 $1.05
-             </p>
-            </li>
-            <li>
-             <p>
-              最大化曝光的低價策略
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <ol start="5">
-            <li>
-             <p>
-              管理要點
-             </p>
-            </li>
-           </ol>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              各組合獨立運作，互不影響競標
-             </p>
-            </li>
-            <li>
-             <p>
-              可根據各組合成效個別調整
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   當 Placement 無法建立之卡控訊息：預算不得低於出價的2倍。
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+與其他功能的交互關聯
+<h4>
+ 數據鎖定的影響
+</h4>
+<ul>
+ <li>
+  <p>
+   精準鎖定需要較高 CPC 才能贏得競標
+  </p>
+ </li>
+ <li>
+  <p>
+   Environment 模式會影響可競標的流量大小
+  </p>
+ </li>
+ <li>
+  <p>
+   過度精準 + 低出價 = 可能無法獲得曝光
+  </p>
+ </li>
+</ul>
+<h4>
+ 廣告格式的考量
+</h4>
+<ul>
+ <li>
+  <p>
+   Desktop vs Mobile：不同裝置競價環境差異大
+  </p>
+ </li>
+ <li>
+  <p>
+   熱門尺寸（如 300x250）：競爭激烈需提高出價
+  </p>
+ </li>
+ <li>
+  <p>
+   特殊格式：可能需要差異化定價策略
+  </p>
+ </li>
+</ul>
+<h4>
+ 投放策略建議
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     策略類型
+    </p>
+   </th>
+   <th>
+    <p>
+     受眾設定
+    </p>
+   </th>
+   <th>
+    <p>
+     CPC 建議
+    </p>
+   </th>
+   <th>
+    <p>
+     Margin 建議
+    </p>
+   </th>
+   <th>
+    <p>
+     適用情境
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     品牌曝光
+    </p>
+   </td>
+   <td>
+    <p>
+     寬鬆
+    </p>
+   </td>
+   <td>
+    <p>
+     較低
+    </p>
+   </td>
+   <td>
+    <p>
+     較高
+    </p>
+   </td>
+   <td>
+    <p>
+     提升品牌認知
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     精準導流
+    </p>
+   </td>
+   <td>
+    <p>
+     精準
+    </p>
+   </td>
+   <td>
+    <p>
+     較高
+    </p>
+   </td>
+   <td>
+    <p>
+     較低
+    </p>
+   </td>
+   <td>
+    <p>
+     特定受眾轉換
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     平衡策略
+    </p>
+   </td>
+   <td>
+    <p>
+     適中
+    </p>
+   </td>
+   <td>
+    <p>
+     適中
+    </p>
+   </td>
+   <td>
+    <p>
+     適中
+    </p>
+   </td>
+   <td>
+    <p>
+     一般投放需求
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h2>
+ 使用情境與系統行為
+</h2>
+情境一：初次建立廣告組合設定出價並上刊
+<p>
+ <strong>
+  場景描述
+ </strong>
+ ：使用者首次為 Commerce AD 廣告組合設定競價參數
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
       <p>
+       進入廣告組合建立頁面
       </p>
-     </div>
-    </div>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示 RTB 設定區塊
+      </p>
+     </li>
+     <li>
+      <p>
+       CPC 與 Margin 欄位為空白狀態
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       在「出價設定」區塊輸入 CPC，輸入 $3.50
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 即時驗證輸入格式
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 顯示貨幣符號與格式化數值
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 即時計算實際競標價
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       設定 Margin 百分比，輸入 20%
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 即時驗證輸入格式
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 顯示百分比與格式化數值
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 即時計算實際競標價
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       系統顯示實際競標價
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 醒目顯示 $2.80
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 提供 tooltip 說明計算邏輯
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       確認並儲存廣告組合
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       驗證所有必填欄位
+      </p>
+     </li>
+     <li>
+      <p>
+       儲存 CPC 與 Margin 設定值
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       上刊
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 觸發 Sequence 更新，將競價參數寫入
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+情境二：上刊後發現無曝光需調整出價
+<p>
+ <strong>
+  場景描述
+ </strong>
+ ：廣告上刊後因出價過低無法獲得曝光，需要調整價格
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       監控發現問題，
+       <br/>
+       上刊 2-3 小時後 Impression 仍為 0
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       系統正常運作但無競標成功
+      </p>
+     </li>
+     <li>
+      <p>
+       判斷可能是出價過低
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       進入廣告組合編輯頁面
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       載入當前設定
+      </p>
+     </li>
+     <li>
+      <p>
+       顯示 CPC $2.00、Margin 30%
+      </p>
+     </li>
+     <li>
+      <p>
+       實際競標價 $1.40
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       調整出價策略
+       <br/>
+       提高 CPC 至 $3.00 或降低 期望利潤 至 20%
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 即時更新實際競標價
+      </p>
+     </li>
+     <li>
+      <p>
+       新競標價：$2.40（提高 CPC）或 $1.60（降低 期望利潤）
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       儲存變更
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       驗證新設定值
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 觸發 Sequence 更新流程
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       生效監控
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       Sequence 更新後開始以新價格競標
+      </p>
+     </li>
+     <li>
+      <p>
+       持續觀察 Impression 變化
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+情境三：多組合差異化定價管理
+<p>
+ <strong>
+  場景描述
+ </strong>
+ ：同一廣告活動針對不同受眾群體設定不同價格策略
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       建立廣告活動架構「2025 Q1 品牌推廣」
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       建立廣告活動
+      </p>
+     </li>
+     <li>
+      <p>
+       準備建立多個廣告組合
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       建立組合 A「VIP 客群」
+       <br/>
+       • 受眾：高消費力族群
+       <br/>
+       • CPC：$5.00
+       <br/>
+       • Margin：10%
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 實際競標價 $4.50
+      </p>
+     </li>
+     <li>
+      <p>
+       針對高價值客群的高出價策略
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       建立組合 B「潛在客群」
+       <br/>
+       • 受眾：興趣相關族群
+       <br/>
+       • CPC：$3.00
+       <br/>
+       • Margin：20%
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 實際競標價 $2.40
+      </p>
+     </li>
+     <li>
+      <p>
+       平衡成本與觸及的策略
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       建立組合 C「廣泛觸及」
+       <br/>
+       • 受眾：無特定限制
+       <br/>
+       • CPC：$1.50
+       <br/>
+       • Margin：30%
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 實際競標價 $1.05
+      </p>
+     </li>
+     <li>
+      <p>
+       最大化曝光的低價策略
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       管理要點
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       各組合獨立運作，互不影響競標
+      </p>
+     </li>
+     <li>
+      <p>
+       可根據各組合成效個別調整
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<p>
+</p>
+<hr/>
+<h2>
+ 🎨 前端開發項目
+</h2>
+<h3>
+ 相關設計稿
+</h3>
+<ul>
+ <li>
+  <p>
+   UI/UX：
+   <a href="https://claude.ai/chat/%F0%9F%94%B4%E5%BE%85%E8%A3%9C%E5%85%85%E9%80%A3%E7%B5%90%F0%9F%94%B4">
+    RTB 競標價格設定介面
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   Wireframe：
+   <a href="https://claude.ai/chat/%F0%9F%94%B4%E5%BE%85%E8%A3%9C%E5%85%85%E9%80%A3%E7%B5%90%F0%9F%94%B4">
+    RTB 競標價格設定介面
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   原則上開發以 UIUX 為主, Wireframe 是作為初期討論有畫面方便確認想法
+  </p>
+ </li>
+</ul>
+<h3>
+ 介面需求
+</h3>
+<ul>
+ <li>
+  <p>
+   CPC 輸入欄位
+  </p>
+  <ul>
+   <li>
+    <p>
+     顯示貨幣符號 $
+    </p>
+   </li>
+   <li>
+    <p>
+     支援小數點後一位
+    </p>
+   </li>
+   <li>
+    <p>
+     格式化顯示（如：$3.50）
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Margin 設定介面
+  </p>
+  <ul>
+   <li>
+    <p>
+     或數字輸入框
+    </p>
+   </li>
+   <li>
+    <p>
+     顯示百分比符號
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   實際競標價顯示區域
+  </p>
+  <ul>
+   <li>
+    <p>
+     醒目標示計算結果
+    </p>
+   </li>
+   <li>
+    <p>
+     使用不同顏色突顯
+    </p>
+   </li>
+   <li>
+    <p>
+     tooltip 顯示計算公式
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h3>
+ 互動行為
+</h3>
+<ul>
+ <li>
+  <p>
+   輸入 CPC 或調整 期望利潤 時即時更新實際競標價
+  </p>
+ </li>
+ <li>
+  <p>
+   輸入超出範圍時顯示錯誤提示
+  </p>
+ </li>
+ <li>
+  <p>
+   滑鼠懸停顯示欄位說明 tooltip
+  </p>
+ </li>
+ <li>
+  <p>
+   儲存時顯示確認訊息
+  </p>
+ </li>
+</ul>
+<h3>
+ 資料呈現
+</h3>
+<ul>
+ <li>
+  <p>
+   數值格式化處理
+  </p>
+ </li>
+ <li>
+  <p>
+   錯誤狀態的視覺回饋
+  </p>
+ </li>
+ <li>
+  <p>
+   計算過程的透明展示
+  </p>
+ </li>
+</ul>
+<h2>
+ 🔧 後端開發項目
+</h2>
+<ul>
+ <li>
+  <p>
+   Sequence 需提供地板價(Sequence 詳細規格：
+   <a href="/wiki/spaces/OSS/pages/8781860/Sequences.json">
+    Sequences.json
+   </a>
+   ( 請跟
+   <a href="https://guoshi.atlassian.net/wiki/people/557058:6f28c8ad-d507-44a4-9eb6-15b48217eda5?ref=confluence">
+    jimmy kuo
+   </a>
+   確認詳細的 key value ))
+  </p>
+ </li>
+ <li>
+  <p>
+   新增新的 ad_Group Type，和新的 campaign type
+  </p>
+ </li>
+ <li>
+  <p>
+   margin 放入 placement：單價(含margin) margin 趴數：6 和 20 趴 =&gt; 算出不含 margin 存入 db 的 uniprice + margin
+  </p>
+  <p>
+  </p>
+ </li>
+</ul>
+<h3>
+ 功能支援需求
+</h3>
+<ul>
+ <li>
+  <p>
+   儲存與讀取 CPC、Margin 設定值
+  </p>
+  <ul>
+   <li>
+    <p>
+     資料庫欄位設計
+    </p>
+   </li>
+   <li>
+    <p>
+     資料格式定義
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   計算實際競標價的邏輯
+  </p>
+  <ul>
+   <li>
+    <p>
+     實作計算公式
+    </p>
+   </li>
+   <li>
+    <p>
+     處理精度問題
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   上刊設定變更後觸發 Sequence 更新機制
+  </p>
+  <ul>
+   <li>
+    <p>
+     與廣告投放系統介接
+    </p>
+   </li>
+   <li>
+    <p>
+     確保資料同步
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h3>
+ 資料驗證需求
+</h3>
+<ul>
+ <li>
+  <p>
+   CPC 數值驗證
+  </p>
+  <ul>
+   <li>
+    <p>
+     最小值 $0.1
+    </p>
+   </li>
+   <li>
+    <p>
+     最大值 $100
+    </p>
+   </li>
+   <li>
+    <p>
+     小數點位數限制
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Margin 百分比驗證
+  </p>
+  <ul>
+   <li>
+    <p>
+     範圍 0-99%
+    </p>
+   </li>
+   <li>
+    <p>
+     必須為整數
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   實際競標價必須大於 0
+  </p>
+ </li>
+ <li>
+  <p>
+   防止非數字輸入或格式錯誤
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h3>
+ 📡 API 文件
+</h3>
+<p>
+ 💡
+ <strong>
+  請後端工程師針對上述功能需求撰寫對應的 API 文件
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     API 功能
+    </p>
+   </th>
+   <th>
+    <p>
+     文件連結
+    </p>
+   </th>
+   <th>
+    <p>
+     負責人
+    </p>
+   </th>
+   <th>
+    <p>
+     狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
     <p>
     </p>
-    <hr/>
-    <h2 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-🎨前端開發項目">
-     🎨 前端開發項目
-    </h2>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-相關設計稿">
-     相關設計稿
-    </h3>
-    <ul>
-     <li>
-      <p>
-       UI/UX：
-       <a class="external-link" href="https://claude.ai/chat/%F0%9F%94%B4%E5%BE%85%E8%A3%9C%E5%85%85%E9%80%A3%E7%B5%90%F0%9F%94%B4" rel="nofollow">
-        RTB 競標價格設定介面
-       </a>
-      </p>
-     </li>
-     <li>
-      <p>
-       Wireframe：
-       <a class="external-link" href="https://claude.ai/chat/%F0%9F%94%B4%E5%BE%85%E8%A3%9C%E5%85%85%E9%80%A3%E7%B5%90%F0%9F%94%B4" rel="nofollow">
-        RTB 競標價格設定介面
-       </a>
-      </p>
-     </li>
-     <li>
-      <p>
-       原則上開發以 UIUX 為主, Wireframe 是作為初期討論有畫面方便確認想法
-      </p>
-     </li>
-    </ul>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-介面需求">
-     介面需求
-    </h3>
-    <ul>
-     <li>
-      <p>
-       CPC 輸入欄位
-      </p>
-      <ul>
-       <li>
-        <p>
-         顯示貨幣符號 $
-        </p>
-       </li>
-       <li>
-        <p>
-         支援小數點後一位
-        </p>
-       </li>
-       <li>
-        <p>
-         格式化顯示（如：$3.50）
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       Margin 設定介面
-      </p>
-      <ul>
-       <li>
-        <p>
-         或數字輸入框
-        </p>
-       </li>
-       <li>
-        <p>
-         顯示百分比符號
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       實際競標價顯示區域
-      </p>
-      <ul>
-       <li>
-        <p>
-         醒目標示計算結果
-        </p>
-       </li>
-       <li>
-        <p>
-         使用不同顏色突顯
-        </p>
-       </li>
-       <li>
-        <p>
-         tooltip 顯示計算公式
-        </p>
-       </li>
-      </ul>
-     </li>
-    </ul>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-互動行為">
-     互動行為
-    </h3>
-    <ul>
-     <li>
-      <p>
-       輸入 CPC 或調整 期望利潤 時即時更新實際競標價
-      </p>
-     </li>
-     <li>
-      <p>
-       輸入超出範圍時顯示錯誤提示
-      </p>
-     </li>
-     <li>
-      <p>
-       滑鼠懸停顯示欄位說明 tooltip
-      </p>
-     </li>
-     <li>
-      <p>
-       儲存時顯示確認訊息
-      </p>
-     </li>
-    </ul>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-資料呈現">
-     資料呈現
-    </h3>
-    <ul>
-     <li>
-      <p>
-       數值格式化處理
-      </p>
-     </li>
-     <li>
-      <p>
-       錯誤狀態的視覺回饋
-      </p>
-     </li>
-     <li>
-      <p>
-       計算過程的透明展示
-      </p>
-     </li>
-    </ul>
-    <h2 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-🔧後端開發項目">
-     🔧 後端開發項目
-    </h2>
-    <ul>
-     <li>
-      <p>
-       Sequence 需提供地板價(Sequence 詳細規格：
-       <a data-linked-resource-id="8781860" data-linked-resource-type="page" data-linked-resource-version="308" href="/wiki/spaces/OSS/pages/8781860/Sequences.json">
-        Sequences.json
-       </a>
-       ( 請跟
-       <a class="confluence-userlink user-mention" data-account-id="557058:6f28c8ad-d507-44a4-9eb6-15b48217eda5" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="1671206" data-linked-resource-type="userinfo" data-linked-resource-version="2" href="https://guoshi.atlassian.net/wiki/people/557058:6f28c8ad-d507-44a4-9eb6-15b48217eda5?ref=confluence" target="_blank">
-        jimmy kuo
-       </a>
-       確認詳細的 key value ))
-      </p>
-     </li>
-     <li>
-      <p>
-       新增新的 ad_Group Type，和新的 campaign type
-      </p>
-     </li>
-     <li>
-      <p>
-       margin 放入 placement：單價(含margin) margin 趴數：6 和 20 趴 =&gt; 算出不含 margin 存入 db 的 uniprice + margin
-      </p>
-      <p>
-      </p>
-     </li>
-    </ul>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-功能支援需求">
-     功能支援需求
-    </h3>
-    <ul>
-     <li>
-      <p>
-       儲存與讀取 CPC、Margin 設定值
-      </p>
-      <ul>
-       <li>
-        <p>
-         資料庫欄位設計
-        </p>
-       </li>
-       <li>
-        <p>
-         資料格式定義
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       計算實際競標價的邏輯
-      </p>
-      <ul>
-       <li>
-        <p>
-         實作計算公式
-        </p>
-       </li>
-       <li>
-        <p>
-         處理精度問題
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       上刊設定變更後觸發 Sequence 更新機制
-      </p>
-      <ul>
-       <li>
-        <p>
-         與廣告投放系統介接
-        </p>
-       </li>
-       <li>
-        <p>
-         確保資料同步
-        </p>
-       </li>
-      </ul>
-     </li>
-    </ul>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-資料驗證需求">
-     資料驗證需求
-    </h3>
-    <ul>
-     <li>
-      <p>
-       CPC 數值驗證
-      </p>
-      <ul>
-       <li>
-        <p>
-         最小值 $0.1
-        </p>
-       </li>
-       <li>
-        <p>
-         最大值 $100
-        </p>
-       </li>
-       <li>
-        <p>
-         小數點位數限制
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       Margin 百分比驗證
-      </p>
-      <ul>
-       <li>
-        <p>
-         範圍 0-99%
-        </p>
-       </li>
-       <li>
-        <p>
-         必須為整數
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       實際競標價必須大於 0
-      </p>
-     </li>
-     <li>
-      <p>
-       防止非數字輸入或格式錯誤
-      </p>
-     </li>
-    </ul>
+   </td>
+   <td>
     <p>
     </p>
-    <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-📡API文件">
-     📡 API 文件
-    </h3>
-    <blockquote>
-     <p>
-      💡
-      <strong>
-       請後端工程師針對上述功能需求撰寫對應的 API 文件
-      </strong>
-     </p>
-    </blockquote>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="default" data-local-id="9b623589-f62a-45b1-8308-87f89df51de6" data-table-width="760">
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          API 功能
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          文件連結
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          負責人
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          狀態
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="ef3c728c-6109-4f4c-ab9c-321de368f7bc" data-macro-name="expand" id="expander-186926212">
-     <div class="expand-control" id="expander-control-186926212">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       🔍 AI 建議｜提供工程師開發時 SIT 參考項目
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-186926212">
-      <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-功能測試">
-       功能測試
-      </h3>
-      <ul>
-       <li>
-        <p>
-         基本設定測試
-        </p>
-        <ul>
-         <li>
-          <p>
-           CPC 與 Margin 設定的儲存與讀取
-          </p>
-         </li>
-         <li>
-          <p>
-           實際競標價計算的正確性
-          </p>
-         </li>
-         <li>
-          <p>
-           修改後的資料更新驗證
-          </p>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <p>
-         即時計算測試
-        </p>
-        <ul>
-         <li>
-          <p>
-           輸入變更時的即時反應
-          </p>
-         </li>
-         <li>
-          <p>
-           各種數值組合的計算準確性
-          </p>
-         </li>
-         <li>
-          <p>
-           極端值的處理（最小/最大值）
-          </p>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <p>
-         Sequence 更新測試
-        </p>
-        <ul>
-         <li>
-          <p>
-           上刊後觸發更新的時效性
-          </p>
-         </li>
-         <li>
-          <p>
-           更新失敗的重試機制
-          </p>
-         </li>
-         <li>
-          <p>
-           系統負載下的穩定性
-          </p>
-         </li>
-        </ul>
-       </li>
-      </ul>
-      <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-數據驗證">
-       數據驗證
-      </h3>
-      <ul>
-       <li>
-        <p>
-         輸入格式驗證
-        </p>
-        <ul>
-         <li>
-          <p>
-           CPC 小數點位數限制（僅一位）
-          </p>
-         </li>
-         <li>
-          <p>
-           Margin 整數限制
-          </p>
-         </li>
-         <li>
-          <p>
-           非法字元的過濾處理
-          </p>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <p>
-         業務規則驗證
-        </p>
-        <ul>
-         <li>
-          <p>
-           CPC 不得低於 $0.1
-          </p>
-         </li>
-         <li>
-          <p>
-           Margin 不得超過 99%
-          </p>
-         </li>
-         <li>
-          <p>
-           實際競標價必須為正數
-          </p>
-         </li>
-        </ul>
-       </li>
-      </ul>
-      <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-異常處理">
-       異常處理
-      </h3>
-      <ul>
-       <li>
-        <p>
-         輸入異常情境
-        </p>
-        <ul>
-         <li>
-          <p>
-           貼上包含文字的內容
-          </p>
-         </li>
-         <li>
-          <p>
-           輸入負數或超大數值
-          </p>
-         </li>
-         <li>
-          <p>
-           快速連續修改數值
-          </p>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <p>
-         系統異常情境
-        </p>
-        <ul>
-         <li>
-          <p>
-           Sequence 更新失敗的處理
-          </p>
-         </li>
-         <li>
-          <p>
-           網路中斷時的錯誤提示
-          </p>
-         </li>
-         <li>
-          <p>
-           並發修改的資料一致性
-          </p>
-         </li>
-        </ul>
-       </li>
-      </ul>
-      <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-效能測試">
-       效能測試
-      </h3>
-      <ul>
-       <li>
-        <p>
-         即時計算效能
-        </p>
-        <ul>
-         <li>
-          <p>
-           輸入即時響應測試
-          </p>
-         </li>
-         <li>
-          <p>
-           大量組合同時計算
-          </p>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <p>
-         Sequence 更新效能
-        </p>
-        <ul>
-         <li>
-          <p>
-           更新觸發的即時性
-          </p>
-         </li>
-         <li>
-          <p>
-           批次更新的處理能力
-          </p>
-         </li>
-        </ul>
-       </li>
-      </ul>
-      <h3 id="id-[功能詳情]RTB實現(CPC與Margin)及Sequence更新-特殊情境提醒">
-       特殊情境提醒
-      </h3>
-      <ul>
-       <li>
-        <p>
-         上刊狀態差異
-        </p>
-        <ul>
-         <li>
-          <p>
-           上刊前的設定可立即生效
-          </p>
-         </li>
-         <li>
-          <p>
-           上刊後需等待 Sequence 更新完成
-          </p>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <p>
-         權限控制考量
-        </p>
-        <ul>
-         <li>
-          <p>
-           Media 用戶無法使用此功能
-          </p>
-         </li>
-         <li>
-          <p>
-           非廣告組合擁有者無法修改
-          </p>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <p>
-         優化建議收集（未來功能）
-        </p>
-        <ul>
-         <li>
-          <p>
-           記錄無曝光的出價組合
-          </p>
-         </li>
-         <li>
-          <p>
-           分析最佳出價區間
-          </p>
-         </li>
-         <li>
-          <p>
-           提供市場行情參考
-          </p>
-         </li>
-        </ul>
-       </li>
-      </ul>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
-</div>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔍 AI 建議｜提供工程師開發時 SIT 參考項目
+<h3>
+ 功能測試
+</h3>
+<ul>
+ <li>
+  <p>
+   基本設定測試
+  </p>
+  <ul>
+   <li>
+    <p>
+     CPC 與 Margin 設定的儲存與讀取
+    </p>
+   </li>
+   <li>
+    <p>
+     實際競標價計算的正確性
+    </p>
+   </li>
+   <li>
+    <p>
+     修改後的資料更新驗證
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   即時計算測試
+  </p>
+  <ul>
+   <li>
+    <p>
+     輸入變更時的即時反應
+    </p>
+   </li>
+   <li>
+    <p>
+     各種數值組合的計算準確性
+    </p>
+   </li>
+   <li>
+    <p>
+     極端值的處理（最小/最大值）
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Sequence 更新測試
+  </p>
+  <ul>
+   <li>
+    <p>
+     上刊後觸發更新的時效性
+    </p>
+   </li>
+   <li>
+    <p>
+     更新失敗的重試機制
+    </p>
+   </li>
+   <li>
+    <p>
+     系統負載下的穩定性
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h3>
+ 數據驗證
+</h3>
+<ul>
+ <li>
+  <p>
+   輸入格式驗證
+  </p>
+  <ul>
+   <li>
+    <p>
+     CPC 小數點位數限制（僅一位）
+    </p>
+   </li>
+   <li>
+    <p>
+     Margin 整數限制
+    </p>
+   </li>
+   <li>
+    <p>
+     非法字元的過濾處理
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   業務規則驗證
+  </p>
+  <ul>
+   <li>
+    <p>
+     CPC 不得低於 $0.1
+    </p>
+   </li>
+   <li>
+    <p>
+     Margin 不得超過 99%
+    </p>
+   </li>
+   <li>
+    <p>
+     實際競標價必須為正數
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h3>
+ 異常處理
+</h3>
+<ul>
+ <li>
+  <p>
+   輸入異常情境
+  </p>
+  <ul>
+   <li>
+    <p>
+     貼上包含文字的內容
+    </p>
+   </li>
+   <li>
+    <p>
+     輸入負數或超大數值
+    </p>
+   </li>
+   <li>
+    <p>
+     快速連續修改數值
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   系統異常情境
+  </p>
+  <ul>
+   <li>
+    <p>
+     Sequence 更新失敗的處理
+    </p>
+   </li>
+   <li>
+    <p>
+     網路中斷時的錯誤提示
+    </p>
+   </li>
+   <li>
+    <p>
+     並發修改的資料一致性
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h3>
+ 效能測試
+</h3>
+<ul>
+ <li>
+  <p>
+   即時計算效能
+  </p>
+  <ul>
+   <li>
+    <p>
+     輸入即時響應測試
+    </p>
+   </li>
+   <li>
+    <p>
+     大量組合同時計算
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   Sequence 更新效能
+  </p>
+  <ul>
+   <li>
+    <p>
+     更新觸發的即時性
+    </p>
+   </li>
+   <li>
+    <p>
+     批次更新的處理能力
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h3>
+ 特殊情境提醒
+</h3>
+<ul>
+ <li>
+  <p>
+   上刊狀態差異
+  </p>
+  <ul>
+   <li>
+    <p>
+     上刊前的設定可立即生效
+    </p>
+   </li>
+   <li>
+    <p>
+     上刊後需等待 Sequence 更新完成
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   權限控制考量
+  </p>
+  <ul>
+   <li>
+    <p>
+     Media 用戶無法使用此功能
+    </p>
+   </li>
+   <li>
+    <p>
+     非廣告組合擁有者無法修改
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   優化建議收集（未來功能）
+  </p>
+  <ul>
+   <li>
+    <p>
+     記錄無曝光的出價組合
+    </p>
+   </li>
+   <li>
+    <p>
+     分析最佳出價區間
+    </p>
+   </li>
+   <li>
+    <p>
+     提供市場行情參考
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>

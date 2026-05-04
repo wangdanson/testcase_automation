@@ -1,21 +1,18 @@
-<h2 id="id-[SPEC]segment_eventAPI-Projectrepository:api-gateway">
- <style>
-  [data-colorid=ycxl95fpi1]{color:#ff5630} html[data-color-mode=dark] [data-colorid=ycxl95fpi1]{color:#cf2600}[data-colorid=qmcgapmea9]{color:#36b37e} html[data-color-mode=dark] [data-colorid=qmcgapmea9]{color:#4cc994}[data-colorid=tn93f5j0hp]{color:#00b8d9} html[data-color-mode=dark] [data-colorid=tn93f5j0hp]{color:#26deff}[data-colorid=g3bmt5kqpf]{color:#36b37e} html[data-color-mode=dark] [data-colorid=g3bmt5kqpf]{color:#4cc994}[data-colorid=jgmjmw2jto]{color:#ff5630} html[data-color-mode=dark] [data-colorid=jgmjmw2jto]{color:#cf2600}[data-colorid=h4423w3nnm]{color:#00b8d9} html[data-color-mode=dark] [data-colorid=h4423w3nnm]{color:#26deff}[data-colorid=cwpoe4desh]{color:#36b37e} html[data-color-mode=dark] [data-colorid=cwpoe4desh]{color:#4cc994}[data-colorid=q9jq8z4hwz]{color:#36b37e} html[data-color-mode=dark] [data-colorid=q9jq8z4hwz]{color:#4cc994}
- </style>
+<h2>
  Project repository:
- <a class="external-link" href="https://github.com/onead/api-gateway" rel="nofollow">
+ <a href="https://github.com/onead/api-gateway">
   api-gateway
  </a>
 </h2>
-<h2 id="id-[SPEC]segment_eventAPI-APIdoc:segment_event(待補)">
+<h2>
  API doc: segment_event (待補)
 </h2>
-<h2 id="id-[SPEC]segment_eventAPI-兩處資料來源">
+<h2>
  兩處資料來源
 </h2>
-<h3 id="id-[SPEC]segment_eventAPI-1.groupsegmentrowdata:kafka.summing_segment_events">
+<h3>
  1. group segment row data :
- <a class="external-link" href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-event-%E6%AC%A1%E6%95%B8%EF%BC%8C%E5%9F%BA%E6%96%BC-segment" rel="nofollow">
+ <a href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-event-%E6%AC%A1%E6%95%B8%EF%BC%8C%E5%9F%BA%E6%96%BC-segment">
   <strong>
    kafka.summing_segment_events
   </strong>
@@ -26,9 +23,7 @@
   <p>
    SQL
   </p>
-  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="70076de0-b1db-4d52-8e4e-99b5c91c0d99" data-macro-name="code" style="border-width: 1px;">
-   <div class="codeContent panelContent pdl">
-    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">    SELECT  
+  <pre>    SELECT  
       plaid,
       toString(sg) segment_id,
       sumIf(counts,event='cv') as cv,
@@ -51,8 +46,6 @@
       and day_local between '2022-09-29' and '2022-10-26'
     GROUP BY plaid, sg
     ORDER BY plaid, sg</pre>
-   </div>
-  </div>
  </li>
 </ul>
 <p>
@@ -64,679 +57,660 @@
   </p>
  </li>
 </ul>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="full-width" data-local-id="3a226105-069c-43d0-b38a-24307ed5f71d">
-  <colgroup>
-   <col style="width: 141.0px;"/>
-   <col style="width: 255.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 106.0px;"/>
-   <col style="width: 116.0px;"/>
-   <col style="width: 102.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       plaid
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       sg_id
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       cv
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       impression
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       videoClick
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       bannerClick
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q0
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q25
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q50
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q75
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q100
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view2s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view3s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view5s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view30s
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3eef5326-3e4c-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      116790
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      79053
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      437
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3482
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      75965
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4296
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1487
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      664
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      277
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      60880
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      51550
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      37615
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      6334
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      733f575d-3e4c-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      86141
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      56624
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      317
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2593
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      54900
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2953
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      969
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      437
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      183
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      44328
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      37055
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      26640
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4286
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      9ee6774e-3e4c-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      118286
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      79705
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      418
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3605
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      76684
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4388
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1520
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      684
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      290
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      61874
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      52446
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      38331
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4277
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      aafaded4-3e4b-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      126508
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      86690
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      478
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3784
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      83001
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4849
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1683
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      791
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      335
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      66381
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      56309
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      41284
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      7092
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      72aadfa3-9df2-11ec-b2f8-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      126010
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      86218
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      506
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3690
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      82742
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4361
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1487
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      291
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      65411
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      54806
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      39475
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      6388
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      9b33cc6d-d5bd-11ec-b2f8-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p style="text-align: right;">
-      Total
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      573738
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      388292
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      2156
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      17155
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      373293
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      20847
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      7146
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      3242
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      1376
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      298875
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      252167
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      183346
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      28377
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      plaid
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      sg_id
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      cv
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      impression
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      videoClick
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      bannerClick
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q0
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q25
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q50
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q75
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q100
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view2s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view3s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view5s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view30s
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     3eef5326-3e4c-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     116790
+    </p>
+   </td>
+   <td>
+    <p>
+     79053
+    </p>
+   </td>
+   <td>
+    <p>
+     437
+    </p>
+   </td>
+   <td>
+    <p>
+     3482
+    </p>
+   </td>
+   <td>
+    <p>
+     75965
+    </p>
+   </td>
+   <td>
+    <p>
+     4296
+    </p>
+   </td>
+   <td>
+    <p>
+     1487
+    </p>
+   </td>
+   <td>
+    <p>
+     664
+    </p>
+   </td>
+   <td>
+    <p>
+     277
+    </p>
+   </td>
+   <td>
+    <p>
+     60880
+    </p>
+   </td>
+   <td>
+    <p>
+     51550
+    </p>
+   </td>
+   <td>
+    <p>
+     37615
+    </p>
+   </td>
+   <td>
+    <p>
+     6334
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     733f575d-3e4c-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     86141
+    </p>
+   </td>
+   <td>
+    <p>
+     56624
+    </p>
+   </td>
+   <td>
+    <p>
+     317
+    </p>
+   </td>
+   <td>
+    <p>
+     2593
+    </p>
+   </td>
+   <td>
+    <p>
+     54900
+    </p>
+   </td>
+   <td>
+    <p>
+     2953
+    </p>
+   </td>
+   <td>
+    <p>
+     969
+    </p>
+   </td>
+   <td>
+    <p>
+     437
+    </p>
+   </td>
+   <td>
+    <p>
+     183
+    </p>
+   </td>
+   <td>
+    <p>
+     44328
+    </p>
+   </td>
+   <td>
+    <p>
+     37055
+    </p>
+   </td>
+   <td>
+    <p>
+     26640
+    </p>
+   </td>
+   <td>
+    <p>
+     4286
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     9ee6774e-3e4c-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     118286
+    </p>
+   </td>
+   <td>
+    <p>
+     79705
+    </p>
+   </td>
+   <td>
+    <p>
+     418
+    </p>
+   </td>
+   <td>
+    <p>
+     3605
+    </p>
+   </td>
+   <td>
+    <p>
+     76684
+    </p>
+   </td>
+   <td>
+    <p>
+     4388
+    </p>
+   </td>
+   <td>
+    <p>
+     1520
+    </p>
+   </td>
+   <td>
+    <p>
+     684
+    </p>
+   </td>
+   <td>
+    <p>
+     290
+    </p>
+   </td>
+   <td>
+    <p>
+     61874
+    </p>
+   </td>
+   <td>
+    <p>
+     52446
+    </p>
+   </td>
+   <td>
+    <p>
+     38331
+    </p>
+   </td>
+   <td>
+    <p>
+     4277
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     aafaded4-3e4b-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     126508
+    </p>
+   </td>
+   <td>
+    <p>
+     86690
+    </p>
+   </td>
+   <td>
+    <p>
+     478
+    </p>
+   </td>
+   <td>
+    <p>
+     3784
+    </p>
+   </td>
+   <td>
+    <p>
+     83001
+    </p>
+   </td>
+   <td>
+    <p>
+     4849
+    </p>
+   </td>
+   <td>
+    <p>
+     1683
+    </p>
+   </td>
+   <td>
+    <p>
+     791
+    </p>
+   </td>
+   <td>
+    <p>
+     335
+    </p>
+   </td>
+   <td>
+    <p>
+     66381
+    </p>
+   </td>
+   <td>
+    <p>
+     56309
+    </p>
+   </td>
+   <td>
+    <p>
+     41284
+    </p>
+   </td>
+   <td>
+    <p>
+     7092
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     72aadfa3-9df2-11ec-b2f8-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     126010
+    </p>
+   </td>
+   <td>
+    <p>
+     86218
+    </p>
+   </td>
+   <td>
+    <p>
+     506
+    </p>
+   </td>
+   <td>
+    <p>
+     3690
+    </p>
+   </td>
+   <td>
+    <p>
+     82742
+    </p>
+   </td>
+   <td>
+    <p>
+     4361
+    </p>
+   </td>
+   <td>
+    <p>
+     1487
+    </p>
+   </td>
+   <td>
+    <p>
+     666
+    </p>
+   </td>
+   <td>
+    <p>
+     291
+    </p>
+   </td>
+   <td>
+    <p>
+     65411
+    </p>
+   </td>
+   <td>
+    <p>
+     54806
+    </p>
+   </td>
+   <td>
+    <p>
+     39475
+    </p>
+   </td>
+   <td>
+    <p>
+     6388
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     9b33cc6d-d5bd-11ec-b2f8-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Total
+    </p>
+   </td>
+   <td>
+    <p>
+     573738
+    </p>
+   </td>
+   <td>
+    <p>
+     388292
+    </p>
+   </td>
+   <td>
+    <p>
+     2156
+    </p>
+   </td>
+   <td>
+    <p>
+     17155
+    </p>
+   </td>
+   <td>
+    <p>
+     373293
+    </p>
+   </td>
+   <td>
+    <p>
+     20847
+    </p>
+   </td>
+   <td>
+    <p>
+     7146
+    </p>
+   </td>
+   <td>
+    <p>
+     3242
+    </p>
+   </td>
+   <td>
+    <p>
+     1376
+    </p>
+   </td>
+   <td>
+    <p>
+     298875
+    </p>
+   </td>
+   <td>
+    <p>
+     252167
+    </p>
+   </td>
+   <td>
+    <p>
+     183346
+    </p>
+   </td>
+   <td>
+    <p>
+     28377
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
-<h3 id="id-[SPEC]segment_eventAPI-2.groupeventrowdata:kafka.summing_day_event_dicts">
+<h3>
  2. group event row data :
- <a class="external-link" href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-event-%E6%AC%A1%E6%95%B8%E5%8F%8A%E9%87%91%E9%A1%8D%E5%8A%A0%E7%B8%BD" rel="nofollow">
+ <a href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-event-%E6%AC%A1%E6%95%B8%E5%8F%8A%E9%87%91%E9%A1%8D%E5%8A%A0%E7%B8%BD">
   <strong>
    kafka.summing_day_event_dicts
   </strong>
@@ -749,209 +723,190 @@
   </p>
  </li>
 </ul>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="full-width" data-local-id="84ca9a79-c264-4655-b271-4a0a227f913d">
-  <colgroup>
-   <col style="width: 141.0px;"/>
-   <col style="width: 255.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 105.0px;"/>
-   <col style="width: 117.0px;"/>
-   <col style="width: 102.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       placement_id
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       cv
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       impression
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       videoClick
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       bannerClick
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q0
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q25
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q50
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q75
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q100
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view2s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view3s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view5s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view30s
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      239456
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      166717
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      933
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      6944
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      159238
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      8636
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      2932
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      1354
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      597
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      125925
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      106305
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      77468
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      12725
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      placement_id
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      cv
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      impression
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      videoClick
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      bannerClick
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q0
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q25
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q50
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q75
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q100
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view2s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view3s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view5s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view30s
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     239456
+    </p>
+   </td>
+   <td>
+    <p>
+     166717
+    </p>
+   </td>
+   <td>
+    <p>
+     933
+    </p>
+   </td>
+   <td>
+    <p>
+     6944
+    </p>
+   </td>
+   <td>
+    <p>
+     159238
+    </p>
+   </td>
+   <td>
+    <p>
+     8636
+    </p>
+   </td>
+   <td>
+    <p>
+     2932
+    </p>
+   </td>
+   <td>
+    <p>
+     1354
+    </p>
+   </td>
+   <td>
+    <p>
+     597
+    </p>
+   </td>
+   <td>
+    <p>
+     125925
+    </p>
+   </td>
+   <td>
+    <p>
+     106305
+    </p>
+   </td>
+   <td>
+    <p>
+     77468
+    </p>
+   </td>
+   <td>
+    <p>
+     12725
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
 <p>
@@ -959,668 +914,649 @@
   以相同 SQL 條件, 從 BDCD 大數據平台輸出報告如下, 可以證明 group event row data 總額與之匹配
  </strong>
 </p>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="full-width" data-local-id="14031af8-fc63-4a15-a864-f1a6969d0eb7">
-  <colgroup>
-   <col style="width: 308.0px;"/>
-   <col style="width: 88.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 112.0px;"/>
-   <col style="width: 104.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 108.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      Segment屬性
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       cv
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       impression
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       videoClick
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       bannerClick
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q0
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q25
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q50
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q75
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       q100
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view2s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view3s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view5s
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       view30s
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      客戶有感 Out Campaign 看過 demo page 的人
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      大型家電-評估中消費者 for LG-乾衣機10月宣傳
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      35941
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      24314
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      137
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1049
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      23418
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1221
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      397
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      182
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      79
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      18680
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      15623
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      11257
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1784
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      2022HPC Lookalike for LG-乾衣機10月宣傳
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      52731
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      37175
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      206
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1532
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      35365
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2008
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      690
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      330
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      145
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      27934
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      23711
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      17428
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2949
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      [線上POI] 3C家電
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      52821
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      37167
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      219
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1498
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      35435
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1814
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      611
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      277
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      126
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      27666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      23193
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      16742
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2669
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      大型家電-市場熱門受眾 for LG-乾衣機10月宣傳
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      48654
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      33880
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      188
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1408
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      32347
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1776
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      609
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      277
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      120
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      25607
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      21695
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      15866
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2630
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      大型家電-產業潛在客群 for LG-乾衣機10月宣傳
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      49305
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      34178
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      180
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1455
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      32670
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1814
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      623
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      285
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      125
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      26035
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      22081
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      16173
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2691
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      Total
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      239456
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      166717
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      933
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      6944
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      159238
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      8636
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      2932
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      1354
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      597
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      125925
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      106305
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      77468
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      12725
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     Segment屬性
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      cv
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      impression
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      videoClick
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      bannerClick
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q0
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q25
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q50
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q75
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      q100
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view2s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view3s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view5s
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      view30s
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     客戶有感 Out Campaign 看過 demo page 的人
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     大型家電-評估中消費者 for LG-乾衣機10月宣傳
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     35941
+    </p>
+   </td>
+   <td>
+    <p>
+     24314
+    </p>
+   </td>
+   <td>
+    <p>
+     137
+    </p>
+   </td>
+   <td>
+    <p>
+     1049
+    </p>
+   </td>
+   <td>
+    <p>
+     23418
+    </p>
+   </td>
+   <td>
+    <p>
+     1221
+    </p>
+   </td>
+   <td>
+    <p>
+     397
+    </p>
+   </td>
+   <td>
+    <p>
+     182
+    </p>
+   </td>
+   <td>
+    <p>
+     79
+    </p>
+   </td>
+   <td>
+    <p>
+     18680
+    </p>
+   </td>
+   <td>
+    <p>
+     15623
+    </p>
+   </td>
+   <td>
+    <p>
+     11257
+    </p>
+   </td>
+   <td>
+    <p>
+     1784
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2022HPC Lookalike for LG-乾衣機10月宣傳
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     52731
+    </p>
+   </td>
+   <td>
+    <p>
+     37175
+    </p>
+   </td>
+   <td>
+    <p>
+     206
+    </p>
+   </td>
+   <td>
+    <p>
+     1532
+    </p>
+   </td>
+   <td>
+    <p>
+     35365
+    </p>
+   </td>
+   <td>
+    <p>
+     2008
+    </p>
+   </td>
+   <td>
+    <p>
+     690
+    </p>
+   </td>
+   <td>
+    <p>
+     330
+    </p>
+   </td>
+   <td>
+    <p>
+     145
+    </p>
+   </td>
+   <td>
+    <p>
+     27934
+    </p>
+   </td>
+   <td>
+    <p>
+     23711
+    </p>
+   </td>
+   <td>
+    <p>
+     17428
+    </p>
+   </td>
+   <td>
+    <p>
+     2949
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     [線上POI] 3C家電
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     52821
+    </p>
+   </td>
+   <td>
+    <p>
+     37167
+    </p>
+   </td>
+   <td>
+    <p>
+     219
+    </p>
+   </td>
+   <td>
+    <p>
+     1498
+    </p>
+   </td>
+   <td>
+    <p>
+     35435
+    </p>
+   </td>
+   <td>
+    <p>
+     1814
+    </p>
+   </td>
+   <td>
+    <p>
+     611
+    </p>
+   </td>
+   <td>
+    <p>
+     277
+    </p>
+   </td>
+   <td>
+    <p>
+     126
+    </p>
+   </td>
+   <td>
+    <p>
+     27666
+    </p>
+   </td>
+   <td>
+    <p>
+     23193
+    </p>
+   </td>
+   <td>
+    <p>
+     16742
+    </p>
+   </td>
+   <td>
+    <p>
+     2669
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     大型家電-市場熱門受眾 for LG-乾衣機10月宣傳
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     48654
+    </p>
+   </td>
+   <td>
+    <p>
+     33880
+    </p>
+   </td>
+   <td>
+    <p>
+     188
+    </p>
+   </td>
+   <td>
+    <p>
+     1408
+    </p>
+   </td>
+   <td>
+    <p>
+     32347
+    </p>
+   </td>
+   <td>
+    <p>
+     1776
+    </p>
+   </td>
+   <td>
+    <p>
+     609
+    </p>
+   </td>
+   <td>
+    <p>
+     277
+    </p>
+   </td>
+   <td>
+    <p>
+     120
+    </p>
+   </td>
+   <td>
+    <p>
+     25607
+    </p>
+   </td>
+   <td>
+    <p>
+     21695
+    </p>
+   </td>
+   <td>
+    <p>
+     15866
+    </p>
+   </td>
+   <td>
+    <p>
+     2630
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     大型家電-產業潛在客群 for LG-乾衣機10月宣傳
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     49305
+    </p>
+   </td>
+   <td>
+    <p>
+     34178
+    </p>
+   </td>
+   <td>
+    <p>
+     180
+    </p>
+   </td>
+   <td>
+    <p>
+     1455
+    </p>
+   </td>
+   <td>
+    <p>
+     32670
+    </p>
+   </td>
+   <td>
+    <p>
+     1814
+    </p>
+   </td>
+   <td>
+    <p>
+     623
+    </p>
+   </td>
+   <td>
+    <p>
+     285
+    </p>
+   </td>
+   <td>
+    <p>
+     125
+    </p>
+   </td>
+   <td>
+    <p>
+     26035
+    </p>
+   </td>
+   <td>
+    <p>
+     22081
+    </p>
+   </td>
+   <td>
+    <p>
+     16173
+    </p>
+   </td>
+   <td>
+    <p>
+     2691
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Total
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     239456
+    </p>
+   </td>
+   <td>
+    <p>
+     166717
+    </p>
+   </td>
+   <td>
+    <p>
+     933
+    </p>
+   </td>
+   <td>
+    <p>
+     6944
+    </p>
+   </td>
+   <td>
+    <p>
+     159238
+    </p>
+   </td>
+   <td>
+    <p>
+     8636
+    </p>
+   </td>
+   <td>
+    <p>
+     2932
+    </p>
+   </td>
+   <td>
+    <p>
+     1354
+    </p>
+   </td>
+   <td>
+    <p>
+     597
+    </p>
+   </td>
+   <td>
+    <p>
+     125925
+    </p>
+   </td>
+   <td>
+    <p>
+     106305
+    </p>
+   </td>
+   <td>
+    <p>
+     77468
+    </p>
+   </td>
+   <td>
+    <p>
+     12725
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
 <p>
 </p>
-<h2 id="id-[SPEC]segment_eventAPI-資料計算邏輯(以cv為例)">
+<h2>
  資料計算邏輯 (以 cv 為例)
 </h2>
 <p>
@@ -1634,166 +1570,155 @@
   </p>
  </li>
 </ul>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="0d7dbc69-1546-4881-9977-cc554927315a">
-  <colgroup>
-   <col style="width: 192.0px;"/>
-   <col style="width: 356.0px;"/>
-   <col style="width: 212.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       plaid
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       sg_id
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       cv
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3eef5326-3e4c-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       <span data-colorid="jgmjmw2jto">
-        116,790
-       </span>
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      733f575d-3e4c-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      86,141
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      9ee6774e-3e4c-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      118,286
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      aafaded4-3e4b-11ed-94f2-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      126,508
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      72aadfa3-9df2-11ec-b2f8-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      126,010
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      9b33cc6d-d5bd-11ec-b2f8-42010a006ae7
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p style="text-align: right;">
-      Total
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      <strong>
-       <span data-colorid="tn93f5j0hp">
-        573,738
-       </span>
-      </strong>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      plaid
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      sg_id
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      cv
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     3eef5326-3e4c-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      116,790
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     733f575d-3e4c-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     86,141
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     9ee6774e-3e4c-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     118,286
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     aafaded4-3e4b-11ed-94f2-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     126,508
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     72aadfa3-9df2-11ec-b2f8-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     126,010
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+     9b33cc6d-d5bd-11ec-b2f8-42010a006ae7
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Total
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      573,738
+     </strong>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <ul>
  <li>
   <p>
@@ -1803,58 +1728,49 @@
   </p>
  </li>
 </ul>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="95ffdf6e-6899-4864-8d20-1c247e4014dd">
-  <colgroup>
-   <col style="width: 197.0px;"/>
-   <col style="width: 353.0px;"/>
-   <col style="width: 210.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       placement_id
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       cv
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      57666
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#deebff">
-     <p>
-      <strong>
-       <span data-colorid="qmcgapmea9">
-        239,456
-       </span>
-      </strong>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="id-[SPEC]segment_eventAPI-將groupeventrowdata數值,依據segmentrowdata權重重新分配">
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      placement_id
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      cv
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     57666
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      239,456
+     </strong>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  將
  <code>
   group event row data
@@ -1877,33 +1793,27 @@
   ((segment_row_data / sum(segment_row_data)) * group_event_row_data).floor
  </code>
 </p>
-<ol start="1">
+<ol>
  <li>
   <p>
    example:   sg_id → 3eef5326-3e4c-11ed-94f2-42010a006ae7
   </p>
-  <ol start="1">
+  <ol>
    <li>
     <p>
      cv 權重計算：
      <br/>
      ((
      <strong>
-      <span data-colorid="ycxl95fpi1">
-       116,790
-      </span>
+      116,790
      </strong>
      /
      <strong>
-      <span data-colorid="h4423w3nnm">
-       573,738
-      </span>
+      573,738
      </strong>
      ) *
      <strong>
-      <span data-colorid="g3bmt5kqpf">
-       239,456
-      </span>
+      239,456
      </strong>
      ).floor =
      <code>
@@ -1938,12 +1848,12 @@
   239,452
  </u>
 </p>
-<ol start="1">
+<ol>
  <li>
   <p>
    因權重計算無條件捨去的原因，需找到 segment 組合中最小的數值, 將差異值加回
   </p>
-  <ol start="1">
+  <ol>
    <li>
     <p>
      找出 segment 對應項目最小值
@@ -1951,7 +1861,7 @@
       [event_value].min
      </code>
     </p>
-    <ol start="1">
+    <ol>
      <li>
       <p>
        ex : [48743, 35951, 49367, 52799, 52591, 1].min = 1
@@ -1966,14 +1876,12 @@
       group_event_row_data[:cv] - sum(cv 權重計算)
      </code>
     </p>
-    <ol start="1">
+    <ol>
      <li>
       <p>
        ex :
        <strong>
-        <span data-colorid="q9jq8z4hwz">
-         239,456
-        </span>
+        239,456
        </strong>
        -
        <u>
@@ -1988,7 +1896,7 @@
     <p>
      將差異值加到 segment 對應項目最小值
     </p>
-    <ol start="1">
+    <ol>
      <li>
       <p>
        ex :
@@ -1998,9 +1906,7 @@
        <br/>
        = 1 + (
        <strong>
-        <span data-colorid="cwpoe4desh">
-         239,456
-        </span>
+        239,456
        </strong>
        -
        <u>
@@ -2023,18 +1929,11 @@
   </ol>
  </li>
 </ol>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="1ff3a4ea-f1ed-4c0d-803b-8c74531f331d">
-  <colgroup>
-   <col style="width: 340.0px;"/>
-   <col style="width: 340.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1b854b04-3f7d-4c61-bf58-b9c73f24855a" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <pre>{
   segment_A:
     {
       cv: 10
@@ -2054,47 +1953,44 @@
       ...
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      對所有 segment 判斷 cv 最小值,
-      <br/>
-      出現複數結果, 則繼續迴圈,
-     </p>
-     <p>
-      對所有 segment 判斷 impression 最小值,
-      <br/>
-      出現單一結果, 則停止迴圈,
-     </p>
-     <p>
-      並回傳結果
-      <code>
-       segment_C
-      </code>
-     </p>
-     <p>
-     </p>
-     <p>
-      補充１：event_key 判斷順位將指定依序為
-      <br/>
-      [cv, impression, q0, view2s, view3s, view5s, view30s, q25, q50, q100, bannerclick, videoclick]
-     </p>
-     <p>
-     </p>
-     <p>
-      補充２：極少情況下, 所有的 event_key 執行完依然無法得到結果, 將依照
-      <code>
-       (sg_id).sort
-      </code>
-      取第一筆 segment 作為回傳結果
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+   </td>
+   <td>
+    <p>
+     對所有 segment 判斷 cv 最小值,
+     <br/>
+     出現複數結果, 則繼續迴圈,
+    </p>
+    <p>
+     對所有 segment 判斷 impression 最小值,
+     <br/>
+     出現單一結果, 則停止迴圈,
+    </p>
+    <p>
+     並回傳結果
+     <code>
+      segment_C
+     </code>
+    </p>
+    <p>
+    </p>
+    <p>
+     補充１：event_key 判斷順位將指定依序為
+     <br/>
+     [cv, impression, q0, view2s, view3s, view5s, view30s, q25, q50, q100, bannerclick, videoclick]
+    </p>
+    <p>
+    </p>
+    <p>
+     補充２：極少情況下, 所有的 event_key 執行完依然無法得到結果, 將依照
+     <code>
+      (sg_id).sort
+     </code>
+     取第一筆 segment 作為回傳結果
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
 <p>
@@ -2121,7 +2017,7 @@
 </p>
 <p>
 </p>
-<h2 id="id-[SPEC]segment_eventAPI-整體計算邏輯步驟說明">
+<h2>
  整體計算邏輯步驟說明
 </h2>
 <p>
@@ -2137,15 +2033,11 @@
   event: [seg1_value, seg2_value, ...]
  </code>
 </p>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e1f9abd2-e01e-4a2b-9fe2-1c8536762b0d" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<pre>{
   cv: [116790, 86141, 118286, 126508, 126010, 3]
   impression: [79053, 56624, 79705, 86690, 86218, 2]
   ...
 }</pre>
- </div>
-</div>
 <p>
  <strong>
   Step 2.
@@ -2157,15 +2049,11 @@
   event: value
  </code>
 </p>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e3482ccc-7164-4614-a20d-e00a82bc4752" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<pre>{
   cv: 239456
   impression: 166717
   ...
 }</pre>
- </div>
-</div>
 <p>
  <strong>
   Step 3.
@@ -2189,9 +2077,7 @@
  <br/>
  在此步驟將把所有的 event 計算完成, 預期整理為以下格式
 </p>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c5dd9e6e-b49b-4f74-949d-c555bd0b0a08" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<pre>{
   segment_A:
     {
       cv: 48743
@@ -2206,8 +2092,6 @@
     },
   ...
 }   </pre>
- </div>
-</div>
 <p>
  <strong>
   Step 4.
@@ -2221,15 +2105,11 @@
  <br/>
  預期整理為以下格式
 </p>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="63cbc1f7-38a2-444d-993f-5fc559971276" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<pre>{
   cv: 4
   impression: 3
   ...
 }</pre>
- </div>
-</div>
 <p>
  <strong>
   Step 5.
@@ -2240,18 +2120,11 @@
  <br/>
  以 Step3. 所得之格式, 跑迴圈判斷該取哪個 segment 做差異質加回, 以下計算範例說明
 </p>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="85c84cc3-f48d-47c6-8119-3a788a6149db">
-  <colgroup>
-   <col style="width: 340.0px;"/>
-   <col style="width: 340.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="78549c63-fa12-44c6-96ed-9474128030b5" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <pre>{
   segment_A:
     {
       cv: 10
@@ -2271,47 +2144,44 @@
       ...
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      對所有 segment 判斷 cv 最小值,
-      <br/>
-      出現複數結果, 則繼續迴圈,
-     </p>
-     <p>
-      對所有 segment 判斷 impression 最小值,
-      <br/>
-      出現單一結果, 則停止迴圈,
-     </p>
-     <p>
-      並回傳結果
-      <code>
-       segment_C
-      </code>
-     </p>
-     <p>
-     </p>
-     <p>
-      補充１：event_key 判斷順位將指定依序為
-      <br/>
-      [cv, impression, q0, view2s, view3s, view5s, view30s, q25, q50, q100, bannerclick, videoclick]
-     </p>
-     <p>
-     </p>
-     <p>
-      補充２：極少情況下, 所有的 event_key 執行完依然無法得到結果, 將依照
-      <code>
-       (sg_id).sort
-      </code>
-      取第一筆 segment 作為回傳結果
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+   </td>
+   <td>
+    <p>
+     對所有 segment 判斷 cv 最小值,
+     <br/>
+     出現複數結果, 則繼續迴圈,
+    </p>
+    <p>
+     對所有 segment 判斷 impression 最小值,
+     <br/>
+     出現單一結果, 則停止迴圈,
+    </p>
+    <p>
+     並回傳結果
+     <code>
+      segment_C
+     </code>
+    </p>
+    <p>
+    </p>
+    <p>
+     補充１：event_key 判斷順位將指定依序為
+     <br/>
+     [cv, impression, q0, view2s, view3s, view5s, view30s, q25, q50, q100, bannerclick, videoclick]
+    </p>
+    <p>
+    </p>
+    <p>
+     補充２：極少情況下, 所有的 event_key 執行完依然無法得到結果, 將依照
+     <code>
+      (sg_id).sort
+     </code>
+     取第一筆 segment 作為回傳結果
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
  <strong>
   Step 6.
@@ -2324,7 +2194,7 @@
 </p>
 <p>
 </p>
-<h1 id="id-[SPEC]segment_eventAPI-補充資料">
+<h1>
  補充資料
 </h1>
 <p>
@@ -2347,9 +2217,7 @@
   </p>
  </li>
 </ul>
-<span class="confluence-embedded-file-wrapper image-center-wrapper">
- <img class="confluence-embedded-image image-center" data-height="878" data-image-src="截圖 2023-06-15 下午3.34.23-20230617-093841.png" data-linked-resource-container-id="3112632328" data-linked-resource-container-version="19" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2023-06-15 下午3.34.23-20230617-093841.png" data-linked-resource-id="3422028226" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="bc94eff7-d01b-474a-99c1-8d0f408fdfb5" data-media-type="file" data-unresolved-comment-count="0" data-width="1710" loading="lazy" src="截圖 2023-06-15 下午3.34.23-20230617-093841.png"/>
-</span>
+<img src="截圖 2023-06-15 下午3.34.23-20230617-093841.png"/>
 <p>
 </p>
 <p>

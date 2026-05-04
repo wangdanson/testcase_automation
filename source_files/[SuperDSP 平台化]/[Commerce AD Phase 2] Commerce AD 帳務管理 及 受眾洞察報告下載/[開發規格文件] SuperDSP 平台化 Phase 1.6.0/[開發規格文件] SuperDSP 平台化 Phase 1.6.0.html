@@ -1,98 +1,79 @@
-<h2 id="id-[開發規格文件]SuperDSP平台化Phase1.6.0-SuperDSP">
+<h2>
  SuperDSP
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="1a9abfbf-fd62-4712-b513-5282c26e17d7" data-macro-name="expand" id="expander-862914568">
- <div class="expand-control" id="expander-control-862914568">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 帳務管理 - billing_report API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-862914568">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="6ba81745-51b5-42f0-8b93-29d82df76dd2" data-table-width="988">
-    <colgroup>
-     <col style="width: 173.0px;"/>
-     <col style="width: 808.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ba5e6899-a547-4d35-b01a-ed5debb421dd" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v1/superdsp/billing_report?company_id={id}&amp;date={date}</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        old api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/billing_report_controller.rb
-        <code>
-         index
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3728c57c-7c35-43b5-80b7-2b787d4202c3" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+GET 帳務管理 - billing_report API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v1/superdsp/billing_report?company_id={id}&amp;date={date}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/billing_report_controller.rb
+     <code>
+      index
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         ......,
@@ -105,259 +86,211 @@
         },],
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <ul>
-        <li>
-         <p>
-          新增欄位
-         </p>
-        </li>
-        <li>
-         <p>
-          排序邏輯
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="5f6b22c6-754d-4187-a49c-d3256b22d656" data-macro-name="expand" id="expander-1025614798">
- <div class="expand-control" id="expander-control-1025614798">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 帳務管理 - generate_excel_report API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1025614798">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="ee85da48-ad8f-4b05-8a07-73bf1ce2c010" data-table-width="988">
-    <colgroup>
-     <col style="width: 173.0px;"/>
-     <col style="width: 808.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3c0fc0c2-1631-4f02-94d8-2554b5c0a84f" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v1/superdsp/billing_report/generate_excel_report?company_id={id}&amp;date={date}</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        old api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/billing_report_controller.rb
-        <code>
-         generate_excel_report
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4ea549b3-b655-40af-84b3-8af4f3749cc1" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       新增欄位
+      </p>
+     </li>
+     <li>
+      <p>
+       排序邏輯
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET 帳務管理 - generate_excel_report API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v1/superdsp/billing_report/generate_excel_report?company_id={id}&amp;date={date}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/billing_report_controller.rb
+     <code>
+      generate_excel_report
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     "content": "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\noLdzR+1csjSy/s33JJMKqPk0hJPJgRv+WTwg687Bwf5+O6ubzOlNpYqoKs/P\nxuZFwGD8qiZhNNbAFWwIdeIKbla3it3wVi12PFLpPOms4sDjkZZZVw0Dte5p\nLXlXFY9eF90Gu8/duJXdukpXu7MPGwN+SIpiYVJhRhk7thzv4jIfAkO0jIHH\n2KvEcFT3irtGRbk0GVUsDe0yNj91Sm+gzn1H8mXctNKgCO5P0fAiGGzkIFnG\nVocLPqVq4u5Y58U65l6Lc0FF3FvLd2XFlrCD+530j8jvXjkz1f4lS+eCU1FT\nP1JS05lOpegWfOv5bXQRN1zE11zEN10M2lwkVxiQSJWeGT7bCOzl4rN5w+Pz\n/bdjDMGjxuBuu25B9P+HIFor6d8JYn1B9G9dsx1CuEXN9h+jZtdcKw9XswN4\n8231L2TK/WO4limoaGm15tlonaUU2JffEB5ap1mtd6B6kzQ00bLqj9i+Z1qB\nae9kar6RPH1EY7Jg+qQUhbBav6VRuuAv4BXqKD2VukBV6zc2imAXVpZsXtWM\nmF31WTb+DVBLAwQUAAAACAAAQCHsgUJrvuAAAABnAQAADwAAAHhsL3dvcmti\nb29rLnhtbI1PXU7DMAy+SuR3lm4aCKqmE9KEtCd4gAOExm2jNU5lh58jcBSO\nwAvngWMQdVRM4mUvtmx/f642r2FQz8jiIxlYLgpQSE10njoDD/c3Z5ewqauX\nyPvHGPcqo0kM9CmNpdbS9BisLOKIlC9t5GBTHrnTMjJaJz1iCoNeFcWFDtYT\nHBRKPkUjtq1vcBubp4CUDiKMg005q/R+FPhLdsfK2YTLq2JtoLWDIOi6mvzl\nt6up7lx+ExTZgAa+Pj6/399AcenzmndunSX1hPtHWs2kW8LrrbIdHvHOj3h6\ndtVzuPoHUEsDBBQAAAAIAABAIew9WGI8cAAAAIoAAAAjAAAAeGwvd29ya3No\nZWV0cy9fcmVscy9zaGVldDEueG1sLnJlbHNVjEsOAiEQBa9Ceu80ujDGALPz\nAEYP0MEWiMMnNDEeX5a6rLx6ZdZP3tSbu6RaLOwXDYqLr49UgoX77bI7werM\nlTca05CYmqh5KWIhjtHOiOIjZ5KlNi5zedaeaUzsARv5FwXGg9ZH7L8NcAb/\nou4LUEsDBBQAAAAIAABAIew9WGI8cAAAAIoAAAAjAAAAeGwvd29ya3NoZWV0\ncy9fcmVscy9zaGVldDIueG1sLnJlbHNVjEsOAiEQBa9Ceu80ujDGALPzAEYP\n0MEWiMMnNDEeX5a6rLx6ZdZP3tSbu6RaLOwXDYqLr49UgoX77bI7werMlTca\n05CYmqh5KWIhjtHOiOIjZ5KlNi5zedaeaUzsARv5FwXGg9ZH7L8NcAb/ou4L\nUEsDBBQAAAAIAABAIeyFd1nXOQsAAFlVAAAYAAAAeGwvd29ya3NoZWV0cy9z\naGVldDEueG1srZxtc9pIFkb/iovvC1J3i5eU7alZW5Cwyia1ntmp2m8Yy7Zq\nAFFCjmfm14/ejJt7H+VeUpuqJAJO3250GmgeoC9/+mO7ufiWFocs310NwmEw\nuEh36/wh2z1dDX79Zf6P6eCn68vXvPj98Jym5UWF7w5Xg+ey3H8YjQ7r53S7\nOgzzfbqrbnnMi+2qrC4WT6PDvkhXD02j7WZkgmA82q6y3aCt8KHQ1MgfH7N1\nepuvX7bprmyLFOlmVVaDPTxn+0NT7cNhv1qnV4Oqw0NafEsH15dNt1+Li+vL\n/eopvUvLX/fVpces/CX/Wl1xNaju5uj6ctRx15cPWdVDfQ4uivTxavBz+OHn\nyFaFRscbuqL/zdLXg3d88ZrtHvLXr0VepuuyOYlV7XJ1f5duqivSh+by4Tl/\n/e05K9O7dqjdVV9eyk22S+/+3N7nm8Px6nl1Cl42q/aKInt6roadpI/lEfhf\nWuTVrWF76T8vm7R4v5S/3uSbj9W5r6Qer10U2UNSddVe85A+rl42ZX1lxeZt\n47/yfHu3Xm2q4YVB1VHt/D7Pf6/v5af2bhyRu/ruJ6s/85fmJJzeWJ/hvtv+\nXdvdNNe9nf4a8o/fzu68mQiVtvvVIa2G+Vv2UD5fDabH4Vf39GNan51qwNPG\n57o6i82/F9ts19yp7eqP5v/79FDOs7I5Xr8cynzblasuv7ZHkRtGM/+Pe6vZ\nVjNdNaOqZpqHkt/edu2trv2Utndde/eD7aOufaRqPwmH9uRsnBYbd8XGqmJu\nRgcz6dpPVO1DN5wE/p/wtNq0qzb9v1SbddVmumrT4eykmjmtFgZvszDQiYuG\ntMJxHusmsnT/wreZHOqmsngP32Z2qJvaoRmOwfhG7aO3eezfrsrV9WWRv160\nz01Vb/XRz/WzWfsEezU4VE/P366Dy9G3um31t8KPbcx7G8PahLiNfW9jmzbW\n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\n5uc3WZzf5OP5TT6d32TpeMo3HtPJxiMzf2OUbrr5kKrvz6Bu3+Tzojh3/t4v\n5ze5Ob/J7flN4vObzM9vsji/ycfzm3w6v8nS8U15xhM6+U625VHVTX6gzefT\nNnyWn85HLzV0bQz1A5v3OC+Wcj+8BZDzcg/HNwEaT/FdiLx30pG8CxBA2C5A\niCGvkreIIa9cMWLoAhwxZOosANOzl1bkveOM+G5h456dlCLvPUzULoqn3zuH\nHKFPozeIoSsfwPBzCBh2DkFfNHNCjO05G95iP7LsJE7ouR95e7Y1hzerzbre\nb/Nls6kPv+ySfPXQbOQ2ur7cF9mu/LJv9vCsdx4ts/Vqc5PuyrTodst8zovs\nr3xX0qvTVb0taTuap/cNLdutBeuNPj+viqesqlq0u0IGw0n1wrRpd85sju/z\nssy33T6nZb7vjh7zvKy30AyGUdvN8cLouIPoy76+0N44b/h6B0v/cnXxuE/q\n9d9QSwMEFAAAAAgAAEAh7Fh+q+/uCgAAklEAABgAAAB4bC93b3Jrc2hlZXRz\nL3NoZWV0Mi54bWytnGtv4kgWhv9KxPcFu6rMpZVk1JsYEta93drMRdpvhDiJ\nNYCRcToz8+vXt0Bxzus9R61pqbuheOpU2Y8hxQupy5/+2G4uvqfFIct3V4Nw\nGAwu0t06f8p2L1eDX36e/2M6+On68j0vfj+8pml5UeG7w9XgtSz3n0ajw/o1\n3a4Ow3yf7qpHnvNiuyqru8XL6LAv0tVT02m7GZkgGI+2q2w3aCt8KjQ18ufn\nbJ3e5uu3bbor2yJFulmV1WQPr9n+0FT7dNiv1unVoBrwkBbf08H1ZTPst+Li\n+nK/ekkf0vKXfXXvOSt/zr9VDVeD6jBH15ejjru+fMqqEepzcFGkz1eDz+Gn\nz1FQFRodH+iK/pql7wfv9sV7tnvK378VeZmuy+YkVrXL1eNDuqka0qfm/uE1\nf//tNSvTh3aqXdPXt3KT7dKHP7eP+eZwbJ5Xp+Bts2obiuzltZp2kj6XR+C/\naZFXj4btvf+8bdLidC9/v8k3d9W5r6QeWxdF9pRUQ7UtT+nz6m1T1o0Vm7ed\n/8rz7cN6tammFwbVQLXzxzz/vT7K+/YwjshDffjJ6s/8rTkJ5w/WZ7jvsX/X\ndjdN28fpryH/9sfZnTcXQqXtcXVIq2n+lj2Vr1eD6XH61ZHepfXZqSY8bXyu\n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\nkpHEahIvUKdHsvMSLycnXgChkgHCJCuYGDF04aVgFoihkp0m8XI88eIfNaJK\nRLKMJE4TeIE6fZK9wMvJgRdAmGRF4KVgYsTQhZeCWSCGSdYEXg4EXvS3lJeo\nEpUsB15OE3iBOn2SvcDLyYEXQJhkReClYGLE0FRTwSwQwyRrAi+HAi+6BFii\nUtSyHHg5TeAF6vRZ9gIvJwdeAGGWFYGXgokBM6YfKAOGZSFoLGZZE3g5EHix\nlReqRCXLgZfTBF6gTp9kL/Byx2hodJTKmm540y1vinnTnDcteNMdb7rnTctT\n0+kKGNOTySMhf6uP7nT6kGqTkS+gbt/J9aImF/GTy5pueNMtb4p505w3LXjT\nHW+6501Lx7dRGU/oyT3bSEV14pIf6PPlvA+3eH6+vdTH/fCWLc6LFdzkh6t4\n71sd37ZlPO05BO+dkJN3bgEI27oFMY6+6sp7qsSIYQsoeVeVBWB6dj+KvHcM\nUcDPId37ZuRt9tTcvFlt1vVGfW+bTX3z6y7JV0/NDlDVxb4vsl35dd9s/ldv\nWVhm69XmJt2VadFts/eaF9lf+a6kzemq3s+wnc3LaSe8dk+yeofAL6viJauq\nFu12csFwUl3Gm3bLveb2Y16W+bbbILHM992t5zwv6733gmHUDnO8MzpuPfi2\nr++0D84bvt76zr9f3T1usHj9P1BLAQI0AxQAAAAIAABAIezJb4xuNgEAAJQE\nAAATAAAAAAAAAAEAAACkgQAAAABbQ29udGVudF9UeXBlc10ueG1sUEsBAjQD\nFAAAAAgAAEAh7OqNjmjbAAAAOQIAAAsAAAAAAAAAAQAAAKSBZwEAAF9yZWxz\nLy5yZWxzUEsBAjQDFAAAAAgAAEAh7MjB8ieLAAAA4QAAABAAAAAAAAAAAQAA\nAKSBawIAAGRvY1Byb3BzL2FwcC54bWxQSwECNAMUAAAACAAAQCHsh2DmHgwB\nAADlAQAAEQAAAAAAAAABAAAApIEkAwAAZG9jUHJvcHMvY29yZS54bWxQSwEC\nNAMUAAAACAAAQCHsKbSp4tMAAACwAgAAGgAAAAAAAAABAAAApIFfBAAAeGwv\nX3JlbHMvd29ya2Jvb2sueG1sLnJlbHNQSwECNAMUAAAACAAAQCHsGxEKrZMD\nAADiCwAAFAAAAAAAAAABAAAApIFqBQAAeGwvc2hhcmVkU3RyaW5ncy54bWxQ\nSwECNAMUAAAACAAAQCHs72i4oM4CAACjDQAADQAAAAAAAAABAAAApIEvCQAA\neGwvc3R5bGVzLnhtbFBLAQI0AxQAAAAIAABAIeyBQmu+4AAAAGcBAAAPAAAA\nAAAAAAEAAACkgSgMAAB4bC93b3JrYm9vay54bWxQSwECNAMUAAAACAAAQCHs\nPVhiPHAAAACKAAAAIwAAAAAAAAABAAAApIE1DQAAeGwvd29ya3NoZWV0cy9f\ncmVscy9zaGVldDEueG1sLnJlbHNQSwECNAMUAAAACAAAQCHsPVhiPHAAAACK\nAAAAIwAAAAAAAAABAAAApIHmDQAAeGwvd29ya3NoZWV0cy9fcmVscy9zaGVl\ndDIueG1sLnJlbHNQSwECNAMUAAAACAAAQCHshXdZ1zkLAABZVQAAGAAAAAAA\nAAABAAAApIGXDgAAeGwvd29ya3NoZWV0cy9zaGVldDEueG1sUEsBAjQDFAAA\nAAgAAEAh7Fh+q+/uCgAAklEAABgAAAAAAAAAAQAAAKSBBhoAAHhsL3dvcmtz\naGVldHMvc2hlZXQyLnhtbFBLBQYAAAAADAAMACcDAAAqJQAAAAA=\n",
     "encoding": "base64"
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <ul>
-        <li>
-         <p>
-          新增欄位
-         </p>
-        </li>
-        <li>
-         <p>
-          編輯欄位
-         </p>
-        </li>
-        <li>
-         <p>
-          排序邏輯
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="6630019d-376b-4432-aee2-06af580c907a" data-macro-name="expand" id="expander-1335109593">
- <div class="expand-control" id="expander-control-1335109593">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET report_options API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1335109593">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="51830d36-0e84-4b6a-9c59-6db9168c777c" data-table-width="988">
-    <colgroup>
-     <col style="width: 173.0px;"/>
-     <col style="width: 808.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b1c9dcae-3029-4311-80af-8bb1f0e09598" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v1/superdsp/campaigns/report_options?product_category_id=7</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        old api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaigns_controller.rb
-        <code>
-         report_options
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8a90f45a-db05-4406-be23-97c60d9d6bc6" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       新增欄位
+      </p>
+     </li>
+     <li>
+      <p>
+       編輯欄位
+      </p>
+     </li>
+     <li>
+      <p>
+       排序邏輯
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET report_options API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v1/superdsp/campaigns/report_options?product_category_id=7</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaigns_controller.rb
+     <code>
+      report_options
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "scuuess",
     "data": {
         "target_colnames": [
@@ -414,234 +347,186 @@
         ],
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="842b3d70-4a6b-4036-a592-38e61bde020d" data-macro-name="expand" id="expander-1236780953">
- <div class="expand-control" id="expander-control-1236780953">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   POST 大數據報表 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1236780953">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="a69ab840-25ac-4a34-bda7-469d27799c9a" data-table-width="988">
-    <colgroup>
-     <col style="width: 173.0px;"/>
-     <col style="width: 808.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="47be6409-1119-4066-9d21-8049dd7d0130" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v1/superdsp/campaigns/generate_report_xls</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        old api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaigns_controller.rb
-        <code>
-         generate_report_xls
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8a534720-01ff-4962-ac8d-6bcd09fbb4b7" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+POST 大數據報表 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v1/superdsp/campaigns/generate_report_xls</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaigns_controller.rb
+     <code>
+      generate_report_xls
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h2 id="id-[開發規格文件]SuperDSP平台化Phase1.6.0-OSS">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  OSS
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="35aeb03b-4805-416d-a622-f921fd9fd1ef" data-macro-name="expand" id="expander-1961850837">
- <div class="expand-control" id="expander-control-1961850837">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 帳務管理 - SuperDSP 毛利 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1961850837">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="9b3f6b4f-5132-4d0d-abf4-2ff9e2f78936" data-table-width="988">
-    <colgroup>
-     <col style="width: 173.0px;"/>
-     <col style="width: 808.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="5f167be1-192c-4d27-a5ee-014fe5ddc394" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">billing_report/superdsp_monthly_gross_profit?date={date}</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        old api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/billing_report_controller.rb
-        <code>
-         superdsp_monthly_gross_profit
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="02268c12-98ff-4b94-be08-9e3a5f82bd56" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+GET 帳務管理 - SuperDSP 毛利 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>billing_report/superdsp_monthly_gross_profit?date={date}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/billing_report_controller.rb
+     <code>
+      superdsp_monthly_gross_profit
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     ......
     "columns":[
         ......
@@ -674,33 +559,28 @@
         },
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <ul>
-        <li>
-         <p>
-          新增欄位
-         </p>
-        </li>
-        <li>
-         <p>
-          編輯欄位
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       新增欄位
+      </p>
+     </li>
+     <li>
+      <p>
+       編輯欄位
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>

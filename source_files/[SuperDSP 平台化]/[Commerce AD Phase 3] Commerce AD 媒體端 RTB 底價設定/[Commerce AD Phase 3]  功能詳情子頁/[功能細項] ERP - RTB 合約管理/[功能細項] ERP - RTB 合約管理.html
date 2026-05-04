@@ -1,4424 +1,346 @@
-<div class="contentLayout2">
- <style>
-  [data-colorid=bi58m4orrd]{color:#bf2600} html[data-color-mode=dark] [data-colorid=bi58m4orrd]{color:#ff6640}
- </style>
- <div class="columnLayout fixed-width" data-layout="fixed-width">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <div class="toc-macro client-side-toc-macro conf-macro output-block" data-cssliststyle="none" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-layout="default" data-local-id="d9c60913-337f-4da5-ac8e-6771eb4a7de5" data-macro-id="af55d91d-e71d-48d3-a06c-9a698c39839a" data-macro-name="toc">
-    </div>
+<p>
+</p>
+<h2>
+ 功能概述
+</h2>
+<p>
+ ERP RTB 合約管理功能為 PAD 部門提供 RTB 競價模式的合約建立與管理機制。本功能支援浮動價格與固定價格兩種 RTB 合約類型，其中浮動價格合約由 PAD 在 ERP 建立，固定價格合約則由 Partners 系統自動建立。
+</p>
+<p>
+ 關鍵特性：
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    除「底價」外的任何資訊變更都需建立新合約來達到更新目的
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   系統永遠
+   <strong>
+    執行最新的生效合約計價設定
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   底價編輯記錄與 OYM 系統即時同步
+  </p>
+ </li>
+ <li>
+  <p>
+   支援立即生效功能，可將待生效合約提前生效
+  </p>
+ </li>
+ <li>
+  <p>
+   新舊合約並存時，底價同步更新機制確保資料一致性
+  </p>
+ </li>
+ <li>
+  <p>
+   媒體成本計算功能支援 SuperDSP 毛利分析
+  </p>
+  <ul>
+   <li>
     <p>
+     Phase 2 媒體端的成本是固定分潤, 不用額外開發邏輯
     </p>
-    <h2 id="id-[功能細項]ERP-RTB合約管理-📋文件檢核狀態">
-     📋 文件檢核狀態
-    </h2>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="center" data-local-id="be285965-b717-490b-8b3e-b2564a2ae059" data-table-width="1234">
-      <colgroup>
-       <col style="width: 61.0px;"/>
-       <col style="width: 208.0px;"/>
-       <col style="width: 135.0px;"/>
-       <col style="width: 190.0px;"/>
-       <col style="width: 631.0px;"/>
-      </colgroup>
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li data-inline-task-id="1">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          階段
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          負責人
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          完成日期
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          備註/審核記錄
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li class="checked" data-inline-task-id="2">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          文件初版完成
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          TPM
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          <time class="date-past" datetime="2025-09-07">
-           2025年9月7日
-          </time>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          待使用者回覆
-         </p>
-         <p>
-          ??
-         </p>
-         <p>
-          另找時間開發以下項目
-         </p>
-         <ul>
-          <li>
-           <p>
-            ad_format_type 建立/更新通知 Email 內容需要找多單位溝通
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li data-inline-task-id="3">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          可行性分析
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          SA
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li data-inline-task-id="4">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          功能細項撰寫
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          工程師
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li data-inline-task-id="5">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          技術方案確認
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          工程師+TL
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li data-inline-task-id="6">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          開發排程 (WBS)
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          TPM+TL
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li data-inline-task-id="7">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          Kick-off
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          All
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <ul class="inline-task-list" data-inline-tasks-content-id="3995959320">
-          <li data-inline-task-id="8">
-           <span>
-           </span>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          測試計畫
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          TPM+QA
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          _
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
+   </li>
+   <li>
     <p>
+     <strong>
+      Phase 3 媒體端的成本是浮動分潤, 需要額外開發邏輯
+     </strong>
     </p>
-    <h2 id="id-[功能細項]ERP-RTB合約管理-功能概述">
-     功能概述
-    </h2>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h2>
+ UserStory 與系統行為
+</h2>
+<h3>
+ PAD 視角
+ <br/>
+</h3>
+🔽 情境一：建立浮動價格 RTB 合約
+<p>
+ 場景：PAD 完成與媒體的 RTB 合作商談後，需要在系統建立正式合約
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 完成 RTB 合作條件商談
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 在 ERP 建立 RTB 浮動價格合約
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 讓媒體正式開始參與 RTB 競價
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
     <p>
-     ERP RTB 合約管理功能為 PAD 部門提供 RTB 競價模式的合約建立與管理機制。本功能支援浮動價格與固定價格兩種 RTB 合約類型，其中浮動價格合約由 PAD 在 ERP 建立，固定價格合約則由 Partners 系統自動建立。
+     步驟
     </p>
+   </th>
+   <th>
     <p>
-     關鍵特性：
+     使用者操作
     </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     進入媒體列表
+    </p>
+   </td>
+   <td>
     <ul>
      <li>
       <p>
-       <strong>
-        除「底價」外的任何資訊變更都需建立新合約來達到更新目的
-       </strong>
+       點擊 ERP 建立的媒體
       </p>
-     </li>
-     <li>
-      <p>
-       系統永遠
-       <strong>
-        執行最新的生效合約計價設定
-       </strong>
-      </p>
-     </li>
-     <li>
-      <p>
-       底價編輯記錄與 OYM 系統即時同步
-      </p>
-     </li>
-     <li>
-      <p>
-       支援立即生效功能，可將待生效合約提前生效
-      </p>
-     </li>
-     <li>
-      <p>
-       新舊合約並存時，底價同步更新機制確保資料一致性
-      </p>
-     </li>
-     <li>
-      <p>
-       媒體成本計算功能支援 SuperDSP 毛利分析
-      </p>
-      <ul>
-       <li>
-        <p>
-         Phase 2 媒體端的成本是固定分潤, 不用額外開發邏輯
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          Phase 3 媒體端的成本是浮動分潤, 需要額外開發邏輯
-         </strong>
-        </p>
-       </li>
-      </ul>
      </li>
     </ul>
-    <h2 id="id-[功能細項]ERP-RTB合約管理-UserStory與系統行為">
-     UserStory 與系統行為
-    </h2>
-    <h3 id="id-[功能細項]ERP-RTB合約管理-PAD視角">
-     PAD 視角
-     <br/>
-    </h3>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="2e5556e4-4164-494b-8aac-2baa5b49138b" data-macro-name="expand" id="expander-1387259801">
-     <div class="expand-control" id="expander-control-1387259801">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       🔽 情境一：建立浮動價格 RTB 合約
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1387259801">
-      <p>
-       場景：PAD 完成與媒體的 RTB 合作商談後，需要在系統建立正式合約
-      </p>
-      <p>
-       <strong>
-        When
-       </strong>
-       完成 RTB 合作條件商談
-       <br/>
-       <strong>
-        I want to
-       </strong>
-       在 ERP 建立 RTB 浮動價格合約
-       <br/>
-       <strong>
-        So I can
-       </strong>
-       讓媒體正式開始參與 RTB 競價
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="95a482e1-9345-4995-b4d2-a86a985449cd" data-table-width="760">
-        <colgroup>
-         <col style="width: 73.0px;"/>
-         <col style="width: 219.0px;"/>
-         <col style="width: 438.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            使用者操作
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入媒體列表
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              <span class="inline-comment-marker" data-ref="0ba5caa3-c0eb-4d3f-980f-845dcc58da3a">
-               點擊 ERP 建立的媒體
-              </span>
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入合約管理列表
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示所有合約列表
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            🆕 點擊「新增合約(RTB)」
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              <span class="inline-comment-marker" data-ref="1c98aef0-9e81-4d83-af3f-1d6e150030f6">
-               顯示合約建立表單
-              </span>
-             </p>
-            </li>
-            <li>
-             <p>
-              <span class="inline-comment-marker" data-ref="1c98aef0-9e81-4d83-af3f-1d6e150030f6">
-               價格類型：
-              </span>
-              <strong>
-               <span class="inline-comment-marker" data-ref="1c98aef0-9e81-4d83-af3f-1d6e150030f6">
-                所有價格為浮動分潤
-               </span>
-              </strong>
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            4
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            設定合約基本資訊
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              填寫基本資訊
-             </p>
-             <ul>
-              <li>
-               <p>
-                欄位預設值
-               </p>
-               <ul>
-                <li>
-                 <p>
-                  價格起訖：下個月1日-2099/12
-                 </p>
-                </li>
-                <li>
-                 <p>
-                  媒體付款方式：
-                  <span class="inline-comment-marker" data-ref="1dc30acc-0d75-4cfd-8072-6f911be88006">
-                   60 日
-                  </span>
-                 </p>
-                </li>
-                <li>
-                 <p>
-                  版位：DynamicProductAd
-                 </p>
-                </li>
-                <li>
-                 <p>
-                  計價單位：CPC
-                 </p>
-                </li>
-                <li>
-                 <p>
-                  sub_ad_type：
-                  <code>
-                   dpa_4_grid_ad_300x250
-                  </code>
-                  <br/>
-                  ( DynamicProductAd 底下所有格式不做排序
-                 </p>
-                 <ul>
-                  <li>
-                   <p>
-                    預設所有 sub_ad_type 不勾選
-                   </p>
-                  </li>
-                  <li>
-                   <p>
-                    勾選
-                    <code>
-                     dpa_4_grid_ad_300x250
-                    </code>
-                    checkbox
-                   </p>
-                   <ul>
-                    <li>
-                     <p>
-                      價格設定區域 disable → enable
-                     </p>
-                    </li>
-                   </ul>
-                  </li>
-                  <li>
-                   <p>
-                    點擊
-                    <code>
-                     dpa_4_grid_ad_300x250
-                    </code>
-                   </p>
-                   <ul>
-                    <li>
-                     <p>
-                      媒體競標底價：2.0
-                     </p>
-                    </li>
-                    <li>
-                     <p>
-                      OneAD 分潤比例：25 %
-                     </p>
-                    </li>
-                   </ul>
-                  </li>
-                 </ul>
-                </li>
-               </ul>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            5
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            🆕 搜尋並選擇版位
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              提供關鍵字搜尋功能
-             </p>
-            </li>
-            <li>
-             <p>
-              過濾顯示符合搜尋的版位選項
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            6
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            🆕 選擇 sub_ad_type 並設定價格
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              點擊
-              <code>
-               dpa_4_grid_ad_300x250
-              </code>
-             </p>
-             <ul>
-              <li>
-               <p>
-                預設值
-               </p>
-               <ul>
-                <li>
-                 <p>
-                  媒體競標底價：2.0
-                 </p>
-                </li>
-                <li>
-                 <p>
-                  OneAD 分潤比例：25 %
-                 </p>
-                </li>
-               </ul>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              可自行更改底價及及分潤
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            7
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            點擊「儲存」
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              建立合約成功
-             </p>
-            </li>
-            <li>
-             <p>
-              合約狀態：待生效（生效日為下月1日）
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="fe52a4cb-7d81-4e2c-b1d8-5d8ca4745e58" data-macro-name="expand" id="expander-1967676233">
-     <div class="expand-control" id="expander-control-1967676233">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       🔽 情境二：查看 RTB 合約列表
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1967676233">
-      <p>
-       <strong>
-        場景
-       </strong>
-       ：PAD 需要查看媒體的所有 RTB 合約狀態
-      </p>
-      <p>
-       <strong>
-        When
-       </strong>
-       需要管理媒體的 RTB 合約
-       <br/>
-       <strong>
-        I want to
-       </strong>
-       查看所有合約的狀態和基本資訊
-       <br/>
-       <strong>
-        So I can
-       </strong>
-       了解目前執行中和待生效的合約
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="447f6063-3f86-4273-ab2e-e92585d88c51">
-        <colgroup>
-         <col style="width: 88.0px;"/>
-         <col style="width: 204.0px;"/>
-         <col style="width: 438.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            使用者操作
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入媒體列表
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              點擊 ERP 建立的媒體
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入合約管理列表
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            顯示合約列表 (欄位包含如下)
-           </p>
-           <ul>
-            <li>
-             <p>
-              合約 ID
-             </p>
-            </li>
-            <li>
-             <p>
-              狀態（待生效/生效/失效）
-             </p>
-            </li>
-            <li>
-             <p>
-              合約起期
-             </p>
-            </li>
-            <li>
-             <p>
-              合約訖期
-             </p>
-            </li>
-            <li>
-             <p>
-              建立日期
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            查看狀態欄位
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🟢 生效：目前執行中
-             </p>
-            </li>
-            <li>
-             <p>
-              🟡 待生效：未來將執行
-             </p>
-            </li>
-            <li>
-             <p>
-              ⚫ 失效：已結束
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="efdaf95d-3902-4024-bbd4-e5a1a61bb7f9" data-macro-name="expand" id="expander-989328223">
-     <div class="expand-control" id="expander-control-989328223">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       🔽 情境三：查看浮動價格 RTB 合約 及 底價變更記錄
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-989328223">
-      <p>
-       場景：PAD 需要確認媒體 (自行建立的, 非源於 Partners 系統建立的) 的 RTB 合約設定是否正確
-      </p>
-      <p>
-       <strong>
-        When
-       </strong>
-       PAD 需要查看媒體的浮動價格合約詳情
-       <br/>
-       <strong>
-        I want to
-       </strong>
-       查看各 sub_ad_type 的底價與分潤設定
-       <br/>
-       <strong>
-        So I can
-       </strong>
-       確認合約設定正確並了解目前執行狀況
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="97a54f07-cb28-4a79-b240-4a3f9a699aa2" data-table-width="760">
-        <colgroup>
-         <col style="width: 108.0px;"/>
-         <col style="width: 219.0px;"/>
-         <col style="width: 403.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            使用者操作
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            點擊 RTB (合約類型)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示合約詳情頁面 (預設顯示最新合約)
-             </p>
-            </li>
-            <li>
-             <p>
-              價格類型：
-              <strong>
-               所有價格為浮動分潤
-              </strong>
-             </p>
-            </li>
-            <li>
-             <p>
-              版位：DynamicProductAd
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            該版位底下選擇特定 sub_ad_type
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              只顯示當初有被建立的 sub_ad_type
-             </p>
-             <ul>
-              <li>
-               <p>
-                顯示該格式的競標底價
-               </p>
-              </li>
-              <li>
-               <p>
-                顯示 OneAD 分潤比例
-               </p>
-              </li>
-              <li>
-               <p>
-                顯示「查看修改記錄」按鈕
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            點擊「查看修改記錄」
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              popup 該 sub_ad_type 底價變更歷史記錄
-             </p>
-            </li>
-            <li>
-             <p>
-              按時間倒序顯示（最新在上
-             </p>
-             <ul>
-              <li>
-               <p>
-                顯示：
-                <br/>
-                變更日期、變更人員、底價變化、生效狀態
-               </p>
-              </li>
-              <li>
-               <p>
-                資訊與 OYM 系統即時同步
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-       修改記錄範例
-      </p>
-      <p>
-      </p>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="ccf1aed4-33aa-4ff6-89e4-d2b3c447802a" data-macro-name="expand" id="expander-1454241288">
-     <div class="expand-control" id="expander-control-1454241288">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       🔽 情境四：立即生效待生效合約
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1454241288">
-      <p>
-       <strong>
-        場景
-       </strong>
-       ：合約建立後發現需要立即執行，不等到下月
-      </p>
-      <p>
-       <strong>
-        When
-       </strong>
-       需要將待生效合約提前執行
-       <br/>
-       <strong>
-        I want to
-       </strong>
-       使用立即生效功能
-       <br/>
-       <strong>
-        So I can
-       </strong>
-       讓新合約立即開始執行
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="c2a2b0d2-f96b-470c-9804-1faebad971e7">
-        <colgroup>
-         <col style="width: 96.0px;"/>
-         <col style="width: 196.0px;"/>
-         <col style="width: 438.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            使用者操作
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入待生效合約詳情
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示「立即生效」按鈕（僅待生效合約顯示）
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            點擊「立即生效」
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示 Popup 提醒做確認
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            確認執行
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              調整合約日期：
-             </p>
-             <ul>
-              <li>
-               <p>
-                新合約起始日：下月1日→當月1日
-               </p>
-              </li>
-              <li>
-               <p>
-                舊合約結束日：2099/12/31→當月初前一天
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              更新合約狀態：
-             </p>
-             <ul>
-              <li>
-               <p>
-                新合約：待生效→生效
-               </p>
-              </li>
-              <li>
-               <p>
-                舊合約：生效→失效
-               </p>
-              </li>
-              <li>
-               <p>
-                更新 Sequence（下個整點）
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="2cd1cc08-5e81-4d1a-b6dc-742703396d5f" data-macro-name="expand" id="expander-139407942">
-     <div class="expand-control" id="expander-control-139407942">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       🔽 情境五：查看固定價格 RTB 合約（Partners）
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-139407942">
-      <p>
-       場景：PAD 需要確認媒體 ( Partners 系統建立的, 非自行建立的 ) 的 RTB 合約設定是否正確
-      </p>
-      <p>
-       <strong>
-        When
-       </strong>
-       PAD 查看 Partners 媒體的合約
-       <br/>
-       <strong>
-        I want to
-       </strong>
-       了解固定價格的設定
-       <br/>
-       <strong>
-        So I can
-       </strong>
-       掌握 Partners 媒體的合約狀況
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="f6d09278-719d-4b1f-8a63-39051e9449aa" data-table-width="760">
-        <colgroup>
-         <col style="width: 116.0px;"/>
-         <col style="width: 176.0px;"/>
-         <col style="width: 438.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            使用者操作
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入媒體列表
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              點擊 Partners 媒體
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入合約管理列表
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示所有合約列表
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            點擊 RTB 最新合約
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示合約詳情頁面
-             </p>
-            </li>
-            <li>
-             <p>
-              價格類型：
-              <strong>
-               所有價格為固定分潤
-              </strong>
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            4
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            切換不同 sub_ad_type
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示該格式的媒體賣價 $ 1.5
-             </p>
-             <ul>
-              <li>
-               <p>
-                介面提示：Partners 建立的固定價格合約無法藉由 OYM 修改價格
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-     </div>
-    </div>
-    <h3 id="id-[功能細項]ERP-RTB合約管理-PM視角">
-     PM 視角
-    </h3>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="4cff54e0-9461-4446-9ac1-d35189b695bc" data-macro-name="expand" id="expander-1480765611">
-     <div class="expand-control" id="expander-control-1480765611">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       🔽 情境六：分析 RTB 媒體成本與毛利表現
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1480765611">
-      <p>
-       <strong>
-        場景
-       </strong>
-       ：PM 透過 SuperDSP 毛利表分析 RTB 廣告的財務表現，包含成本結構、毛利率分析，以及與固定價格模式的比較
-      </p>
-      <p>
-       <strong>
-        When
-       </strong>
-       月初需要分析 RTB 廣告的整體營運績效
-       <br/>
-       <strong>
-        I want to
-       </strong>
-       在 SuperDSP 毛利表查看完整的成本與毛利數據
-       <br/>
-       <strong>
-        So I can
-       </strong>
-       評估定價策略有效性並優化業務模式
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="ce802a27-094d-47c6-9735-237ecaa3f1f9">
-        <colgroup>
-         <col style="width: 114.0px;"/>
-         <col style="width: 167.0px;"/>
-         <col style="width: 449.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            使用者操作
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入 ERP
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              選擇 SuperDSP 毛利表
-             </p>
-             <ul>
-              <li>
-               <p>
-                選擇查看月份（單月或多月比較）
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            查看交易模式分類
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              顯示交易模式欄位：
-             </p>
-             <ul>
-              <li>
-               <p>
-                固定價格（Fixed Price）
-               </p>
-              </li>
-              <li>
-               <p>
-                即時競價（Real-Time Bidding）
-               </p>
-              </li>
-              <li>
-               <p>
-                <span data-colorid="bi58m4orrd">
-                 可篩選特定模式或全部顯示 ?
-                </span>
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            分析 RTB 成本結構
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              關鍵計算項目：
-             </p>
-             <ul>
-              <li>
-               <p>
-                執行金額（應收金額）
-               </p>
-              </li>
-              <li>
-               <p>
-                媒體成本 = 底價×曝光×(1-分潤%)
-               </p>
-              </li>
-              <li>
-               <p>
-                媒體 Margin = 應收金額 - 媒體成本
-               </p>
-              </li>
-              <li>
-               <p>
-                媒體 Margin rate % = Margin/應收金額
-               </p>
-              </li>
-              <li>
-               <p>
-                平台費與總 Margin
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            4
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            比較不同維度數據
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              多維度分析：
-             </p>
-             <ul>
-              <li>
-               <p>
-                各 sub_ad_type 毛利率排名
-               </p>
-              </li>
-              <li>
-               <p>
-                RTB vs 固定價格毛利比較
-               </p>
-              </li>
-              <li>
-               <p>
-                各媒體的成本效益分析
-               </p>
-              </li>
-              <li>
-               <p>
-                月度趨勢變化（如選擇多月）
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            6
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            下載分析報表
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              匯出 Excel 檔案
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-     </div>
-    </div>
-    <h2 id="id-[功能細項]ERP-RTB合約管理-Wireframe">
-     Wireframe
-    </h2>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="45fac5d1-c966-4b20-a798-e4ff36bbe20b" data-macro-name="expand" id="expander-302131809">
-     <div class="expand-control" id="expander-control-302131809">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       展開查看
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-302131809">
-      <div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="default" data-local-id="538de066-1dd3-48ed-9eb6-394bada817ca" data-macro-id="cca0dc6e-ec66-487a-bf75-92d844f487b1" data-macro-name="drawio" id="ap-com.mxgraph.confluence.plugins.diagramly__drawio5936939091365193770">
-       <div class="ap-content" id="embedded-com.mxgraph.confluence.plugins.diagramly__drawio5936939091365193770">
-       </div>
-       <script class="ap-iframe-body-script" nonce="53a47c8972044145ae7a8c610a198e82">
-        //<![CDATA[
-
-  (function(){
-    var data = {
-    "addon_key":"com.mxgraph.confluence.plugins.diagramly",
-    "uniqueKey":"com.mxgraph.confluence.plugins.diagramly__drawio5936939091365193770",
-    "key":"drawio",
-     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
-            "general":"",
-    "w":"",
-    "h":"",
-    "url":"https://ac.draw.io/connect/confluence/viewer-1-4-42.html?ceoId=3995959320&diagramName=%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE-1755779629623.drawio&revision=18&width=10890.5&height=6031&tbstyle=&simple=0&lbox=1&zoom=1&links=&owningPageId=3995959320&displayName=%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE-1755779629623.drawio&contentId=&custContentId=3996614809&contentVer=18&inComment=0&aspect=&pCenter=0&hiRes=&templateUrl=&tmpBuiltIn=&mVer=2&pageInfo=&tempPreview=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.mxgraph.confluence.plugins.diagramly__drawio5936939091365193770&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.mxgraph.confluence.plugins.diagramly&lic=active&userAccess=true&cv=1000.0.0-c1ae27966171&traceId=e1cc58d7815eb411312b8c0cab2f3ac2&spanId=271ba7400c2970b1&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiYjk0YTZkMzY4MzlhMTRkZmM1NWZiZDdhMWY1YmVlYmIzNzNiNDgwZGYwMWFhMDI2M2Y1Nzg4YWZjNTkwNDUyYyIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzczNTY0MjIsImlhdCI6MTc3NzM1NjI0Mn0.3xQiak5HtIgGZftdx_164HHGNpf4bsOYA_f7WseQGYI",
-     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6ImNjYTBkYzZlLWVjNjYtNDg3YS1iZjc1LTkyZDg0NGY0ODdiMSIsImlkIjoiY2NhMGRjNmUtZWM2Ni00ODdhLWJmNzUtOTJkODQ0ZjQ4N2IxIn0sInRyYWNpbmciOnsidHJhY2VJZCI6ImUxY2M1OGQ3ODE1ZWI0MTEzMTJiOGMwY2FiMmYzYWMyIiwic3BhbklkIjoiMjcxYmE3NDAwYzI5NzBiMSIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiNDEiLCJpZCI6IjM5OTU5NTkzMjAifSwic3BhY2UiOnsia2V5IjoiSVRPIiwiaWQiOiIyOTc5MjY2NTY0In19fSwiZXhwIjoxNzc3MzU3MTQyLCJpYXQiOjE3NzczNTYyNDJ9.c6arQ3Oy-M5F8zA4oWGGihTTeZtjw1shJWH6BCOwR6Q",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"cca0dc6e-ec66-487a-bf75-92d844f487b1\",\"id\":\"cca0dc6e-ec66-487a-bf75-92d844f487b1\"},\"tracing\":{\"traceId\":\"e1cc58d7815eb411312b8c0cab2f3ac2\",\"spanId\":\"271ba7400c2970b1\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"41\",\"id\":\"3995959320\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
-    "contentClassifier":"content",
-    "productCtx":"{\"page.id\":\"3995959320\",\"macro.hash\":\"cca0dc6e-ec66-487a-bf75-92d844f487b1\",\"mVer\":\"2\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"538de066-1dd3-48ed-9eb6-394bada817ca\",\"simple\":\"0\",\"inComment\":\"0\",\": = | RAW | = :\":\"mVer=2|zoom=1|simple=0|inComment=0|custContentId=3996614809|pageId=3995959320|lbox=1|diagramDisplayName=\u672a\u547d\u540d\u7ed8\u56fe-1755779629623.drawio|contentVer=18|revision=18|baseUrl=https://guoshi.atlassian.net/wiki|diagramName=\u672a\u547d\u540d\u7ed8\u56fe-1755779629623.drawio|pCenter=0|width=10890.5|links=|tbstyle=|height=6031\",\"space.id\":\"2979266564\",\"diagramDisplayName\":\"\u672a\u547d\u540d\u7ed8\u56fe-1755779629623.drawio\",\"diagramName\":\"\u672a\u547d\u540d\u7ed8\u56fe-1755779629623.drawio\",\"tracing.traceId\":\"e1cc58d7815eb411312b8c0cab2f3ac2\",\"links\":\"\",\"tbstyle\":\"\",\"tracing.spanId\":\"271ba7400c2970b1\",\"user.isExternalCollaborator\":\"false\",\"height\":\"6031\",\"space.key\":\"ITO\",\"content.version\":\"41\",\"page.title\":\"[\u529f\u80fd\u7d30\u9805] ERP - RTB \u5408\u7d04\u7ba1\u7406\",\"zoom\":\"1\",\"macro.body\":\"\",\"custContentId\":\"3996614809\",\"pageId\":\"3995959320\",\"macro.truncated\":\"false\",\"lbox\":\"1\",\"content.type\":\"page\",\"output.type\":\"display\",\"contentVer\":\"18\",\"page.version\":\"41\",\"revision\":\"18\",\"baseUrl\":\"https://guoshi.atlassian.net/wiki\",\"macro.fragmentLocalId\":\"\",\"pCenter\":\"0\",\"content.id\":\"3995959320\",\"width\":\"10890.5\",\"macro.id\":\"cca0dc6e-ec66-487a-bf75-92d844f487b1\",\"editor.version\":\"v2\"}",
-    "timeZone":"UTC",
-    "origin":"https://ac.draw.io",
-    "hostOrigin":"https://guoshi.atlassian.net",
-    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
-        "gdpr": true
-    }
-}
-;
-    if(window.AP && window.AP.subCreate) {
-      window._AP.appendConnectAddon(data);
-    } else {
-      require(['ac/create'], function(create){
-        create.appendConnectAddon(data);
-      });
-    }
-
-    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
-    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
-    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
-    const __MAX_EVENT_ARRAY_SIZE__ = 20;
-    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
-    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
-      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
-        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
-        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
-          events.shift();
-        }
-        events.push(eventData);
-        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
-      }
-    });
-
-  }());
-
-//]]>
-       </script>
-      </div>
-     </div>
-    </div>
+   </td>
+  </tr>
+  <tr>
+   <td>
     <p>
+     2
     </p>
-    <h2 id="id-[功能細項]ERP-RTB合約管理-流程圖">
-     流程圖
-    </h2>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="f3531155-9b62-4865-8f11-4f610925705e" data-macro-name="expand" id="expander-1369273754">
-     <div class="expand-control" id="expander-control-1369273754">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       RTB 合約建立流程
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1369273754">
-      <div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="wide" data-local-id="8985090c-c207-4d36-a7a3-bb719c64f288" data-macro-id="0397ca57-7363-4098-8ae1-d9cec333b352" data-macro-name="mermaid-cloud" id="ap-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3697825479846484793">
-       <div class="ap-content" id="embedded-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3697825479846484793">
-       </div>
-       <script class="ap-iframe-body-script" nonce="53a47c8972044145ae7a8c610a198e82">
-        //<![CDATA[
-
-  (function(){
-    var data = {
-    "addon_key":"com.stratusaddons.confluence.plugins.mermaid",
-    "uniqueKey":"com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3697825479846484793",
-    "key":"mermaid-cloud",
-     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
-            "general":"",
-    "w":"100%",
-    "h":"1px",
-    "url":"https://mermaid.stratus-addons.com/viewer.html?pageId=3995959320&filename=RTB+%E5%90%88%E7%B4%84%E5%BB%BA%E7%AB%8B%E6%B5%81%E7%A8%8B&revision=4&zoom=fit&toolbar=bottom&repository=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud3697825479846484793&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.stratusaddons.confluence.plugins.mermaid&lic=active&userAccess=true&cv=1000.0.0-c1ae27966171&traceId=20c6ef9c3bd778b93c3f19b17a658c32&spanId=0ddb16292935be1e&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiMDlmNzVkNTU3MzZmNDFkZTNlNDMyYTY5ZmUxMjUxYzgyYzhmNmRhOWM0Y2Q1ZjBhZDMyNDNhYjJjOTEwNjkxYyIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzczNTY0MjIsImlhdCI6MTc3NzM1NjI0Mn0.guVx3lE3UGu2DbctWKO1o8pVe6whMidzCtZzc0-l54Y",
-     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6IjAzOTdjYTU3LTczNjMtNDA5OC04YWUxLWQ5Y2VjMzMzYjM1MiIsImlkIjoiMDM5N2NhNTctNzM2My00MDk4LThhZTEtZDljZWMzMzNiMzUyIn0sInRyYWNpbmciOnsidHJhY2VJZCI6IjIwYzZlZjljM2JkNzc4YjkzYzNmMTliMTdhNjU4YzMyIiwic3BhbklkIjoiMGRkYjE2MjkyOTM1YmUxZSIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiNDEiLCJpZCI6IjM5OTU5NTkzMjAifSwic3BhY2UiOnsia2V5IjoiSVRPIiwiaWQiOiIyOTc5MjY2NTY0In19fSwiZXhwIjoxNzc3MzU3MTQyLCJpYXQiOjE3NzczNTYyNDJ9.0p3UcHp1npde7PFHNLxo0j__5E5iCaLIW4OVrKlq7EU",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"0397ca57-7363-4098-8ae1-d9cec333b352\",\"id\":\"0397ca57-7363-4098-8ae1-d9cec333b352\"},\"tracing\":{\"traceId\":\"20c6ef9c3bd778b93c3f19b17a658c32\",\"spanId\":\"0ddb16292935be1e\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"41\",\"id\":\"3995959320\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
-    "contentClassifier":"content",
-    "productCtx":"{\"page.id\":\"3995959320\",\"macro.hash\":\"0397ca57-7363-4098-8ae1-d9cec333b352\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"8985090c-c207-4d36-a7a3-bb719c64f288\",\": = | RAW | = :\":\"toolbar=bottom|filename=RTB \u5408\u7d04\u5efa\u7acb\u6d41\u7a0b|zoom=fit|revision=4\",\"space.id\":\"2979266564\",\"tracing.traceId\":\"20c6ef9c3bd778b93c3f19b17a658c32\",\"tracing.spanId\":\"0ddb16292935be1e\",\"user.isExternalCollaborator\":\"false\",\"space.key\":\"ITO\",\"content.version\":\"41\",\"page.title\":\"[\u529f\u80fd\u7d30\u9805] ERP - RTB \u5408\u7d04\u7ba1\u7406\",\"zoom\":\"fit\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"display\",\"page.version\":\"41\",\"revision\":\"4\",\"toolbar\":\"bottom\",\"filename\":\"RTB \u5408\u7d04\u5efa\u7acb\u6d41\u7a0b\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"3995959320\",\"macro.id\":\"0397ca57-7363-4098-8ae1-d9cec333b352\",\"editor.version\":\"v2\"}",
-    "timeZone":"UTC",
-    "origin":"https://mermaid.stratus-addons.com",
-    "hostOrigin":"https://guoshi.atlassian.net",
-    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",            "apiMigrations": {
-        "gdpr": true
-    }
-}
-;
-    if(window.AP && window.AP.subCreate) {
-      window._AP.appendConnectAddon(data);
-    } else {
-      require(['ac/create'], function(create){
-        create.appendConnectAddon(data);
-      });
-    }
-
-    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
-    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
-    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
-    const __MAX_EVENT_ARRAY_SIZE__ = 20;
-    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
-    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
-      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
-        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
-        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
-          events.shift();
-        }
-        events.push(eventData);
-        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
-      }
-    });
-
-  }());
-
-//]]>
-       </script>
-      </div>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="3f0eadaa-9bf8-4e48-82c5-bcb1868fc1f5" data-macro-name="expand" id="expander-915158163">
-     <div class="expand-control" id="expander-control-915158163">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       合約立即生效流程
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-915158163">
-      <div class="ap-container conf-macro output-block" data-hasbody="false" data-layout="wide" data-local-id="f23c74e7-9313-4ed4-9cbf-0d58bcb227f6" data-macro-id="85309e97-97b5-4b03-a49d-b8126fe8da97" data-macro-name="mermaid-cloud" id="ap-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud6582001851443296135">
-       <div class="ap-content" id="embedded-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud6582001851443296135">
-       </div>
-       <script class="ap-iframe-body-script" nonce="53a47c8972044145ae7a8c610a198e82">
-        //<![CDATA[
-
-  (function(){
-    var data = {
-    "addon_key":"com.stratusaddons.confluence.plugins.mermaid",
-    "uniqueKey":"com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud6582001851443296135",
-    "key":"mermaid-cloud",
-     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
-            "general":"",
-    "w":"100%",
-    "h":"1px",
-    "url":"https://mermaid.stratus-addons.com/viewer.html?pageId=3995959320&filename=%E5%90%88%E7%B4%84%E7%AB%8B%E5%8D%B3%E7%94%9F%E6%95%88%E6%B5%81%E7%A8%8B&revision=3&zoom=fit&toolbar=bottom&repository=&xdm_e=https%3A%2F%2Fguoshi.atlassian.net&xdm_c=channel-com.stratusaddons.confluence.plugins.mermaid__mermaid-cloud6582001851443296135&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.stratusaddons.confluence.plugins.mermaid&lic=active&userAccess=true&cv=1000.0.0-c1ae27966171&traceId=703b6f43b41528ef557b3c2c9d3b0b6b&spanId=6776ea0a7e3265cc&traceSampled=0&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiN2Y1ZjViMWY4ZGYyZTVlYzhhNTBlNzMxODQ3MGQ2MWVjOWQ5NzYwZDMzOTM3ZTU1ZDc2MzJmY2RhMTk5NTRlNSIsImlzcyI6IkNvbmZsdWVuY2U6NTQxNjUwMTQ1OSIsImNvbnRleHQiOnt9LCJleHAiOjE3NzczNTY0MjIsImlhdCI6MTc3NzM1NjI0Mn0.chzF4--prfMPF4iAJadV1ed-WIEkrJWahZD-1EZNglQ",
-     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6YmU4ZmYzNjktNTQ5Ni00MGNlLTg2NTYtZjNiN2Y2NjQ1YzY4IiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiJDb25mbHVlbmNlOjU0MTY1MDE0NTkiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwidXJsIjp7ImRpc3BsYXlVcmwiOiJodHRwczpcL1wvZ3Vvc2hpLmF0bGFzc2lhbi5uZXRcL3dpa2kifSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6InYyIn0sIm1hY3JvIjp7Im91dHB1dFR5cGUiOiJkaXNwbGF5IiwiaGFzaCI6Ijg1MzA5ZTk3LTk3YjUtNGIwMy1hNDlkLWI4MTI2ZmU4ZGE5NyIsImlkIjoiODUzMDllOTctOTdiNS00YjAzLWE0OWQtYjgxMjZmZThkYTk3In0sInRyYWNpbmciOnsidHJhY2VJZCI6IjcwM2I2ZjQzYjQxNTI4ZWY1NTdiM2MyYzlkM2IwYjZiIiwic3BhbklkIjoiNjc3NmVhMGE3ZTMyNjVjYyIsInNhbXBsZWQiOiIwIn0sImNvbnRlbnQiOnsidHlwZSI6InBhZ2UiLCJ2ZXJzaW9uIjoiNDEiLCJpZCI6IjM5OTU5NTkzMjAifSwic3BhY2UiOnsia2V5IjoiSVRPIiwiaWQiOiIyOTc5MjY2NTY0In19fSwiZXhwIjoxNzc3MzU3MTQyLCJpYXQiOjE3NzczNTYyNDJ9.kHK926lDO4f1Qhs3BCrksQEsxnJmAQp3xLklBMjU8sE",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"v2\"},\"macro\":{\"outputType\":\"display\",\"hash\":\"85309e97-97b5-4b03-a49d-b8126fe8da97\",\"id\":\"85309e97-97b5-4b03-a49d-b8126fe8da97\"},\"tracing\":{\"traceId\":\"703b6f43b41528ef557b3c2c9d3b0b6b\",\"spanId\":\"6776ea0a7e3265cc\",\"sampled\":\"0\"},\"content\":{\"type\":\"page\",\"version\":\"41\",\"id\":\"3995959320\"},\"space\":{\"key\":\"ITO\",\"id\":\"2979266564\"}},\"url\":{\"displayUrl\":\"https://guoshi.atlassian.net/wiki\"}}",
-    "contentClassifier":"content",
-    "productCtx":"{\"page.id\":\"3995959320\",\"macro.hash\":\"85309e97-97b5-4b03-a49d-b8126fe8da97\",\"tracing.sampled\":\"0\",\"page.type\":\"page\",\"macro.localId\":\"f23c74e7-9313-4ed4-9cbf-0d58bcb227f6\",\": = | RAW | = :\":\"toolbar=bottom|filename=\u5408\u7d04\u7acb\u5373\u751f\u6548\u6d41\u7a0b|zoom=fit|revision=3\",\"space.id\":\"2979266564\",\"tracing.traceId\":\"703b6f43b41528ef557b3c2c9d3b0b6b\",\"tracing.spanId\":\"6776ea0a7e3265cc\",\"user.isExternalCollaborator\":\"false\",\"space.key\":\"ITO\",\"content.version\":\"41\",\"page.title\":\"[\u529f\u80fd\u7d30\u9805] ERP - RTB \u5408\u7d04\u7ba1\u7406\",\"zoom\":\"fit\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"display\",\"page.version\":\"41\",\"revision\":\"3\",\"toolbar\":\"bottom\",\"filename\":\"\u5408\u7d04\u7acb\u5373\u751f\u6548\u6d41\u7a0b\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"3995959320\",\"macro.id\":\"85309e97-97b5-4b03-a49d-b8126fe8da97\",\"editor.version\":\"v2\"}",
-    "timeZone":"UTC",
-    "origin":"https://mermaid.stratus-addons.com",
-    "hostOrigin":"https://guoshi.atlassian.net",
-    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",            "apiMigrations": {
-        "gdpr": true
-    }
-}
-;
-    if(window.AP && window.AP.subCreate) {
-      window._AP.appendConnectAddon(data);
-    } else {
-      require(['ac/create'], function(create){
-        create.appendConnectAddon(data);
-      });
-    }
-
-    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
-    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
-    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
-    const __MAX_EVENT_ARRAY_SIZE__ = 20;
-    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
-    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
-      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
-        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
-        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
-          events.shift();
-        }
-        events.push(eventData);
-        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
-      }
-    });
-
-  }());
-
-//]]>
-       </script>
-      </div>
-     </div>
-    </div>
+   </td>
+   <td>
     <p>
+     進入合約管理列表
     </p>
-    <h2 id="id-[功能細項]ERP-RTB合約管理-本次開發功能">
-     本次開發功能
-    </h2>
-    <h3 id="id-[功能細項]ERP-RTB合約管理-新增RTB合約">
-     新增 RTB 合約
-    </h3>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-📍功能位置">
-     📍 功能位置
-    </h4>
-    <p>
-     路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
-     <br/>
-     → RTB Angular_end → Vue2_Start RTB → 新增 RTB 合約
-    </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout two-equal" data-layout="two-equal">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="inline-comment-marker" data-ref="2fc1a3ef-564d-46fb-930a-f33cc31cb925">
-     <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-      <img alt="截圖 2025-09-08 清晨7.13.31.png" class="confluence-embedded-image image-center" data-height="704" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.13.31.png?version=1&amp;modificationDate=1757287085022&amp;cacheVersion=1&amp;api=v2&amp;width=876&amp;height=646" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.13.31.png" data-linked-resource-id="4052418563" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="cf032a68-8dd3-4b11-9e47-7d74626446a3" data-media-type="file" data-unresolved-comment-count="0" data-width="954" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.13.31.png?version=1&amp;modificationDate=1757287085022&amp;cacheVersion=1&amp;api=v2&amp;width=876&amp;height=646" width="876"/>
-     </span>
-    </span>
-    <p>
-    </p>
-   </div>
-  </div>
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-09-08 清晨7.14.12.png" class="confluence-embedded-image image-center" data-height="871" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.14.12.png?version=1&amp;modificationDate=1757287103478&amp;cacheVersion=1&amp;api=v2&amp;width=876&amp;height=543" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.14.12.png" data-linked-resource-id="4052451329" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="208f187b-c55a-4f0b-8c85-12b5f5657a74" data-media-type="file" data-unresolved-comment-count="0" data-width="1404" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.14.12.png?version=1&amp;modificationDate=1757287103478&amp;cacheVersion=1&amp;api=v2&amp;width=876&amp;height=543" width="876"/>
-    </span>
-    <p>
-    </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout fixed-width" data-layout="fixed-width">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <h4 id="id-[功能細項]ERP-RTB合約管理-功能說明">
-     功能說明
-    </h4>
-    <p>
-     PAD 人員可建立新的 RTB 浮動價格合約，選擇多個 sub_ad_type 並分別設定各自的底價與分潤比例。
-    </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-欄位定義">
-     欄位定義
-    </h4>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="center" data-local-id="7b554417-f5a0-42d1-a191-5d9d07e1ff0a" data-table-width="1407">
-      <colgroup>
-       <col style="width: 233.0px;"/>
-       <col style="width: 248.0px;"/>
-       <col style="width: 81.0px;"/>
-       <col style="width: 285.0px;"/>
-       <col style="width: 376.0px;"/>
-       <col style="width: 184.0px;"/>
-      </colgroup>
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          <strong>
-           欄位名稱
-          </strong>
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          欄位類型
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          必填
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          預設值
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          說明
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          驗證規則
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           價格類型
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          顯示文字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          -
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          所有價格為浮動分潤
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ERP 建立皆由自動判斷顯示
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          -
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           價格起訖日期
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          月份選擇器
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          是
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          <span class="inline-comment-marker" data-ref="654c9a2c-f0fb-4937-9505-3e691d341b8d">
-           下個月 1 日 - 2099/12
-          </span>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          合約有效期間
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          起始日 ≤ 結束日
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           <span class="inline-comment-marker" data-ref="22f7206b-e295-471a-bc2f-9a244cfaec28">
-            媒體付費方式(月結)
-           </span>
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          input
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          是
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          <span class="inline-comment-marker" data-ref="af388ee7-f242-4926-afa3-a39339f50975">
-           +
-          </span>
-          <u>
-           <span class="inline-comment-marker" data-ref="af388ee7-f242-4926-afa3-a39339f50975">
-            60
-           </span>
-          </u>
-          <span class="inline-comment-marker" data-ref="af388ee7-f242-4926-afa3-a39339f50975">
-           日
-          </span>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          單位：日
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           版位
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          下拉選單(可搜尋)
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          是
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          DynamicProductAd
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          選擇媒體版位
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          -
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           計價單位
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          下拉選單
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          是
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          CPC
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          計價方式
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          -
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           格式 sub_ad_type
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          Checkbox + sub_ad_type 列表
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          是
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          全部未勾選
-          <br/>
-          * 全選功能在最上方
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            勾選要設定的格式
-           </p>
-          </li>
-          <li>
-           <p>
-            點擊要查看的格式
-           </p>
-           <ul>
-            <li>
-             <p>
-              有勾選：能設定價格
-             </p>
-            </li>
-            <li>
-             <p>
-              無勾選：不能設定價格
-             </p>
-            </li>
-           </ul>
-          </li>
-         </ul>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          -
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           媒體競標底價
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          數字輸入
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          是*
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2.00
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          各 sub_ad_type 獨立設定
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          0.1 ~ 100
-          <br/>
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           OneAD 分潤比例
-          </strong>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          百分比輸入
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          是*
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          25%
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          各 sub_ad_type 獨立設定
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          0-100%
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <p>
-     *註：
-     <strong>
-      媒體競標底價
-     </strong>
-     與
-     <strong>
-      OneAD 分潤比例
-     </strong>
-     僅對已勾選的sub_ad_type 為必填
-    </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-介面互動邏輯">
-     介面互動邏輯
-    </h4>
-    <ol start="1">
-     <li>
-      <p>
-       <strong>
-        版位搜尋
-       </strong>
-      </p>
-      <ul>
-       <li>
-        <p>
-         點擊下拉選單可輸入關鍵字搜尋
-        </p>
-       </li>
-       <li>
-        <p>
-         即時過濾顯示符合的版位
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       <strong>
-        sub_ad_type 選擇機制
-       </strong>
-      </p>
-      <ul>
-       <li>
-        <p>
-         選擇版位後，顯示
-         <span class="inline-comment-marker" data-ref="b6ca8abb-c151-4597-a057-412a6fd4d0ea">
-          該版位下所有 sub_ad_type
-         </span>
-         的列表(含 checkbox)
-        </p>
-       </li>
-       <li>
-        <p>
-         勾選 checkbox 後，該格式的價格設定欄位才會啟用
-        </p>
-       </li>
-       <li>
-        <p>
-         未勾選的格式，價格欄位呈現 disabled 狀態
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       <strong>
-        儲存邏輯
-       </strong>
-      </p>
-      <ul>
-       <li>
-        <p>
-         <span class="inline-comment-marker" data-ref="94ef1a65-ff49-4c2e-9d5c-7fc254d9666d">
-          只儲存已勾選的格式設定
-         </span>
-        </p>
-       </li>
-       <li>
-        <p>
-         點擊儲存後立即生效
-        </p>
-       </li>
-       <li>
-        <p>
-         成為該媒體的最新執行合約
-        </p>
-       </li>
-       <li>
-        <p>
-         舊合約自動失效
-        </p>
-       </li>
-      </ul>
-     </li>
-    </ol>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-sub_ad_type之底價設定邏輯">
-     <strong>
-      sub_ad_type
-     </strong>
-     之 底價 設定邏輯
-    </h4>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="default" data-local-id="ef26f7ce-0c03-43f6-b2a2-86e44ed45132" data-table-width="760">
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          情境
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          底價設定方式
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          說明
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          無生效合約（首次合作）
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅ 可手動設定
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          預設 $2.00，可自行修改
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          無生效合約（重新合作）
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅ 可手動設定
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          預設 $2.00，可自行修改
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          有生效合約（延續合作）
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          🔒 自動抓取 OYM
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          唯讀顯示，確保價格一致性
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <p>
-    </p>
-    <h3 id="id-[功能細項]ERP-RTB合約管理-查看RTB合約列表">
-     查看 RTB 合約列表
-    </h3>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-📍功能位置.1">
-     📍 功能位置
-    </h4>
-    <p>
-     路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
-     <br/>
-     → RTB Angular_end → Vue2_Start RTB → 合約列表
-    </p>
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-09-08 清晨7.16.31.png" class="confluence-embedded-image image-center" data-height="750" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.31.png?version=1&amp;modificationDate=1757287180962&amp;cacheVersion=1&amp;api=v2&amp;width=640&amp;height=750" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.16.31.png" data-linked-resource-id="4052090882" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="0f2f7214-68b1-43c3-943b-556f80adce35" data-media-type="file" data-unresolved-comment-count="0" data-width="640" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.31.png?version=1&amp;modificationDate=1757287180962&amp;cacheVersion=1&amp;api=v2&amp;width=640&amp;height=750" width="760"/>
-    </span>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-功能說明.1">
-     功能說明
-    </h4>
-    <p>
-     顯示媒體的所有 RTB 合約，包含不同狀態的合約。
-    </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-列表欄位定義">
-     列表欄位定義
-    </h4>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="default" data-local-id="aaafed64-cf71-4ecf-8c28-ad1270d83c76" data-table-width="760">
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          欄位名稱
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          顯示方式
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          說明
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          合約 ID
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          純文字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          系統產生的唯一識別碼
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          🆕 狀態
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          標籤
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          🟡 待生效
-          <br/>
-          🟢 生效
-          <br/>
-          ⚫ 失效
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          合約起期
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          日期
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          YYYY-MM-DD
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          合約訖期
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          日期
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          YYYY-MM-DD
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          建立日期
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          日期時間
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          YYYY-MM-DD HH:MM:SS
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-介面互動邏輯.1">
-     介面互動邏輯
-    </h4>
-    <ol start="1">
-     <li>
-      <p>
-       <span class="inline-comment-marker" data-ref="efba6e9b-64b2-4d68-9194-044dffe6ef09">
-        點擊任一條資料後, 跳轉至該合約詳細資訊頁面
-       </span>
-      </p>
-      <ol start="1">
-       <li>
-        <p>
-         若合約是最新合約 tab 顯示：最新合約
-        </p>
-       </li>
-       <li>
-        <p>
-         若合約非最新合約 tab 顯示：合約 (ID: XXXX)
-        </p>
-       </li>
-      </ol>
-     </li>
-    </ol>
-    <p>
-    </p>
-    <h3 id="id-[功能細項]ERP-RTB合約管理-查看RTB合約與底價編輯記錄">
-     查看 RTB 合約與底價編輯記錄
-    </h3>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-📍功能位置.2">
-     📍 功能位置
-    </h4>
-    <p>
-     路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
-     <br/>
-     → RTB Angular_end → Vue2_Start RTB → 查看底價變更紀錄
-    </p>
-    <p>
-    </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout three-equal" data-layout="three-equal">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-09-08 清晨7.36.56.png" class="confluence-embedded-image image-center" data-height="735" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.36.56.png?version=1&amp;modificationDate=1757288352140&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=446" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.36.56.png" data-linked-resource-id="4052090925" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="aa264c74-af40-4e31-b493-cd36e3603eee" data-media-type="file" data-unresolved-comment-count="0" data-width="934" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.36.56.png?version=1&amp;modificationDate=1757288352140&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=446" width="568"/>
-    </span>
-    <p>
-    </p>
-   </div>
-  </div>
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-09-08 清晨7.37.18.png" class="confluence-embedded-image image-center" data-height="847" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.37.18.png?version=1&amp;modificationDate=1757288364641&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=489" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.37.18.png" data-linked-resource-id="4052451356" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="a5fdd62d-d678-4017-b781-69cce54f4ff6" data-media-type="file" data-unresolved-comment-count="0" data-width="982" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.37.18.png?version=1&amp;modificationDate=1757288364641&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=489" width="568"/>
-    </span>
-   </div>
-  </div>
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-09-08 清晨7.17.18.png" class="confluence-embedded-image image-center" data-height="544" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.17.18.png?version=1&amp;modificationDate=1757288382582&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=485" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.17.18.png" data-linked-resource-id="4052385825" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="9b0a74a6-9d7e-4aff-952b-19a27a8d904c" data-media-type="file" data-unresolved-comment-count="0" data-width="636" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.17.18.png?version=1&amp;modificationDate=1757288382582&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=485" width="568"/>
-    </span>
-    <p>
-    </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout fixed-width" data-layout="fixed-width">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <p>
-    </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-功能說明.2">
-     功能說明
-    </h4>
-    <p>
-     顯示媒體的 RTB 合約資訊，以列表方式呈現各sub_ad_type 的底價設定，並提供底價變更歷史查詢功能。
-    </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-主要顯示區塊">
-     主要顯示區塊
-    </h4>
-    <ol start="1">
-     <li>
-      <p>
-       <strong>
-        合約基本資訊區
-       </strong>
-      </p>
-     </li>
-    </ol>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="center" data-local-id="c26f3775-c5e3-408f-9ca5-4d37c844f4c6" data-table-width="760">
-      <colgroup>
-       <col style="width: 166.0px;"/>
-       <col style="width: 171.0px;"/>
-       <col style="width: 420.0px;"/>
-      </colgroup>
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          欄位名稱
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          顯示方式
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          說明
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          合約 ID
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          純文字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            <span class="inline-comment-marker" data-ref="e2e3db7a-786e-48f8-8dac-ae22ebe6ed88">
-             顯示系統產生 ID
-            </span>
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          合約狀態
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          標籤
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            🟡 待生效：未來將執行
-           </p>
-          </li>
-          <li>
-           <p>
-            🟢 生效：目前執行中
-           </p>
-          </li>
-          <li>
-           <p>
-            ⚫ 失效：已結束
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          價格類型
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          純文字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            藉由 ERP 建立：所有價格為浮動分潤
-           </p>
-          </li>
-          <li>
-           <p>
-            藉由 Partners 建立：所有價格為固定分潤
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          價格起訖日期
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          日期區間
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            顯示合約有效期間
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          媒體付款方式
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          純文字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            顯示天數
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          版位
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          下拉選單
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            可切換查看不同版位
-           </p>
-          </li>
-          <li>
-           <p>
-            下拉選單可關鍵字搜尋
-           </p>
-          </li>
-          <li>
-           <p>
-            下拉列表呈現所有被 Create 價格之版位
-           </p>
-           <ul>
-            <li>
-             <p>
-              sub_ad_type 列表跟著版位選項異動
-             </p>
-            </li>
-           </ul>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          計價單位
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          純文字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            CPM/CPC 等
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <p>
-    </p>
-    <ol start="2">
-     <li>
-      <p>
-       <strong>
-        sub_ad_type 價格設定區
-       </strong>
-      </p>
-     </li>
-    </ol>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="center" data-local-id="0634fa30-ce40-4df5-b19d-d05d840a567d" data-table-width="1011">
-      <colgroup>
-       <col style="width: 181.0px;"/>
-       <col style="width: 190.0px;"/>
-       <col style="width: 131.0px;"/>
-       <col style="width: 137.0px;"/>
-       <col style="width: 368.0px;"/>
-      </colgroup>
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          欄位名稱
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          顯示方式
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          浮動分潤 介面
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          固定分潤 介面
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          說明
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          sub_ad_type
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          垂直列表搭配 Scroll
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            僅顯示有被 Create 設定價格的格式
-           </p>
-          </li>
-          <li>
-           <p>
-            查看不同格式之價格資訊
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          媒體競標底價
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          數字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <ul>
-          <li>
-           <p>
-            <strong>
-             重新合作
-            </strong>
-            （只有失效合約）：可手動設定
-           </p>
-          </li>
-          <li>
-           <p>
-            <strong>
-             延續合作 + 格式首次
-            </strong>
-            ：可手動設定
-           </p>
-          </li>
-          <li>
-           <p>
-            <strong>
-             延續合作 + 格式已存在
-            </strong>
-            ：生效時抓取
-           </p>
-          </li>
-         </ul>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          OneAD 分潤比例
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          百分比
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          顯示分潤比例
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          查看底價變更紀錄
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          按鈕
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          查看該格式底價修改歷史紀錄
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          媒體賣價
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          數字
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          ✅
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          顯示固定價格 $1.5
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <p>
-    </p>
-    <ol start="3">
-     <li>
-      <p>
-       <strong>
-        底價歷史編輯記錄（彈出視窗）
-       </strong>
-      </p>
-     </li>
-    </ol>
-    <p>
-     標題：
-     <strong>
-      [sub_ad_type名稱] 底價變更紀錄
-     </strong>
-    </p>
-    <p>
-     <strong>
-      <span style="background-color: rgb(254,222,200);">
-       底價變更紀錄：
-      </span>
-     </strong>
-     <span style="background-color: rgb(254,222,200);">
-      只採計該合約的變更紀錄，不包含以往的合約(Kirt)
-     </span>
-    </p>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="default" data-local-id="4fb13e65-35a0-4366-96cd-0bc834920d50" data-table-width="760">
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          欄位名稱
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          說明
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          範例
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          變更日期
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          顯示修改時間
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2025/08/21 12:55
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          變更人員
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          顯示操作者 Email
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-           user@media.com
-          </a>
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          底價變化
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          合約建立
-          <br/>
-          價格變更
-          <br/>
-          合約結束
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          $2 (合約建立)
-          <br/>
-          $2 → $3
-          <br/>
-          $3 (合約結束)
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          生效狀態
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          顯示生效狀態
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          <span class="inline-comment-marker" data-ref="c8b45c67-0bbb-40f8-a9f4-e4f9620de5c8">
-           ⏰ 待 13:00 生效
-          </span>
-          <br/>
-          ✅ 已生效
-          <br/>
-          ❌ 失效
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="e7d041cf-4cec-4261-99a5-aa1ffeb060e7" data-macro-name="expand" id="expander-30291251">
-     <div class="expand-control" id="expander-control-30291251">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       【歷史紀錄 - 情境一：單日多次調整底價（單一合約）】
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-30291251">
-      <p>
-       場景：2025/09/15 11:00 建立合約，在 2025/10/1 的待生效合約，
-       <br/>
-       2025/09/15 12:00 按下該合約立即生效，於 2025/09/15 12:55 查看合約。
-      </p>
-      <p>
-       <strong>
-        [sub_ad_type 名稱 A] 底價變更記錄
-       </strong>
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="f5b0e8de-d841-4f2f-bf76-a3da4b23a9fe">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            <strong>
-             變更日期
-            </strong>
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/15 12:55
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $5 → $4
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            🕐 待13:00生效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/15 12:30
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3 → $5
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/15 12:05
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2 → $3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/15 12:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:admin@onead.tw" rel="nofollow">
-             admin@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2 (合約建立)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-       <strong>
-        [sub_ad_type 名稱 B] 底價變更記錄
-       </strong>
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="929cb7fb-8943-4147-a7ea-5d9e31cba79a">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            <strong>
-             變更日期
-            </strong>
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/15 12:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:admin@onead.tw" rel="nofollow">
-             admin@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2 (合約建立)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ✅ 已生效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-       時間線與狀態更新說明：
-      </p>
-      <p>
-       <strong>
-        11:00
-       </strong>
-       | 合約建立，沒有任何 log
-      </p>
-      <p>
-       <strong>
-        12:00
-       </strong>
-       | 合約生效，兩種格式初始底價皆為 $2
-      </p>
-      <ul>
-       <li>
-        <p>
-         ✅ 產生歷史紀錄（單一合約有完整紀錄）
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:00) 狀態：✅ 已生效
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 B
-         </strong>
-         (12:00) 狀態：✅ 已生效
-        </p>
-       </li>
-      </ul>
-      <p>
-       <strong>
-        12:05
-       </strong>
-       | 媒體自行調整 728×90 為 $3
-      </p>
-      <ul>
-       <li>
-        <p>
-         ✅ 產生 12:05 歷史紀錄，更新 12:00 歷史紀錄之狀態
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:05) 狀態：🕐 待13:00生效
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:00) 狀態：✅ 已生效 → ❌ 失效
-        </p>
-       </li>
-      </ul>
-      <p>
-       <strong>
-        12:30
-       </strong>
-       | 媒體再次調整 728×90 為 $5
-      </p>
-      <ul>
-       <li>
-        <p>
-         ✅ 產生 12:30 歷史紀錄，更新 12:05 歷史紀錄之狀態
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:30) 狀態：🕐 待13:00生效
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:05) 狀態：🕐 待13:00生效 → ❌ 失效
-        </p>
-       </li>
-      </ul>
-      <p>
-       <strong>
-        12:55
-       </strong>
-       | 產生 12:55 歷史紀錄，更新 12:30 歷史紀錄之狀態
-      </p>
-      <ul>
-       <li>
-        <p>
-         ✅ 產生歷史紀錄
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:55) 狀態：🕐 待13:00生效
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:30) 狀態：🕐 待13:00生效 → ❌ 失效
-        </p>
-       </li>
-      </ul>
-      <p>
-       <strong>
-        13:00
-       </strong>
-       | 整點生效，更新 12:55 歷史紀錄之狀態（未顯示在表中，但會發生）
-      </p>
-      <ul>
-       <li>
-        <p>
-         <strong>
-          sub_ad_type 名稱 A
-         </strong>
-         (12:55) 狀態：🕐 待13:00生效 → ✅ 已生效
-        </p>
-       </li>
-      </ul>
-      <p>
-      </p>
-      <p>
-       <strong>
-        重點：單一合約運作時，所有操作都會產生完整的歷史紀錄
-       </strong>
-      </p>
-      <p>
-      </p>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="c837c09d-afc5-46f1-adc6-9f77c43bd746" data-macro-name="expand" id="expander-1220668108">
-     <div class="expand-control" id="expander-control-1220668108">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       【歷史紀錄 - 情境二：新舊合約交替與底價同步】
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1220668108">
-      <p>
-       場景：舊合約（合約ID: 1001）於6月建立，新合約（合約ID: 1025）於9月15日建立預定10月生效
-      </p>
-      <p>
-       <strong>
-        &gt;&gt;&gt; 舊合約 [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1001）&lt;&lt;&lt;
-       </strong>
-      </p>
-      <p>
-       2025/10/05 10:00 查看舊合約
-       <strong>
-        （合約ID: 1001）
-       </strong>
-       的底價歷史紀錄
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="8a1b4dc5-1771-477c-a417-5c2619447293">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            變更日期
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/25 15:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3.2 → $3.5
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/20 10:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3.0 → $3.2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/10 15:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.8 → $3.0
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/08/15 11:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.5 → $2.8
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/07/20 09:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:user@media.com" rel="nofollow">
-             user@media.com
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.3 → $2.5
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/06/01 00:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:system@onead.tw" rel="nofollow">
-             system@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.3 (合約建立)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-      <p>
-       <strong>
-        &gt;&gt;&gt; 新合約 - [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1025）&lt;&lt;&lt;
-       </strong>
-      </p>
-      <p>
-       2025/10/05 10:00 查看新合約
-       <strong>
-        （合約ID: 1025）
-       </strong>
-       的底價歷史紀錄
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="7cf6c323-276b-4496-ad4a-94f35afab6b6">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            變更日期
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/10/05 09:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            oym@system
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3.5 → $3.8
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ✅ 已生效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/10/01 00:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:system@onead.tw" rel="nofollow">
-             system@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3.5 (合約建立)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-       <strong>
-        說明：
-       </strong>
-      </p>
-      <ul>
-       <li>
-        <p>
-         2025/09/15 09:00：建立新合約，不產生任何歷史紀錄
-        </p>
-       </li>
-       <li>
-        <p>
-         2025/09/15~09/30：待生效期間，OYM 即使有更新也完全不記錄
-        </p>
-       </li>
-       <li>
-        <p>
-         2025/10/01 00:00：合約生效時，抓取舊合約最後價格 $3.5，產生第一筆紀錄
-        </p>
-       </li>
-       <li>
-        <p>
-         2025/10/05 09:00：提出修改底價
-        </p>
-       </li>
-      </ul>
-      <p>
-      </p>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="3eb39c86-418e-4c64-9225-1a56d6579320" data-macro-name="expand" id="expander-1076058736">
-     <div class="expand-control" id="expander-control-1076058736">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       【歷史紀錄 - 情境三：立即生效功能執行】
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1076058736">
-      <p>
-       場景：9月15日建立10月生效的新合約，9月20日 14:00 執行立即生效
-      </p>
-      <p>
-      </p>
-      <p>
-       <strong>
-        &gt;&gt;&gt; 舊合約 - [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1001）&lt;&lt;&lt;
-       </strong>
-      </p>
-      <p>
-       2025/09/20 14:00 查看舊合約
-       <strong>
-        （合約ID: 1001）
-       </strong>
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="a1dd598a-21b5-4761-a735-7da61c8f70fa">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            變更日期
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/18 10:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            oym@system
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.5 → $2.8
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/10 15:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            oym@system
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.3 → $2.5
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/06/01 00:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:system@onead.tw" rel="nofollow">
-             system@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.3 (合約生效)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-       <strong>
-        說明：
-       </strong>
-      </p>
-      <ul>
-       <li>
-        <p>
-         9/20 14:00：執行立即生效時，2025/09/18 10:00 狀態 ✅ 已生效 → ❌ 失效
-        </p>
-       </li>
-      </ul>
-      <p>
-      </p>
-      <p>
-       <strong>
-        &gt;&gt;&gt; 新合約 - [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1025）&lt;&lt;&lt;
-       </strong>
-      </p>
-      <p>
-       2025/09/25 11:00 查看新合約
-       <strong>
-        （合約ID: 1025）
-       </strong>
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="278aadc3-0bb5-4552-8d36-04900710d74e">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            變更日期
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/25 10:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            oym@system
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.8 → $3.0
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ✅ 已生效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/20 14:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:admin@onead.tw" rel="nofollow">
-             admin@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.8 (立即生效)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-       <strong>
-        說明：
-       </strong>
-      </p>
-      <ul>
-       <li>
-        <p>
-         <strong>
-          9/15：建立新合約時，不產生任何紀錄
-         </strong>
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          9/20 14:00：執行立即生效，
-         </strong>
-         ⚡
-         <strong>
-          底價立即啟用
-         </strong>
-         （不需等待整點），
-         <br/>
-         <strong>
-          抓取舊合約當前底價 $2.8 產生第一筆紀錄
-         </strong>
-        </p>
-       </li>
-      </ul>
-      <p>
-      </p>
-     </div>
-    </div>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="133169ad-dc17-418c-9710-e868beca4f37" data-macro-name="expand" id="expander-1595918865">
-     <div class="expand-control" id="expander-control-1595918865">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       【歷史紀錄 - 情境四：sub_ad_type首次設定】
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1595918865">
-      <p>
-       場景：2025/09/15 12:00 建立第二份合約, 該合約於 2025/10/01 生效
-       <br/>
-       在建立第二份合約的時候設定前一份已有的
-       <strong>
-        sub_ad_type名稱 B
-       </strong>
-       (延續設定)，並且新增
-       <strong>
-        sub_ad_type名稱 A
-       </strong>
-       (首次設定)
-      </p>
-      <p>
-      </p>
-      <p>
-       2025/10/05 12:00 查看此合約
-       <strong>
-        （合約ID: 2001）
-       </strong>
-      </p>
-      <p>
-       <strong>
-        &gt;&gt;&gt; [sub_ad_type 名稱 A] 底價變更記錄（合約ID: 2001）&lt;&lt;&lt;
-       </strong>
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="fbc293c6-b3fc-41c6-b9cc-f2dcc01838db">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            變更日期
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/10/05 11:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            oym@system
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.00 → $8.50
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ✅ 已生效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/10/01 00:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:system@onead.tw" rel="nofollow">
-             system@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $2.0 (合約建立)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-      <p>
-       <strong>
-        &gt;&gt;&gt; [sub_ad_type 名稱 B] 底價變更記錄（合約ID: 2001）&lt;&lt;&lt;
-       </strong>
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="0c9a039f-62c9-4b8e-a302-7c9b600beb60">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            變更日期
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/10/01 00:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:system@onead.tw" rel="nofollow">
-             system@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3.50 (合約建立)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ✅ 已生效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-      <p>
-       <strong>
-        &gt;&gt;&gt; [
-       </strong>
-       s
-       <strong>
-        ub_ad_type名稱 B] 底價變更記錄（合約ID: 1900）&lt;&lt;&lt;
-       </strong>
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="1302b8d3-9cab-4266-9b09-c97a07b64db7">
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            變更日期
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            變更人員
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            底價變化
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            生效狀態
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/25 10:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            oym@system
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3.30 → $3.50
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2025/09/01 00:00
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            <a class="external-link" href="mailto:system@onead.tw" rel="nofollow">
-             system@onead.tw
-            </a>
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            $3.30 (合約建立)
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            ❌ 失效
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-     </div>
-    </div>
-    <p>
-    </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-特殊說明與顯示邏輯">
-     特殊說明與顯示邏輯
-    </h4>
+   </td>
+   <td>
     <ul>
      <li>
       <p>
+       顯示所有合約列表
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     🆕 點擊「新增合約(RTB)」
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示合約建立表單
+      </p>
+     </li>
+     <li>
+      <p>
+       價格類型：
        <strong>
-        合約類型差異
+        所有價格為浮動分潤
        </strong>
-       ：
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     設定合約基本資訊
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       填寫基本資訊
       </p>
       <ul>
        <li>
         <p>
-         Partners｜建立的合約類型顯示為「所有價格為固定分潤」，只顯示媒體賣價 $1.5
-        </p>
-       </li>
-       <li>
-        <p>
-         ERP｜建立的合約類型顯示為「所有價格為浮動分潤」，顯示底價與分潤比例
-        </p>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <p>
-       <strong>
-        底價記錄排序
-       </strong>
-       ：按時間倒序排列（最新的在最上方）
-      </p>
-     </li>
-     <li>
-      <p>
-       <strong>
-        資料同步
-       </strong>
-       ：底價編輯記錄與 OYM 系統即時同步
-      </p>
-     </li>
-     <li>
-      <p>
-       歷史紀錄產生時機
-      </p>
-      <ul>
-       <li>
-        <p>
-         <strong>
-          單一合約運作
-         </strong>
-         ：有完整歷史紀錄（從建立到所有變更）
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          新舊合約交替
-         </strong>
-         ：
+         欄位預設值
         </p>
         <ul>
          <li>
           <p>
-           舊合約：持續記錄到結束
+           價格起訖：下個月1日-2099/12
           </p>
          </li>
          <li>
           <p>
-           新合約：生效前不記錄，生效時產生第一筆
+           媒體付款方式：
+           60 日
+          </p>
+         </li>
+         <li>
+          <p>
+           版位：DynamicProductAd
+          </p>
+         </li>
+         <li>
+          <p>
+           計價單位：CPC
+          </p>
+         </li>
+         <li>
+          <p>
+           sub_ad_type：
+           <code>
+            dpa_4_grid_ad_300x250
+           </code>
+           <br/>
+           ( DynamicProductAd 底下所有格式不做排序
+          </p>
+          <ul>
+           <li>
+            <p>
+             預設所有 sub_ad_type 不勾選
+            </p>
+           </li>
+           <li>
+            <p>
+             勾選
+             <code>
+              dpa_4_grid_ad_300x250
+             </code>
+             checkbox
+            </p>
+            <ul>
+             <li>
+              <p>
+               價格設定區域 disable → enable
+              </p>
+             </li>
+            </ul>
+           </li>
+           <li>
+            <p>
+             點擊
+             <code>
+              dpa_4_grid_ad_300x250
+             </code>
+            </p>
+            <ul>
+             <li>
+              <p>
+               媒體競標底價：2.0
+              </p>
+             </li>
+             <li>
+              <p>
+               OneAD 分潤比例：25 %
+              </p>
+             </li>
+            </ul>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     🆕 搜尋並選擇版位
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       提供關鍵字搜尋功能
+      </p>
+     </li>
+     <li>
+      <p>
+       過濾顯示符合搜尋的版位選項
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     6
+    </p>
+   </td>
+   <td>
+    <p>
+     🆕 選擇 sub_ad_type 並設定價格
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       點擊
+       <code>
+        dpa_4_grid_ad_300x250
+       </code>
+      </p>
+      <ul>
+       <li>
+        <p>
+         預設值
+        </p>
+        <ul>
+         <li>
+          <p>
+           媒體競標底價：2.0
+          </p>
+         </li>
+         <li>
+          <p>
+           OneAD 分潤比例：25 %
           </p>
          </li>
         </ul>
@@ -4427,681 +349,3943 @@
      </li>
      <li>
       <p>
-       立即生效特性
+       可自行更改底價及及分潤
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     7
+    </p>
+   </td>
+   <td>
+    <p>
+     點擊「儲存」
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       建立合約成功
+      </p>
+     </li>
+     <li>
+      <p>
+       合約狀態：待生效（生效日為下月1日）
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+🔽 情境二：查看 RTB 合約列表
+<p>
+ <strong>
+  場景
+ </strong>
+ ：PAD 需要查看媒體的所有 RTB 合約狀態
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 需要管理媒體的 RTB 合約
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 查看所有合約的狀態和基本資訊
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 了解目前執行中和待生效的合約
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     進入媒體列表
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       點擊 ERP 建立的媒體
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     進入合約管理列表
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示合約列表 (欄位包含如下)
+    </p>
+    <ul>
+     <li>
+      <p>
+       合約 ID
+      </p>
+     </li>
+     <li>
+      <p>
+       狀態（待生效/生效/失效）
+      </p>
+     </li>
+     <li>
+      <p>
+       合約起期
+      </p>
+     </li>
+     <li>
+      <p>
+       合約訖期
+      </p>
+     </li>
+     <li>
+      <p>
+       建立日期
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     查看狀態欄位
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🟢 生效：目前執行中
+      </p>
+     </li>
+     <li>
+      <p>
+       🟡 待生效：未來將執行
+      </p>
+     </li>
+     <li>
+      <p>
+       ⚫ 失效：已結束
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔽 情境三：查看浮動價格 RTB 合約 及 底價變更記錄
+<p>
+ 場景：PAD 需要確認媒體 (自行建立的, 非源於 Partners 系統建立的) 的 RTB 合約設定是否正確
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ PAD 需要查看媒體的浮動價格合約詳情
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 查看各 sub_ad_type 的底價與分潤設定
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 確認合約設定正確並了解目前執行狀況
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     點擊 RTB (合約類型)
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示合約詳情頁面 (預設顯示最新合約)
+      </p>
+     </li>
+     <li>
+      <p>
+       價格類型：
+       <strong>
+        所有價格為浮動分潤
+       </strong>
+      </p>
+     </li>
+     <li>
+      <p>
+       版位：DynamicProductAd
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     該版位底下選擇特定 sub_ad_type
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       只顯示當初有被建立的 sub_ad_type
       </p>
       <ul>
        <li>
         <p>
-         ⚡ 底價立即啟用（不等整點）
+         顯示該格式的競標底價
         </p>
        </li>
        <li>
         <p>
-         立即產生歷史紀錄
+         顯示 OneAD 分潤比例
         </p>
        </li>
        <li>
         <p>
-         抓取舊合約當前底價
+         顯示「查看修改記錄」按鈕
         </p>
        </li>
       </ul>
      </li>
     </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
     <p>
+     3
     </p>
-    <h3 id="id-[功能細項]ERP-RTB合約管理-立即生效功能">
-     立即生效功能
-    </h3>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-📍功能位置.3">
-     📍 功能位置
-    </h4>
+   </td>
+   <td>
     <p>
-     路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
-     <br/>
-     → RTB Angular_end → Vue2_Start RTB → 此合約立即生效
+     點擊「查看修改記錄」
     </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout two-equal" data-layout="two-equal">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-09-08 清晨7.16.05.png" class="confluence-embedded-image image-center" data-height="528" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.05.png?version=2&amp;modificationDate=1757287582425&amp;cacheVersion=1&amp;api=v2&amp;width=685&amp;height=528" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.16.05.png" data-linked-resource-id="4050714939" data-linked-resource-type="attachment" data-linked-resource-version="2" data-media-id="f923c6e7-fdfb-478b-b010-53937c63a36c" data-media-type="file" data-unresolved-comment-count="0" data-width="685" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.05.png?version=2&amp;modificationDate=1757287582425&amp;cacheVersion=1&amp;api=v2&amp;width=685&amp;height=528" width="737"/>
-    </span>
-   </div>
-  </div>
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-09-08 清晨7.16.47.png" class="confluence-embedded-image image-center" data-height="335" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.47.png?version=1&amp;modificationDate=1757287651227&amp;cacheVersion=1&amp;api=v2&amp;width=548&amp;height=335" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-09-08 清晨7.16.47.png" data-linked-resource-id="4051566668" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="210eed40-9a8e-43d9-adc1-a4bde96f3154" data-media-type="file" data-unresolved-comment-count="0" data-width="548" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.47.png?version=1&amp;modificationDate=1757287651227&amp;cacheVersion=1&amp;api=v2&amp;width=548&amp;height=335" width="548"/>
-    </span>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       popup 該 sub_ad_type 底價變更歷史記錄
+      </p>
+     </li>
+     <li>
+      <p>
+       按時間倒序顯示（最新在上
+      </p>
+      <ul>
+       <li>
+        <p>
+         顯示：
+         <br/>
+         變更日期、變更人員、底價變化、生效狀態
+        </p>
+       </li>
+       <li>
+        <p>
+         資訊與 OYM 系統即時同步
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ 修改記錄範例
+</p>
+<p>
+</p>
+🔽 情境四：立即生效待生效合約
+<p>
+ <strong>
+  場景
+ </strong>
+ ：合約建立後發現需要立即執行，不等到下月
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 需要將待生效合約提前執行
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 使用立即生效功能
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 讓新合約立即開始執行
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
     <p>
+     步驟
     </p>
-   </div>
-  </div>
- </div>
- <div class="columnLayout fixed-width" data-layout="fixed-width">
-  <div class="cell normal" data-type="normal">
-   <div class="innerCell">
-    <h4 id="id-[功能細項]ERP-RTB合約管理-功能說明.3">
-     功能說明
-    </h4>
+   </th>
+   <th>
     <p>
-     允許 PAD 將待生效的合約提前至當月生效，適用於需要立即執行的情況。
+     使用者操作
     </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-日期調整規則">
-     日期調整規則
-    </h4>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="default" data-local-id="c4b01853-b1d1-4f87-8d5a-69e5f1da2dfa" data-table-width="760">
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          合約類型
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          原始設定
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          調整後
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          新合約-起始日
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2025/10/1
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2025/9/1（當月初）
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          新合約-結束日
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2099/12/31
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          維持不變
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          舊合約-起始日
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2024/6/1
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          維持不變
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          舊合約-結束日
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2099/12/31
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          2025/8/31（當月初前一天）
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
+   </th>
+   <th>
     <p>
+     系統行為
     </p>
-    <h3 id="id-[功能細項]ERP-RTB合約管理-媒體浮動分潤計算邏輯導入SuperDSP毛利表">
-     媒體浮動分潤計算邏輯導入 SuperDSP 毛利表
-    </h3>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-📍功能位置.4">
-     📍 功能位置
-    </h4>
+   </th>
+  </tr>
+  <tr>
+   <td>
     <p>
-     路徑：ERP系統 → 帳務管理 → SuperDSP 毛利表
+     1
     </p>
-    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
-     <img alt="截圖 2025-08-05 上午10.53.22.png" class="confluence-embedded-image image-center" data-height="658" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-08-05%20%E4%B8%8A%E5%8D%8810.53.22.png?version=1&amp;modificationDate=1757287704842&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=340" data-linked-resource-container-id="3995959320" data-linked-resource-container-version="41" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-08-05 上午10.53.22.png" data-linked-resource-id="4051894277" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="b45c2ac4-bad3-4ce1-a568-1943dc6a5e33" data-media-type="file" data-unresolved-comment-count="0" data-width="1470" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-08-05%20%E4%B8%8A%E5%8D%8810.53.22.png?version=1&amp;modificationDate=1757287704842&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=340" width="760"/>
-    </span>
+   </td>
+   <td>
     <p>
+     進入待生效合約詳情
     </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-功能說明.4">
-     功能說明
-    </h4>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示「立即生效」按鈕（僅待生效合約顯示）
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
     <p>
-     RTB 浮動分潤合約建立後，根據浮動底價計算媒體成本，支援 SuperDSP 毛利表
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     點擊「立即生效」
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示 Popup 提醒做確認
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     確認執行
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       調整合約日期：
+      </p>
+      <ul>
+       <li>
+        <p>
+         新合約起始日：下月1日→當月1日
+        </p>
+       </li>
+       <li>
+        <p>
+         舊合約結束日：2099/12/31→當月初前一天
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       更新合約狀態：
+      </p>
+      <ul>
+       <li>
+        <p>
+         新合約：待生效→生效
+        </p>
+       </li>
+       <li>
+        <p>
+         舊合約：生效→失效
+        </p>
+       </li>
+       <li>
+        <p>
+         更新 Sequence（下個整點）
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔽 情境五：查看固定價格 RTB 合約（Partners）
+<p>
+ 場景：PAD 需要確認媒體 ( Partners 系統建立的, 非自行建立的 ) 的 RTB 合約設定是否正確
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ PAD 查看 Partners 媒體的合約
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 了解固定價格的設定
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 掌握 Partners 媒體的合約狀況
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     進入媒體列表
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       點擊 Partners 媒體
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     進入合約管理列表
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示所有合約列表
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     點擊 RTB 最新合約
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示合約詳情頁面
+      </p>
+     </li>
+     <li>
+      <p>
+       價格類型：
+       <strong>
+        所有價格為固定分潤
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     切換不同 sub_ad_type
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示該格式的媒體賣價 $ 1.5
+      </p>
+      <ul>
+       <li>
+        <p>
+         介面提示：Partners 建立的固定價格合約無法藉由 OYM 修改價格
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h3>
+ PM 視角
+</h3>
+🔽 情境六：分析 RTB 媒體成本與毛利表現
+<p>
+ <strong>
+  場景
+ </strong>
+ ：PM 透過 SuperDSP 毛利表分析 RTB 廣告的財務表現，包含成本結構、毛利率分析，以及與固定價格模式的比較
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 月初需要分析 RTB 廣告的整體營運績效
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 在 SuperDSP 毛利表查看完整的成本與毛利數據
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 評估定價策略有效性並優化業務模式
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     進入 ERP
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       選擇 SuperDSP 毛利表
+      </p>
+      <ul>
+       <li>
+        <p>
+         選擇查看月份（單月或多月比較）
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     查看交易模式分類
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示交易模式欄位：
+      </p>
+      <ul>
+       <li>
+        <p>
+         固定價格（Fixed Price）
+        </p>
+       </li>
+       <li>
+        <p>
+         即時競價（Real-Time Bidding）
+        </p>
+       </li>
+       <li>
+        <p>
+         可篩選特定模式或全部顯示 ?
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     分析 RTB 成本結構
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       關鍵計算項目：
+      </p>
+      <ul>
+       <li>
+        <p>
+         執行金額（應收金額）
+        </p>
+       </li>
+       <li>
+        <p>
+         媒體成本 = 底價×曝光×(1-分潤%)
+        </p>
+       </li>
+       <li>
+        <p>
+         媒體 Margin = 應收金額 - 媒體成本
+        </p>
+       </li>
+       <li>
+        <p>
+         媒體 Margin rate % = Margin/應收金額
+        </p>
+       </li>
+       <li>
+        <p>
+         平台費與總 Margin
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     比較不同維度數據
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       多維度分析：
+      </p>
+      <ul>
+       <li>
+        <p>
+         各 sub_ad_type 毛利率排名
+        </p>
+       </li>
+       <li>
+        <p>
+         RTB vs 固定價格毛利比較
+        </p>
+       </li>
+       <li>
+        <p>
+         各媒體的成本效益分析
+        </p>
+       </li>
+       <li>
+        <p>
+         月度趨勢變化（如選擇多月）
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     6
+    </p>
+   </td>
+   <td>
+    <p>
+     下載分析報表
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       匯出 Excel 檔案
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ Wireframe
+</h2>
+展開查看
+<p>
+</p>
+<h2>
+ 流程圖
+</h2>
+RTB 合約建立流程
+合約立即生效流程
+<p>
+</p>
+<h2>
+ 本次開發功能
+</h2>
+<h3>
+ 新增 RTB 合約
+</h3>
+<h4>
+ 📍 功能位置
+</h4>
+<p>
+ 路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
+ <br/>
+ → RTB Angular_end → Vue2_Start RTB → 新增 RTB 合約
+</p>
+<img alt="截圖 2025-09-08 清晨7.13.31.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.13.31.png?version=1&amp;modificationDate=1757287085022&amp;cacheVersion=1&amp;api=v2&amp;width=876&amp;height=646"/>
+<p>
+</p>
+<img alt="截圖 2025-09-08 清晨7.14.12.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.14.12.png?version=1&amp;modificationDate=1757287103478&amp;cacheVersion=1&amp;api=v2&amp;width=876&amp;height=543"/>
+<p>
+</p>
+<h4>
+ 功能說明
+</h4>
+<p>
+ PAD 人員可建立新的 RTB 浮動價格合約，選擇多個 sub_ad_type 並分別設定各自的底價與分潤比例。
+</p>
+<h4>
+ 欄位定義
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
      <strong>
-      部分欄位
+      欄位名稱
      </strong>
-     邏輯計算。
     </p>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-計算邏輯">
-     計算邏輯
-    </h4>
-    <div class="table-wrap">
-     <table class="confluenceTable" data-layout="default" data-local-id="d58aeb3b-1152-4fa3-965c-f3a239559cf2" data-table-width="760">
-      <colgroup>
-       <col style="width: 229.0px;"/>
-       <col style="width: 300.0px;"/>
-       <col style="width: 229.0px;"/>
-      </colgroup>
-      <tbody>
-       <tr>
-        <th class="confluenceTh">
-         <p>
-          <strong>
-           欄位
-          </strong>
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          計算公式
-         </p>
-        </th>
-        <th class="confluenceTh">
-         <p>
-          說明
-         </p>
-        </th>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          媒體成本（未稅）
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          底價 × 曝光數 × (1 - OneAD分潤%)
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          <strong>
-           扣除分潤後的實際成本
-          </strong>
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          媒體 Margin
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          應收金額 - 媒體成本
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          毛利金額
-         </p>
-        </td>
-       </tr>
-       <tr>
-        <td class="confluenceTd">
-         <p>
-          媒體 Margin rate %
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          媒體 Margin / 應收金額
-         </p>
-        </td>
-        <td class="confluenceTd">
-         <p>
-          毛利率
-         </p>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <h4 id="id-[功能細項]ERP-RTB合約管理-計算範例">
-     計算範例
-    </h4>
+   </th>
+   <th>
     <p>
-     假設條件：
+     欄位類型
     </p>
+   </th>
+   <th>
+    <p>
+     必填
+    </p>
+   </th>
+   <th>
+    <p>
+     預設值
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+   <th>
+    <p>
+     驗證規則
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      價格類型
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示文字
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+   <td>
+    <p>
+     所有價格為浮動分潤
+    </p>
+   </td>
+   <td>
+    <p>
+     ERP 建立皆由自動判斷顯示
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      價格起訖日期
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     月份選擇器
+    </p>
+   </td>
+   <td>
+    <p>
+     是
+    </p>
+   </td>
+   <td>
+    <p>
+     下個月 1 日 - 2099/12
+    </p>
+   </td>
+   <td>
+    <p>
+     合約有效期間
+    </p>
+   </td>
+   <td>
+    <p>
+     起始日 ≤ 結束日
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      媒體付費方式(月結)
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     input
+    </p>
+   </td>
+   <td>
+    <p>
+     是
+    </p>
+   </td>
+   <td>
+    <p>
+     +
+     <u>
+      60
+     </u>
+     日
+    </p>
+   </td>
+   <td>
+    <p>
+     單位：日
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      版位
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     下拉選單(可搜尋)
+    </p>
+   </td>
+   <td>
+    <p>
+     是
+    </p>
+   </td>
+   <td>
+    <p>
+     DynamicProductAd
+    </p>
+   </td>
+   <td>
+    <p>
+     選擇媒體版位
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      計價單位
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     下拉選單
+    </p>
+   </td>
+   <td>
+    <p>
+     是
+    </p>
+   </td>
+   <td>
+    <p>
+     CPC
+    </p>
+   </td>
+   <td>
+    <p>
+     計價方式
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      格式 sub_ad_type
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     Checkbox + sub_ad_type 列表
+    </p>
+   </td>
+   <td>
+    <p>
+     是
+    </p>
+   </td>
+   <td>
+    <p>
+     全部未勾選
+     <br/>
+     * 全選功能在最上方
+    </p>
+   </td>
+   <td>
     <ul>
      <li>
       <p>
-       底價：$2.0
+       勾選要設定的格式
       </p>
      </li>
      <li>
       <p>
-       OneAD 分潤：25%
+       點擊要查看的格式
       </p>
-     </li>
-     <li>
-      <p>
-       曝光數：1000
-      </p>
-     </li>
-    </ul>
-    <p>
-     計算結果：
-    </p>
-    <ul>
-     <li>
-      <p>
-       媒體成本 = $2.0 × 1000 × (1 - 0.25) = $1,500
-      </p>
-     </li>
-     <li>
-      <p>
-       應收金額 = $2,000（假設）
-      </p>
-     </li>
-     <li>
-      <p>
-       媒體 Margin = $2,000 - $1,500 = $500
-      </p>
-     </li>
-     <li>
-      <p>
-       媒體 Margin rate = $500 / $2,000 = 25%
-      </p>
-     </li>
-    </ul>
-    <p>
-    </p>
-    <h2 id="id-[功能細項]ERP-RTB合約管理-此次”不“開發功能">
-     此次”不“開發功能
-    </h2>
-    <div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="7a1d8b79-eeed-44c2-9afd-431356424df8" data-macro-name="expand" id="expander-1500648862">
-     <div class="expand-control" id="expander-control-1500648862">
-      <span class="expand-control-icon icon">
-      </span>
-      <span class="expand-control-text">
-       展開查看
-      </span>
-     </div>
-     <div class="expand-content expand-hidden" id="expander-content-1500648862">
-      <h3 id="id-[功能細項]ERP-RTB合約管理-PM視角.1">
-       PM 視角
-      </h3>
-      <p>
-       情境四：建立/更新 ad_format_type 並通知相關部門
-      </p>
-      <p>
-       場景：PM 建立/更新 ad_format_type 後，為確保相關部門能即時獲得正確資訊，避免後續跨部門作業造成的資訊落差
-      </p>
-      <p>
-       <strong>
-        When
-       </strong>
-       PM 在系統中建立新的 ad_format_type
-       <br/>
-       <strong>
-        I want to
-       </strong>
-       系統自動發送通知信給所有相關部門
-       <br/>
-       <strong>
-        So I can
-       </strong>
-       確保 PAD / ITO / PM / MTO / AOE 部門都能即時掌握新格式資訊，正確執行相關設定
-      </p>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="ff37a61f-8105-433b-b7cd-f89879606e9b" data-table-width="760">
-        <colgroup>
-         <col style="width: 125.0px;"/>
-         <col style="width: 240.0px;"/>
-         <col style="width: 365.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            步驟
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            使用者操作
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            系統行為
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1-1
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入 ad_format_type 管理介面
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              點擊 Create 按鈕
-             </p>
-            </li>
-            <li>
-             <p>
-              填寫 ad_format_type 欄位並建立
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            1-2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            進入 ad_format_type 管理介面
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              更新指定 ad_format_type 相關欄位並儲存
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            2
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            系統自動觸發通知機制
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 發送給 PAD / ITO / PM / MTO / AOE部門
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 告知 新增/更新 格式之相關資訊
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            3
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            各部門收到通知
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <ul>
-            <li>
-             <p>
-              🆕 PAD：了解新格式以便正確建立合約
-             </p>
-            </li>
-            <li>
-             <p>
-              🆕 其他部門：進行相關設定準備及提出風險
-             </p>
-            </li>
-           </ul>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <p>
-      </p>
-      <h3 id="id-[功能細項]ERP-RTB合約管理-ad_format_type建立/更新通知機制">
-       ad_format_type 建立/更新通知機制
-      </h3>
-      <h4 id="id-[功能細項]ERP-RTB合約管理-📍功能位置.5">
-       📍 功能位置
-      </h4>
-      <p>
-       路徑：ERP系統 → PM 管理介面 → ad_format_type 管理
-      </p>
-      <h4 id="id-[功能細項]ERP-RTB合約管理-功能說明.5">
-       功能說明
-      </h4>
-      <p>
-       為解決各部門間的資訊落差問題，當 PM 建立或更新 ad_format_type 後，系統將自動發送通知信給所有相關部門，確保資訊同步。
-      </p>
-      <h4 id="id-[功能細項]ERP-RTB合約管理-通知機制說明">
-       通知機制說明
-      </h4>
-      <div class="table-wrap">
-       <table class="confluenceTable" data-layout="default" data-local-id="c39be000-b4d6-4a13-9f4f-ba91baa0a2a2" data-table-width="760">
-        <colgroup>
-         <col style="width: 284.0px;"/>
-         <col style="width: 446.0px;"/>
-        </colgroup>
-        <tbody>
-         <tr>
-          <th class="confluenceTh">
-           <p>
-            <strong>
-             項目
-            </strong>
-           </p>
-          </th>
-          <th class="confluenceTh">
-           <p>
-            內容
-           </p>
-          </th>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            觸發時機
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            PM 成功建立或更新 ad_format_type
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            收件部門
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            PAD、ITO、PM、MTO、AOE
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            發送方式
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            內部系統通知信
-           </p>
-          </td>
-         </tr>
-         <tr>
-          <td class="confluenceTd">
-           <p>
-            信件主旨
-           </p>
-          </td>
-          <td class="confluenceTd">
-           <p>
-            [系統通知] 新增/更新 ad_format_type：{格式名稱}
-           </p>
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-      <h4 id="id-[功能細項]ERP-RTB合約管理-通知信內容項目（待確認）">
-       通知信內容項目（待確認）
-      </h4>
       <ul>
        <li>
         <p>
-         格式名稱（format_type_name）
+         有勾選：能設定價格
         </p>
        </li>
        <li>
         <p>
-         格式代碼（format_type_code）
-        </p>
-       </li>
-       <li>
-        <p>
-         格式尺寸（dimensions）
-        </p>
-       </li>
-       <li>
-        <p>
-         適用版位（applicable_placements）
-        </p>
-       </li>
-       <li>
-        <p>
-         建立/更新時間（created_at / updated_at）
-        </p>
-       </li>
-       <li>
-        <p>
-         建立/更新人員（created_by / updated_by）
-        </p>
-       </li>
-       <li>
-        <p>
-         格式說明（description）
-        </p>
-       </li>
-       <li>
-        <p>
-         ….
+         無勾選：不能設定價格
         </p>
        </li>
       </ul>
-      <h4 id="id-[功能細項]ERP-RTB合約管理-預期效益">
-       預期效益
-      </h4>
-      <ol start="1">
-       <li>
-        <p>
-         <strong>
-          PAD 部門
-         </strong>
-         ：建立合約時能正確選擇sub_ad_type
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          ITO 部門
-         </strong>
-         ：及時進行系統相關設定
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          MTO 部門
-         </strong>
-         ：準備對應的技術支援
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          AOE 部門
-         </strong>
-         ：了解新格式以利後續操作優化
-        </p>
-       </li>
-       <li>
-        <p>
-         <strong>
-          PM 部門
-         </strong>
-         ：確認資訊已正確傳遞
-        </p>
-       </li>
-      </ol>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      媒體競標底價
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     數字輸入
+    </p>
+   </td>
+   <td>
+    <p>
+     是*
+    </p>
+   </td>
+   <td>
+    <p>
+     2.00
+    </p>
+   </td>
+   <td>
+    <p>
+     各 sub_ad_type 獨立設定
+    </p>
+   </td>
+   <td>
+    <p>
+     0.1 ~ 100
+     <br/>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      OneAD 分潤比例
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     百分比輸入
+    </p>
+   </td>
+   <td>
+    <p>
+     是*
+    </p>
+   </td>
+   <td>
+    <p>
+     25%
+    </p>
+   </td>
+   <td>
+    <p>
+     各 sub_ad_type 獨立設定
+    </p>
+   </td>
+   <td>
+    <p>
+     0-100%
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ *註：
+ <strong>
+  媒體競標底價
+ </strong>
+ 與
+ <strong>
+  OneAD 分潤比例
+ </strong>
+ 僅對已勾選的sub_ad_type 為必填
+</p>
+<h4>
+ 介面互動邏輯
+</h4>
+<ol>
+ <li>
+  <p>
+   <strong>
+    版位搜尋
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     點擊下拉選單可輸入關鍵字搜尋
+    </p>
+   </li>
+   <li>
+    <p>
+     即時過濾顯示符合的版位
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 選擇機制
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     選擇版位後，顯示
+     該版位下所有 sub_ad_type
+     的列表(含 checkbox)
+    </p>
+   </li>
+   <li>
+    <p>
+     勾選 checkbox 後，該格式的價格設定欄位才會啟用
+    </p>
+   </li>
+   <li>
+    <p>
+     未勾選的格式，價格欄位呈現 disabled 狀態
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    儲存邏輯
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     只儲存已勾選的格式設定
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊儲存後立即生效
+    </p>
+   </li>
+   <li>
+    <p>
+     成為該媒體的最新執行合約
+    </p>
+   </li>
+   <li>
+    <p>
+     舊合約自動失效
+    </p>
+   </li>
+  </ul>
+ </li>
+</ol>
+<h4>
+ <strong>
+  sub_ad_type
+ </strong>
+ 之 底價 設定邏輯
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     情境
+    </p>
+   </th>
+   <th>
+    <p>
+     底價設定方式
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     無生效合約（首次合作）
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 可手動設定
+    </p>
+   </td>
+   <td>
+    <p>
+     預設 $2.00，可自行修改
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     無生效合約（重新合作）
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 可手動設定
+    </p>
+   </td>
+   <td>
+    <p>
+     預設 $2.00，可自行修改
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     有生效合約（延續合作）
+    </p>
+   </td>
+   <td>
+    <p>
+     🔒 自動抓取 OYM
+    </p>
+   </td>
+   <td>
+    <p>
+     唯讀顯示，確保價格一致性
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h3>
+ 查看 RTB 合約列表
+</h3>
+<h4>
+ 📍 功能位置
+</h4>
+<p>
+ 路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
+ <br/>
+ → RTB Angular_end → Vue2_Start RTB → 合約列表
+</p>
+<img alt="截圖 2025-09-08 清晨7.16.31.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.31.png?version=1&amp;modificationDate=1757287180962&amp;cacheVersion=1&amp;api=v2&amp;width=640&amp;height=750"/>
+<h4>
+ 功能說明
+</h4>
+<p>
+ 顯示媒體的所有 RTB 合約，包含不同狀態的合約。
+</p>
+<h4>
+ 列表欄位定義
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     欄位名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     顯示方式
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     合約 ID
+    </p>
+   </td>
+   <td>
+    <p>
+     純文字
+    </p>
+   </td>
+   <td>
+    <p>
+     系統產生的唯一識別碼
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     🆕 狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     標籤
+    </p>
+   </td>
+   <td>
+    <p>
+     🟡 待生效
+     <br/>
+     🟢 生效
+     <br/>
+     ⚫ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     合約起期
+    </p>
+   </td>
+   <td>
+    <p>
+     日期
+    </p>
+   </td>
+   <td>
+    <p>
+     YYYY-MM-DD
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     合約訖期
+    </p>
+   </td>
+   <td>
+    <p>
+     日期
+    </p>
+   </td>
+   <td>
+    <p>
+     YYYY-MM-DD
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     建立日期
+    </p>
+   </td>
+   <td>
+    <p>
+     日期時間
+    </p>
+   </td>
+   <td>
+    <p>
+     YYYY-MM-DD HH:MM:SS
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h4>
+ 介面互動邏輯
+</h4>
+<ol>
+ <li>
+  <p>
+   點擊任一條資料後, 跳轉至該合約詳細資訊頁面
+  </p>
+  <ol>
+   <li>
+    <p>
+     若合約是最新合約 tab 顯示：最新合約
+    </p>
+   </li>
+   <li>
+    <p>
+     若合約非最新合約 tab 顯示：合約 (ID: XXXX)
+    </p>
+   </li>
+  </ol>
+ </li>
+</ol>
+<p>
+</p>
+<h3>
+ 查看 RTB 合約與底價編輯記錄
+</h3>
+<h4>
+ 📍 功能位置
+</h4>
+<p>
+ 路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
+ <br/>
+ → RTB Angular_end → Vue2_Start RTB → 查看底價變更紀錄
+</p>
+<p>
+</p>
+<img alt="截圖 2025-09-08 清晨7.36.56.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.36.56.png?version=1&amp;modificationDate=1757288352140&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=446"/>
+<p>
+</p>
+<img alt="截圖 2025-09-08 清晨7.37.18.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.37.18.png?version=1&amp;modificationDate=1757288364641&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=489"/>
+<img alt="截圖 2025-09-08 清晨7.17.18.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.17.18.png?version=1&amp;modificationDate=1757288382582&amp;cacheVersion=1&amp;api=v2&amp;width=568&amp;height=485"/>
+<p>
+</p>
+<p>
+</p>
+<h4>
+ 功能說明
+</h4>
+<p>
+ 顯示媒體的 RTB 合約資訊，以列表方式呈現各sub_ad_type 的底價設定，並提供底價變更歷史查詢功能。
+</p>
+<h4>
+ 主要顯示區塊
+</h4>
+<ol>
+ <li>
+  <p>
+   <strong>
+    合約基本資訊區
+   </strong>
+  </p>
+ </li>
+</ol>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     欄位名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     顯示方式
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     合約 ID
+    </p>
+   </td>
+   <td>
+    <p>
+     純文字
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
       <p>
+       顯示系統產生 ID
       </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     合約狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     標籤
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
       <p>
+       🟡 待生效：未來將執行
       </p>
-     </div>
-    </div>
+     </li>
+     <li>
+      <p>
+       🟢 生效：目前執行中
+      </p>
+     </li>
+     <li>
+      <p>
+       ⚫ 失效：已結束
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     價格類型
+    </p>
+   </td>
+   <td>
+    <p>
+     純文字
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       藉由 ERP 建立：所有價格為浮動分潤
+      </p>
+     </li>
+     <li>
+      <p>
+       藉由 Partners 建立：所有價格為固定分潤
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     價格起訖日期
+    </p>
+   </td>
+   <td>
+    <p>
+     日期區間
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示合約有效期間
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     媒體付款方式
+    </p>
+   </td>
+   <td>
+    <p>
+     純文字
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示天數
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     版位
+    </p>
+   </td>
+   <td>
+    <p>
+     下拉選單
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       可切換查看不同版位
+      </p>
+     </li>
+     <li>
+      <p>
+       下拉選單可關鍵字搜尋
+      </p>
+     </li>
+     <li>
+      <p>
+       下拉列表呈現所有被 Create 價格之版位
+      </p>
+      <ul>
+       <li>
+        <p>
+         sub_ad_type 列表跟著版位選項異動
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     計價單位
+    </p>
+   </td>
+   <td>
+    <p>
+     純文字
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       CPM/CPC 等
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 價格設定區
+   </strong>
+  </p>
+ </li>
+</ol>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     欄位名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     顯示方式
+    </p>
+   </th>
+   <th>
+    <p>
+     浮動分潤 介面
+    </p>
+   </th>
+   <th>
+    <p>
+     固定分潤 介面
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     sub_ad_type
+    </p>
+   </td>
+   <td>
+    <p>
+     垂直列表搭配 Scroll
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       僅顯示有被 Create 設定價格的格式
+      </p>
+     </li>
+     <li>
+      <p>
+       查看不同格式之價格資訊
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     媒體競標底價
+    </p>
+   </td>
+   <td>
+    <p>
+     數字
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅
+    </p>
+   </td>
+   <td>
     <p>
     </p>
-   </div>
-  </div>
- </div>
-</div>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <strong>
+        重新合作
+       </strong>
+       （只有失效合約）：可手動設定
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        延續合作 + 格式首次
+       </strong>
+       ：可手動設定
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        延續合作 + 格式已存在
+       </strong>
+       ：生效時抓取
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OneAD 分潤比例
+    </p>
+   </td>
+   <td>
+    <p>
+     百分比
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示分潤比例
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     查看底價變更紀錄
+    </p>
+   </td>
+   <td>
+    <p>
+     按鈕
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     查看該格式底價修改歷史紀錄
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     媒體賣價
+    </p>
+   </td>
+   <td>
+    <p>
+     數字
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示固定價格 $1.5
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    底價歷史編輯記錄（彈出視窗）
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ 標題：
+ <strong>
+  [sub_ad_type名稱] 底價變更紀錄
+ </strong>
+</p>
+<p>
+ <strong>
+  底價變更紀錄：
+ </strong>
+ 只採計該合約的變更紀錄，不包含以往的合約(Kirt)
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     欄位名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+   <th>
+    <p>
+     範例
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     變更日期
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示修改時間
+    </p>
+   </td>
+   <td>
+    <p>
+     2025/08/21 12:55
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     變更人員
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示操作者 Email
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     底價變化
+    </p>
+   </td>
+   <td>
+    <p>
+     合約建立
+     <br/>
+     價格變更
+     <br/>
+     合約結束
+    </p>
+   </td>
+   <td>
+    <p>
+     $2 (合約建立)
+     <br/>
+     $2 → $3
+     <br/>
+     $3 (合約結束)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     生效狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示生效狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     ⏰ 待 13:00 生效
+     <br/>
+     ✅ 已生效
+     <br/>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+【歷史紀錄 - 情境一：單日多次調整底價（單一合約）】
+<p>
+ 場景：2025/09/15 11:00 建立合約，在 2025/10/1 的待生效合約，
+ <br/>
+ 2025/09/15 12:00 按下該合約立即生效，於 2025/09/15 12:55 查看合約。
+</p>
+<p>
+ <strong>
+  [sub_ad_type 名稱 A] 底價變更記錄
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      變更日期
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/15 12:55
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $5 → $4
+    </p>
+   </td>
+   <td>
+    <p>
+     🕐 待13:00生效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/15 12:30
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $3 → $5
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/15 12:05
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2 → $3
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/15 12:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:admin@onead.tw">
+      admin@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2 (合約建立)
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  [sub_ad_type 名稱 B] 底價變更記錄
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      變更日期
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/15 12:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:admin@onead.tw">
+      admin@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2 (合約建立)
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 已生效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ 時間線與狀態更新說明：
+</p>
+<p>
+ <strong>
+  11:00
+ </strong>
+ | 合約建立，沒有任何 log
+</p>
+<p>
+ <strong>
+  12:00
+ </strong>
+ | 合約生效，兩種格式初始底價皆為 $2
+</p>
+<ul>
+ <li>
+  <p>
+   ✅ 產生歷史紀錄（單一合約有完整紀錄）
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:00) 狀態：✅ 已生效
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 B
+   </strong>
+   (12:00) 狀態：✅ 已生效
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  12:05
+ </strong>
+ | 媒體自行調整 728×90 為 $3
+</p>
+<ul>
+ <li>
+  <p>
+   ✅ 產生 12:05 歷史紀錄，更新 12:00 歷史紀錄之狀態
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:05) 狀態：🕐 待13:00生效
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:00) 狀態：✅ 已生效 → ❌ 失效
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  12:30
+ </strong>
+ | 媒體再次調整 728×90 為 $5
+</p>
+<ul>
+ <li>
+  <p>
+   ✅ 產生 12:30 歷史紀錄，更新 12:05 歷史紀錄之狀態
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:30) 狀態：🕐 待13:00生效
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:05) 狀態：🕐 待13:00生效 → ❌ 失效
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  12:55
+ </strong>
+ | 產生 12:55 歷史紀錄，更新 12:30 歷史紀錄之狀態
+</p>
+<ul>
+ <li>
+  <p>
+   ✅ 產生歷史紀錄
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:55) 狀態：🕐 待13:00生效
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:30) 狀態：🕐 待13:00生效 → ❌ 失效
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  13:00
+ </strong>
+ | 整點生效，更新 12:55 歷史紀錄之狀態（未顯示在表中，但會發生）
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    sub_ad_type 名稱 A
+   </strong>
+   (12:55) 狀態：🕐 待13:00生效 → ✅ 已生效
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+ <strong>
+  重點：單一合約運作時，所有操作都會產生完整的歷史紀錄
+ </strong>
+</p>
+<p>
+</p>
+【歷史紀錄 - 情境二：新舊合約交替與底價同步】
+<p>
+ 場景：舊合約（合約ID: 1001）於6月建立，新合約（合約ID: 1025）於9月15日建立預定10月生效
+</p>
+<p>
+ <strong>
+  &gt;&gt;&gt; 舊合約 [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1001）&lt;&lt;&lt;
+ </strong>
+</p>
+<p>
+ 2025/10/05 10:00 查看舊合約
+ <strong>
+  （合約ID: 1001）
+ </strong>
+ 的底價歷史紀錄
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     變更日期
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/25 15:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $3.2 → $3.5
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/20 10:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $3.0 → $3.2
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/10 15:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.8 → $3.0
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/08/15 11:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.5 → $2.8
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/07/20 09:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:user@media.com">
+      user@media.com
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.3 → $2.5
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/06/01 00:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:system@onead.tw">
+      system@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.3 (合約建立)
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<p>
+ <strong>
+  &gt;&gt;&gt; 新合約 - [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1025）&lt;&lt;&lt;
+ </strong>
+</p>
+<p>
+ 2025/10/05 10:00 查看新合約
+ <strong>
+  （合約ID: 1025）
+ </strong>
+ 的底價歷史紀錄
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     變更日期
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/10/05 09:00
+    </p>
+   </td>
+   <td>
+    <p>
+     oym@system
+    </p>
+   </td>
+   <td>
+    <p>
+     $3.5 → $3.8
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 已生效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/10/01 00:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:system@onead.tw">
+      system@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $3.5 (合約建立)
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  說明：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   2025/09/15 09:00：建立新合約，不產生任何歷史紀錄
+  </p>
+ </li>
+ <li>
+  <p>
+   2025/09/15~09/30：待生效期間，OYM 即使有更新也完全不記錄
+  </p>
+ </li>
+ <li>
+  <p>
+   2025/10/01 00:00：合約生效時，抓取舊合約最後價格 $3.5，產生第一筆紀錄
+  </p>
+ </li>
+ <li>
+  <p>
+   2025/10/05 09:00：提出修改底價
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+【歷史紀錄 - 情境三：立即生效功能執行】
+<p>
+ 場景：9月15日建立10月生效的新合約，9月20日 14:00 執行立即生效
+</p>
+<p>
+</p>
+<p>
+ <strong>
+  &gt;&gt;&gt; 舊合約 - [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1001）&lt;&lt;&lt;
+ </strong>
+</p>
+<p>
+ 2025/09/20 14:00 查看舊合約
+ <strong>
+  （合約ID: 1001）
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     變更日期
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/18 10:00
+    </p>
+   </td>
+   <td>
+    <p>
+     oym@system
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.5 → $2.8
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/10 15:00
+    </p>
+   </td>
+   <td>
+    <p>
+     oym@system
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.3 → $2.5
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/06/01 00:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:system@onead.tw">
+      system@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.3 (合約生效)
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  說明：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   9/20 14:00：執行立即生效時，2025/09/18 10:00 狀態 ✅ 已生效 → ❌ 失效
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+ <strong>
+  &gt;&gt;&gt; 新合約 - [sub_ad_type名稱 A] 底價變更記錄（合約ID: 1025）&lt;&lt;&lt;
+ </strong>
+</p>
+<p>
+ 2025/09/25 11:00 查看新合約
+ <strong>
+  （合約ID: 1025）
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     變更日期
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/25 10:00
+    </p>
+   </td>
+   <td>
+    <p>
+     oym@system
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.8 → $3.0
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 已生效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/20 14:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:admin@onead.tw">
+      admin@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.8 (立即生效)
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  說明：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    9/15：建立新合約時，不產生任何紀錄
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    9/20 14:00：執行立即生效，
+   </strong>
+   ⚡
+   <strong>
+    底價立即啟用
+   </strong>
+   （不需等待整點），
+   <br/>
+   <strong>
+    抓取舊合約當前底價 $2.8 產生第一筆紀錄
+   </strong>
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+【歷史紀錄 - 情境四：sub_ad_type首次設定】
+<p>
+ 場景：2025/09/15 12:00 建立第二份合約, 該合約於 2025/10/01 生效
+ <br/>
+ 在建立第二份合約的時候設定前一份已有的
+ <strong>
+  sub_ad_type名稱 B
+ </strong>
+ (延續設定)，並且新增
+ <strong>
+  sub_ad_type名稱 A
+ </strong>
+ (首次設定)
+</p>
+<p>
+</p>
+<p>
+ 2025/10/05 12:00 查看此合約
+ <strong>
+  （合約ID: 2001）
+ </strong>
+</p>
+<p>
+ <strong>
+  &gt;&gt;&gt; [sub_ad_type 名稱 A] 底價變更記錄（合約ID: 2001）&lt;&lt;&lt;
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     變更日期
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/10/05 11:00
+    </p>
+   </td>
+   <td>
+    <p>
+     oym@system
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.00 → $8.50
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 已生效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/10/01 00:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:system@onead.tw">
+      system@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $2.0 (合約建立)
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<p>
+ <strong>
+  &gt;&gt;&gt; [sub_ad_type 名稱 B] 底價變更記錄（合約ID: 2001）&lt;&lt;&lt;
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     變更日期
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/10/01 00:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:system@onead.tw">
+      system@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $3.50 (合約建立)
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 已生效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<p>
+ <strong>
+  &gt;&gt;&gt; [
+ </strong>
+ s
+ <strong>
+  ub_ad_type名稱 B] 底價變更記錄（合約ID: 1900）&lt;&lt;&lt;
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     變更日期
+    </p>
+   </th>
+   <th>
+    <p>
+     變更人員
+    </p>
+   </th>
+   <th>
+    <p>
+     底價變化
+    </p>
+   </th>
+   <th>
+    <p>
+     生效狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/25 10:00
+    </p>
+   </td>
+   <td>
+    <p>
+     oym@system
+    </p>
+   </td>
+   <td>
+    <p>
+     $3.30 → $3.50
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2025/09/01 00:00
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="mailto:system@onead.tw">
+      system@onead.tw
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     $3.30 (合約建立)
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 失效
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<p>
+</p>
+<h4>
+ 特殊說明與顯示邏輯
+</h4>
+<ul>
+ <li>
+  <p>
+   <strong>
+    合約類型差異
+   </strong>
+   ：
+  </p>
+  <ul>
+   <li>
+    <p>
+     Partners｜建立的合約類型顯示為「所有價格為固定分潤」，只顯示媒體賣價 $1.5
+    </p>
+   </li>
+   <li>
+    <p>
+     ERP｜建立的合約類型顯示為「所有價格為浮動分潤」，顯示底價與分潤比例
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    底價記錄排序
+   </strong>
+   ：按時間倒序排列（最新的在最上方）
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    資料同步
+   </strong>
+   ：底價編輯記錄與 OYM 系統即時同步
+  </p>
+ </li>
+ <li>
+  <p>
+   歷史紀錄產生時機
+  </p>
+  <ul>
+   <li>
+    <p>
+     <strong>
+      單一合約運作
+     </strong>
+     ：有完整歷史紀錄（從建立到所有變更）
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      新舊合約交替
+     </strong>
+     ：
+    </p>
+    <ul>
+     <li>
+      <p>
+       舊合約：持續記錄到結束
+      </p>
+     </li>
+     <li>
+      <p>
+       新合約：生效前不記錄，生效時產生第一筆
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   立即生效特性
+  </p>
+  <ul>
+   <li>
+    <p>
+     ⚡ 底價立即啟用（不等整點）
+    </p>
+   </li>
+   <li>
+    <p>
+     立即產生歷史紀錄
+    </p>
+   </li>
+   <li>
+    <p>
+     抓取舊合約當前底價
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>
+<h3>
+ 立即生效功能
+</h3>
+<h4>
+ 📍 功能位置
+</h4>
+<p>
+ 路徑：ERP系統 → Angular_Start 媒體管理 → 媒體列表 → 檢視媒體 → 目前媒體合約資訊
+ <br/>
+ → RTB Angular_end → Vue2_Start RTB → 此合約立即生效
+</p>
+<img alt="截圖 2025-09-08 清晨7.16.05.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.05.png?version=2&amp;modificationDate=1757287582425&amp;cacheVersion=1&amp;api=v2&amp;width=685&amp;height=528"/>
+<img alt="截圖 2025-09-08 清晨7.16.47.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-09-08%20%E6%B8%85%E6%99%A87.16.47.png?version=1&amp;modificationDate=1757287651227&amp;cacheVersion=1&amp;api=v2&amp;width=548&amp;height=335"/>
+<p>
+</p>
+<h4>
+ 功能說明
+</h4>
+<p>
+ 允許 PAD 將待生效的合約提前至當月生效，適用於需要立即執行的情況。
+</p>
+<h4>
+ 日期調整規則
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     合約類型
+    </p>
+   </th>
+   <th>
+    <p>
+     原始設定
+    </p>
+   </th>
+   <th>
+    <p>
+     調整後
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     新合約-起始日
+    </p>
+   </td>
+   <td>
+    <p>
+     2025/10/1
+    </p>
+   </td>
+   <td>
+    <p>
+     2025/9/1（當月初）
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     新合約-結束日
+    </p>
+   </td>
+   <td>
+    <p>
+     2099/12/31
+    </p>
+   </td>
+   <td>
+    <p>
+     維持不變
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     舊合約-起始日
+    </p>
+   </td>
+   <td>
+    <p>
+     2024/6/1
+    </p>
+   </td>
+   <td>
+    <p>
+     維持不變
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     舊合約-結束日
+    </p>
+   </td>
+   <td>
+    <p>
+     2099/12/31
+    </p>
+   </td>
+   <td>
+    <p>
+     2025/8/31（當月初前一天）
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h3>
+ 媒體浮動分潤計算邏輯導入 SuperDSP 毛利表
+</h3>
+<h4>
+ 📍 功能位置
+</h4>
+<p>
+ 路徑：ERP系統 → 帳務管理 → SuperDSP 毛利表
+</p>
+<img alt="截圖 2025-08-05 上午10.53.22.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3995959320/%E6%88%AA%E5%9C%96%202025-08-05%20%E4%B8%8A%E5%8D%8810.53.22.png?version=1&amp;modificationDate=1757287704842&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=340"/>
+<p>
+</p>
+<h4>
+ 功能說明
+</h4>
+<p>
+ RTB 浮動分潤合約建立後，根據浮動底價計算媒體成本，支援 SuperDSP 毛利表
+ <strong>
+  部分欄位
+ </strong>
+ 邏輯計算。
+</p>
+<h4>
+ 計算邏輯
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      欄位
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     計算公式
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     媒體成本（未稅）
+    </p>
+   </td>
+   <td>
+    <p>
+     底價 × 曝光數 × (1 - OneAD分潤%)
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      扣除分潤後的實際成本
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     媒體 Margin
+    </p>
+   </td>
+   <td>
+    <p>
+     應收金額 - 媒體成本
+    </p>
+   </td>
+   <td>
+    <p>
+     毛利金額
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     媒體 Margin rate %
+    </p>
+   </td>
+   <td>
+    <p>
+     媒體 Margin / 應收金額
+    </p>
+   </td>
+   <td>
+    <p>
+     毛利率
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h4>
+ 計算範例
+</h4>
+<p>
+ 假設條件：
+</p>
+<ul>
+ <li>
+  <p>
+   底價：$2.0
+  </p>
+ </li>
+ <li>
+  <p>
+   OneAD 分潤：25%
+  </p>
+ </li>
+ <li>
+  <p>
+   曝光數：1000
+  </p>
+ </li>
+</ul>
+<p>
+ 計算結果：
+</p>
+<ul>
+ <li>
+  <p>
+   媒體成本 = $2.0 × 1000 × (1 - 0.25) = $1,500
+  </p>
+ </li>
+ <li>
+  <p>
+   應收金額 = $2,000（假設）
+  </p>
+ </li>
+ <li>
+  <p>
+   媒體 Margin = $2,000 - $1,500 = $500
+  </p>
+ </li>
+ <li>
+  <p>
+   媒體 Margin rate = $500 / $2,000 = 25%
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h2>
+ 此次”不“開發功能
+</h2>
+展開查看
+<h3>
+ PM 視角
+</h3>
+<p>
+ 情境四：建立/更新 ad_format_type 並通知相關部門
+</p>
+<p>
+ 場景：PM 建立/更新 ad_format_type 後，為確保相關部門能即時獲得正確資訊，避免後續跨部門作業造成的資訊落差
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ PM 在系統中建立新的 ad_format_type
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 系統自動發送通知信給所有相關部門
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 確保 PAD / ITO / PM / MTO / AOE 部門都能即時掌握新格式資訊，正確執行相關設定
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1-1
+    </p>
+   </td>
+   <td>
+    <p>
+     進入 ad_format_type 管理介面
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       點擊 Create 按鈕
+      </p>
+     </li>
+     <li>
+      <p>
+       填寫 ad_format_type 欄位並建立
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1-2
+    </p>
+   </td>
+   <td>
+    <p>
+     進入 ad_format_type 管理介面
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       更新指定 ad_format_type 相關欄位並儲存
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     系統自動觸發通知機制
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 發送給 PAD / ITO / PM / MTO / AOE部門
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 告知 新增/更新 格式之相關資訊
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     各部門收到通知
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 PAD：了解新格式以便正確建立合約
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 其他部門：進行相關設定準備及提出風險
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h3>
+ ad_format_type 建立/更新通知機制
+</h3>
+<h4>
+ 📍 功能位置
+</h4>
+<p>
+ 路徑：ERP系統 → PM 管理介面 → ad_format_type 管理
+</p>
+<h4>
+ 功能說明
+</h4>
+<p>
+ 為解決各部門間的資訊落差問題，當 PM 建立或更新 ad_format_type 後，系統將自動發送通知信給所有相關部門，確保資訊同步。
+</p>
+<h4>
+ 通知機制說明
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      項目
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     內容
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     觸發時機
+    </p>
+   </td>
+   <td>
+    <p>
+     PM 成功建立或更新 ad_format_type
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     收件部門
+    </p>
+   </td>
+   <td>
+    <p>
+     PAD、ITO、PM、MTO、AOE
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     發送方式
+    </p>
+   </td>
+   <td>
+    <p>
+     內部系統通知信
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     信件主旨
+    </p>
+   </td>
+   <td>
+    <p>
+     [系統通知] 新增/更新 ad_format_type：{格式名稱}
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h4>
+ 通知信內容項目（待確認）
+</h4>
+<ul>
+ <li>
+  <p>
+   格式名稱（format_type_name）
+  </p>
+ </li>
+ <li>
+  <p>
+   格式代碼（format_type_code）
+  </p>
+ </li>
+ <li>
+  <p>
+   格式尺寸（dimensions）
+  </p>
+ </li>
+ <li>
+  <p>
+   適用版位（applicable_placements）
+  </p>
+ </li>
+ <li>
+  <p>
+   建立/更新時間（created_at / updated_at）
+  </p>
+ </li>
+ <li>
+  <p>
+   建立/更新人員（created_by / updated_by）
+  </p>
+ </li>
+ <li>
+  <p>
+   格式說明（description）
+  </p>
+ </li>
+ <li>
+  <p>
+   ….
+  </p>
+ </li>
+</ul>
+<h4>
+ 預期效益
+</h4>
+<ol>
+ <li>
+  <p>
+   <strong>
+    PAD 部門
+   </strong>
+   ：建立合約時能正確選擇sub_ad_type
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    ITO 部門
+   </strong>
+   ：及時進行系統相關設定
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    MTO 部門
+   </strong>
+   ：準備對應的技術支援
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    AOE 部門
+   </strong>
+   ：了解新格式以利後續操作優化
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    PM 部門
+   </strong>
+   ：確認資訊已正確傳遞
+  </p>
+ </li>
+</ol>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>

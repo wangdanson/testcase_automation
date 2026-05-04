@@ -218,15 +218,65 @@ def build_hierarchical_path(page, root_id):
     path_segments.append(sanitize_filename(page["title"]))
     return os.path.join(*path_segments)
 
+def lean_html(soup):
+    """Surgically clean HTML to reduce token usage while preserving semantic structure."""
+    # 核心語意標籤
+    allowed_tags = [
+        'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 
+        'p', 'br', 'hr',
+        'table', 'thead', 'tbody', 'tr', 'th', 'td',
+        'ul', 'ol', 'li',
+        'b', 'strong', 'i', 'em', 'u',
+        'a', 'img', 'code', 'pre'
+    ]
+    
+    # 1. 徹底移除腳本、樣式與元數據
+    for s in soup(['script', 'style', 'meta', 'link']):
+        s.decompose()
+
+    # 2. 移除無關測試的章節 (如專案時程, WBS)
+    removal_keywords = ['專案時程', 'WBS', '工作分解結構', 'Project Schedule', '文件檢核狀態', '修訂紀錄']
+    for header in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+        header_text = header.get_text(strip=True)
+        if any(kw in header_text for kw in removal_keywords):
+            # 找到要刪除的章節起點，刪除該標題及其後續內容直到下一個標題
+            curr = header
+            next_node = curr.find_next_sibling()
+            curr.decompose()
+            while next_node and next_node.name not in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+                tmp = next_node.find_next_sibling()
+                next_node.decompose()
+                next_node = tmp
+
+    # 3. 處理剩餘所有標籤
+    for tag in list(soup.find_all(True)):
+        if tag.name not in allowed_tags:
+            tag.unwrap()
+        else:
+            attrs = dict(tag.attrs)
+            tag.attrs = {}
+            if tag.name == 'a' and 'href' in attrs:
+                tag['href'] = attrs['href']
+            if tag.name == 'img' and 'src' in attrs:
+                tag['src'] = attrs['src']
+                if 'alt' in attrs: tag['alt'] = attrs['alt']
+    
+    return soup
+
 def sync():
     if not all([CONFLUENCE_URL, CONFLUENCE_EMAIL, CONFLUENCE_API_TOKEN, CONFLUENCE_PARENT_ID]):
         print("Error: Missing Confluence configuration in .env")
         return
     parent_ids = [pid.strip() for pid in CONFLUENCE_PARENT_ID.split(",") if pid.strip()]
+    
     state = {}
     if os.path.exists(STATE_FILE):
-        with open(STATE_FILE, "r") as f:
-            state = json.load(f)
+        try:
+            with open(STATE_FILE, "r") as f:
+                state = json.load(f)
+        except Exception:
+            state = {}
+    
     total_updates = 0
     for root_id in parent_ids:
         print(f"\n>>> Executing Hierarchical Sync for Parent ID: {root_id}...")
@@ -235,37 +285,73 @@ def sync():
         except Exception as e:
             print(f"Error during search: {str(e)}")
             continue
+        
         print(f"Found {len(pages)} pages in total hierarchy.")
         for page in pages:
             page_id = page["id"]
             title = page["title"]
-            current_version = page["version"]["number"]
+            # 安全獲取版本號，避免 KeyError
+            version_data = page.get("version", {})
+            current_page_version = version_data.get("number", 1)
             page_dir = build_hierarchical_path(page, root_id)
-            if state.get(page_id) == current_version and os.path.exists(page_dir):
-                print(f"    [-] Skipped: '{title}'", flush=True)
-                continue
-            print(f"    [+] Syncing: '{title}' -> {page_dir}...", flush=True)
-            os.makedirs(page_dir, exist_ok=True)
+            
+            # 初始化或遷移頁面狀態
+            old_page_state = state.get(page_id, {})
+            if not isinstance(old_page_state, dict):
+                page_state = {"version": old_page_state, "attachments": {}}
+            else:
+                page_state = old_page_state
+            
+            if "version" not in page_state: page_state["version"] = 0
+            if "attachments" not in page_state: page_state["attachments"] = {}
+            
+            needs_html_update = (page_state["version"] != current_page_version) or not os.path.exists(page_dir)
+            
             try:
                 attachments = get_attachments(page_id)
-                att_map = {} 
+                att_map = {}
+                any_attachment_changed = False
+                
+                # 建立資料夾
+                os.makedirs(page_dir, exist_ok=True)
+                
                 for att in attachments:
-                    download_url = att["_links"]["download"]
+                    att_id = att.get("id")
+                    # 安全獲取附件版本號
+                    att_version_data = att.get("version", {})
+                    att_version = att_version_data.get("number", 1)
+                    download_url = att.get("_links", {}).get("download")
+                    if not download_url: continue
                     local_name = get_img_name_from_url(download_url)
                     if not local_name: continue
+                    
                     local_path = os.path.join(page_dir, local_name)
-                    try:
+                    # 檢查附件更新條件
+                    last_att_version = page_state["attachments"].get(att_id)
+                    att_needs_update = (str(att_version) != str(last_att_version)) or not os.path.exists(local_path)
+                    
+                    if att_needs_update:
+                        print(f"        [+] Updating attachment: {local_name} (v{att_version})")
                         actual_path = download_file(download_url, local_path)
                         final_local_name = os.path.basename(actual_path)
                         att_map[download_url] = final_local_name
-                    except Exception as e:
-                        print(f"        [!] Attachment error: {str(e)}")
-            except Exception as e:
-                print(f"    [!] Failed to get attachments for '{title}': {str(e)}")
-                att_map = {}
-            try:
+                        any_attachment_changed = True
+                    else:
+                        att_map[download_url] = local_name
+                    
+                    # 更新單個附件版本紀錄
+                    page_state["attachments"][att_id] = att_version
+
+                if not needs_html_update and not any_attachment_changed:
+                    print(f"    [-] Skipped: '{title}'", flush=True)
+                    state[page_id] = page_state
+                    continue
+
+                print(f"    [+] Syncing: '{title}' -> {page_dir}...", flush=True)
+                
                 html_content = page["body"]["view"]["value"]
                 soup = BeautifulSoup(html_content, "html.parser")
+                
                 for img in soup.find_all("img"):
                     src = img.get("src")
                     if src:
@@ -275,16 +361,20 @@ def sync():
                             if clean_src.endswith(clean_remote) or clean_remote.endswith(clean_src):
                                 img["src"] = local_name
                                 break
-                        if img.get("srcset"): del img["srcset"]
-                        if img.get("data-base-url"): del img["data-base-url"]
-                        if img.get("data-image-src"): img["data-image-src"] = img["src"]
+                
+                soup = lean_html(soup)
                 html_path = os.path.join(page_dir, f"{sanitize_filename(title)}.html")
                 with open(html_path, "w", encoding="utf-8") as f:
                     f.write(soup.prettify())
-                state[page_id] = current_version
+                
+                # 更新頁面版本與最終狀態
+                page_state["version"] = current_page_version
+                state[page_id] = page_state
                 total_updates += 1
+                
             except Exception as e:
-                print(f"    [!] Failed to process HTML for '{title}': {str(e)}")
+                print(f"    [!] Failed to process '{title}': {str(e)}")
+    
     with open(STATE_FILE, "w") as f:
         json.dump(state, f, indent=4)
     print(f"\nDone! Sync completed. Total pages integrated: {total_updates}")

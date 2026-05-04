@@ -1,86 +1,73 @@
-<div class="toc-macro client-side-toc-macro conf-macro output-block" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-layout="default" data-local-id="56f0e208-91ff-4316-987d-a1df5f8deb69" data-macro-id="f24097a4-639e-46a6-a6a1-4522b07cd449" data-macro-name="toc">
- <style>
-  [data-colorid=wnf3s9dl16]{color:#ff5630} html[data-color-mode=dark] [data-colorid=wnf3s9dl16]{color:#cf2600}[data-colorid=wboflokld6]{color:#ff5630} html[data-color-mode=dark] [data-colorid=wboflokld6]{color:#cf2600}[data-colorid=rq2s5ss8ex]{color:#ff5630} html[data-color-mode=dark] [data-colorid=rq2s5ss8ex]{color:#cf2600}[data-colorid=yap9vkf4p7]{color:#bf2600} html[data-color-mode=dark] [data-colorid=yap9vkf4p7]{color:#ff6640}[data-colorid=axauc2977z]{color:#ff5630} html[data-color-mode=dark] [data-colorid=axauc2977z]{color:#cf2600}[data-colorid=m0dqlnorhp]{color:#bf2600} html[data-color-mode=dark] [data-colorid=m0dqlnorhp]{color:#ff6640}[data-colorid=i6g2tru1ta]{color:#bf2600} html[data-color-mode=dark] [data-colorid=i6g2tru1ta]{color:#ff6640}[data-colorid=ibw1mqoaph]{color:#ff5630} html[data-color-mode=dark] [data-colorid=ibw1mqoaph]{color:#cf2600}[data-colorid=rq1rhomg89]{color:#bf2600} html[data-color-mode=dark] [data-colorid=rq1rhomg89]{color:#ff6640}[data-colorid=oos1bnfpb2]{color:#bf2600} html[data-color-mode=dark] [data-colorid=oos1bnfpb2]{color:#ff6640}[data-colorid=cx0lozip8z]{color:#bf2600} html[data-color-mode=dark] [data-colorid=cx0lozip8z]{color:#ff6640}[data-colorid=lcxlghr4ie]{color:#bf2600} html[data-color-mode=dark] [data-colorid=lcxlghr4ie]{color:#ff6640}[data-colorid=aqhoyn8lue]{color:#ff5630} html[data-color-mode=dark] [data-colorid=aqhoyn8lue]{color:#cf2600}[data-colorid=n9bgxbvacr]{color:#bf2600} html[data-color-mode=dark] [data-colorid=n9bgxbvacr]{color:#ff6640}[data-colorid=w3eq4taq5r]{color:#bf2600} html[data-color-mode=dark] [data-colorid=w3eq4taq5r]{color:#ff6640}[data-colorid=ex3nwoq5m9]{color:#bf2600} html[data-color-mode=dark] [data-colorid=ex3nwoq5m9]{color:#ff6640}
- </style>
-</div>
-<h2 id="API規格文件-API">
+<h2>
  API
 </h2>
 <p>
  規格參照
- <a data-linked-resource-id="3407052977" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/ITOOperationManual/pages/3407052977/API">
+ <a href="/wiki/spaces/ITOOperationManual/pages/3407052977/API">
   API 制定規則
  </a>
 </p>
-<h2 id="API規格文件-追蹤碼">
+<h2>
  追蹤碼
 </h2>
-<h3 id="API規格文件-Table異動說明">
+<h3>
  Table 異動說明
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="8d58b93a-6c82-4317-9a3a-4b5c49a4e689">
-  <colgroup>
-   <col style="width: 154.0px;"/>
-   <col style="width: 221.0px;"/>
-   <col style="width: 384.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       變更類型
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       Table
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       說明
-      </strong>
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      新增 欄位
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      oam_tags
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      新增 created_by, 紀錄創建人
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      新增 table
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      oam_tag_events
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="441c7688-6ee4-468b-80f5-4e5660213d74" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">create_table :oam_tag_events do |t|
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      變更類型
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Table
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      說明
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     新增 欄位
+    </p>
+   </td>
+   <td>
+    <p>
+     oam_tags
+    </p>
+   </td>
+   <td>
+    <p>
+     新增 created_by, 紀錄創建人
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     新增 table
+    </p>
+   </td>
+   <td>
+    <p>
+     oam_tag_events
+    </p>
+   </td>
+   <td>
+    <pre>create_table :oam_tag_events do |t|
   t.integer :oam_tags_id
   t.integer :uid
   t.integer :created_by
@@ -91,154 +78,124 @@
 
   t.timestamps
 end</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" colspan="3" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       開發狀態
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" colspan="3">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2730" data-macro-id="63ea59c4-4556-49b1-8153-5a0a4a74a8b0" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2730">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2730
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-建立追蹤碼">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      開發狀態
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2730">
+      IP-2730
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  建立追蹤碼
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="a9bc386b-dce5-4938-a607-73d49b4ec528">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       POST
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      /api/v1/superdsp/tags
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="d924d724-5634-4236-896c-eb131a82cd9d" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="5d2d4b43-6a02-4fca-9d4b-d2527e9d12f5" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   "name": "果實夥伴首頁",
   "client_id": 2396,
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      app/controllers/api/v1/superdsp/tags_controller.rb &gt; create
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9e9768a9-e22f-4ef7-9f0d-14a412ae7f40" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/tags_controller.rb &gt; create
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",,
   data: 
     {
@@ -246,149 +203,127 @@ end</pre>
       uid: 123456789, (主追蹤碼的uid)
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-追蹤碼列表">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  追蹤碼列表
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="861b4160-ef8e-4020-851f-6e30ac83afad">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       GET
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      /api/v1/superdsp/tags
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="7df6a6a6-6f08-463b-b3d1-8a9715227d89" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="26d1e227-f6ed-4689-8ca6-70965ecf146f" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   "client_id": 2396,
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      app/controllers/api/v1/superdsp/tags_controller.rb &gt; index
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="95221375-19f6-49cb-8292-31ac11b8b0f3" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/tags_controller.rb &gt; index
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: [
     {
@@ -399,151 +334,129 @@ end</pre>
     ...
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-檢視追蹤碼(顯示追蹤碼及其底下的所有事件追蹤碼)">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  檢視追蹤碼  (顯示追蹤碼及其底下的所有事件追蹤碼)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="04912609-577c-465b-bb5e-4f98131d1d6d">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       GET
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      /api/v1/superdsp/tags/{:id}
-      <br/>
-      <strong>
-       id 為主追蹤碼的 uid
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="6ee3e2ae-50db-46ac-bfab-18049d48c31c" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b27582f3-bb61-4c75-90de-7fe64c1e7468" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">null</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      app/controllers/api/v1/superdsp/tags_controller.rb &gt; show
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="07665eaf-7385-498c-9d6e-0351e93c9a78" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags/{:id}
+     <br/>
+     <strong>
+      id 為主追蹤碼的 uid
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>null</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/tags_controller.rb &gt; show
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data:
   {
@@ -567,278 +480,236 @@ end</pre>
       ....
     ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-回傳事件追蹤碼UID(刪除,前端畫面在create以前不顯示UID)">
- <del>
-  回傳事件追蹤碼 UID (刪除, 前端畫面在 create 以前不顯示UID)
- </del>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
+ 回傳事件追蹤碼 UID (刪除, 前端畫面在 create 以前不顯示UID)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="f1f3bef5-d511-4061-9ce8-6a2221d61ab0">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       GET
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      /api/v1/superdsp/tags/{:id}/event_tags/generate_uid
-      <br/>
-      <strong>
-       id 為主追蹤碼的 uid
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="be77fe78-5ec0-404e-912f-ecf3ae9ebd90" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c527d012-3e30-4065-b525-d01ea7a85e9d" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">null</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      app/controllers/api/v1/superdsp/event_tags_controller.rb &gt; generate_uid
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9b60415f-a7dc-499e-b99a-06cc85894039" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags/{:id}/event_tags/generate_uid
+     <br/>
+     <strong>
+      id 為主追蹤碼的 uid
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>null</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/event_tags_controller.rb &gt; generate_uid
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: 
   {
     uid: 123456789 (事件追蹤碼的uid)
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-建立事件追蹤碼">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  建立事件追蹤碼
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="bffb6976-5386-4646-ae6f-59728122850e">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       POST
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      /api/v1/superdsp/tags/{:id}/event_tags
-      <br/>
-      <strong>
-       id 為主追蹤碼的 uid
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="02e381fe-a190-4d62-8f30-e722d29a4cbf" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="92d47aa2-fb09-4357-8340-7f4a403cc477" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">params = {
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags/{:id}/event_tags
+     <br/>
+     <strong>
+      id 為主追蹤碼的 uid
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>params = {
   "tag": {
     "uid": 234567890, (主追蹤碼的uid)
   }
@@ -854,32 +725,28 @@ end</pre>
     ...
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      app/controllers/api/v1/superdsp/event_tags_controller.rb &gt; create
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="31a4367e-2b9f-4fb3-9cc9-444699595a85" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/event_tags_controller.rb &gt; create
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: [
     {
@@ -893,157 +760,135 @@ end</pre>
     ...
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-編輯事件追蹤碼">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  編輯事件追蹤碼
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="1e722632-c2db-4f35-bc65-f7e41332b57b">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       PUT
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      /api/v1/superdsp/tags/{:id}/event_tags/{:id}
-      <br/>
-      <strong>
-       第一個 id 為主追蹤碼的 uid
-      </strong>
-      <br/>
-      <strong>
-       第二個 id 為事件追蹤碼的 uid
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="df4be038-bbda-4ce3-9996-341e4f4d8de3" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f0650917-8bdb-4455-9aa9-466b18136b04" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags/{:id}/event_tags/{:id}
+     <br/>
+     <strong>
+      第一個 id 為主追蹤碼的 uid
+     </strong>
+     <br/>
+     <strong>
+      第二個 id 為事件追蹤碼的 uid
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   "content_name": "事件名稱變更",
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      app/controllers/api/v1/superdsp/event_tags_controller.rb &gt; update
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="0842bdc8-d325-4b6e-9283-350368c6b325" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/event_tags_controller.rb &gt; update
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: 
   {
@@ -1051,157 +896,129 @@ end</pre>
     uid: 123456789, (事件追蹤碼的uid)
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-事件追蹤碼列表(刪除,由前端拿檢視追蹤碼(及其底下事件追蹤碼)組成即可)">
- <del>
-  事件追蹤碼列表 (刪除, 由前端拿 檢視追蹤碼(及其底下事件追蹤碼) 組成即可)
- </del>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
+ 事件追蹤碼列表 (刪除, 由前端拿 檢視追蹤碼(及其底下事件追蹤碼) 組成即可)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="54e66274-36e4-45fe-afc5-eebfb01b7687">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       GET
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <del>
-       /api/v1/superdsp/tags/{:id}/event_tag
-      </del>
-      <br/>
-      <strong>
-       id 為主追蹤碼的 uid
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="b1a3d303-854b-4036-8965-3e8a92f2197d" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="78007737-3a0e-490e-912b-38f21bdda3a3" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">null</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <del>
-       app/controllers/api/v1/superdsp/event_tag_controller.rb &gt; index
-      </del>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="635c5f0b-4071-4dea-b594-c4ecfe2e0fea" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags/{:id}/event_tag
+     <br/>
+     <strong>
+      id 為主追蹤碼的 uid
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>null</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/event_tag_controller.rb &gt; index
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: [
     {
@@ -1213,161 +1030,133 @@ end</pre>
     ...
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-查看單一事件追蹤碼(刪除,由前端拿index組成即可)">
- <del>
-  查看單一事件追蹤碼 (刪除, 由前端拿index組成即可)
- </del>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
+ 查看單一事件追蹤碼 (刪除, 由前端拿index組成即可)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="291ff495-fe27-4c66-abe8-7d142b7c374a">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       GET
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <del>
-       /api/v1/superdsp/tags/{:id}/event_tags/{:id}
-      </del>
-      <br/>
-      <strong>
-       第一個 id 為主追蹤碼的 uid
-      </strong>
-      <br/>
-      <strong>
-       第二個 id 為事件追蹤碼的 uid
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2763" data-macro-id="d7b7547e-5a67-4fee-bb6c-b0429b459e16" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2763">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2763
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3d1d6a6d-896e-4da5-8e45-b7be371ae078" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">null</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <del>
-       app/controllers/api/v1/superdsp/event_tag_controller.rb &gt; show
-      </del>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="157f1b10-46ca-43f1-9fce-69d43b253fb1" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     /api/v1/superdsp/tags/{:id}/event_tags/{:id}
+     <br/>
+     <strong>
+      第一個 id 為主追蹤碼的 uid
+     </strong>
+     <br/>
+     <strong>
+      第二個 id 為事件追蹤碼的 uid
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2763">
+      IP-2763
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>null</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/event_tag_controller.rb &gt; show
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         "uid": "111111111",
@@ -1375,107 +1164,88 @@ end</pre>
         "content_name": "事件名稱變更666"
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h2 id="API規格文件-受眾包">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  受眾包
 </h2>
-<h3 id="API規格文件-新增table">
+<h3>
  新增 table
 </h3>
 <p>
- <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2750" data-macro-id="87bfd76d-0433-4499-84ed-f6cee5b25ee5" data-macro-name="jira">
-  <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2750">
-   <span class="aui-icon aui-icon-wait issue-placeholder">
-   </span>
-   IP-2750
-  </a>
-  -
-  <span class="summary">
-   取得議題詳細資料...
-  </span>
-  <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-   狀態
-  </span>
- </span>
+ <a href="https://guoshi.atlassian.net/browse/IP-2750">
+  IP-2750
+ </a>
+ -
+ 取得議題詳細資料...
+ 狀態
 </p>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="wide" data-local-id="f00bf0a9-1d26-4b00-b152-457b9e12d904">
-  <colgroup>
-   <col style="width: 212.0px;"/>
-   <col style="width: 501.0px;"/>
-   <col style="width: 247.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       table 名稱
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       欄位
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       備註
-      </strong>
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       網站流量受眾包 table
-      </strong>
-      <br/>
-      <code>
-       website_audiences
-      </code>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ba91253e-50d3-46a6-8ea6-23b25756c212" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">create_table :website_audiences do |t|
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      table 名稱
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      欄位
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      備註
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      網站流量受眾包 table
+     </strong>
+     <br/>
+     <code>
+      website_audiences
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>create_table :website_audiences do |t|
   t.string :name
   t.integer :data_lookback_period
   t.integer :measurement_option
@@ -1489,31 +1259,27 @@ end</pre>
   
   t.timestamps
 end</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      uuid 對應到 segment_id
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       廣告互動受眾包 table
-      </strong>
-      <br/>
-      <code>
-       campaign_audiences
-      </code>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e4f6854a-bd7f-4c66-abb8-6641871c0796" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">create_table :campaign_audiences do |t|
+   </td>
+   <td>
+    <p>
+     uuid 對應到 segment_id
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      廣告互動受眾包 table
+     </strong>
+     <br/>
+     <code>
+      campaign_audiences
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>create_table :campaign_audiences do |t|
   t.string :name
   t.text :one_campaign_ids //serialize Array
   t.text :events //serialize Array
@@ -1528,224 +1294,195 @@ end</pre>
   
   t.timestamps
 end</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      30秒以上：q100, view30s
-     </p>
-     <p>
-      點擊廣告：banner click, video click
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       受眾組合 與 受眾包 關聯表
-      </strong>
-      <br/>
-      <code>
-       audience_pack_relations
-      </code>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="52ef28f6-e685-41ae-867d-f54699b5dcf0" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">create_table :audience_pack_relations do |t|
+   </td>
+   <td>
+    <p>
+     30秒以上：q100, view30s
+    </p>
+    <p>
+     點擊廣告：banner click, video click
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      受眾組合 與 受眾包 關聯表
+     </strong>
+     <br/>
+     <code>
+      audience_pack_relations
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>create_table :audience_pack_relations do |t|
   t.references :audience_pack, polymorphic: true
   t.references :audience, foreign_key: true
   t.boolean :is_include
 
   t.timestamps
 end</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       網站受眾包 與 oam_tag_events 關聯表
-      </strong>
-      <br/>
-      <code>
-       website_audiences_tag_events
-      </code>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9aa26d4f-ccfa-441b-ac80-f9d7f8df5c18" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">create_table :website_audiences_tag_events do |t|
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      網站受眾包 與 oam_tag_events 關聯表
+     </strong>
+     <br/>
+     <code>
+      website_audiences_tag_events
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>create_table :website_audiences_tag_events do |t|
   t.references :website_audience, foreign_key: true
   t.references :oam_tag_event, foreign_key: true
   
   t.timestamps
 end</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-受眾包列表(已改path)">
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  受眾包列表(已改path)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="wide" data-local-id="6971ef4f-7524-454f-a3b0-090057a90a12">
-  <colgroup>
-   <col style="width: 105.0px;"/>
-   <col style="width: 429.0px;"/>
-   <col style="width: 426.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      get
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <del>
-       api/v1/superdsp/companies/{id}/audience_packs
-      </del>
-      <br/>
-      <code>
-       api/v1/superdsp/companies/{id}/website_audiences
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/companies/{id}/campaign_audiences
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2748" data-macro-id="432993fd-b1a8-4b0a-8edc-a7cef591e7a9" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2748">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2748
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <code>
-       api/v1/superdsp/website_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       index
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       index
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      null
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c1c139cc-fd72-488d-8f9b-80229ee188ec" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/companies/{id}/audience_packs
+     <br/>
+     <code>
+      api/v1/superdsp/companies/{id}/website_audiences
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/companies/{id}/campaign_audiences
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2748">
+      IP-2748
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/website_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      index
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      index
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     null
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: [
     {  
@@ -1758,13 +1495,9 @@ end</pre>
     }
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e655f340-16db-492a-8616-49ec0db327d6" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: [
     {  
@@ -1777,184 +1510,163 @@ end</pre>
     }
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <ul>
-      <li>
-       <p>
-        <code>
-         website_audience
-        </code>
-        為 自訂網站流量受眾
-       </p>
-      </li>
-      <li>
-       <p>
-        <code>
-         campaign_audience
-        </code>
-        為 自訂廣告互動受眾
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-新增受眾包(已改path,request不需type)">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        website_audience
+       </code>
+       為 自訂網站流量受眾
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        campaign_audience
+       </code>
+       為 自訂廣告互動受眾
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  新增受眾包(已改path, request不需type)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="wide" data-local-id="f92462d2-52c9-475b-b229-79ee484cdfc3">
-  <colgroup>
-   <col style="width: 98.0px;"/>
-   <col style="width: 424.0px;"/>
-   <col style="width: 438.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      post
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <del>
-       api/v1/superdsp/companies/{id}/audience_packs
-      </del>
-      <br/>
-      <code>
-       api/v1/superdsp/companies/{id}/website_audiences
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/companies/{id}/campaign_audiences
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2752" data-macro-id="4d1caf53-e628-4e00-b926-557a13dcb510" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2752">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2752
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <code>
-       api/v1/superdsp/website_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       create
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       create
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" rowspan="2">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂網站流量受眾
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂廣告互動受眾
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c7b683c6-c594-4bdf-8afb-bacfbd1605bf" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     post
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/companies/{id}/audience_packs
+     <br/>
+     <code>
+      api/v1/superdsp/companies/{id}/website_audiences
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/companies/{id}/campaign_audiences
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2752">
+      IP-2752
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/website_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      create
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      create
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂網站流量受眾
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂廣告互動受眾
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <pre>{
   "name": "網站流量受眾包",
   "tag_uid": 1,
   "tag_events": [404524404, 291212955],
@@ -1962,33 +1674,25 @@ end</pre>
   "measurement_option": 2,
   "expansion_range": 2,
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e5427bc4-d09f-4f9d-96c8-2c177dad5eee" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
   "name": "廣告互動受眾包",
   "one_campaign_ids": [123, 456],
   "events": ["click_ad", "30s_or_complete"],
   "measurement_option": 3,
   "expansion_range": 2
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f718e7fc-8ab3-43f4-9aec-1e67d6def10e" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         "id": 3,
@@ -2006,13 +1710,9 @@ end</pre>
         "updated_at": "2023-08-30T12:00:07.579+08:00"
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f6d6b5f7-0dd3-4f77-a2e5-527b3e62c920" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         "id": 1,
@@ -2037,223 +1737,202 @@ end</pre>
         "updated_at": "2023-08-30T14:41:09.622+08:00"
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" rowspan="2">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <ul>
-      <li>
-       <p>
-        使用者選完所有選項會需要取得 預估qty(需給user token)。
-       </p>
-      </li>
-      <li>
-       <p>
-        建立受眾包時，如果 redis 拿不到 qty，需再打一次取得，不能夠拿前端的值。
-        <br/>
-        <a data-card-appearance="inline" href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%A8%88%E7%AE%97%E5%8F%97%E7%9C%BE%E5%8C%85%E9%A0%90%E4%BC%B0%E9%87%8F%E9%AB%94" rel="nofollow">
-         https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%A8%88%E7%AE%97%E5%8F%97%E7%9C%BE%E5%8C%85%E9%A0%90%E4%BC%B0%E9%87%8F%E9%AB%94
-        </a>
-       </p>
-      </li>
-      <li>
-       <p>
-        <a data-card-appearance="inline" href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E9%87%8F%E9%AB%94%E9%81%B8%E9%A0%85" rel="nofollow">
-         https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E9%87%8F%E9%AB%94%E9%81%B8%E9%A0%85
-        </a>
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        <a data-card-appearance="inline" href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%BF%BD%E8%B9%A4%E7%A2%BC%E5%88%97%E8%A1%A8.1" rel="nofollow">
-         https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%BF%BD%E8%B9%A4%E7%A2%BC%E5%88%97%E8%A1%A8.1
-        </a>
-       </p>
-      </li>
-     </ul>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        <a data-card-appearance="inline" href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%BB%A3%E5%91%8A%E6%B4%BB%E5%8B%95%E5%88%97%E8%A1%A8" rel="nofollow">
-         https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%BB%A3%E5%91%8A%E6%B4%BB%E5%8B%95%E5%88%97%E8%A1%A8
-        </a>
-       </p>
-      </li>
-      <li>
-       <p>
-        <a data-card-appearance="inline" href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E8%A1%8C%E7%82%BA%E4%BA%8B%E4%BB%B6%E9%81%B8%E9%A0%85" rel="nofollow">
-         https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E8%A1%8C%E7%82%BA%E4%BA%8B%E4%BB%B6%E9%81%B8%E9%A0%85
-        </a>
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-取得受眾包(已改path)">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       使用者選完所有選項會需要取得 預估qty(需給user token)。
+      </p>
+     </li>
+     <li>
+      <p>
+       建立受眾包時，如果 redis 拿不到 qty，需再打一次取得，不能夠拿前端的值。
+       <br/>
+       <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%A8%88%E7%AE%97%E5%8F%97%E7%9C%BE%E5%8C%85%E9%A0%90%E4%BC%B0%E9%87%8F%E9%AB%94">
+        https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%A8%88%E7%AE%97%E5%8F%97%E7%9C%BE%E5%8C%85%E9%A0%90%E4%BC%B0%E9%87%8F%E9%AB%94
+       </a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E9%87%8F%E9%AB%94%E9%81%B8%E9%A0%85">
+        https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E9%87%8F%E9%AB%94%E9%81%B8%E9%A0%85
+       </a>
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%BF%BD%E8%B9%A4%E7%A2%BC%E5%88%97%E8%A1%A8.1">
+        https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E8%BF%BD%E8%B9%A4%E7%A2%BC%E5%88%97%E8%A1%A8.1
+       </a>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%BB%A3%E5%91%8A%E6%B4%BB%E5%8B%95%E5%88%97%E8%A1%A8">
+        https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%BB%A3%E5%91%8A%E6%B4%BB%E5%8B%95%E5%88%97%E8%A1%A8
+       </a>
+      </p>
+     </li>
+     <li>
+      <p>
+       <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E8%A1%8C%E7%82%BA%E4%BA%8B%E4%BB%B6%E9%81%B8%E9%A0%85">
+        https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E6%96%B0%E5%A2%9E%E8%A1%8C%E7%82%BA%E4%BA%8B%E4%BB%B6%E9%81%B8%E9%A0%85
+       </a>
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  取得受眾包(已改path)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="wide" data-local-id="2300d19b-0fe3-42d8-9823-3470cc8e3bf1">
-  <colgroup>
-   <col style="width: 98.0px;"/>
-   <col style="width: 424.0px;"/>
-   <col style="width: 438.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      get
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <del>
-       api/v1/superdsp/audience_packs/{id}
-      </del>
-      <br/>
-      <code>
-       api/v1/superdsp/website_audiences/{id}
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences/{id}
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2783" data-macro-id="23a325c4-c6eb-4ec9-b861-2e5cb790f04f" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2783">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2783
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <code>
-       api/v1/superdsp/website_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       show
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       show
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2f9ffa9e-e045-4ec6-b146-4aa0922294a6" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/audience_packs/{id}
+     <br/>
+     <code>
+      api/v1/superdsp/website_audiences/{id}
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2783">
+      IP-2783
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/website_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      show
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      show
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         "id": 2,
@@ -2285,13 +1964,9 @@ end</pre>
         ]
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="deaa7c31-f598-4b02-bcf3-6c6621b4b9e7" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         "id": 1,
@@ -2326,207 +2001,170 @@ end</pre>
         ]
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-編輯受眾包(含啟用/停用受眾包)(已改path,request不需type)">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  編輯受眾包(含 啟用/停用 受眾包)(已改path, request不需type)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="wide" data-local-id="4ec7d240-965d-4d5c-aa05-9ca7e9022fd1">
-  <colgroup>
-   <col style="width: 98.0px;"/>
-   <col style="width: 424.0px;"/>
-   <col style="width: 438.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      put
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <del>
-       api/v1/superdsp/audience_packs/{id}
-      </del>
-      <br/>
-      <code>
-       api/v1/superdsp/website_audiences/{id}
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences/{id}
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2749" data-macro-id="5d180560-b4fc-4926-a76a-c23b23f01f64" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2749">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2749
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <code>
-       api/v1/superdsp/website_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       update
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       update
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" rowspan="2">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂網站流量受眾
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂廣告互動受眾
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8a821597-ab89-4f8e-9f73-3123c74c21a7" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     put
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/audience_packs/{id}
+     <br/>
+     <code>
+      api/v1/superdsp/website_audiences/{id}
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2749">
+      IP-2749
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/website_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      update
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      update
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂網站流量受眾
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂廣告互動受眾
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <pre>{
   "name": "網站流量受眾包"
 }</pre>
-      </div>
-     </div>
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="00fffc73-16ff-4cfd-8f5d-46f43ca8f3ba" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <pre>{
   "status": true
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e05687f9-60b6-4034-8761-b091a191788d" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
   "name": "廣告互動受眾包"
 }</pre>
-      </div>
-     </div>
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4a4900ca-301a-4838-93d1-fce48d74892e" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <pre>{
   "status": false
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="6c371241-3157-4aa9-904f-9da79feb0d34" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         "id": 3,
@@ -2544,13 +2182,9 @@ end</pre>
         "updated_at": "2023-08-30T12:00:07.579+08:00"
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="11639e50-f46c-4d82-92eb-23e6776e38c7" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
         "id": 1,
@@ -2575,166 +2209,146 @@ end</pre>
         "updated_at": "2023-08-30T14:41:09.622+08:00"
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-受眾包-使用中(已改path)">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  受眾包 - 使用中 (已改path)
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="31d95d4a-2d76-412f-ad04-0e0a875ef2e2">
-  <colgroup>
-   <col style="width: 111.0px;"/>
-   <col style="width: 649.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      get
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <del>
-       api/v1/superdsp/audience_packs/{id}/linked_campaigns
-      </del>
-      <br/>
-      <code>
-       api/v1/superdsp/website_audiences/{id}/linked_ad_groups
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences/{id}/linked_ad_groups
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2784" data-macro-id="5f474cf2-1d50-4864-81bc-f9cce6dc64e9" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2784">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2784
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/website_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       linked_ad_groups
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/campaign_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       linked_ad_groups
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="226f3d0b-2717-49ed-8c4f-a6da90a0eaaf" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/audience_packs/{id}/linked_campaigns
+     <br/>
+     <code>
+      api/v1/superdsp/website_audiences/{id}/linked_ad_groups
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences/{id}/linked_ad_groups
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2784">
+      IP-2784
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/website_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      linked_ad_groups
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/campaign_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      linked_ad_groups
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: [
     {
@@ -2747,49 +2361,38 @@ end</pre>
     }
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        列出狀態為上刊oncue, 暫停pending, 審核中 的 ad_gorups
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-排程更新受眾包">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       列出狀態為上刊oncue, 暫停pending, 審核中 的 ad_gorups
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  排程更新受眾包
 </h3>
 <p>
- <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2754" data-macro-id="b8ae50bf-b984-41bf-a833-1dcb9538cb45" data-macro-name="jira">
-  <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2754">
-   <span class="aui-icon aui-icon-wait issue-placeholder">
-   </span>
-   IP-2754
-  </a>
-  -
-  <span class="summary">
-   取得議題詳細資料...
-  </span>
-  <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-   狀態
-  </span>
- </span>
+ <a href="https://guoshi.atlassian.net/browse/IP-2754">
+  IP-2754
+ </a>
+ -
+ 取得議題詳細資料...
+ 狀態
 </p>
-<ol start="1">
+<ol>
  <li>
   <p>
    先撈出 placement (條件：上刊, 暫停, 審核中, 結束日期小於等於今日) 綁定的受眾包
@@ -2798,17 +2401,11 @@ end</pre>
  <li>
   <p>
    打
-   <span data-colorid="wboflokld6">
-    [get] api/v2/:source/segment-targeting
-   </span>
-   <span data-colorid="m0dqlnorhp">
-    撈取受眾包
-   </span>
+   [get] api/v2/:source/segment-targeting
+   撈取受眾包
    （system jwt token, role rd_manger）
   </p>
-  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="16fccfc6-b2be-4e80-8f08-39c7c339a1d2" data-macro-name="code" style="border-width: 1px;">
-   <div class="codeContent panelContent pdl">
-    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">response
+  <pre>response
 {
   data: [
     {
@@ -2820,8 +2417,6 @@ end</pre>
     }
   ]
 }</pre>
-   </div>
-  </div>
  </li>
  <li>
   <p>
@@ -2836,44 +2431,30 @@ end</pre>
  <li>
   <p>
    抓出來的時間範圍 需跟
-   <span data-colorid="w3eq4taq5r">
-    撈取受眾包
-   </span>
+   撈取受眾包
    做比對
   </p>
-  <ol start="1">
+  <ol>
    <li>
     <p>
      如果沒有 uuid 就打
-     <span data-colorid="rq2s5ss8ex">
-      [post] api/v2/:source/segment-targeting
-     </span>
-     <span data-colorid="cx0lozip8z">
-      新增受眾包 API
-     </span>
+     [post] api/v2/:source/segment-targeting
+     新增受眾包 API
      （建立這個受眾包的 user token）
     </p>
    </li>
    <li>
     <p>
      如果有 uuid, 而且時間範圍需更新, 就直接打
-     <span data-colorid="i6g2tru1ta">
-     </span>
-     <span data-colorid="axauc2977z">
-      [put] api/v2/:source/segment-targeting/:id
-     </span>
-     <span data-colorid="yap9vkf4p7">
-      更新受眾包 API
-     </span>
+     [put] api/v2/:source/segment-targeting/:id
+     更新受眾包 API
      （system jwt token, role rd_manger）
     </p>
    </li>
    <li>
     <p>
      時間範圍 在
-     <span data-colorid="lcxlghr4ie">
-      撈取受眾包
-     </span>
+     撈取受眾包
      的 start_date, end_date 裡，就不需要更新
     </p>
    </li>
@@ -2890,101 +2471,99 @@ end</pre>
   </u>
  </strong>
 </p>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="588bc38f-b43f-41d6-a904-ddfa5ea23c31">
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       受眾包編號
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       是否已綁uuid
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       受眾包打包區間
-      </strong>
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      V
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2/1 ~2/10
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      X
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      V
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      12/1 ~12/10
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      4
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      X
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      受眾包編號
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      是否已綁uuid
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      受眾包打包區間
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     V
+    </p>
+   </td>
+   <td>
+    <p>
+     2/1 ~2/10
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     X
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     V
+    </p>
+   </td>
+   <td>
+    <p>
+     12/1 ~12/10
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     X
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
  <strong>
   <u>
@@ -2992,108 +2571,101 @@ end</pre>
   </u>
  </strong>
 </p>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="1d7b9e9d-7f30-4af2-8290-9f96e88064ef">
-  <colgroup>
-   <col style="width: 112.0px;"/>
-   <col style="width: 112.0px;"/>
-   <col style="width: 111.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       plaid
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       pla 走期
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       已綁 受眾包
-      </strong>
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      100
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1/1 ~ 1/10
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1, 3
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      101
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1/10 ~ 1/20
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      102
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1/1 ~ 1/30
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      103
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1/1 ~ 1/5
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      4
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      plaid
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      pla 走期
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      已綁 受眾包
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     100
+    </p>
+   </td>
+   <td>
+    <p>
+     1/1 ~ 1/10
+    </p>
+   </td>
+   <td>
+    <p>
+     1, 3
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     101
+    </p>
+   </td>
+   <td>
+    <p>
+     1/10 ~ 1/20
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     102
+    </p>
+   </td>
+   <td>
+    <p>
+     1/1 ~ 1/30
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     103
+    </p>
+   </td>
+   <td>
+    <p>
+     1/1 ~ 1/5
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
  <strong>
   <u>
@@ -3101,290 +2673,251 @@ end</pre>
   </u>
  </strong>
 </p>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="0007fa78-763a-4b2a-887f-b322eab43320">
-  <colgroup>
-   <col style="width: 124.0px;"/>
-   <col style="width: 128.0px;"/>
-   <col style="width: 122.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       受眾包編號
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       是否已綁uuid
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       受眾包打包區間
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      V
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span data-colorid="ibw1mqoaph">
-       12/31
-      </span>
-      ~ 2/10
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span data-colorid="oos1bnfpb2">
-       V
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span data-colorid="n9bgxbvacr">
-       1/9 ~ 1/20
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      3
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      V
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      12/1 ~
-      <span data-colorid="wnf3s9dl16">
-       1/10
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      4
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span data-colorid="rq1rhomg89">
-       V
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span data-colorid="aqhoyn8lue">
-       12/31 ~ 1/30
-      </span>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      受眾包編號
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      是否已綁uuid
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      受眾包打包區間
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     V
+    </p>
+   </td>
+   <td>
+    <p>
+     12/31
+     ~ 2/10
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     V
+    </p>
+   </td>
+   <td>
+    <p>
+     1/9 ~ 1/20
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     V
+    </p>
+   </td>
+   <td>
+    <p>
+     12/1 ~
+     1/10
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     V
+    </p>
+   </td>
+   <td>
+    <p>
+     12/31 ~ 1/30
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
 <p>
  建立token (JWT Token)
 </p>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="be563f0d-c34a-42a2-8c7b-1cbd89931062" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">user = User.find_by_email(params[:email])
+<pre>user = User.find_by_email(params[:email])
 token = token_handle(user)</pre>
- </div>
-</div>
-<h3 id="API規格文件-受眾包所需列表/選項">
+<h3>
  受眾包 所需列表/選項
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="wide" data-local-id="d8ba0d44-e20b-4ac8-ad82-886c5a5ceb6b">
-  <colgroup>
-   <col style="width: 98.0px;"/>
-   <col style="width: 424.0px;"/>
-   <col style="width: 438.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      get
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <code>
-       api/v1/superdsp/companies/{id}/campaign_audiences/options
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/companies/{id}/website_audiences/options
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2753" data-macro-id="4036c928-1351-435b-8690-9fc873330f6c" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2753">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2753
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <code>
-       api/v1/superdsp/campaign_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       options
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/website_audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       options
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" rowspan="2">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂網站流量受眾
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂廣告互動受眾
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      null
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      null
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2821a47a-27e5-4d45-962f-2031383d2004" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/{id}/campaign_audiences/options
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/companies/{id}/website_audiences/options
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2753">
+      IP-2753
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/campaign_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      options
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/website_audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      options
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂網站流量受眾
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂廣告互動受眾
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     null
+    </p>
+   </td>
+   <td>
+    <p>
+     null
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
       tags: [
@@ -3401,13 +2934,9 @@ token = token_handle(user)</pre>
       ]
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f1714b98-a68e-40e4-9265-1927ac855f63" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
       campaign_lists: [
@@ -3430,199 +2959,174 @@ token = token_handle(user)</pre>
       ]
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        追蹤碼列表(包含事件追蹤碼)
-       </p>
-      </li>
-      <li>
-       <p>
-        量體選項(前端傳數字, 後端再mapping)
-       </p>
-      </li>
-     </ul>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        廣告活動列表:
-        <br/>
-        (只列出底下 placement 有執行過的廣告活動(campaign)(狀態：上刊 暫停 結束 停刊))
-       </p>
-      </li>
-      <li>
-       <p>
-        量體選項(前端傳數字, 後端再mapping)
-       </p>
-      </li>
-      <li>
-       <p>
-        行為事件選項
-       </p>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="43ac1e4d-8629-449e-b15e-6be8185e5aef" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">  EVENT_OPTIONS = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       追蹤碼列表(包含事件追蹤碼)
+      </p>
+     </li>
+     <li>
+      <p>
+       量體選項(前端傳數字, 後端再mapping)
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       廣告活動列表:
+       <br/>
+       (只列出底下 placement 有執行過的廣告活動(campaign)(狀態：上刊 暫停 結束 停刊))
+      </p>
+     </li>
+     <li>
+      <p>
+       量體選項(前端傳數字, 後端再mapping)
+      </p>
+     </li>
+     <li>
+      <p>
+       行為事件選項
+      </p>
+      <pre>  EVENT_OPTIONS = {
     'click_ad': ['bannerClick', 'videoClick'],
     '30s_or_complete': ['q100', 'view30s']
   }</pre>
-        </div>
-       </div>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-計算受眾包預估量體">
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  計算受眾包預估量體
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="wide" data-local-id="4b5ba7b1-64b9-40c5-be39-2b766a3c12ff">
-  <colgroup>
-   <col style="width: 93.0px;"/>
-   <col style="width: 436.0px;"/>
-   <col style="width: 431.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      post
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <del>
-       api/v1/superdsp/companies/{id}/audience_packs/calculate_qty
-      </del>
-      <br/>
-      <code>
-       api/v1/superdsp/companies/{id}/campaign_audiences/calculate_quantity
-      </code>
-      <br/>
-      <code>
-       api/v1/superdsp/companies/{id}/website_audiences/calculate_quantity
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      new API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2751" data-macro-id="c78360fe-32f9-49fd-8b98-5e6ee33fe484" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2751">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2751
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <code>
-       api/v1/superdsp/audience_packs_controller.rb
-      </code>
-      &gt;
-      <code>
-       calculate_quantity
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" rowspan="2">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂網站流量受眾
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      自訂廣告互動受眾
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fcc6500f-e939-46a4-92d8-713eac56a246" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     post
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/companies/{id}/audience_packs/calculate_qty
+     <br/>
+     <code>
+      api/v1/superdsp/companies/{id}/campaign_audiences/calculate_quantity
+     </code>
+     <br/>
+     <code>
+      api/v1/superdsp/companies/{id}/website_audiences/calculate_quantity
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2751">
+      IP-2751
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audience_packs_controller.rb
+     </code>
+     &gt;
+     <code>
+      calculate_quantity
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂網站流量受眾
+    </p>
+   </td>
+   <td>
+    <p>
+     自訂廣告互動受眾
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <pre>{
   "name": "網站流量受眾包",
   "tag_uid": 1,
   "tag_events": [404524404, 291212955],
@@ -3630,70 +3134,58 @@ token = token_handle(user)</pre>
   "measurement_option": 2,
   "expansion_range": 2
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="73d009a9-a5a3-4c56-82a7-865caa31981d" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+   <td>
+    <pre>{
   "name": "廣告互動受眾包",
   "one_campaign_ids": [17957],
   "events": ["click_ad", "30s_or_complete"],
   "measurement_option": 3,
   "expansion_range": 2
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a3acdb70-25f2-433d-9316-2a1ab300da11" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: 12345,
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd" rowspan="2">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd" colspan="2">
-     <ul>
-      <li>
-       <p>
-        使用者選完所有選項會需要取得 預估qty。(需給user token)
-        <br/>
-        user = User.find_by_email(params[:email])
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       使用者選完所有選項會需要取得 預估qty。(需給user token)
+       <br/>
+       user = User.find_by_email(params[:email])
 token = token_handle(user)
-       </p>
-      </li>
-      <li>
-       <p>
-        建立受眾包時，如果 redis 拿不到 qty，需要再打一次取得，不能夠拿前端的值。
-       </p>
-      </li>
-     </ul>
-     <p>
-     </p>
-     <p>
-      受眾模組 [get] api/v2/:source/segment-targeting/estimate
-     </p>
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="dec691ba-296b-45bb-864c-a862b7f5c016" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+      </p>
+     </li>
+     <li>
+      <p>
+       建立受眾包時，如果 redis 拿不到 qty，需要再打一次取得，不能夠拿前端的值。
+      </p>
+     </li>
+    </ul>
+    <p>
+    </p>
+    <p>
+     受眾模組 [get] api/v2/:source/segment-targeting/estimate
+    </p>
+    <pre>{
   client_id = interger //adv_id
   data_source = string //網站流量固定trait, 廣告活動固定cmpid
   data_value = interger[] //追蹤碼的uids, 廣告活動oc_ids
@@ -3703,15 +3195,11 @@ token = token_handle(user)
   op2 = string //量體選項 qty_limited, LK_noSeed_mul, LK_Seed_mul
   op2_val = interger //0, 擴展倍率, 擴展倍率
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e8bbf628-ea30-420d-99fd-a0df160c8156" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">request
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <pre>request
 {
   client_id: 1,
   data_source: "trait",
@@ -3722,13 +3210,9 @@ token = token_handle(user)
   op2: "qty_limited",
   op2_val: 0,
 }</pre>
-      </div>
-     </div>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="cfada2d0-3e98-48e7-81c8-f890e75d418a" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">request
+   </td>
+   <td>
+    <pre>request
 {
   client_id: 1, 
   data_source: "cmpid",
@@ -3738,131 +3222,113 @@ token = token_handle(user)
   op2: "LK_noSeed_mul",
   op2_val: 2,
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h2 id="API規格文件-受眾組合">
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  受眾組合
 </h2>
-<h3 id="API規格文件-量體預估">
+<h3>
  量體預估
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="dcb7ac68-8ef9-4c72-9f3b-eeeccf917ea9">
-  <colgroup>
-   <col style="width: 134.0px;"/>
-   <col style="width: 626.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      post
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences/calculate
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      old API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2755" data-macro-id="d1a3ed46-07be-47ad-afaa-3cdbadef8b9b" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2755">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2755
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       calculate
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b677b405-434e-4919-b091-9311e0879710" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     post
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences/calculate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2755">
+      IP-2755
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      calculate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   audience: {
     demographic_ids: [1, 2],
     interest_ids: [3, 4],
@@ -3886,217 +3352,193 @@ token = token_handle(user)
     ]
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b8825e66-9271-433d-8907-7e3d49855b0c" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: {
     min: 0,
     max: 12345
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        <span data-colorid="ex3nwoq5m9">
-         如果受眾包更新時間非今日，要取得最新的預估數
-        </span>
-       </p>
-      </li>
-      <li>
-       <p>
-        建立受眾組合時，如果 redis 拿不到 qty，需要再打一次取得，不能夠拿前端的值。
-       </p>
-      </li>
-      <li>
-       <p>
-        可分別單選 年齡性別 必選, 興趣, 特定議題, 受眾包, 並非必選。
-       </p>
-       <ul>
-        <li>
-         <p>
-          如果只選年齡性別，等於選擇了所有興趣
-         </p>
-        </li>
-        <li>
-         <p>
-          多選受眾包 uu數相加後計算
-         </p>
-        </li>
-       </ul>
-      </li>
-      <li>
-       <p>
-        <a class="external-link" data-card-appearance="inline" href="https://docs.google.com/document/d/1BAZXwXM3c9FCeqk2kHIF5qsXaOBr3WEGEk0A7hrTd58/edit" rel="nofollow">
-         https://docs.google.com/document/d/1BAZXwXM3c9FCeqk2kHIF5qsXaOBr3WEGEk0A7hrTd58/edit
-        </a>
-       </p>
-      </li>
-      <li>
-       <p>
-        受眾包之間為聯集, 年齡性別為聯集, 興趣特定議題為聯集，其餘關聯為交集
-       </p>
-      </li>
-      <li>
-       <p>
-        0.85 為BDCD提供的比例(因非所有人都有興趣, 特定議題)
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-受眾組合列表">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       如果受眾包更新時間非今日，要取得最新的預估數
+      </p>
+     </li>
+     <li>
+      <p>
+       建立受眾組合時，如果 redis 拿不到 qty，需要再打一次取得，不能夠拿前端的值。
+      </p>
+     </li>
+     <li>
+      <p>
+       可分別單選 年齡性別 必選, 興趣, 特定議題, 受眾包, 並非必選。
+      </p>
+      <ul>
+       <li>
+        <p>
+         如果只選年齡性別，等於選擇了所有興趣
+        </p>
+       </li>
+       <li>
+        <p>
+         多選受眾包 uu數相加後計算
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <a href="https://docs.google.com/document/d/1BAZXwXM3c9FCeqk2kHIF5qsXaOBr3WEGEk0A7hrTd58/edit">
+        https://docs.google.com/document/d/1BAZXwXM3c9FCeqk2kHIF5qsXaOBr3WEGEk0A7hrTd58/edit
+       </a>
+      </p>
+     </li>
+     <li>
+      <p>
+       受眾包之間為聯集, 年齡性別為聯集, 興趣特定議題為聯集，其餘關聯為交集
+      </p>
+     </li>
+     <li>
+      <p>
+       0.85 為BDCD提供的比例(因非所有人都有興趣, 特定議題)
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  受眾組合列表
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="3deb88b9-5bfa-471b-b257-773f86c1cea4">
-  <colgroup>
-   <col style="width: 134.0px;"/>
-   <col style="width: 626.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      get
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/companies/{id}/audiences
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      old API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2842" data-macro-id="c19da62d-64d9-4ea5-838c-6449e093e0ac" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2842">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2842
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       index
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      null
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="d85c044b-c745-4387-a1aa-185f1d9e2771" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/{id}/audiences
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2842">
+      IP-2842
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      index
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     null
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   "status": "success",
   "data": [
     {
@@ -4115,176 +3557,158 @@ token = token_handle(user)
     }
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        num_linked_ad_groups 要修改為campaign，列出狀態為上刊oncue, 暫停pending 的 campaign(需判斷日期)
-       </p>
-      </li>
-      <li>
-       <p>
-        audience_size 要修改為 audience_range
-       </p>
-      </li>
-      <li>
-       <p>
-        新增參數 created_at
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-受眾組合-使用中">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       num_linked_ad_groups 要修改為campaign，列出狀態為上刊oncue, 暫停pending 的 campaign(需判斷日期)
+      </p>
+     </li>
+     <li>
+      <p>
+       audience_size 要修改為 audience_range
+      </p>
+     </li>
+     <li>
+      <p>
+       新增參數 created_at
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  受眾組合 - 使用中
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="68f5d0dd-7a08-4a6a-8249-6c7e475437d6">
-  <colgroup>
-   <col style="width: 134.0px;"/>
-   <col style="width: 626.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      get
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences/{id}/linked_ad_groups
-      </code>
-      <br/>
-      改為
-      <code>
-       api/v1/superdsp/audiences/{id}/linked_campaigns
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      old API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2842" data-macro-id="fe64c617-9614-4a21-a881-dceda58b5837" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2842">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2842
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences_controller.rb
-      </code>
-      &gt;
-      <br/>
-      <code>
-       linked_ad_groups
-      </code>
-      /
-      <code>
-       linked_campaigns
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      null
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="292864e3-79d3-4539-80cb-36546553813b" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences/{id}/linked_ad_groups
+     </code>
+     <br/>
+     改為
+     <code>
+      api/v1/superdsp/audiences/{id}/linked_campaigns
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2842">
+      IP-2842
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences_controller.rb
+     </code>
+     &gt;
+     <br/>
+     <code>
+      linked_ad_groups
+     </code>
+     /
+     <code>
+      linked_campaigns
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     null
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: [
     {
@@ -4297,149 +3721,131 @@ token = token_handle(user)
     }
   ]
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        API route 修改
-       </p>
-      </li>
-      <li>
-       <p>
-        列出狀態為上刊oncue, 暫停pending 的 campaign
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-新增受眾組合">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       API route 修改
+      </p>
+     </li>
+     <li>
+      <p>
+       列出狀態為上刊oncue, 暫停pending 的 campaign
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  新增受眾組合
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="2c16d0d7-4207-4848-a75e-e501752e7c31">
-  <colgroup>
-   <col style="width: 134.0px;"/>
-   <col style="width: 626.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      post
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/companies/{id}/audiences
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      old API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2756" data-macro-id="944c1b03-629b-4c07-9d01-2d6674cbc28d" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2756">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2756
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       create
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="cb50c673-d1cf-42ff-a755-fdc001daca7d" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     post
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/{id}/audiences
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2756">
+      IP-2756
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      create
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   audience: {
     name: "受眾組合A",
     demographic_ids: [1, 2]
@@ -4455,20 +3861,16 @@ token = token_handle(user)
     ]
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="797a93c3-f68f-479d-9267-9766e093af35" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: {
     id: 1,
@@ -4487,172 +3889,154 @@ token = token_handle(user)
     ]
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        受眾包要取得最新的預估數
-       </p>
-      </li>
-      <li>
-       <p>
-        可分別單選 年齡性別, 興趣, 特定議題, 受眾包, 並非所有選項都必須選擇。
-       </p>
-       <ul>
-        <li>
-         <p>
-          如果只選年齡性別，等於選擇了所有興趣
-         </p>
-        </li>
-        <li>
-         <p>
-          如果只選某個興趣 / 特定議題，等於選擇了所有年齡性別
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-編輯受眾組合">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       受眾包要取得最新的預估數
+      </p>
+     </li>
+     <li>
+      <p>
+       可分別單選 年齡性別, 興趣, 特定議題, 受眾包, 並非所有選項都必須選擇。
+      </p>
+      <ul>
+       <li>
+        <p>
+         如果只選年齡性別，等於選擇了所有興趣
+        </p>
+       </li>
+       <li>
+        <p>
+         如果只選某個興趣 / 特定議題，等於選擇了所有年齡性別
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  編輯受眾組合
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="065519c7-9580-4c22-91bf-c7e603e180de">
-  <colgroup>
-   <col style="width: 134.0px;"/>
-   <col style="width: 626.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      get
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences/{id}
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      old API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2756" data-macro-id="805863fe-6ecc-428c-a356-7efb4f80e9d1" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2756">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2756
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       show
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e48b124d-34ea-41ee-9067-7ad8d1a3d833" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2756">
+      IP-2756
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      show
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: {
     id: 1,
@@ -4671,139 +4055,121 @@ token = token_handle(user)
     ]
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-更新受眾組合">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  更新受眾組合
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="ec13c749-02a7-4f93-b240-693da4d6c7b9">
-  <colgroup>
-   <col style="width: 134.0px;"/>
-   <col style="width: 626.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      put
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences/{id}
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      old API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2756" data-macro-id="34086e60-4d9d-4263-8bce-674f19587f98" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2756">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2756
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/audiences_controller.rb
-      </code>
-      &gt;
-      <code>
-       update
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e52dbe67-e709-4717-a70e-6c84dd5b3e50" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     put
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2756">
+      IP-2756
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/audiences_controller.rb
+     </code>
+     &gt;
+     <code>
+      update
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   audience: {
     name: "受眾組合A",
     demographic_ids: [1, 2]
@@ -4819,20 +4185,16 @@ token = token_handle(user)
     ]
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4d79fb6a-42a0-42c1-b38f-de387660ef56" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: "success",
   data: {
     id: 1,
@@ -4851,295 +4213,268 @@ token = token_handle(user)
     ]
   }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        audience_range 預設取前端值，如果取不到則從 redis 拿不到 qty，如果還是取不到則再打一次取得預估 API 取得。
-       </p>
-      </li>
-      <li>
-       <p>
-        受眾包要取得最新的預估數
-       </p>
-      </li>
-      <li>
-       <p>
-        可分別單選 年齡性別, 興趣, 特定議題, 受眾包, 並非所有選項都必須選擇。
-       </p>
-       <ul>
-        <li>
-         <p>
-          如果只選年齡性別，等於選擇了所有興趣
-         </p>
-        </li>
-        <li>
-         <p>
-          如果只選某個興趣 / 特定議題，等於選擇了所有年齡性別
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="API規格文件-網頁瀏覽受眾列表">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       audience_range 預設取前端值，如果取不到則從 redis 拿不到 qty，如果還是取不到則再打一次取得預估 API 取得。
+      </p>
+     </li>
+     <li>
+      <p>
+       受眾包要取得最新的預估數
+      </p>
+     </li>
+     <li>
+      <p>
+       可分別單選 年齡性別, 興趣, 特定議題, 受眾包, 並非所有選項都必須選擇。
+      </p>
+      <ul>
+       <li>
+        <p>
+         如果只選年齡性別，等於選擇了所有興趣
+        </p>
+       </li>
+       <li>
+        <p>
+         如果只選某個興趣 / 特定議題，等於選擇了所有年齡性別
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  網頁瀏覽受眾列表
 </h3>
 <p>
  同 受眾包列表
- <a data-card-appearance="inline" href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%8F%97%E7%9C%BE%E5%8C%85%E5%88%97%E8%A1%A8" rel="nofollow">
+ <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%8F%97%E7%9C%BE%E5%8C%85%E5%88%97%E8%A1%A8">
   https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%8F%97%E7%9C%BE%E5%8C%85%E5%88%97%E8%A1%A8
  </a>
 </p>
-<h3 id="API規格文件-廣告互動受眾列表">
+<h3>
  廣告互動受眾列表
 </h3>
 <p>
  同 受眾包列表
- <a data-card-appearance="inline" href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%8F%97%E7%9C%BE%E5%8C%85%E5%88%97%E8%A1%A8" rel="nofollow">
+ <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%8F%97%E7%9C%BE%E5%8C%85%E5%88%97%E8%A1%A8">
   https://guoshi.atlassian.net/wiki/spaces/ITO/pages/3451322469/API#%E5%8F%97%E7%9C%BE%E5%8C%85%E5%88%97%E8%A1%A8
  </a>
 </p>
-<h2 id="API規格文件-PlacementoncuecheckUseCase">
+<h2>
  Placement oncue check UseCase
 </h2>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="4b1a8e60-79a0-4a3b-81e8-787b92650591">
-  <colgroup>
-   <col style="width: 134.0px;"/>
-   <col style="width: 626.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      methods
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      post
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      path
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/ad_groups/{:ad_group_id}/to_status
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      status
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      old API
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      開發狀態
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3451322469_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="IP-2786" data-macro-id="4a7f9ca8-885b-4b6a-9537-e14efaef8f12" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/IP-2786">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        IP-2786
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      controller
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <code>
-       api/v1/superdsp/ad_groups_controller.rb
-      </code>
-      &gt;
-      <code>
-       to_status
-      </code>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      who
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b504fe01d006baa6c0f" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329673" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence" target="_blank">
-       JimmyTsai
-      </a>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      request
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="d29ead9e-80a3-4b4b-a677-43d2106bb31f" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     post
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/ad_groups/{:ad_group_id}/to_status
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     old API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2786">
+      IP-2786
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/ad_groups_controller.rb
+     </code>
+     &gt;
+     <code>
+      to_status
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
     "ad_group": {
         "superdsp_status": "oncue",
         "client_id": 123,
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      response
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9f3f3ec9-c259-41d8-93ef-68745c108265" data-macro-name="code" style="border-width: 1px;">
-      <div class="codeContent panelContent pdl">
-       <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": {
         "id": 70976,
         "superdsp_status": "reviewing", (reviewing or oncue)
     }
 }</pre>
-      </div>
-     </div>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      備註
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      判斷該 ad_group 是否可以 oncue 流程：
-     </p>
-     <ol start="1">
-      <li>
-       <p>
-        檢查 params 進來的狀態是不是 valid 的狀態
-       </p>
-      </li>
-      <li>
-       <p>
-        檢查 ad_group 起訖日不可為空
-       </p>
-      </li>
-      <li>
-       <p>
-        檢查 ad_group.end_date 不能在今天以前
-       </p>
-      </li>
-      <li>
-       <p>
-        檢查 ad_group 該填的資料都有
-        <code>
-         ( def checking_before_oncue )
-        </code>
-       </p>
-      </li>
-      <li>
-       <p>
-        進入到 Usecase (可參考時序圖)
-       </p>
-       <ol start="1">
-        <li>
-         <p>
-          判斷 素材是否審核完成
-         </p>
-         <ol start="1">
-          <li>
-           <p>
-            判斷 ad_group 身上的受眾包是否有 uuid
-           </p>
-          </li>
-          <li>
-           <p>
-            判斷 受眾 uuid 是否匹配 撈取受眾包 API
-           </p>
-          </li>
-          <li>
-           <p>
-            判斷 該 uuid 是否”已打包”
-           </p>
-          </li>
-          <li>
-           <p>
-            判斷 最終打包日是否為今天或昨天
-           </p>
-          </li>
-         </ol>
-        </li>
-       </ol>
-      </li>
-     </ol>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h2 id="API規格文件-受眾打包request對照">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     判斷該 ad_group 是否可以 oncue 流程：
+    </p>
+    <ol>
+     <li>
+      <p>
+       檢查 params 進來的狀態是不是 valid 的狀態
+      </p>
+     </li>
+     <li>
+      <p>
+       檢查 ad_group 起訖日不可為空
+      </p>
+     </li>
+     <li>
+      <p>
+       檢查 ad_group.end_date 不能在今天以前
+      </p>
+     </li>
+     <li>
+      <p>
+       檢查 ad_group 該填的資料都有
+       <code>
+        ( def checking_before_oncue )
+       </code>
+      </p>
+     </li>
+     <li>
+      <p>
+       進入到 Usecase (可參考時序圖)
+      </p>
+      <ol>
+       <li>
+        <p>
+         判斷 素材是否審核完成
+        </p>
+        <ol>
+         <li>
+          <p>
+           判斷 ad_group 身上的受眾包是否有 uuid
+          </p>
+         </li>
+         <li>
+          <p>
+           判斷 受眾 uuid 是否匹配 撈取受眾包 API
+          </p>
+         </li>
+         <li>
+          <p>
+           判斷 該 uuid 是否”已打包”
+          </p>
+         </li>
+         <li>
+          <p>
+           判斷 最終打包日是否為今天或昨天
+          </p>
+         </li>
+        </ol>
+       </li>
+      </ol>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  受眾打包 request 對照
 </h2>
-<h3 id="API規格文件-預估量體數">
+<h3>
  預估量體數
 </h3>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="39de0a21-3604-4f00-8c59-387ea4c5b93b" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<pre>{
   client_id = interger //adv_id
   data_source = string //網站流量固定trait, 廣告活動固定cmpid
   data_value = interger[] //追蹤碼的uids, 廣告活動oc_ids
@@ -5149,14 +4484,10 @@ token = token_handle(user)
   op2 = string //量體選項 qty_limited, LK_noSeed_mul, LK_Seed_mul
   op2_val = interger //0, 擴展倍率, 擴展倍率
 }</pre>
- </div>
-</div>
-<h3 id="API規格文件-新增受眾包">
+<h3>
  新增受眾包
 </h3>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9f3ab09b-cf41-4ba4-883f-0728d800ea28" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">request
+<pre>request
 {
   description = string // 受眾包名稱
   segment_category_id = interger //固定帶12 (官網部署再行銷)
@@ -5185,8 +4516,6 @@ response
     status: enum string ['未打包', '已打包']
   }
 }</pre>
- </div>
-</div>
 <ul>
  <li>
   <p>
@@ -5209,12 +4538,10 @@ response
   </p>
  </li>
 </ul>
-<h3 id="API規格文件-更新受眾包">
+<h3>
  更新受眾包
 </h3>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="97cfd80e-9416-4547-9fea-e780ac815f11" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">request
+<pre>request
 {
 start_date = date string format "YYYY-MM-DD" //placement
   end_date = date string format "YYYY-MM-DD" //placement
@@ -5231,5 +4558,3 @@ response
     status: enum string ['未打包', '已打包']
   }
 }</pre>
- </div>
-</div>

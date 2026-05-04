@@ -1,97 +1,76 @@
-<h2 id="id-[開發規格文件]CommerceADPhase3-OSS">
- <span class="inline-comment-marker" data-ref="764793a2-b512-408f-9603-93811f6b7ead">
-  OSS
- </span>
+<h2>
+ OSS
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="f8154bb4-de22-439a-a2c9-c0bebed55c59" data-macro-name="expand" id="expander-784629256">
- <div class="expand-control" id="expander-control-784629256">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 取得 RTB 最新合約 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-784629256">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="9b3f6b4f-5132-4d0d-abf4-2ff9e2f78936" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="7b26cdfa-e157-4732-b2b9-3ed60f68ff72" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">medias/{id}/media/media_rtb_contract_terms/last</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        media/media_rtb_contract_terms_controller.rb last
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e3020840-bb86-4f33-88de-b9b0983de4ca" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type PriceInfo = {
+GET 取得 RTB 最新合約 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>medias/{id}/media/media_rtb_contract_terms/last</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     media/media_rtb_contract_terms_controller.rb last
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type PriceInfo = {
   onead_price: number; // =media_price
   media_price: number;
   gsp_buy_tech_license_fee: number;
@@ -146,16 +125,12 @@ type Resp = {
   success: boolean;
   data: Data;
 }</pre>
-        </div>
-       </div>
-       <p>
-       </p>
-       <p>
-        example:
-       </p>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="963831fe-8eb4-49d4-aec4-fa154f0d11c4" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <p>
+    </p>
+    <p>
+     example:
+    </p>
+    <pre>{
     "success": true,
     "data": {
         "publisher_speed": false,
@@ -210,115 +185,91 @@ type Resp = {
         }
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="24d1f6c2-a565-4a3c-8bd8-76f601fafb91" data-macro-name="expand" id="expander-892124334">
- <div class="expand-control" id="expander-control-892124334">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET RTB 合約列表 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-892124334">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="260a1b09-8c80-46ce-81d0-4b268963bfcb" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="d13b7202-e8b9-4cac-a642-6eed81565aa1" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">medias/{id}/media/media_rtb_contract_terms</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        media/media_rtb_contract_terms_controller.rb index
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="978d152b-6352-492f-850f-026756559f02" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Data = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET RTB 合約列表 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>medias/{id}/media/media_rtb_contract_terms</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     media/media_rtb_contract_terms_controller.rb index
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Data = {
   id: number;
   uid: number;
   media_id: number;
@@ -354,16 +305,12 @@ type Resp = {
   success: boolean;
   data: Data[];
 }</pre>
-        </div>
-       </div>
-       <p>
-       </p>
-       <p>
-        example:
-       </p>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a7393c1f-f4f7-4607-a572-725d11fe9723" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <p>
+    </p>
+    <p>
+     example:
+    </p>
+    <pre>{
     "success": true,
     "data": [
         {
@@ -399,115 +346,91 @@ type Resp = {
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="4583b1d6-de53-454e-a8ab-9ee41449fd86" data-macro-name="expand" id="expander-114775320">
- <div class="expand-control" id="expander-control-114775320">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 取得 RTB 合約 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-114775320">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="308ae94b-0eb2-47f3-a4ea-e2c9a00ff802" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fca55e31-e079-4a2e-bdb7-ea203ab30464" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">medias/{id}/media/media_rtb_contract_terms/{id}</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        media/media_rtb_contract_terms_controller.rb show
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="10ffe781-34d0-4408-84c6-dfdbbee34aad" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type PriceInfo = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET 取得 RTB 合約 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>medias/{id}/media/media_rtb_contract_terms/{id}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     media/media_rtb_contract_terms_controller.rb show
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type PriceInfo = {
   onead_price: number; // =media_price
   media_price: number;
   gsp_buy_tech_license_fee: number;
@@ -562,14 +485,10 @@ type Resp = {
   success: boolean;
   data: Data;
 }</pre>
-        </div>
-       </div>
-       <p>
-        example:
-       </p>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="0dc44169-4c08-425d-a04b-d53002e26552" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <p>
+     example:
+    </p>
+    <pre>{
     "success": true,
     "data": {
         "publisher_speed": false,
@@ -624,92 +543,68 @@ type Resp = {
         }
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="f9b91c4a-c5cb-4e2b-95cc-b22ec87e5564" data-macro-name="expand" id="expander-2094350048">
- <div class="expand-control" id="expander-control-2094350048">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   POST 新增 RTB 合約 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2094350048">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="81d08242-57c9-4cfc-8b76-95f981033505" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="6efad4da-7dfa-4400-bda4-74dcf40d9996" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">medias/{id}/create_rtb_contract_info</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fd4e8d71-99a8-4384-be1f-ab209e7405b7" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type PriceInfo = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+POST 新增 RTB 合約 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>medias/{id}/create_rtb_contract_info</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>type PriceInfo = {
   media_price: number;
   onead_commission_rate: number;
   pricing_model_id: number;
@@ -730,14 +625,10 @@ type Contract = {
 type Req = {
   contract_info: Contract;
 }</pre>
-        </div>
-       </div>
-       <p>
-        example:
-       </p>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="58b46af9-f674-4dfe-a1b3-24b2c75cc8e4" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <p>
+     example:
+    </p>
+    <pre>{
     "contract_info": {
         "uid": 1000019,
         "media_id": 15,
@@ -757,150 +648,118 @@ type Req = {
 
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1b523192-b344-4cca-a80d-b89c07b50e32" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Response = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Response = {
   success: boolean;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="a757da1f-4d88-470e-8bf4-87b921f7f380" data-macro-name="expand" id="expander-771788603">
- <div class="expand-control" id="expander-control-771788603">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 取得 RTB 合約 底價紀錄 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-771788603">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="431df38c-bb7d-4078-a9e2-9d6f5c90bdfe" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c841533d-2c8b-4a3e-b5a1-4376bcb50fa8" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">medias/{id}/media/media_rtb_contract_terms/{id}/price_info_versions</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c40d107a-b146-4636-99d9-0457d9475f1b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Req = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET 取得 RTB 合約 底價紀錄 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>medias/{id}/media/media_rtb_contract_terms/{id}/price_info_versions</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>type Req = {
   ad_format_type_id: number;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        media/media_rtb_contract_terms_controller.rb
-        <code>
-         price_info_versions
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ccc1042d-4aaf-4d7c-b921-e2395ed113e5" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Data = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     media/media_rtb_contract_terms_controller.rb
+     <code>
+      price_info_versions
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Data = {
   id: number;
   user: string;
   before_price: number | null;
@@ -913,14 +772,10 @@ type Rsep = {
   success: boolean;
   data: Data[];
 }</pre>
-        </div>
-       </div>
-       <p>
-        example:
-       </p>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b47e35db-2659-4777-b689-6d230d156194" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <p>
+     example:
+    </p>
+    <pre>{
     "success": true,
     "data": [
         {
@@ -933,230 +788,178 @@ type Rsep = {
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="4f3582cf-e01c-4664-8fa6-d0468ccd74ab" data-macro-name="expand" id="expander-1536656589">
- <div class="expand-control" id="expander-control-1536656589">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 合約立即生效 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1536656589">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="7f89e5cd-11d5-4ece-9dfe-224b8634b1e2" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        GET
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="0a55e982-8c81-4dbb-b9c2-26f0d89c544d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">medias/{id}/media/media_rtb_contract_terms/{id}/activate</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b86cbba0-628d-4f89-a914-108f9f5d3e12" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Resp = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET 合約立即生效 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>medias/{id}/media/media_rtb_contract_terms/{id}/activate</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Resp = {
   success: boolean;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h2 id="id-[開發規格文件]CommerceADPhase3-OYM">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  OYM
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="251894e6-12ab-4e0a-9d7a-5e239f277b38" data-macro-name="expand" id="expander-406024446">
- <div class="expand-control" id="expander-control-406024446">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 取得所有格式最新底價 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-406024446">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="445d73f1-77fa-4530-822d-75bccc748faa" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="840d5f18-5ff9-4d51-9301-f469f52210ae" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v2/oym/contracts/get_newest_ad_format_type_price_info</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1dfd747a-6403-467b-a956-36b1df8b6003" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Req = {
+GET 取得所有格式最新底價 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v2/oym/contracts/get_newest_ad_format_type_price_info</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>type Req = {
   media_id: number;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ee75decb-2223-478e-b5a0-03fb864c3112" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Data = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Data = {
   ad_format_type_id: number;
   ad_format_type_name: string;
   price: string;
@@ -1168,129 +971,97 @@ type Resp = {
   success: boolean;
   data: Data[]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="80d97d02-b195-4f27-ba5c-cdb14a54dcba" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: ruby; gutter: false; theme: Confluence" data-theme="Confluence">status: {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <pre>status: {
     "待生效": 0,
     "生效": 1,
     "失效": 2,
   }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="86d21bd1-9b49-4a1c-9669-9be42dc65f3b" data-macro-name="expand" id="expander-207717509">
- <div class="expand-control" id="expander-control-207717509">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 取得所有格式底價紀錄 API &amp; GET 單一格式底價紀錄 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-207717509">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="54a5e47b-4335-476c-8695-200cfa467fd2" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a9bf561d-26be-41f4-bcf2-315d1f472023" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v2/oym/contracts/get_ad_format_type_price_versions</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4da56840-c1fd-49d4-a095-5efa585881e2" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Req = {
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET 取得所有格式底價紀錄 API &amp; GET 單一格式底價紀錄 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v2/oym/contracts/get_ad_format_type_price_versions</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>type Req = {
   media_id: number;
   ad_format_type_id: number; // 或是整個不傳，代表撈取所有格式
   from: number;
   to: number;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="17caa36a-ab86-468c-add1-46c99f500ca6" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Data = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Data = {
   created_at: string; // YYYY-MM-DD HH:mm:ss
   user: string;
   ad_format_type_name: string;
@@ -1305,240 +1076,184 @@ type Resp = {
   data: Data[];
   total_counts: number;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        from 為 1，to 為 5
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="12f59856-caa5-4e07-a442-c6ca38c1f747" data-macro-name="expand" id="expander-1439857321">
- <div class="expand-control" id="expander-control-1439857321">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   POST 更新 RTB 底價 API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1439857321">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="833f89fb-94a6-4bae-965d-0a1b2e31a877" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="09f6da1f-69fd-497e-9795-e7ce68f523fc" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v2/oym/contracts/update_ad_format_type_price</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3258eb3e-aa3f-44b4-8e78-37a919d79d95" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Req = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     from 為 1，to 為 5
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+POST 更新 RTB 底價 API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v2/oym/contracts/update_ad_format_type_price</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>type Req = {
   old_price: number;
   new_price: number;
   ad_format_type_id: number;
   media_id: number;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8f01d5b6-0ba7-403a-ac11-ee429faeb08b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Resp = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Resp = {
   success: boolean;
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="6bd783ca-740b-4189-819e-f8d92f44d440" data-macro-name="expand" id="expander-2126653628">
- <div class="expand-control" id="expander-control-2126653628">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET 帳務版位下拉選單 ad_format  API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2126653628">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="abddcb1d-c679-4878-9d40-d8770c47dd5a" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b2db0f3b-f363-4725-9f63-f95509a15881" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v2/oym/options/ad_formats</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1ad28056-8d19-4ca2-ae15-6bffb8ad144d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Req = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET 帳務版位下拉選單 ad_format  API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v2/oym/options/ad_formats</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>type Req = {
   medium_id: number[],
   start_date: string;   // YYYY-MM-DD
   end_date: string;   // YYYY-MM-DD
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bc94df02-39bf-4dd8-abba-fe19e3383c6e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Data = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Data = {
   id: number;
   name: string;
 }
@@ -1547,92 +1262,68 @@ type Resp = {
   success: boolean;
   data: Data[];
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="228d86a1-1ba1-4d5c-a1eb-b37a35334757" data-macro-name="expand" id="expander-1253745942">
- <div class="expand-control" id="expander-control-1253745942">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   GET Revenue Summary API
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1253745942">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="f6a9b421-62dc-4a10-9927-e53fc4960979" data-table-width="988">
-    <colgroup>
-     <col style="width: 185.0px;"/>
-     <col style="width: 796.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="dab97776-d419-489d-ab57-65038efb95c0" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">api/v2/oym/media_revenue/daily_group_revenue</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new api
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="acdec3e3-aa97-4d29-9652-badda6eab35e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+GET Revenue Summary API
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <pre>api/v2/oym/media_revenue/daily_group_revenue</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new api
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
     medium_id: number[];
     campaign_types: number[];
     start_date: string;   // YYYY-MM-DD
@@ -1644,32 +1335,28 @@ type Resp = {
     // status: string, ---&gt; 刪除
     // media_group_id: number, ---&gt; 刪除
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        placements.controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="d58b9269-5d24-48a7-8723-b4bf53a3eddf" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type BaseColumns = {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     placements.controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type BaseColumns = {
   total_amount: number;
   conversion_rate: string;
   table_key: number;
@@ -1706,20 +1393,16 @@ type Resp = {
     update_time: string; // YYYY-MM-DD HH:mm:ss
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f4da8447-38c0-4f8a-8400-321295010701" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{ // 帶日期
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <pre>{ // 帶日期
   success: true,
   message: "Successful at getting media programmatic placement revenue",
   data: {
@@ -1807,19 +1490,15 @@ type Resp = {
   is_dynamic_column: false,
   resp_obj: true
 };</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e9ccd38f-b4bc-42e3-a905-1966df33b48d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{ // 預設
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{ // 預設
   success: true,
   message: "Successful at getting media programmatic placement revenue",
   data: {
@@ -1884,14 +1563,9 @@ type Resp = {
   is_dynamic_column: false,
   resp_obj: true
 };</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>

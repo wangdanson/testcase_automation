@@ -1,7 +1,7 @@
-<h2 id="id-廣告受眾鎖定功能開發規格文件-受眾管理">
+<h2>
  受眾管理
 </h2>
-<h3 id="id-廣告受眾鎖定功能開發規格文件-年齡興趣受眾包">
+<h3>
  年齡興趣受眾包
 </h3>
 <ul>
@@ -30,75 +30,60 @@
   </p>
  </li>
 </ul>
-<h3 id="id-廣告受眾鎖定功能開發規格文件-廣告活動受眾包">
+<h3>
  廣告活動受眾包
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="30c34234-31cc-45e7-9f83-4b9601fbfcb2" data-macro-name="expand" id="expander-809312328">
- <div class="expand-control" id="expander-control-809312328">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   建立廣告活動受眾包
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-809312328">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="f7d0ace0-4db7-4cec-b0e6-285934b5f172" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/companies/{id}/campaign_audiences
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b36da0a5-b6dd-4ebf-98d7-3b31829752cb" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+建立廣告活動受眾包
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/{id}/campaign_audiences
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
     "name": "廣告互動受眾包",
     "exclude_segment_ids": [1, 2], //移除參數
     "audience_range": {
@@ -112,151 +97,127 @@
       "expansion_range": 2
     }
   }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaing_audiences_controller.rb &gt; create
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="false" data-macro-id="0a893f43-de5d-4217-be5b-581e0cf9b4d2" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"> </pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request &amp; response 移除參數：
-        <code>
-         exclude_segment_ids
-        </code>
-       </p>
-       <p>
-        後端要調整 swagger
-        <code>
-         public/apidocs/superdsp.yaml
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="53c48484-0626-4a1e-946e-a07bcbed2f9c" data-macro-name="expand" id="expander-888509610">
- <div class="expand-control" id="expander-control-888509610">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   取得單一廣告活動受眾包
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-888509610">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="4e911b6e-f607-4945-849d-002cf6a9d1a9" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/campaign_audiences/{id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaign_audiences_controller.rb &gt; show
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bfad0442-fbe2-4959-b6eb-d676bbcddc7f" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaing_audiences_controller.rb &gt; create
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre> </pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     request &amp; response 移除參數：
+     <code>
+      exclude_segment_ids
+     </code>
+    </p>
+    <p>
+     後端要調整 swagger
+     <code>
+      public/apidocs/superdsp.yaml
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+取得單一廣告活動受眾包
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/campaign_audiences/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaign_audiences_controller.rb &gt; show
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
       "id": 86,
@@ -273,236 +234,192 @@
       },
     }
   }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        移除參數：
-        <code>
-         exclude_segment_ids
-        </code>
-       </p>
-       <p>
-        後端要調整 swagger
-        <code>
-         public/apidocs/superdsp.yaml
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="468ff4e7-13f2-44a9-a835-9d71eebb3167" data-macro-name="expand" id="expander-1178176743">
- <div class="expand-control" id="expander-control-1178176743">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   計算UU
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1178176743">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="2831a16f-8d4c-4087-81ef-4f844d9af95a" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/companies/{id}/campaign_audiences/calculate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="333ad5f6-7f78-42d7-b908-d5289739f678" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: ruby; gutter: false; theme: Confluence" data-theme="Confluence">  {
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     移除參數：
+     <code>
+      exclude_segment_ids
+     </code>
+    </p>
+    <p>
+     後端要調整 swagger
+     <code>
+      public/apidocs/superdsp.yaml
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+計算UU
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/{id}/campaign_audiences/calculate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>  {
     "exclude_segment_ids": [119], //移除參數
     "one_campaign_ids": [123, 456],
     "events": ["click_ad", "30s_or_complete"],
     "measurement_option": 3,
     "expansion_range": 2
   }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaing_audiences_controller.rb &gt;
-        <code>
-         calculate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="false" data-macro-id="ebec17a6-295e-489b-b0e0-29c3780745aa" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"> </pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        移除參數：
-        <code>
-         exclude_segment_ids
-        </code>
-       </p>
-       <p>
-        後端要調整 swagger
-        <code>
-         public/apidocs/superdsp.yaml
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-廣告受眾鎖定功能開發規格文件-網站流量受眾包">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaing_audiences_controller.rb &gt;
+     <code>
+      calculate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre> </pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     移除參數：
+     <code>
+      exclude_segment_ids
+     </code>
+    </p>
+    <p>
+     後端要調整 swagger
+     <code>
+      public/apidocs/superdsp.yaml
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  網站流量受眾包
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="7009dcfd-dcd7-415d-a136-58b3244480d6" data-macro-name="expand" id="expander-2091403406">
- <div class="expand-control" id="expander-control-2091403406">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   建立網站流量受眾包
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2091403406">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="a2a7fbdc-96a9-4ee6-ab70-d5025055fba6" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/companies/{id}/website_audiences
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bed36bad-67d8-4e70-8747-b8e5c631287b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+建立網站流量受眾包
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/{id}/website_audiences
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
     "name": "網站流量受眾包",
     "demographic_ids": [1,2], //移除參數
     "interest_ids": [1,2,3],  //移除參數
@@ -520,160 +437,140 @@
       "expansion_range": 10
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/website_audiences_controller.rb &gt; create
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request &amp; response 移除參數：
-        <code>
-         exclude_segment_ids
-        </code>
-        ,
-        <code>
-         demographic_ids
-        </code>
-        ,
-        <code>
-         interest_ids
-        </code>
-        ,
-        <code>
-         keyword_ids
-        </code>
-       </p>
-       <p>
-        後端要調整 swagger
-        <code>
-         public/apidocs/superdsp.yaml
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="dfed8b28-cf8a-4f3c-97cd-e3e26d0c8b08" data-macro-name="expand" id="expander-1940407487">
- <div class="expand-control" id="expander-control-1940407487">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   取得單一網站流量受眾包
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1940407487">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="76264d95-b654-420d-8d56-c343ba393d7c" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/website_audiences/{id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/website_audiences_controller.rb &gt; show
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="16ded879-5711-4a8e-b80e-855987d5baa7" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/website_audiences_controller.rb &gt; create
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     request &amp; response 移除參數：
+     <code>
+      exclude_segment_ids
+     </code>
+     ,
+     <code>
+      demographic_ids
+     </code>
+     ,
+     <code>
+      interest_ids
+     </code>
+     ,
+     <code>
+      keyword_ids
+     </code>
+    </p>
+    <p>
+     後端要調整 swagger
+     <code>
+      public/apidocs/superdsp.yaml
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+取得單一網站流量受眾包
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/website_audiences/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/website_audiences_controller.rb &gt; show
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
       "id": 79,
@@ -691,102 +588,82 @@
       },
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        移除參數：
-        <code>
-         exclude_segment_ids, demographic_ids, interest_ids, keyword_ids
-        </code>
-       </p>
-       <p>
-        後端要調整 swagger
-        <code>
-         public/apidocs/superdsp.yaml
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="4b53b8be-8086-4126-bd3b-2fe339e1b3e2" data-macro-name="expand" id="expander-2085012010">
- <div class="expand-control" id="expander-control-2085012010">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   計算UU數
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2085012010">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="c5b98b5c-a35f-4592-88c2-6c10baa6324b" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/companies/{id}/website_audiences/calculate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="90e63ca5-c9ac-4569-a246-c965433ded90" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     移除參數：
+     <code>
+      exclude_segment_ids, demographic_ids, interest_ids, keyword_ids
+     </code>
+    </p>
+    <p>
+     後端要調整 swagger
+     <code>
+      public/apidocs/superdsp.yaml
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+計算UU數
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/{id}/website_audiences/calculate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
     "demographic_ids": [1, 2],  //移除參數
     "interest_ids": [1, 2, 3],  //移除參數
     "keyword_ids": [],  //移除參數
@@ -797,154 +674,134 @@
     "measurement_option": 3,
     "expansion_range": 10
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/website_audiences_controller.rb &gt;
-        <code>
-         calculate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        移除參數：
-        <code>
-         exclude_segment_ids, demographic_ids, interest_ids, keyword_ids
-        </code>
-       </p>
-       <p>
-        後端要調整 swagger
-        <code>
-         public/apidocs/superdsp.yaml
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h2 id="id-廣告受眾鎖定功能開發規格文件-廣告組合-受眾鎖定功能">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/website_audiences_controller.rb &gt;
+     <code>
+      calculate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     移除參數：
+     <code>
+      exclude_segment_ids, demographic_ids, interest_ids, keyword_ids
+     </code>
+    </p>
+    <p>
+     後端要調整 swagger
+     <code>
+      public/apidocs/superdsp.yaml
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  廣告組合 - 受眾鎖定功能
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="ed6aa3eb-469b-4f7b-a21b-a0a017050b97" data-macro-name="expand" id="expander-136990895">
- <div class="expand-control" id="expander-control-136990895">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   segment options
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-136990895">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="250c12c0-60e4-4ae8-a1e4-fcddded731f2" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/target_segments
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/target_segments_controller.rb &gt; index
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ac61c56f-3024-410a-9a94-cd6d99221280" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+segment options
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/target_segments
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/target_segments_controller.rb &gt; index
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     status: "success",
     data: [
       {
@@ -969,92 +826,72 @@
       }
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="aa8e7213-c7fb-4a98-91a4-bdd3d84bd742" data-macro-name="expand" id="expander-1117799613">
- <div class="expand-control" id="expander-control-1117799613">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合RM - 新增
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1117799613">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="3a3bf503-8baf-497d-8530-c06f1d0d2721" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/campaigns/{campaign_id}/ad_groups
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ebf1ec7e-e3b6-48c2-9115-87b2e29bdcd3" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合RM - 新增
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/campaigns/{campaign_id}/ad_groups
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
     "ad_group": {
       "name": "麥當勞大麥克活動",
       "ad_format_type_id": 2,
@@ -1086,120 +923,96 @@
       }
     }
   }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_controller.rb &gt; create
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ee6c140e-66fc-45d2-a80b-1ffb7235ddc1" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_controller.rb &gt; create
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     status: "success"
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="4a5af1b1-f002-4adf-9497-8d3e67d03b45" data-macro-name="expand" id="expander-902687258">
- <div class="expand-control" id="expander-control-902687258">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合RM - 更新
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-902687258">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="90ebad9d-7cfa-4ed5-bfc0-1b5ac2b5e4b4" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         PUT
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/ad_groups/{id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bc2b05f0-b268-45f1-aa7e-34def8f7f18d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合RM - 更新
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/ad_groups/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
     "ad_group": {
       "name": "麥當勞大麥克活動",
       "ad_format_type_id": 2,
@@ -1231,143 +1044,119 @@
       }
     }
   }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_controller.rb &gt; update
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="35a59fd9-931f-43da-9181-f299447b2577" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_controller.rb &gt; update
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     status: "success"
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="5897cc33-86b1-4b9f-a065-0eb2254bc293" data-macro-name="expand" id="expander-1961066192">
- <div class="expand-control" id="expander-control-1961066192">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合RM - 取得
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1961066192">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="51167c25-2eca-45fb-92b2-d3b42b7e9746" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         ad_groups/{id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_controller.rb &gt; show
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b3579d95-bcd5-4047-a1c4-4297894de48b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合RM - 取得
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      ad_groups/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_controller.rb &gt; show
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
       "id": 13422,
@@ -1403,564 +1192,464 @@
       }
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="ebe724b6-4e3f-4ded-8d1e-627e8ffa852a" data-macro-name="expand" id="expander-1816265684">
- <div class="expand-control" id="expander-control-1816265684">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合RM - 複製
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1816265684">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="75ac96f4-1320-4698-b157-17127c79aa23" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /ad_groups/{id}/duplicate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_controller.rb &gt;
-        <code>
-         duplicate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a7090035-62d3-4b08-b471-bfb3cf21bfda" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合RM - 複製
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /ad_groups/{id}/duplicate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_controller.rb &gt;
+     <code>
+      duplicate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": {
       "id": 13422,
     }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="4fdb1c9d-d700-4e57-8161-cb1259092d41" data-macro-name="expand" id="expander-1116373193">
- <div class="expand-control" id="expander-control-1116373193">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合InStream - 新增
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1116373193">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="735d60e6-fb5a-4b3a-b284-9b78f27ba679" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/campaigns/{campaign_id}/ad_groups_instream
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="false" data-macro-id="c5b2b5f7-4f00-4d5f-8401-187e2288a30d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"> </pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_instream_controller.rb &gt; create
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="42e079f7-4a00-4efe-8366-267d38c1eddb" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合InStream - 新增
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/campaigns/{campaign_id}/ad_groups_instream
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre> </pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_instream_controller.rb &gt; create
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     status: "success"
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        同RM, 移除
-        <code>
-         audience_id
-        </code>
-        , 新增
-        <code>
-         targets
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="e6f77b0f-790e-4272-8b79-b33d014855dc" data-macro-name="expand" id="expander-1164385236">
- <div class="expand-control" id="expander-control-1164385236">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合InStream - 更新
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1164385236">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="69a8f8c2-3669-492b-916c-8b8cdf8f7411" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         PUT
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/ad_groups_instream/{id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_instream_controller.rb &gt; update
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="765efb22-ca91-45e4-bc27-f2ab52d43fcc" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     同RM, 移除
+     <code>
+      audience_id
+     </code>
+     , 新增
+     <code>
+      targets
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合InStream - 更新
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/ad_groups_instream/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_instream_controller.rb &gt; update
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     status: "success"
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        同RM, 移除
-        <code>
-         audience_id
-        </code>
-        , 新增
-        <code>
-         targets
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="84e0536e-852a-4b54-ac0b-d0b8f3d02d86" data-macro-name="expand" id="expander-984233529">
- <div class="expand-control" id="expander-control-984233529">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合InStream - 取得
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-984233529">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="30bdfbda-1c0d-49d2-8fe2-0658dfa8192b" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         ad_groups_instream/{id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_instream_controller.rb &gt; show
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        同RM, 移除
-        <code>
-         audience_id
-        </code>
-        , 新增
-        <code>
-         targets
-        </code>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="a54dd8de-b212-4206-90af-248cf264dd4c" data-macro-name="expand" id="expander-711638878">
- <div class="expand-control" id="expander-control-711638878">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   廣告組合 取得預估量體
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-711638878">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="5e3209b1-2b35-4eb8-800f-30405631aee3" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         api/v1/superdsp/campaigns/#{campaign_id}/ad_groups/estimate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        new API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="631d694f-77fb-4165-a180-d703f618b796" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{                   
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     同RM, 移除
+     <code>
+      audience_id
+     </code>
+     , 新增
+     <code>
+      targets
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合InStream - 取得
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      ad_groups_instream/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_instream_controller.rb &gt; show
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     同RM, 移除
+     <code>
+      audience_id
+     </code>
+     , 新增
+     <code>
+      targets
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+廣告組合 取得預估量體
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/campaigns/#{campaign_id}/ad_groups/estimate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{                   
     "include": {
       "demographic_ids": [1, 2],
       "interest_ids": [1, 2, 3],
@@ -1972,282 +1661,241 @@
       "audience_ids": [1, 2, 3],
     },
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/ad_groups_controller.rb &gt;
-        <code>
-         estimate
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="6a8dec53-42ac-48bd-9d66-7501935a8d09" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/ad_groups_controller.rb &gt;
+     <code>
+      estimate
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     status: "success",
     data: {
         max: 0 
         min: 1000
     },
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h2 id="id-廣告受眾鎖定功能開發規格文件-受眾洞察報告">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  受眾洞察報告
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="b0dac19b-c803-4719-855e-4cd8351f12ce" data-macro-name="expand" id="expander-1770220685">
- <div class="expand-control" id="expander-control-1770220685">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   報表欄位
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1770220685">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="e1efb387-a6aa-4df0-b1c3-4cfc827beaf4" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaigns/report_options
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaigns_controller.rb &gt;
-        <code>
-         report_options
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        前端多帶 product_category_id, 後端篩選資料後給前端
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="8747677c-2dc2-47fb-aabd-d3900cfeea51" data-macro-name="expand" id="expander-937188117">
- <div class="expand-control" id="expander-control-937188117">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   下載大數據報告
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-937188117">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="69d219e4-98f2-411a-b6c2-293a7ebb5097" data-table-width="988">
-    <colgroup>
-     <col style="width: 150.0px;"/>
-     <col style="width: 725.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /campaigns/{id}/generate_report_xls
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        api/v1/superdsp/campaigns_controller.rb &gt;
-        <code>
-         generate_report_xls
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         target_colnames
-        </code>
-        依據 report_options 做調整，所以這隻前端不用動
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
+報表欄位
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaigns/report_options
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaigns_controller.rb &gt;
+     <code>
+      report_options
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     前端多帶 product_category_id, 後端篩選資料後給前端
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+下載大數據報告
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /campaigns/{id}/generate_report_xls
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/superdsp/campaigns_controller.rb &gt;
+     <code>
+      generate_report_xls
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      target_colnames
+     </code>
+     依據 report_options 做調整，所以這隻前端不用動
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>

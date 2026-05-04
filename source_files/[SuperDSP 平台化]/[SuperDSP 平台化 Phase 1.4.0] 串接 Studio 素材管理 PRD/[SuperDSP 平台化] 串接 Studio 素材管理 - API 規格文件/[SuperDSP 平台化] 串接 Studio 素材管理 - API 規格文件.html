@@ -1,101 +1,84 @@
-<div class="toc-macro client-side-toc-macro conf-macro output-block" data-cssliststyle="none" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6" data-layout="default" data-local-id="ee14c7eb-4e93-4f89-a305-06c48d2da6db" data-macro-id="f8f73f48-3824-4879-a0fb-1e6d276b6b91" data-macro-name="toc" data-numberedoutline="false" data-structure="list">
-</div>
-<h1 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-SuperDSP">
+<h1>
  SuperDSP
 </h1>
-<h2 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-API規格">
+<h2>
  API 規格
 </h2>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-Redirect">
+<h3>
  Redirect
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="60934bd3-af5a-478c-ae8e-a908c110e0d7" data-macro-name="expand" id="expander-1746469383">
- <div class="expand-control" id="expander-control-1746469383">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1746469383">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="7015c565-91cc-4933-9961-3604bf303d84" data-table-width="988">
-    <colgroup>
-     <col style="width: 129.0px;"/>
-     <col style="width: 521.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        前往 OneAD Studio
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        GET
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         api/v1/superdsp/companies/#{company_id}/redirect/studio
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        新 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f19fcc19-2f51-484f-9e11-6e599dce6396" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     前往 OneAD Studio
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      api/v1/superdsp/companies/#{company_id}/redirect/studio
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     新 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   "Authorization": string, required: true
 }
@@ -107,260 +90,220 @@ query
 action_type # [create / copy / edit / preview]
 pack_id # action_type 為 copy / edit / preview 必填
 ad_format_type_id # 選填</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="d5a6c35f-a348-4131-b9b7-561959208b78" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   "Authorization": "abcde"
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/users_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="166efb6c-7ec6-4f68-b798-fb00d06925ab" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/users_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   status: 'success',
   data: 'url'
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          使用 JWT 產出一組 token
-         </p>
-        </li>
-       </ol>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="019be435-fd26-47cc-82b2-36f94f92554a" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       使用 JWT 產出一組 token
+      </p>
+     </li>
+    </ol>
+    <pre>{
   "user_id"
   "source": 'SuperDSP'
   "exp": Time.now.to_i + 1.day.to_i
 }</pre>
-        </div>
-       </div>
-       <ol start="2">
-        <li>
-         <p>
-          redirect page with access token
-         </p>
-        </li>
-        <li>
-         <p>
-          帶入參數：
-         </p>
-         <ol start="1">
-          <li>
-           <p>
-            packageID: 素材包 ID
-           </p>
-          </li>
-          <li>
-           <p>
-            clientID: 目前使用者所選擇的廣告主 ID
-           </p>
-          </li>
-          <li>
-           <p>
-            ad_format_type universal id
-           </p>
-          </li>
-         </ol>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-AdFormatType">
+    <ol>
+     <li>
+      <p>
+       redirect page with access token
+      </p>
+     </li>
+     <li>
+      <p>
+       帶入參數：
+      </p>
+      <ol>
+       <li>
+        <p>
+         packageID: 素材包 ID
+        </p>
+       </li>
+       <li>
+        <p>
+         clientID: 目前使用者所選擇的廣告主 ID
+        </p>
+       </li>
+       <li>
+        <p>
+         ad_format_type universal id
+        </p>
+       </li>
+      </ol>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  AdFormatType
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="bf583970-be8b-4f75-ac40-87c011cbbb46" data-macro-name="expand" id="expander-1603664662">
- <div class="expand-control" id="expander-control-1603664662">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1603664662">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="724c23f5-61a9-423c-a02a-224f325cbb0d" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取格式列表 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        Get
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/ad_format_types
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4543cb01-6e0a-4549-83c9-3f5912e0866c" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取格式列表 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/ad_format_types
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="671d92e4-3a3b-4188-9790-f7e0bfd6d243" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/banners_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1f48907d-caf8-4ab1-87eb-90b5905c0510" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/banners_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": [
         {
             "superdsp_enabled": true
@@ -368,189 +311,161 @@ ad_format_type_id # 選填</pre>
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          改成 enabled = true 的都回傳
-         </p>
-        </li>
-        <li>
-         <p>
-          <code>
-           superdsp_enabled
-          </code>
-          值回傳，這個值用 SuperDSP 格式細項白名單來判斷
-         </p>
-        </li>
-        <li>
-         <p>
-          白名單需使用 universal_id，因在 staging 上也要能濾掉
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-Banners">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       改成 enabled = true 的都回傳
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        superdsp_enabled
+       </code>
+       值回傳，這個值用 SuperDSP 格式細項白名單來判斷
+      </p>
+     </li>
+     <li>
+      <p>
+       白名單需使用 universal_id，因在 staging 上也要能濾掉
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  Banners
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="cc1b35f4-6706-4155-b68a-6d3cd495e6ec" data-macro-name="expand" id="expander-2085960129">
- <div class="expand-control" id="expander-control-2085960129">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2085960129">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="2aee55e4-18ce-4135-bc1e-ace958429150" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取 banner 素材列表 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        Get
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/#{client_id}/banners
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="df38b52a-f780-4c45-9209-7830692ebbd5" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取 banner 素材列表 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/#{client_id}/banners
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bd6e89d9-744b-40f9-9a2d-70b637b5795c" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/banners_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8b835206-b1b5-4e57-87bc-62d596a8671a" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/banners_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": [
         {
             "id": 29741,
@@ -559,176 +474,148 @@ ad_format_type_id # 選填</pre>
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          banner_source 有分 SuperDSP 和 OneAD Studio
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-Videos">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       banner_source 有分 SuperDSP 和 OneAD Studio
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  Videos
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="6b67ffcb-dece-4e89-baf5-61ca815a1706" data-macro-name="expand" id="expander-828645613">
- <div class="expand-control" id="expander-control-828645613">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-828645613">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="5572f2df-409f-43cf-83a1-e661fd725f67" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取 video 素材列表 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        Get
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/#{client_id}/videos
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a14eabf9-6241-4825-903b-dedcda805b07" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取 video 素材列表 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/#{client_id}/videos
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3af8fac2-ef0c-4c87-b37e-b5c577bc75e5" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/videos_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="dd75d9f3-0540-4523-972c-2841d961b80e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/videos_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": [
         {
             "id": 29741,
@@ -737,176 +624,148 @@ ad_format_type_id # 選填</pre>
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          video_source 有分 SuperDSP 和 OneAD Studio
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-Packs">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       video_source 有分 SuperDSP 和 OneAD Studio
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  Packs
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="8e9e2205-3b66-4950-9c28-eeb5b2848329" data-macro-name="expand" id="expander-112130839">
- <div class="expand-control" id="expander-control-112130839">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-112130839">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="552c9de0-9f52-4418-9899-5efb843dd82f" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取 pack 素材包列表 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        Get
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/#{client_id}/packs
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f391a271-9849-4cbb-98ec-ffc4e7d2073a" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取 pack 素材包列表 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/#{client_id}/packs
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e4cabe88-1040-46a0-bcd2-f2929d6486a8" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/banners_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="5f258060-6611-46bd-adfb-b0f8ba3bc28c" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/banners_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": [
         {
             "id": 29741,
@@ -915,164 +774,146 @@ ad_format_type_id # 選填</pre>
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          pack_source 有分 SuperDSP 和 OneAD Studio
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="d8c2b1d6-5c11-4907-9bc7-7ad37cdd043e" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        建立 pack 素材包 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        POST
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/#{client_id}/packs
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a8e3ce08-5ec8-41d0-8416-35fe739cc9b0" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       pack_source 有分 SuperDSP 和 OneAD Studio
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     建立 pack 素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/#{client_id}/packs
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
   tracking_codes: type string Array # 移除
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2237cb41-bf62-4696-b2f2-117ce0c36028" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
   tracking_codes # 移除
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/banners_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c405f1b5-6567-462b-863d-3d18d206a27b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/banners_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": [
         {
             "id": 29741,
@@ -1081,164 +922,146 @@ ad_format_type_id # 選填</pre>
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          移除 tracking codes
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="707a7515-c649-4bdb-a558-edea1526ad00" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        更新 pack 素材包 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        POST
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/#{client_id}/packs/#{pack_id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="c1ae6109-adca-4233-9e5e-ae877a80a41b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       移除 tracking codes
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     更新 pack 素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/#{client_id}/packs/#{pack_id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
   tracking_codes: type string Array # 移除
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1afd06a4-7f60-4072-a41c-b7435ca38637" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...,
   tracking_codes # 移除
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/banners_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1245dc1a-9dd6-4560-a921-fabfe552891c" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/banners_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": [
         {
             "id": 29741,
@@ -1247,162 +1070,144 @@ ad_format_type_id # 選填</pre>
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          移除 tracking codes
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="eca4a7fd-6a02-48eb-9307-aedc5f95b3fa" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取 pack 素材包 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        POST
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/#{client_id}/packs/#{pack_id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2b3106c4-eaaa-4ec6-a7ec-e00fee297971" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       移除 tracking codes
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取 pack 素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/#{client_id}/packs/#{pack_id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bb7ffb87-0df9-406a-bd49-2edb506d2741" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>{
   ...
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/banners_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9f7bb0d6-85ec-4341-b991-a6429a11d3e4" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/banners_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "data": [
         {
             "id": 29741,
@@ -1412,220 +1217,188 @@ ad_format_type_id # 選填</pre>
         }
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          移除 tracking codes
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-AdGroup">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       移除 tracking codes
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  AdGroup
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="2d747d1e-6406-4e8f-8ca2-cc50e856a2da" data-macro-name="expand" id="expander-1776949304">
- <div class="expand-control" id="expander-control-1776949304">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1776949304">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="099a135b-b4d9-4aee-aa54-09600599543f" data-table-width="988">
-    <colgroup>
-     <col style="width: 129.0px;"/>
-     <col style="width: 521.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取 Ad Group(含 instream)
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        Get
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/ad_groups(/instream)/{ad_group_id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="140f9847-bbc5-41db-abac-328ef9c43178" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取 Ad Group(含 instream)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/ad_groups(/instream)/{ad_group_id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="d770401a-1b37-4dea-b653-a9809b9afb9e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   ...,
 }
 </pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/ad_groups_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8a98edb8-11e9-491b-8a60-eeba9709f7c2" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/ad_groups_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   "data": {
     ...,
     tracking_codes: ["https://onead.com.tw"]
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          建立的時候，要在
-          <code>
-           UseCases::SuperdspAdGroupCreateUseCase
-          </code>
-          中調整
-         </p>
-        </li>
-       </ol>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="90f62b07-79c7-44de-a6df-9ff2d0a2556f" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 84
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       建立的時候，要在
+       <code>
+        UseCases::SuperdspAdGroupCreateUseCase
+       </code>
+       中調整
+      </p>
+     </li>
+    </ol>
+    <pre># 84
 def tracking_code(ad_group)
   # 要加入參數的 tracking_codes
   tracking_codes.each |tc|
@@ -1636,98 +1409,88 @@ def tracking_code(ad_group)
       "event_type_id": 1,
     }
   end</pre>
-        </div>
-       </div>
-       <ol start="2">
-        <li>
-         <p>
-          response 中要加入 tracking_codes 回傳
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="2619db90-9e82-4c6f-9b11-f9a480c6c873" data-table-width="988">
-    <colgroup>
-     <col style="width: 129.0px;"/>
-     <col style="width: 521.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        建立 Ad Group(含instream)
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        POST
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/campaigns/{campaign_id}/ad_group(/instream)
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2ddb9e80-7c89-4d94-8960-3f6bb175e986" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+    <ol>
+     <li>
+      <p>
+       response 中要加入 tracking_codes 回傳
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     建立 Ad Group(含instream)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/campaigns/{campaign_id}/ad_group(/instream)
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   ...,
 }
@@ -1740,20 +1503,16 @@ body
     tracking_codes: String Array
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fdfd48ec-9374-4cbe-9737-c92a9102127e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   ...,
 }
@@ -1765,73 +1524,65 @@ body
     tracking_codes: ["https://onead.com.tw"]
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/ad_groups_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bdf36627-b741-4c58-9dac-3d6ce9f9f204" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/ad_groups_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   "data": {
     ...,
     tracking_codes: ["https://onead.com.tw"]
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          建立的時候，要在
-          <code>
-           UseCases::SuperdspAdGroupCreateUseCase
-          </code>
-          中調整
-         </p>
-        </li>
-       </ol>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b1fc84d8-38e9-4049-9179-108f238b63a1" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 84
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       建立的時候，要在
+       <code>
+        UseCases::SuperdspAdGroupCreateUseCase
+       </code>
+       中調整
+      </p>
+     </li>
+    </ol>
+    <pre># 84
 def tracking_code(ad_group)
   # 要加入參數的 tracking_codes
   tracking_codes.each |tc|
@@ -1842,98 +1593,88 @@ def tracking_code(ad_group)
       "event_type_id": 1,
     }
   end</pre>
-        </div>
-       </div>
-       <ol start="2">
-        <li>
-         <p>
-          response 中要加入 tracking_codes 回傳
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="cc5cb6ed-62e4-4572-8a61-a2a2a6cf2287" data-table-width="988">
-    <colgroup>
-     <col style="width: 129.0px;"/>
-     <col style="width: 521.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        更新 Ad Group(含 instream)
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        PUT
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/superdsp/ad_groups(/instream)/{id}
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="05de9114-3eae-4b27-998d-dc9147e7db05" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+    <ol>
+     <li>
+      <p>
+       response 中要加入 tracking_codes 回傳
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     更新 Ad Group(含 instream)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/ad_groups(/instream)/{id}
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   ...,
 }
@@ -1946,20 +1687,16 @@ body
     tracking_codes: String Array
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f3509cee-bc03-44de-ae1a-fb905dd473e7" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   ...,
 }
@@ -1971,73 +1708,65 @@ body
     tracking_codes: ["https://onead.com.tw"]
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/superdsp/ad_groups_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="0be3a1f5-9b8b-416b-95af-e9facc542f36" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/superdsp/ad_groups_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   "data": {
     ...,
     tracking_codes: ["https://onead.com.tw"]
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          更新的時候，要在
-          <code>
-           UseCases::SuperdspAdGroupCreateUseCase
-          </code>
-          中調整
-         </p>
-        </li>
-       </ol>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fe6e692c-cb96-49bd-b654-1101caaa931c" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 84
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       更新的時候，要在
+       <code>
+        UseCases::SuperdspAdGroupCreateUseCase
+       </code>
+       中調整
+      </p>
+     </li>
+    </ol>
+    <pre># 84
 def tracking_code(ad_group)
   # 要加入參數的 tracking_codes
   tracking_codes.each |tc|
@@ -2048,339 +1777,289 @@ def tracking_code(ad_group)
       "event_type_id": 1,
     }
   end</pre>
-        </div>
-       </div>
-       <ol start="2">
-        <li>
-         <p>
-          response 中要加入 tracking_codes 回傳
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h1 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-MASA">
+    <ol>
+     <li>
+      <p>
+       response 中要加入 tracking_codes 回傳
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
  MASA
 </h1>
-<h2 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-API規格.1">
+<h2>
  API 規格
 </h2>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-Users">
+<h3>
  Users
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="1d6c827a-8334-4953-8492-4387a4905476" data-macro-name="expand" id="expander-2139000302">
- <div class="expand-control" id="expander-control-2139000302">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2139000302">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="19c97b9c-13f0-4969-9e0e-58e3794b417c" data-table-width="988">
-    <colgroup>
-     <col style="width: 129.0px;"/>
-     <col style="width: 521.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        刷新 User Token
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        GET
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/users/refresh_token
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        新 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="82337c7f-34af-4caa-91a5-4b277b941a15" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     刷新 User Token
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/users/refresh_token
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     新 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   Authorization: string, required: true
   X-User: string, required: true
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="15664044-0184-4495-b962-071553e37438" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   Authorization: 'a123f'
   X-User: 'abcde'
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/users_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="34ccb9a8-6961-4820-9a6b-bbf4e7d5fef5" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/users_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   "status": "success",
   "data": {
     "token": user_token,
     "expired_at": "2016-07-15T08:28:21+08:00"
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        如果 token 驗證成功，使用 JWT 產出一組新的 token
-       </p>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b782d169-def2-4bb4-9ec7-49eb3ab0253d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 成功解開
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     如果 token 驗證成功，使用 JWT 產出一組新的 token
+    </p>
+    <pre># 成功解開
 decode_token = JWT.decode(token, SECRETS[:oss_secret_key], 'HS256')
 
 payload = decode_token[0]
 payload["exp""] = Time.now.to_i + 1.day.to_i
 
 JWT.encode(payload, SECRETS[:oss_secret_key], 'HS256')</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="1e76dc93-49e3-4451-af19-e617348bdba7" data-table-width="988">
-    <colgroup>
-     <col style="width: 129.0px;"/>
-     <col style="width: 521.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取 profile
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        GET
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/users/profile
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        新 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fad9520f-0295-47a0-9c8d-76520aab8c5d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取 profile
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/users/profile
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     新 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   Authorization: string, required: true
   X-User: string, required: true
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2d5d5ad0-27b1-4ddf-a26c-3e5e247b876e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   Authorization: 'a123f'
   X-User: 'abcde'
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/users_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fc5bcc57-6429-4268-ae87-6bb8693f56ad" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/users_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
   "status": "success",
   "data": {
     email: 'abd@onead.tw',
@@ -2397,31 +2076,27 @@ JWT.encode(payload, SECRETS[:oss_secret_key], 'HS256')</pre>
     }]
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ccb79266-52d8-492f-926c-0765cf88e0f3" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <pre>{
   email: user.email
   username: user.fullname
   ability: enum ["viewer", "editor"] # user.roles 看 SuperDSP 編輯權限
@@ -2435,160 +2110,132 @@ JWT.encode(payload, SECRETS[:oss_secret_key], 'HS256')</pre>
     }]
   }]
 }</pre>
-        </div>
-       </div>
-       <ol start="1">
-        <li>
-         <p>
-          需排除 SuperDSP 白名單格式細項
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-AdFormatType.1">
+    <ol>
+     <li>
+      <p>
+       需排除 SuperDSP 白名單格式細項
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  AdFormatType
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="52ceb1e7-c02a-4ad0-b68f-582bc6f08aaf" data-macro-name="expand" id="expander-519581403">
- <div class="expand-control" id="expander-control-519581403">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-519581403">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="e1eebbbc-dc14-44f7-84f6-13a58869728c" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        撈取格式(格式細項)選項 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        GET
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/ad_format_types/option
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        新 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="bf61ca5b-df45-45fc-9b1b-c7a77ca7ff6b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     撈取格式(格式細項)選項 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/ad_format_types/option
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     新 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   Authorization: string, required: true
   X-User: string, required: true
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="1a0ac9a5-9264-4acd-b7c1-0c696a566d31" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">request header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>request header
 {
   "Authorization": source token,
   "X-User": 'AAAA'
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/ad_format_types_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a519154d-4a95-4564-90a1-1a5f7d94f093" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/ad_format_types_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     "status": "success",
     "data": [
       {
@@ -2603,132 +2250,112 @@ JWT.encode(payload, SECRETS[:oss_secret_key], 'HS256')</pre>
       ...
     ]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          這邊回傳增加用使用者做 filter
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-素材(Video)">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       這邊回傳增加用使用者做 filter
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  素材(Video)
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="cee2617d-7f49-4cda-b090-fd004c8e8e57" data-macro-name="expand" id="expander-175678382">
- <div class="expand-control" id="expander-control-175678382">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-175678382">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="5ecffa18-6e41-4c66-89ba-f2e68670f239" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        創建影片素材 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        POST
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/advertisers/:advertiser_id/material/videos
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="31b106d8-ac5f-4e85-80e1-842fae6d41ce" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 新增 SuperDSP 素材
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     創建影片素材 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/material/videos
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
 header
 {
   Authorization: string, required: true
@@ -2742,20 +2369,16 @@ header
   "source": enum string, ["superdsp"]
   "file": (二進位檔)
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3bad1f5b-712b-4431-8dc9-2db4f7f1f277" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">header
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre>header
 {
   Authorization: 'a123f'
   X-User: 'abcde'
@@ -2768,160 +2391,136 @@ header
   "source": "superdsp"
   "file": (二進位檔)
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/material/videos_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3d98cc98-8e13-4940-b7f2-ce67883e45f4" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/videos_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          如果是建立 superdsp 素材包，要檢查 user token
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-素材(Banner)">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       如果是建立 superdsp 素材包，要檢查 user token
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  素材(Banner)
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="401e6c9d-78f5-4670-b1b7-0d5de9805ee9" data-macro-name="expand" id="expander-1521616927">
- <div class="expand-control" id="expander-control-1521616927">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1521616927">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="da1b2117-aa91-4030-af1d-16ddd04c7fd0" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        創建 banner 素材 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        POST
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/advertisers/:advertiser_id/material/banners
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="b0e8d987-9711-4304-8dfa-641c85c54694" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 新增 SuperDSP 素材
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     創建 banner 素材 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/material/banners
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
 header
 {
   Authorization: string, required: true
@@ -2935,20 +2534,16 @@ header
   "source": enum string, ["superdsp"]
   "file": (二進位檔)
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a03fdcdb-3481-490e-97bf-61e2b589287a" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 新增 SuperDSP 素材
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
 header
 {
   Authorization: 'a123f'
@@ -2962,160 +2557,136 @@ header
   "source": "superdsp"
   "file": (二進位檔)
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/material/banners_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4cdaf259-5e55-4f3e-9bcf-6adb227b38a2" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/banners_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          如果是建立 superdsp 素材包，要檢查 user token
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-[SuperDSP平台化]串接Studio素材管理-API規格文件-素材包">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       如果是建立 superdsp 素材包，要檢查 user token
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  素材包
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="37ead1bf-2265-41c9-b223-ad63aa6fd3d9" data-macro-name="expand" id="expander-2013700418">
- <div class="expand-control" id="expander-control-2013700418">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   按一下此處以展開...
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2013700418">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="b3fbc7fb-beab-4494-b7dd-76abd3505883" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        創建素材包 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        Post
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/advertisers/:advertiser_id/material/packs
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e914a013-20c2-47dd-9161-3e9cca63ba13" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 新增 SuperDSP 素材
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     創建素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Post
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/material/packs
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
 header
 {
   Authorization: string, required: true
@@ -3157,20 +2728,16 @@ body
   "description": string, default: "",
   "url_link_to: string, default: "", ["inside", "outside"]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="d952e343-12df-4ffd-8f59-6f2a3903773e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 新增 SuperDSP 素材
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
 header
 {
   Authorization: 'a123f'
@@ -3237,169 +2804,151 @@ body
   "description": "",
   "url_link_to": ""
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/material/packs_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="732d361e-0165-41fd-ab02-6d056eb0f9c1" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/packs_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          有放入 user token 的情況下，會根據 token 中的 type 寫入資料
-         </p>
-        </li>
-       </ol>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="ba29cf81-7d83-4f82-8634-0f2e284117df" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">"pack_source": "OneAD",
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       有放入 user token 的情況下，會根據 token 中的 type 寫入資料
+      </p>
+     </li>
+    </ol>
+    <pre>"pack_source": "OneAD",
 "ron": false,
 "vast_feature": "NONE",
 "hold_on_sec": 0,
 "emoji_id": nil,
 "pack_type": "onead",
 "review_status": "reviewing"</pre>
-        </div>
-       </div>
-       <ol start="2">
-        <li>
-         <p>
-          source_id 為 CC 上的素材包id
-         </p>
-        </li>
-        <li>
-         <p>
-          url_link_to 只有在媒體公司，且在 Quality Traffic(文字素材)，才有區分導內導外
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="04d8ce59-2b71-4662-9261-1b6be9e8d52e" data-table-width="988">
-    <colgroup>
-     <col style="width: 130.0px;"/>
-     <col style="width: 520.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        name
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        更新素材包 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        Put
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        <code>
-         /api/v1/advertisers/:advertiser_id/material/packs/:pack_id
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        舊 API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        開發狀態
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request type
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="4badb365-e520-46e0-813c-bcaa50dd83b0" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 新增 SuperDSP 素材
+    <ol>
+     <li>
+      <p>
+       source_id 為 CC 上的素材包id
+      </p>
+     </li>
+     <li>
+      <p>
+       url_link_to 只有在媒體公司，且在 Quality Traffic(文字素材)，才有區分導內導外
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     更新素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Put
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/material/packs/:pack_id
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
 header
 {
   Authorization: string, required: true
@@ -3441,20 +2990,16 @@ body
   "description": string, default: "",
   "url_link_to: string, default: "", ["inside", "outside"]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        request sample
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="687c221e-9449-4bd8-a310-62576f6d1441" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># 新增 SuperDSP 素材
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request sample
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
 header
 {
   Authorization: 'a123f'
@@ -3521,66 +3066,58 @@ body
   "description": "",
   "url_link_to": ""
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-        app/controllers/api/v1/material/packs_controller.rb
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f7a3414b-a529-4594-930b-145a84268279" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/packs_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
     ...,
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        who
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          有放入 user token 的情況下，會根據 token 中的 type 寫入資料
-         </p>
-        </li>
-       </ol>
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a60d806c-419f-435b-a8c3-c43594b9df1b" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">"pack_source": "OneAD",
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       有放入 user token 的情況下，會根據 token 中的 type 寫入資料
+      </p>
+     </li>
+    </ol>
+    <pre>"pack_source": "OneAD",
 "ron": false,
 "vast_feature": "NONE",
 "source": "superdsp",
@@ -3588,24 +3125,19 @@ body
 "emoji_id": nil,
 "pack_type": "onead",
 "review_status": "reviewing"</pre>
-        </div>
-       </div>
-       <ol start="2">
-        <li>
-         <p>
-          source_id 為 CC 上的素材包id
-         </p>
-        </li>
-        <li>
-         <p>
-          url_link_to 只有在媒體公司，且在 Quality Traffic(文字素材)，才有區分導內導外
-         </p>
-        </li>
-       </ol>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
+    <ol>
+     <li>
+      <p>
+       source_id 為 CC 上的素材包id
+      </p>
+     </li>
+     <li>
+      <p>
+       url_link_to 只有在媒體公司，且在 Quality Traffic(文字素材)，才有區分導內導外
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>

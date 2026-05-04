@@ -1,165 +1,146 @@
-<h2 id="id-[功能詳情]追蹤碼埋設v2升級-功能概述">
- <style>
-  [data-colorid=xb2meqhllq]{color:#36b37e} html[data-color-mode=dark] [data-colorid=xb2meqhllq]{color:#4cc994}
- </style>
+<h2>
  功能概述
 </h2>
 <p>
  追蹤碼埋設功能為 Commerce Ad RTB 專案的核心組件，負責追蹤用戶在電商平台的行為數據與廣告即時數據。此次開發將 OneAD Pixel 追蹤碼介面全面升級至 v2 版本，以支援電商進站後的複雜歸因數據收集。
 </p>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-📍功能位置">
+<h3>
  📍 功能位置
 </h3>
 <p>
  路徑：SuperDSP 首頁 &gt; I/O 單管理 &gt; OnePixel
 </p>
-<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
- <img alt="截圖 2025-07-17 下午3.16.02.png" class="confluence-embedded-image image-center" data-height="575" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3930030081/%E6%88%AA%E5%9C%96%202025-07-17%20%E4%B8%8B%E5%8D%883.16.02.png?version=2&amp;modificationDate=1752748729834&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=298" data-linked-resource-container-id="3930030081" data-linked-resource-container-version="11" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-07-17 下午3.16.02.png" data-linked-resource-id="3937763330" data-linked-resource-type="attachment" data-linked-resource-version="2" data-media-id="732eaf47-c585-4fc4-ba68-5bf9f786c61b" data-media-type="file" data-unresolved-comment-count="0" data-width="1466" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3930030081/%E6%88%AA%E5%9C%96%202025-07-17%20%E4%B8%8B%E5%8D%883.16.02.png?version=2&amp;modificationDate=1752748729834&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=298" width="760"/>
-</span>
+<img alt="截圖 2025-07-17 下午3.16.02.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3930030081/%E6%88%AA%E5%9C%96%202025-07-17%20%E4%B8%8B%E5%8D%883.16.02.png?version=2&amp;modificationDate=1752748729834&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=298"/>
 <p>
 </p>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-現況與待開發說明">
+<h3>
  現況與待開發說明
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="center" data-local-id="9b45c8bd-c738-4476-b31f-d98467656f8b" data-table-width="1800">
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      項目
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      ✅ 現況（已實現）
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      🆕 待開發（本次需求）
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      功能範圍
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      OneAD Pixel v1 完整 CRU 功能
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      介面全面切換為 v2 版本
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      數據收集
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      即時數據（Impression、Click）
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      即時數據 + 電商歸因數據（7天窗口期）
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      版本顯示
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      v1 追蹤碼顯示於介面
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      僅顯示 v2 版本（v1 持續運作但不顯示）
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      關聯機制
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      與受眾包關聯
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      🆕 自動關聯機制（DTO 處理）
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="e42a0ac1-036a-47ed-a55e-b852ebdc933f" data-macro-name="expand" id="expander-491992053">
- <div class="expand-control" id="expander-control-491992053">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   統一術語說明
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-491992053">
-  <ul>
-   <li>
+<table>
+ <tbody>
+  <tr>
+   <th>
     <p>
-     <strong>
-      OnePixel
-     </strong>
-     ：於 SuperDSP 的追蹤碼 CRU 功能項目
+     項目
     </p>
-   </li>
-   <li>
+   </th>
+   <th>
     <p>
-     <strong>
-      OneAD Pixel
-     </strong>
-     ：OneAD 的追蹤像素技術，用於收集網站行為數據
+     ✅ 現況（已實現）
     </p>
-   </li>
-   <li>
+   </th>
+   <th>
     <p>
-     <strong>
-      Attribution Window
-     </strong>
-     ：歸因窗口期，設定為 7 天內的轉換歸因
+     🆕 待開發（本次需求）
     </p>
-   </li>
-  </ul>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     功能範圍
+    </p>
+   </td>
+   <td>
+    <p>
+     OneAD Pixel v1 完整 CRU 功能
+    </p>
+   </td>
+   <td>
+    <p>
+     介面全面切換為 v2 版本
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     數據收集
+    </p>
+   </td>
+   <td>
+    <p>
+     即時數據（Impression、Click）
+    </p>
+   </td>
+   <td>
+    <p>
+     即時數據 + 電商歸因數據（7天窗口期）
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     版本顯示
+    </p>
+   </td>
+   <td>
+    <p>
+     v1 追蹤碼顯示於介面
+    </p>
+   </td>
+   <td>
+    <p>
+     僅顯示 v2 版本（v1 持續運作但不顯示）
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     關聯機制
+    </p>
+   </td>
+   <td>
+    <p>
+     與受眾包關聯
+    </p>
+   </td>
+   <td>
+    <p>
+     🆕 自動關聯機制（DTO 處理）
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+統一術語說明
+<ul>
+ <li>
   <p>
+   <strong>
+    OnePixel
+   </strong>
+   ：於 SuperDSP 的追蹤碼 CRU 功能項目
   </p>
- </div>
-</div>
-<h2 id="id-[功能詳情]追蹤碼埋設v2升級-核心功能說明">
+ </li>
+ <li>
+  <p>
+   <strong>
+    OneAD Pixel
+   </strong>
+   ：OneAD 的追蹤像素技術，用於收集網站行為數據
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Attribution Window
+   </strong>
+   ：歸因窗口期，設定為 7 天內的轉換歸因
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<h2>
  核心功能說明
 </h2>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-版本升級策略">
+<h3>
  版本升級策略
 </h3>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e18e8c57-b94e-4e6a-947e-6b26d2220b06" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">追蹤碼版本架構
+<pre>追蹤碼版本架構
 ├── v1 追蹤碼（舊版）
 │   ├── 持續運作不中斷
 │   ├── 不在介面顯示
@@ -169,202 +150,184 @@
     ├── 完整歸因數據
     └── 7天歸因窗口
 </pre>
- </div>
-</div>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-📍功能位置.1">
+<h3>
  📍 功能位置
 </h3>
 <p>
  路徑：SuperDSP 首頁 &gt; I/O 單管理 &gt; OnePixel &gt; 新增事件
 </p>
-<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
- <img alt="截圖 2025-08-04 下午2.16.58.png" class="confluence-embedded-image image-center" data-height="981" data-image-src="https://guoshi.atlassian.net/wiki/download/thumbnails/3930030081/%E6%88%AA%E5%9C%96%202025-08-04%20%E4%B8%8B%E5%8D%882.16.58.png?version=1&amp;modificationDate=1754288302714&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=390" data-linked-resource-container-id="3930030081" data-linked-resource-container-version="11" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="截圖 2025-08-04 下午2.16.58.png" data-linked-resource-id="3966205964" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="06ea2960-a2b0-492e-a50b-5b5f2e62f9e9" data-media-type="file" data-unresolved-comment-count="0" data-width="1907" loading="lazy" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3930030081/%E6%88%AA%E5%9C%96%202025-08-04%20%E4%B8%8B%E5%8D%882.16.58.png?version=1&amp;modificationDate=1754288302714&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=390" width="760"/>
-</span>
+<img alt="截圖 2025-08-04 下午2.16.58.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3930030081/%E6%88%AA%E5%9C%96%202025-08-04%20%E4%B8%8B%E5%8D%882.16.58.png?version=1&amp;modificationDate=1754288302714&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=390"/>
 <p>
 </p>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-追蹤碼事件類型">
+<h3>
  追蹤碼事件類型
 </h3>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="4c8f61ce-1342-40fa-a794-8c9663927e07" data-table-width="760">
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      事件名稱
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      事件代碼
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      狀態
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      全站進站
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      PageView
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ✅ 現有
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      特定內容瀏覽
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ViewContent
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ✅ 現有
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      按鈕點擊
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      Lead
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ✅ 現有
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       註冊完成
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       CompleteRegistration
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <strong>
-       🆕 新增
-       <span data-colorid="xb2meqhllq">
-        (8/4 新增)
-       </span>
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      加入購物車
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      AddToCart
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ✅ 現有
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      點擊結帳
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      InitiateCheckout
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ✅ 現有
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      完成購買
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      Purchase
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ✅ 現有
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      查詢地點
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      FindLocation
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ✅ 現有
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="0b5adab6-61ac-4191-ad4c-ab840c2f92ae" data-macro-name="expand" id="expander-1468901728">
- <div class="expand-control" id="expander-control-1468901728">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   追蹤碼與廣告組合的自動關聯機制
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1468901728">
-  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="231e9ba5-6009-44ac-a868-528df222239f" data-macro-name="code" style="border-width: 1px;">
-   <div class="codeContent panelContent pdl">
-    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">自動關聯流程（DTO 部門處理）
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     事件名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     事件代碼
+    </p>
+   </th>
+   <th>
+    <p>
+     狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     全站進站
+    </p>
+   </td>
+   <td>
+    <p>
+     PageView
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 現有
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     特定內容瀏覽
+    </p>
+   </td>
+   <td>
+    <p>
+     ViewContent
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 現有
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     按鈕點擊
+    </p>
+   </td>
+   <td>
+    <p>
+     Lead
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 現有
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      註冊完成
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      CompleteRegistration
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      🆕 新增
+      (8/4 新增)
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     加入購物車
+    </p>
+   </td>
+   <td>
+    <p>
+     AddToCart
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 現有
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     點擊結帳
+    </p>
+   </td>
+   <td>
+    <p>
+     InitiateCheckout
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 現有
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     完成購買
+    </p>
+   </td>
+   <td>
+    <p>
+     Purchase
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 現有
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     查詢地點
+    </p>
+   </td>
+   <td>
+    <p>
+     FindLocation
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 現有
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+追蹤碼與廣告組合的自動關聯機制
+<pre>自動關聯流程（DTO 部門處理）
 ├── 追蹤碼埋設（可先於OnePixel建立）
 ├── 持續收集數據
 ├── 當有廣告點擊進站時
@@ -373,525 +336,463 @@
 │   └── 自動反推 Placement ID
 └── 數據歸因時自動補上關聯
 </pre>
-   </div>
-  </div>
+<p>
+ <strong>
+  時序範例
+ </strong>
+ ：
+</p>
+<ul>
+ <li>
   <p>
-   <strong>
-    時序範例
-   </strong>
-   ：
+   7/1：建立追蹤碼並埋設於電商網站
   </p>
-  <ul>
-   <li>
-    <p>
-     7/1：建立追蹤碼並埋設於電商網站
-    </p>
-   </li>
-   <li>
-    <p>
-     7/1-7/4：追蹤碼持續收集數據
-    </p>
-   </li>
-   <li>
-    <p>
-     7/5：建立廣告組合並開始投放
-    </p>
-   </li>
-   <li>
-    <p>
-     7/5 起：系統自動將進站數據關聯至對應廣告組合
-    </p>
-   </li>
-  </ul>
+ </li>
+ <li>
   <p>
-   <strong>
-    關鍵特點
-   </strong>
-   ：
+   7/1-7/4：追蹤碼持續收集數據
   </p>
-  <ul>
-   <li>
-    <p>
-     一個追蹤碼可服務多個廣告組合
-    </p>
-   </li>
-   <li>
-    <p>
-     無需在介面上手動設定關聯
-    </p>
-   </li>
-   <li>
-    <p>
-     透過素材包 ID 和 Placement ID 自動識別歸屬
-    </p>
-   </li>
-  </ul>
+ </li>
+ <li>
   <p>
+   7/5：建立廣告組合並開始投放
   </p>
- </div>
-</div>
+ </li>
+ <li>
+  <p>
+   7/5 起：系統自動將進站數據關聯至對應廣告組合
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  關鍵特點
+ </strong>
+ ：
+</p>
+<ul>
+ <li>
+  <p>
+   一個追蹤碼可服務多個廣告組合
+  </p>
+ </li>
+ <li>
+  <p>
+   無需在介面上手動設定關聯
+  </p>
+ </li>
+ <li>
+  <p>
+   透過素材包 ID 和 Placement ID 自動識別歸屬
+  </p>
+ </li>
+</ul>
 <p>
 </p>
-<h2 id="id-[功能詳情]追蹤碼埋設v2升級-使用情境與系統行為">
+<p>
+</p>
+<h2>
  使用情境與系統行為
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="cee643e8-9529-4420-a8e2-985a182ed3a5" data-macro-name="expand" id="expander-1751031238">
- <div class="expand-control" id="expander-control-1751031238">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   情境一：新建追蹤碼
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1751031238">
-  <p>
-   <strong>
-    場景描述
-   </strong>
-   ：用戶首次建立追蹤碼以收集網站行為數據
-  </p>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="5a90417f-16f9-4595-aab6-0de99dea7fd2" data-table-width="760">
-    <colgroup>
-     <col style="width: 278.0px;"/>
-     <col style="width: 452.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <th class="confluenceTh">
-       <p>
-        操作步驟
-       </p>
-      </th>
-      <th class="confluenceTh">
-       <p>
-        系統行為
-       </p>
-      </th>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          進入 OnePixel 管理介面
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          顯示追蹤碼列表
-         </p>
-        </li>
-        <li>
-         <p>
-          顯示「新增 OnePixel」按鈕
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="2">
-        <li>
-         <p>
-          點擊「新增 OnePixel」
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          (１) 填寫名稱
-         </p>
-        </li>
-        <li>
-         <p>
-          (２) 安裝初始化追蹤碼（ 🆕 追蹤碼預覽呈現 v2 版本）
-         </p>
-        </li>
-        <li>
-         <p>
-          (３) 新增事件 ( 顯示事件類型選單 )
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="3">
-        <li>
-         <p>
-          點擊「儲存」
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          追蹤碼儲存成功
-         </p>
-        </li>
-        <li>
-         <p>
-          提供複製功能
-         </p>
-        </li>
-        <li>
-         <p>
-          提供 HTML 檔案下載
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <p>
-  </p>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="78cf78c6-3c9a-49cf-a6ee-c44d80d8c6c1" data-macro-name="expand" id="expander-1797063860">
- <div class="expand-control" id="expander-control-1797063860">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   情境二：查看既有追蹤碼（v1 升級）
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1797063860">
-  <p>
-   <strong>
-    場景描述
-   </strong>
-   ：現有 v1 用戶在系統升級後查看追蹤碼
-  </p>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="385a15bf-01fc-45d8-a742-da542ed54bb7" data-table-width="760">
-    <tbody>
-     <tr>
-      <th class="confluenceTh">
-       <p>
-        操作步驟
-       </p>
-      </th>
-      <th class="confluenceTh">
-       <p>
-        系統行為
-       </p>
-      </th>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          進入 OnePixel 管理介面
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          列表顯示所有追蹤碼
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="2">
-        <li>
-         <p>
-          點擊既有追蹤碼（原為 v1）
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          保留原始 ID（如：469032846）
-         </p>
-        </li>
-        <li>
-         <p>
-          🆕 內容顯示為 v2 格式
-         </p>
-        </li>
-        <li>
-         <p>
-          維持原有編輯/刪除功能
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="3">
-        <li>
-         <p>
-          點擊「檢視 OnePixel」
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          🆕 顯示 v2 版本程式碼
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <p>
-  </p>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="b2772d86-75ef-4588-9342-f334ea1b66b1" data-macro-name="expand" id="expander-9477116">
- <div class="expand-control" id="expander-control-9477116">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   情境三：處理版本升級通知
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-9477116">
-  <p>
-   <strong>
-    場景描述
-   </strong>
-   ：PM 通知用戶升級追蹤碼版本
-  </p>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="eec9ae27-c284-4c79-aa1d-a148dd7338bd" data-table-width="760">
-    <tbody>
-     <tr>
-      <th class="confluenceTh">
-       <p>
-        操作步驟
-       </p>
-      </th>
-      <th class="confluenceTh">
-       <p>
-        系統行為 / 人為行為
-       </p>
-      </th>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          用戶收到升級通知信
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          說明 v2 新增功能提供升級操作指引
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="2">
-        <li>
-         <p>
-          進入 SuperDSP 重新複製追蹤碼
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          🆕 顯示 v2 版本追蹤碼
-         </p>
-        </li>
-        <li>
-         <p>
-          使用者選擇是否埋設追蹤碼
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="3">
-        <li>
-         <p>
-          選擇是否升級
-         </p>
-         <ol start="1">
-          <li>
-           <p>
-            升級：重新埋設
-           </p>
-          </li>
-          <li>
-           <p>
-            不升級：維持 v1
-           </p>
-          </li>
-         </ol>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          🆕 升級：獲得完整歸因數據
-         </p>
-        </li>
-        <li>
-         <p>
-          不升級：v1 持續運作但無歸因數據
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <p>
-  </p>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="842e7d68-9418-4761-81ff-dd962c56e1b7" data-macro-name="expand" id="expander-1981204878">
- <div class="expand-control" id="expander-control-1981204878">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   情境四：驗證追蹤碼安裝
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1981204878">
-  <p>
-   <strong>
-    場景描述
-   </strong>
-   ：用戶安裝追蹤碼後確認是否正確運作
-  </p>
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="e3ff9dbe-cab9-4783-babd-070d70c9c580" data-table-width="760">
-    <colgroup>
-     <col style="width: 314.0px;"/>
-     <col style="width: 416.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <th class="confluenceTh">
-       <p>
-        操作步驟
-       </p>
-      </th>
-      <th class="confluenceTh">
-       <p>
-        系統行為
-       </p>
-      </th>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="1">
-        <li>
-         <p>
-          安裝追蹤碼至網站
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          追蹤碼開始收集數據
-         </p>
-        </li>
-        <li>
-         <p>
-          無即時驗證機制
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd">
-       <ol start="2">
-        <li>
-         <p>
-          確認數據收集
-         </p>
-        </li>
-       </ol>
-      </td>
-      <td class="confluenceTd">
-       <ul>
-        <li>
-         <p>
-          ❌ 目前無測試/預覽功能
-         </p>
-        </li>
-        <li>
-         <p>
-          需等待實際數據進入報表確認
-         </p>
-        </li>
-       </ul>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-  <blockquote>
-   <p>
-    💡
-    <strong>
-     註記
-    </strong>
-    ：追蹤碼驗證功能目前未實現，未來可能優化
-   </p>
-  </blockquote>
- </div>
-</div>
+情境一：新建追蹤碼
+<p>
+ <strong>
+  場景描述
+ </strong>
+ ：用戶首次建立追蹤碼以收集網站行為數據
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       進入 OnePixel 管理介面
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示追蹤碼列表
+      </p>
+     </li>
+     <li>
+      <p>
+       顯示「新增 OnePixel」按鈕
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       點擊「新增 OnePixel」
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       (１) 填寫名稱
+      </p>
+     </li>
+     <li>
+      <p>
+       (２) 安裝初始化追蹤碼（ 🆕 追蹤碼預覽呈現 v2 版本）
+      </p>
+     </li>
+     <li>
+      <p>
+       (３) 新增事件 ( 顯示事件類型選單 )
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       點擊「儲存」
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       追蹤碼儲存成功
+      </p>
+     </li>
+     <li>
+      <p>
+       提供複製功能
+      </p>
+     </li>
+     <li>
+      <p>
+       提供 HTML 檔案下載
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+情境二：查看既有追蹤碼（v1 升級）
+<p>
+ <strong>
+  場景描述
+ </strong>
+ ：現有 v1 用戶在系統升級後查看追蹤碼
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       進入 OnePixel 管理介面
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       列表顯示所有追蹤碼
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       點擊既有追蹤碼（原為 v1）
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       保留原始 ID（如：469032846）
+      </p>
+     </li>
+     <li>
+      <p>
+       🆕 內容顯示為 v2 格式
+      </p>
+     </li>
+     <li>
+      <p>
+       維持原有編輯/刪除功能
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       點擊「檢視 OnePixel」
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 顯示 v2 版本程式碼
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+情境三：處理版本升級通知
+<p>
+ <strong>
+  場景描述
+ </strong>
+ ：PM 通知用戶升級追蹤碼版本
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為 / 人為行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       用戶收到升級通知信
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       說明 v2 新增功能提供升級操作指引
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       進入 SuperDSP 重新複製追蹤碼
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 顯示 v2 版本追蹤碼
+      </p>
+     </li>
+     <li>
+      <p>
+       使用者選擇是否埋設追蹤碼
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       選擇是否升級
+      </p>
+      <ol>
+       <li>
+        <p>
+         升級：重新埋設
+        </p>
+       </li>
+       <li>
+        <p>
+         不升級：維持 v1
+        </p>
+       </li>
+      </ol>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       🆕 升級：獲得完整歸因數據
+      </p>
+     </li>
+     <li>
+      <p>
+       不升級：v1 持續運作但無歸因數據
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+情境四：驗證追蹤碼安裝
+<p>
+ <strong>
+  場景描述
+ </strong>
+ ：用戶安裝追蹤碼後確認是否正確運作
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     系統行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       安裝追蹤碼至網站
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       追蹤碼開始收集數據
+      </p>
+     </li>
+     <li>
+      <p>
+       無即時驗證機制
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       確認數據收集
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       ❌ 目前無測試/預覽功能
+      </p>
+     </li>
+     <li>
+      <p>
+       需等待實際數據進入報表確認
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ 💡
+ <strong>
+  註記
+ </strong>
+ ：追蹤碼驗證功能目前未實現，未來可能優化
+</p>
 <p>
 </p>
 <hr/>
-<h2 id="id-[功能詳情]追蹤碼埋設v2升級-🎨前端開發項目">
+<h2>
  🎨 前端開發項目
 </h2>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-介面需求">
+<h3>
  介面需求
 </h3>
 <ul>
@@ -906,7 +807,7 @@
   </p>
  </li>
 </ul>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-互動行為">
+<h3>
  互動行為
 </h3>
 <ul>
@@ -921,10 +822,10 @@
   </p>
  </li>
 </ul>
-<h2 id="id-[功能詳情]追蹤碼埋設v2升級-🔧後端開發項目">
+<h2>
  🔧 後端開發項目
 </h2>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-功能支援需求">
+<h3>
  功能支援需求
 </h3>
 <ul>
@@ -946,7 +847,7 @@
   </ul>
  </li>
 </ul>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-資料驗證需求">
+<h3>
  資料驗證需求
 </h3>
 <ul>
@@ -966,232 +867,218 @@
   </p>
  </li>
 </ul>
-<h3 id="id-[功能詳情]追蹤碼埋設v2升級-📡API文件">
+<h3>
  📡 API 文件
 </h3>
-<blockquote>
- <p>
-  💡
-  <strong>
-   請後端工程師針對上述功能需求撰寫對應的 API 文件
-  </strong>
- </p>
-</blockquote>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="7f50647d-4b55-4100-99f4-ecc610efaaa1" data-table-width="760">
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      API 功能
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      文件連結
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      負責人
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      狀態
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-id="28a31ce1-86cc-464f-bda4-ef0b4d945873" data-macro-name="expand" id="expander-1476528683">
- <div class="expand-control" id="expander-control-1476528683">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   🔍 AI 建議｜提供工程師開發時 SIT 參考項目
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1476528683">
-  <h3 id="id-[功能詳情]追蹤碼埋設v2升級-功能測試">
-   功能測試
-  </h3>
+<p>
+ 💡
+ <strong>
+  請後端工程師針對上述功能需求撰寫對應的 API 文件
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     API 功能
+    </p>
+   </th>
+   <th>
+    <p>
+     文件連結
+    </p>
+   </th>
+   <th>
+    <p>
+     負責人
+    </p>
+   </th>
+   <th>
+    <p>
+     狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔍 AI 建議｜提供工程師開發時 SIT 參考項目
+<h3>
+ 功能測試
+</h3>
+<ul>
+ <li>
+  <p>
+   版本顯示測試
+  </p>
   <ul>
    <li>
     <p>
-     版本顯示測試
+     新建追蹤碼確認為 v2 版本
     </p>
-    <ul>
-     <li>
-      <p>
-       新建追蹤碼確認為 v2 版本
-      </p>
-     </li>
-     <li>
-      <p>
-       查看舊追蹤碼 ID 保留但內容為 v2
-      </p>
-     </li>
-     <li>
-      <p>
-       確認無法在介面上選擇 v1 版本
-      </p>
-     </li>
-    </ul>
    </li>
    <li>
     <p>
-     數據收集完整性測試
+     查看舊追蹤碼 ID 保留但內容為 v2
     </p>
-    <ul>
-     <li>
-      <p>
-       測試每個事件類型的觸發與收集
-      </p>
-     </li>
-     <li>
-      <p>
-       驗證報表所需指標都能正確獲得
-      </p>
-     </li>
-     <li>
-      <p>
-       特別注意 7 天歸因窗口期計算
-      </p>
-     </li>
-    </ul>
+   </li>
+   <li>
+    <p>
+     確認無法在介面上選擇 v1 版本
+    </p>
    </li>
   </ul>
-  <h3 id="id-[功能詳情]追蹤碼埋設v2升級-數據驗證">
-   數據驗證
-  </h3>
+ </li>
+ <li>
+  <p>
+   數據收集完整性測試
+  </p>
   <ul>
    <li>
     <p>
-     報表指標對應
+     測試每個事件類型的觸發與收集
     </p>
-    <ul>
-     <li>
-      <p>
-       每個報表指標都有對應的事件類型
-      </p>
-     </li>
-     <li>
-      <p>
-       數值計算邏輯正確（如 ROAS = Revenue ÷ 花費）
-      </p>
-     </li>
-    </ul>
    </li>
    <li>
     <p>
-     版本相容性
+     驗證報表所需指標都能正確獲得
     </p>
-    <ul>
-     <li>
-      <p>
-       v1 追蹤碼持續收集即時數據
-      </p>
-     </li>
-     <li>
-      <p>
-       v2 追蹤碼完整收集所有數據
-      </p>
-     </li>
-     <li>
-      <p>
-       數據不重複計算
-      </p>
-     </li>
-    </ul>
+   </li>
+   <li>
+    <p>
+     特別注意 7 天歸因窗口期計算
+    </p>
    </li>
   </ul>
-  <h3 id="id-[功能詳情]追蹤碼埋設v2升級-異常處理">
-   異常處理
-  </h3>
+ </li>
+</ul>
+<h3>
+ 數據驗證
+</h3>
+<ul>
+ <li>
+  <p>
+   報表指標對應
+  </p>
   <ul>
    <li>
     <p>
-     版本混用情況（同一客戶同時使用 v1 和 v2）
+     每個報表指標都有對應的事件類型
     </p>
    </li>
    <li>
     <p>
-     數據去重機制
-    </p>
-   </li>
-   <li>
-    <p>
-     缺失事件類型的識別與提醒
-    </p>
-   </li>
-   <li>
-    <p>
-     追蹤碼先於廣告組合建立的處理
+     數值計算邏輯正確（如 ROAS = Revenue ÷ 花費）
     </p>
    </li>
   </ul>
-  <h3 id="id-[功能詳情]追蹤碼埋設v2升級-特殊情境提醒">
-   特殊情境提醒
-  </h3>
+ </li>
+ <li>
+  <p>
+   版本相容性
+  </p>
   <ul>
    <li>
     <p>
-     監控 v1 使用情況與客戶升級進度
+     v1 追蹤碼持續收集即時數據
     </p>
    </li>
    <li>
     <p>
-     定期檢查事件類型與報表指標的對應
+     v2 追蹤碼完整收集所有數據
     </p>
    </li>
    <li>
     <p>
-     準備版本差異說明文件
-    </p>
-   </li>
-   <li>
-    <p>
-     追蹤碼可先埋設，系統會在廣告投放後自動關聯
+     數據不重複計算
     </p>
    </li>
   </ul>
- </div>
-</div>
+ </li>
+</ul>
+<h3>
+ 異常處理
+</h3>
+<ul>
+ <li>
+  <p>
+   版本混用情況（同一客戶同時使用 v1 和 v2）
+  </p>
+ </li>
+ <li>
+  <p>
+   數據去重機制
+  </p>
+ </li>
+ <li>
+  <p>
+   缺失事件類型的識別與提醒
+  </p>
+ </li>
+ <li>
+  <p>
+   追蹤碼先於廣告組合建立的處理
+  </p>
+ </li>
+</ul>
+<h3>
+ 特殊情境提醒
+</h3>
+<ul>
+ <li>
+  <p>
+   監控 v1 使用情況與客戶升級進度
+  </p>
+ </li>
+ <li>
+  <p>
+   定期檢查事件類型與報表指標的對應
+  </p>
+ </li>
+ <li>
+  <p>
+   準備版本差異說明文件
+  </p>
+ </li>
+ <li>
+  <p>
+   追蹤碼可先埋設，系統會在廣告投放後自動關聯
+  </p>
+ </li>
+</ul>

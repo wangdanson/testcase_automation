@@ -1,9 +1,7 @@
-<h2 id="id-權限管理功能開發規格文件-對應Key字串">
+<h2>
  對應 Key 字串
 </h2>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="3ecde04f-9550-44f7-8c6b-aa4d5f333719" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">--- 角色/使用者權限 ---
+<pre>--- 角色/使用者權限 ---
 廣告操作 -&gt; adOperator
 唯讀廣告 -&gt; readonly
 品牌客戶 -&gt; brandClient
@@ -21,99 +19,82 @@
 編輯 OnePixel -&gt; onePixelsEdit
 查看 帳務管理 -&gt; financeRead
 新增/編輯 設定 &gt; 廣告主管理 -&gt; advertisersAccess</pre>
- </div>
-</div>
-<h2 id="id-權限管理功能開發規格文件-使用者管理">
+<h2>
  使用者管理
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="c15b6a1a-e699-471d-9c49-969018f505ed" data-macro-name="expand" id="expander-576541689">
- <div class="expand-control" id="expander-control-576541689">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   取得使用者列表
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-576541689">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="5e3209b1-2b35-4eb8-800f-30405631aee3" data-table-width="988">
-    <colgroup>
-     <col style="width: 236.0px;"/>
-     <col style="width: 745.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /api/v1/superdsp/users
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="0806b179-b019-4df3-82db-c8acd2684c63" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type Data = {
+取得使用者列表
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/users
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type Data = {
   email: string;
   firstname: string;
   id: number;
@@ -130,103 +111,83 @@
 {
   data: Data[]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="473f25a5-222f-4552-aab1-ee15f7369629" data-macro-name="expand" id="expander-1636205472">
- <div class="expand-control" id="expander-control-1636205472">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   新增使用者
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1636205472">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="1f2b602d-db2c-43f2-b8db-bb777b5e8574" data-table-width="988">
-    <colgroup>
-     <col style="width: 236.0px;"/>
-     <col style="width: 745.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /api/v1/superdsp/users
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="fea02b30-8df2-4f9e-bc66-14bc1a607c1f" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+新增使用者
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/users
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <pre>{
   user: {
     email: string;
     firstname: string;
@@ -237,114 +198,94 @@
     enabled_companies: number[]; &lt;-- 新增，廣告主 id
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="2f30f928-3840-4917-979c-0f1b14ab4c5e" data-macro-name="expand" id="expander-326245041">
- <div class="expand-control" id="expander-control-326245041">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   編輯使用者
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-326245041">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="1759643b-61d0-41cd-8561-c3d164803955" data-table-width="988">
-    <colgroup>
-     <col style="width: 236.0px;"/>
-     <col style="width: 745.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         PUT
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /api/v1/superdsp/users/:id
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="f076d244-e581-4246-b259-c74c7a250d65" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+編輯使用者
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/users/:id
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <pre>{
   user: {
     email: string;
     firstname: string;
@@ -355,128 +296,108 @@
     enabled_companies: number[]; &lt;-- 新增，廣告主 id
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h2 id="id-權限管理功能開發規格文件-廣告主管理">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
  廣告主管理
 </h2>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="6b37d954-c12e-4aca-b05c-b1ac792211f1" data-macro-name="expand" id="expander-1965050670">
- <div class="expand-control" id="expander-control-1965050670">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   取得廣告主完整列表
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1965050670">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="5323dc89-ace8-4f76-a7bc-48af9107c1ae" data-table-width="988">
-    <colgroup>
-     <col style="width: 236.0px;"/>
-     <col style="width: 745.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         GET
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/complete_list
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="8d320df6-af62-4509-a0ee-06161b577cbe" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">type User = {
+取得廣告主完整列表
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/complete_list
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>type User = {
   name: string;
   id: number;
 }
@@ -495,92 +416,72 @@ type Data = {
 {
   data: Data[]
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="a6eb68d7-8583-4cd7-9f77-0e9f22cca21d" data-macro-name="expand" id="expander-2125190146">
- <div class="expand-control" id="expander-control-2125190146">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   新增廣告主
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-2125190146">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="8500f002-f810-4cbd-9def-59bda3091209" data-table-width="988">
-    <colgroup>
-     <col style="width: 236.0px;"/>
-     <col style="width: 745.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         POST
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /api/v1/superdsp/companies
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e37d32e9-05e0-4044-b094-7f4b152b6b2e" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+新增廣告主
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      POST
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   company: {
     name: string;
     payer_name: string;
@@ -588,114 +489,94 @@ type Data = {
     enabled_users: number[] &lt;-- 新增，使用者 id
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="3bae07b9-170f-4cc1-b5e8-72d71202e1f2" data-macro-name="expand" id="expander-115033689">
- <div class="expand-control" id="expander-control-115033689">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   編輯廣告主
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-115033689">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="1bb79c09-81ba-4f5d-abfc-6df78646c2f4" data-table-width="988">
-    <colgroup>
-     <col style="width: 236.0px;"/>
-     <col style="width: 745.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         PUT
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /api/v1/superdsp/companies/:id
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="e0bcc5cf-43dc-4f68-8037-df674cf4af0d" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+編輯廣告主
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/companies/:id
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   company: {
     name: string;
     payer_name: string;
@@ -703,117 +584,97 @@ type Data = {
     enabled_users: number[] &lt;-- 新增，使用者 id
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
-<h3 id="id-權限管理功能開發規格文件-登入者資訊">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  登入者資訊
 </h3>
-<div class="expand-container conf-macro output-block" data-hasbody="true" data-layout="wide" data-macro-id="5283a091-b70c-49be-b39f-34b70fc0fa2d" data-macro-name="expand" id="expander-1225699251">
- <div class="expand-control" id="expander-control-1225699251">
-  <span class="expand-control-icon icon">
-  </span>
-  <span class="expand-control-text">
-   登入者資訊
-  </span>
- </div>
- <div class="expand-content expand-hidden" id="expander-content-1225699251">
-  <div class="table-wrap">
-   <table class="confluenceTable" data-layout="default" data-local-id="8fbbb126-95c6-4746-9503-65aa2315ae64" data-table-width="988">
-    <colgroup>
-     <col style="width: 236.0px;"/>
-     <col style="width: 745.0px;"/>
-    </colgroup>
-    <tbody>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        methods
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         PUT
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        path
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        <code>
-         /api/v1/superdsp/users/info
-        </code>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        status
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        modify API
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        request
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2415511f-be4f-4c24-9952-6145bfc91c69" data-macro-name="code" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-         <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+登入者資訊
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/superdsp/users/info
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     modify API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
   data: {
     id: number;
     email: string;
@@ -826,45 +687,40 @@ type Data = {
     enabled_companies: number[]; &lt;-- 新增，廣告主 id
   }
 }</pre>
-        </div>
-       </div>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        controller
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        response
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-     <tr>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-        備註
-       </p>
-      </td>
-      <td class="confluenceTd" data-highlight-colour="var(--ds-surface, #FFFFFF)">
-       <p>
-       </p>
-      </td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</div>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>

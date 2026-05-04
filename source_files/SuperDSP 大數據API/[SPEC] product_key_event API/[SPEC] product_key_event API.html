@@ -1,18 +1,18 @@
-<h2 id="id-[SPEC]product_key_eventAPI-Projectrepository:api-gateway">
+<h2>
  Project repository:
- <a class="external-link" href="https://github.com/onead/api-gateway" rel="nofollow">
+ <a href="https://github.com/onead/api-gateway">
   <u>
    api-gateway
   </u>
  </a>
 </h2>
-<h2 id="id-[SPEC]product_key_eventAPI-APIdoc:product_key_event">
+<h2>
  API doc:
- <a class="external-link" href="http://api-gateway.onead.com.tw:3000/apidoc#!/product_key_event/getV1ProductKeyEvent" rel="nofollow">
+ <a href="http://api-gateway.onead.com.tw:3000/apidoc#!/product_key_event/getV1ProductKeyEvent">
   product_key_event
  </a>
 </h2>
-<h2 id="id-[SPEC]product_key_eventAPI-資料來源:">
+<h2>
  資料來源:
 </h2>
 <ul>
@@ -28,9 +28,7 @@
   <p>
    example
   </p>
-  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="851f9b11-2120-48a5-bc9b-8e634027b6dc" data-macro-name="code" style="border-width: 1px;">
-   <div class="codeContent panelContent pdl">
-    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">SELECT 
+  <pre>SELECT 
   plaid,
   day_local as report_date,
   sumIf(counts, event='cv') as cv,
@@ -53,8 +51,6 @@ FROM kafka.summing_day_event_dicts
 WHERE plaid in (40882) and day_local between '2022-09-22' and '2022-09-30'
 GROUP BY plaid,day_local
 ORDER BY plaid,day_local</pre>
-   </div>
-  </div>
  </li>
 </ul>
 <p>
@@ -72,9 +68,7 @@ ORDER BY plaid,day_local</pre>
   <p>
    DB schema(當 event 欄位 = 'eng' , eng 欄位會有不同的值，例如 user 的互動方式)
   </p>
-  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="a1186776-7c84-4a51-aa38-42468477c98a" data-macro-name="code" style="border-width: 1px;">
-   <div class="codeContent panelContent pdl">
-    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">CREATE TABLE kafka.summing_signal_categories (
+  <pre>CREATE TABLE kafka.summing_signal_categories (
   `day_local` Date,
   `uid` Int32 CODEC(Delta(4), ZSTD(1)),
   `cmpid` Int32 CODEC(Delta(4), ZSTD(1)),
@@ -85,16 +79,12 @@ ORDER BY plaid,day_local</pre>
   `eng` String CODEC(ZSTD(19)),
   `counts` UInt64
 )</pre>
-   </div>
-  </div>
  </li>
  <li>
   <p>
    example
   </p>
-  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="9f8c6533-3bae-4152-a532-2d302812e05f" data-macro-name="code" style="border-width: 1px;">
-   <div class="codeContent panelContent pdl">
-    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">SELECT  
+  <pre>SELECT  
   plaid as tier_id,
   day_local as report_date,
   id as category_id, 
@@ -118,523 +108,498 @@ FROM kafka.summing_signal_categories
 WHERE plaid in ( 40882 ) and day_local between '2022-09-22' and '2022-09-30' 
 GROUP BY plaid,id,day_local 
 ORDER BY plaid,id asc, day_local asc</pre>
-   </div>
-  </div>
  </li>
 </ul>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="full-width" data-local-id="663c161e-8825-4baf-86d5-30c05d96fba5">
-  <colgroup>
-   <col style="width: 66.0px;"/>
-   <col style="width: 108.0px;"/>
-   <col style="width: 102.0px;"/>
-   <col style="width: 48.0px;"/>
-   <col style="width: 96.0px;"/>
-   <col style="width: 93.0px;"/>
-   <col style="width: 103.0px;"/>
-   <col style="width: 48.0px;"/>
-   <col style="width: 52.67px;"/>
-   <col style="width: 52.67px;"/>
-   <col style="width: 52.67px;"/>
-   <col style="width: 56.25px;"/>
-   <col style="width: 69.25px;"/>
-   <col style="width: 68.25px;"/>
-   <col style="width: 67.25px;"/>
-   <col style="width: 78.0px;"/>
-   <col style="width: 77.0px;"/>
-   <col style="width: 53.0px;"/>
-   <col style="width: 53.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      tier_id
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      report_date
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      category_id
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      cv
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      impression
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      videoClick
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      bannerClick
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      q0
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      q25
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      q50
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      q75
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      q100
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      view2s
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      view3s
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      view5s
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      view10s
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      view30s
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      tb
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#b0b3b2">
-     <p>
-      eng
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-      2022-09-23
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      230
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      456
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      45
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      56
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      120
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      734
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      123
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      138
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      193
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      238
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      223
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      112
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      723
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      340
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-      2022-09-23
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      5
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      33
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      123
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      10
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      23
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      24
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      632
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      723
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      340
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      223
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      212
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      223
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      632
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      232
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      223
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-      2022-09-23
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      20
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      456
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      753
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      29
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      43
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      238
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      157
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      151
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      121
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      141
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      340
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      144
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      723
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      238
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      112
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-      2022-09-23
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      21
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      783
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1922
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      49
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      45
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      623
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      249
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      128
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      223
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      172
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      723
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      632
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      223
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      340
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      238
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
-<h3 id="id-[SPEC]product_key_eventAPI-Version(date_array)">
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     tier_id
+    </p>
+   </td>
+   <td>
+    <p>
+     report_date
+    </p>
+   </td>
+   <td>
+    <p>
+     category_id
+    </p>
+   </td>
+   <td>
+    <p>
+     cv
+    </p>
+   </td>
+   <td>
+    <p>
+     impression
+    </p>
+   </td>
+   <td>
+    <p>
+     videoClick
+    </p>
+   </td>
+   <td>
+    <p>
+     bannerClick
+    </p>
+   </td>
+   <td>
+    <p>
+     q0
+    </p>
+   </td>
+   <td>
+    <p>
+     q25
+    </p>
+   </td>
+   <td>
+    <p>
+     q50
+    </p>
+   </td>
+   <td>
+    <p>
+     q75
+    </p>
+   </td>
+   <td>
+    <p>
+     q100
+    </p>
+   </td>
+   <td>
+    <p>
+     view2s
+    </p>
+   </td>
+   <td>
+    <p>
+     view3s
+    </p>
+   </td>
+   <td>
+    <p>
+     view5s
+    </p>
+   </td>
+   <td>
+    <p>
+     view10s
+    </p>
+   </td>
+   <td>
+    <p>
+     view30s
+    </p>
+   </td>
+   <td>
+    <p>
+     tb
+    </p>
+   </td>
+   <td>
+    <p>
+     eng
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     2022-09-23
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     230
+    </p>
+   </td>
+   <td>
+    <p>
+     456
+    </p>
+   </td>
+   <td>
+    <p>
+     45
+    </p>
+   </td>
+   <td>
+    <p>
+     56
+    </p>
+   </td>
+   <td>
+    <p>
+     120
+    </p>
+   </td>
+   <td>
+    <p>
+     734
+    </p>
+   </td>
+   <td>
+    <p>
+     123
+    </p>
+   </td>
+   <td>
+    <p>
+     138
+    </p>
+   </td>
+   <td>
+    <p>
+     193
+    </p>
+   </td>
+   <td>
+    <p>
+     238
+    </p>
+   </td>
+   <td>
+    <p>
+     223
+    </p>
+   </td>
+   <td>
+    <p>
+     112
+    </p>
+   </td>
+   <td>
+    <p>
+     723
+    </p>
+   </td>
+   <td>
+    <p>
+     340
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     2022-09-23
+    </p>
+   </td>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     33
+    </p>
+   </td>
+   <td>
+    <p>
+     123
+    </p>
+   </td>
+   <td>
+    <p>
+     10
+    </p>
+   </td>
+   <td>
+    <p>
+     23
+    </p>
+   </td>
+   <td>
+    <p>
+     24
+    </p>
+   </td>
+   <td>
+    <p>
+     632
+    </p>
+   </td>
+   <td>
+    <p>
+     723
+    </p>
+   </td>
+   <td>
+    <p>
+     340
+    </p>
+   </td>
+   <td>
+    <p>
+     223
+    </p>
+   </td>
+   <td>
+    <p>
+     212
+    </p>
+   </td>
+   <td>
+    <p>
+     223
+    </p>
+   </td>
+   <td>
+    <p>
+     632
+    </p>
+   </td>
+   <td>
+    <p>
+     232
+    </p>
+   </td>
+   <td>
+    <p>
+     223
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     2022-09-23
+    </p>
+   </td>
+   <td>
+    <p>
+     20
+    </p>
+   </td>
+   <td>
+    <p>
+     456
+    </p>
+   </td>
+   <td>
+    <p>
+     753
+    </p>
+   </td>
+   <td>
+    <p>
+     29
+    </p>
+   </td>
+   <td>
+    <p>
+     43
+    </p>
+   </td>
+   <td>
+    <p>
+     238
+    </p>
+   </td>
+   <td>
+    <p>
+     157
+    </p>
+   </td>
+   <td>
+    <p>
+     151
+    </p>
+   </td>
+   <td>
+    <p>
+     121
+    </p>
+   </td>
+   <td>
+    <p>
+     141
+    </p>
+   </td>
+   <td>
+    <p>
+     340
+    </p>
+   </td>
+   <td>
+    <p>
+     144
+    </p>
+   </td>
+   <td>
+    <p>
+     723
+    </p>
+   </td>
+   <td>
+    <p>
+     238
+    </p>
+   </td>
+   <td>
+    <p>
+     112
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     2022-09-23
+    </p>
+   </td>
+   <td>
+    <p>
+     21
+    </p>
+   </td>
+   <td>
+    <p>
+     783
+    </p>
+   </td>
+   <td>
+    <p>
+     1922
+    </p>
+   </td>
+   <td>
+    <p>
+     49
+    </p>
+   </td>
+   <td>
+    <p>
+     45
+    </p>
+   </td>
+   <td>
+    <p>
+     623
+    </p>
+   </td>
+   <td>
+    <p>
+     249
+    </p>
+   </td>
+   <td>
+    <p>
+     128
+    </p>
+   </td>
+   <td>
+    <p>
+     223
+    </p>
+   </td>
+   <td>
+    <p>
+     172
+    </p>
+   </td>
+   <td>
+    <p>
+     723
+    </p>
+   </td>
+   <td>
+    <p>
+     632
+    </p>
+   </td>
+   <td>
+    <p>
+     223
+    </p>
+   </td>
+   <td>
+    <p>
+     340
+    </p>
+   </td>
+   <td>
+    <p>
+     238
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
  Version(
  <code>
   date_array
@@ -648,9 +613,7 @@ ORDER BY plaid,id asc, day_local asc</pre>
   </p>
  </li>
 </ul>
-<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="392c1a8f-ded7-4470-9983-2b39a21cbe8b" data-macro-name="code" style="border-width: 1px;">
- <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+<pre>{
   40882:
   [
     {
@@ -665,8 +628,6 @@ ORDER BY plaid,id asc, day_local asc</pre>
     }
   ]
 }</pre>
- </div>
-</div>
 <ul>
  <li>
   <p>
@@ -682,29 +643,21 @@ ORDER BY plaid,id asc, day_local asc</pre>
     <p>
      第一筆
     </p>
-    <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="2f58e5cc-1bb2-4943-ad78-083ad1b1cc51" data-macro-name="code" style="border-width: 1px;">
-     <div class="codeContent panelContent pdl">
-      <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <pre>{
   start_date: placement.start_date,
   end_date: 第一筆version建立的時間,
   categories: 修改前＋修改後 的categories
 }</pre>
-     </div>
-    </div>
    </li>
    <li>
     <p>
      最後一筆
     </p>
-    <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="6c37f6d2-ef94-46aa-b87b-bd8bca933e3e" data-macro-name="code" style="border-width: 1px;">
-     <div class="codeContent panelContent pdl">
-      <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <pre>{
   start_date: 最後一筆version建立的時間,
   end_date: placement.end_date,
   categories: 目前placement的設定
 }</pre>
-     </div>
-    </div>
    </li>
    <li>
     <p>
@@ -714,23 +667,19 @@ ORDER BY plaid,id asc, day_local asc</pre>
      </code>
      要合併)
     </p>
-    <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-id="5b0d4c8e-163c-4387-9131-cd7ef77d6ff3" data-macro-name="code" style="border-width: 1px;">
-     <div class="codeContent panelContent pdl">
-      <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    <pre>{
   start_date: 上一筆的start_date + 1day,
   end_date: version建立的時間,
   categories: version的設定(+同一天進行修改的categories)
 }</pre>
-     </div>
-    </div>
    </li>
   </ul>
  </li>
 </ul>
-<h2 id="id-[SPEC]product_key_eventAPI-資料計算邏輯">
+<h2>
  資料計算邏輯
 </h2>
-<h3 id="id-[SPEC]product_key_eventAPI-數據計算">
+<h3>
  數據計算
 </h3>
 <ul>
@@ -840,91 +789,84 @@ ORDER BY plaid,id asc, day_local asc</pre>
   </ul>
  </li>
 </ul>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="aa7716fe-fff8-4b7c-9c35-0a1754310e14">
-  <colgroup>
-   <col style="width: 226.67px;"/>
-   <col style="width: 226.67px;"/>
-   <col style="width: 226.67px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       id
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       categories_id
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       cv
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      9968
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      5
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      9912
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      275
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      id
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      categories_id
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      cv
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     9968
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     9912
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     275
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
 <ul>
@@ -956,44 +898,38 @@ ORDER BY plaid,id asc, day_local asc</pre>
   </ul>
  </li>
 </ul>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="default" data-local-id="673fa86c-bd05-4540-98ff-dfd334a19546">
-  <colgroup>
-   <col style="width: 340.0px;"/>
-   <col style="width: 340.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       id
-      </strong>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#f4f5f7">
-     <p>
-      <strong>
-       cv
-      </strong>
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      40882
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      42597
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      id
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      cv
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     40882
+    </p>
+   </td>
+   <td>
+    <p>
+     42597
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
 <ul>

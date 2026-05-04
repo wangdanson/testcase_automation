@@ -1,1010 +1,895 @@
-<h2 id="id-[功能細項]SuperDSP平台化Phase1.6.0-後端">
- <style>
-  [data-colorid=rd8ud20miy]{color:#ff5630} html[data-color-mode=dark] [data-colorid=rd8ud20miy]{color:#cf2600}
- </style>
+<h2>
  <strong>
   後端
  </strong>
 </h2>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="center" data-local-id="ce0043d3-b381-468a-b442-2162a7fc3387" data-table-width="1800">
-  <colgroup>
-   <col style="width: 243.0px;"/>
-   <col style="width: 174.0px;"/>
-   <col style="width: 382.0px;"/>
-   <col style="width: 211.0px;"/>
-   <col style="width: 136.0px;"/>
-   <col style="width: 654.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       系統
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       功能細項
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       開發人員
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       時程
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       細項
-      </strong>
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      Commerce AD 受眾洞察報表
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      SuperDSP
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      受眾洞察報告 維度 &amp; 欄位 新增屬於 Commerce Ad 的選項
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2588" data-macro-id="c7ca0494-b3ac-468b-b46e-4803aefd1e03" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2588">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2588
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      0.5
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      GET
-      <code>
-       api/v1/superdsp/campaigns/report_options?product_category_id=7
-      </code>
-     </p>
-     <ul>
-      <li>
-       <p>
-        維度：daily, hourly, targeting, os, media, product
-       </p>
-      </li>
-      <li>
-       <p>
-        欄位：superdsp_imp, clicks, ctr_imp, avg_cpc, cost, conversion
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      SuperDSP
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      匯出受眾洞察報告 新增維度 &amp; 新增欄位
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2589" data-macro-id="e2706711-80b9-449c-aefa-1f65650c4555" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2589">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2589
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2590" data-macro-id="964dedb9-0a1f-4737-b921-dd07c8ac21f2" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2590">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2590
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2591" data-macro-id="3e54b620-19b5-4c2c-a6d9-22d30a4973cb" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2591">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2591
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2592" data-macro-id="6317d5db-ed73-4a00-9430-c8f9d8acc332" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2592">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2592
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="624d0b50ad6b7e006aa8d6d6" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3097329667" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence" target="_blank">
-       Elain Wu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      10
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      POST
-      <code>
-       /campaigns/{id}/generate_report_xls
-      </code>
-     </p>
-     <ul>
-      <li>
-       <p>
-        新增維度：
-       </p>
-       <ul>
-        <li>
-         <p>
-          數據鎖定 - 全域預測潛力模型
-         </p>
-        </li>
-        <li>
-         <p>
-          Product Key
-         </p>
-        </li>
-        <li>
-         <p>
-          產品
-         </p>
-        </li>
-       </ul>
-      </li>
-      <li>
-       <p>
-        維度 - daily, hourly, demographic, os 需新增欄位：
-       </p>
-       <ul>
-        <li>
-         <p>
-          avg_cpc
-         </p>
-        </li>
-        <li>
-         <p>
-          cost
-         </p>
-        </li>
-        <li>
-         <p>
-          Conversion 的 相關欄位(14個)
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-     <p>
-      除上述四個維度外, 其餘維度欄位皆以 - 呈現於報表
-     </p>
-     <p>
-     </p>
-     <ul>
-      <li>
-       <p>
-        ApiGateway 拉回來的數據要增加
-        <code>
-         amount_sell
-        </code>
-        數值
-        <br/>
-        (
-        <code>
-         amount_sell
-        </code>
-        當做 event 傳入參數)
-       </p>
-       <ul>
-        <li>
-         <p>
-          <code>
-           ProductKeyEvent
-          </code>
-          (summing_signal_categories)
-         </p>
-        </li>
-        <li>
-         <p>
-          <code>
-           SegmentEvent
-          </code>
-          (summing_segment_events)
-         </p>
-        </li>
-        <li>
-         <p>
-          <code>
-           DemographicEvent
-          </code>
-          (summing_demographics)
-         </p>
-        </li>
-        <li>
-         <p>
-          <code>
-           InterestEvent
-          </code>
-          (summing_interest_groups)
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ApiGateway
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ApiGateway 要新增 amount_sell 數值
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2593" data-macro-id="83a50d6d-6156-4fe6-ad87-10010698e3bc" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2593">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2593
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        <span data-colorid="rd8ud20miy">
-         新增撈取
-        </span>
-        sum(amount_sell) as amount_sell
-       </p>
-       <ul>
-        <li>
-         <p>
-          <code>
-           DeviceEvent
-          </code>
-          (summing_device_event_dicts)
-         </p>
-        </li>
-        <li>
-         <p>
-          <code>
-           Event
-          </code>
-          (summing_day_event_dicts)
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ApiGateway
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ApiGateway
-      <code>
-       RtbEventService
-      </code>
-      新增統計維度
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2594" data-macro-id="ca27194b-f1df-4a6a-9219-b0349866f42e" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2594">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2594
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        prebuild.replacing_attr_events 新增統計維度
-       </p>
-      </li>
-      <li>
-       <p>
-        group_type：
-       </p>
-       <ul>
-        <li>
-         <p>
-          day_local
-         </p>
-        </li>
-        <li>
-         <p>
-          hour
-         </p>
-        </li>
-        <li>
-         <p>
-          user_de
-         </p>
-        </li>
-        <li>
-         <p>
-          os
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ApiGateway
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      ApiGateway 新增 product 用 apigateway
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2595" data-macro-id="76470cfc-f593-4273-b6b0-ba1916ddd060" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2595">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2595
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ul>
-      <li>
-       <p>
-        大J 會新開一張 table (目前欄位依據 event_dict +
-        <code>
-         prd_title
-        </code>
-        /
-        <code>
-         prd_id
-        </code>
-        )
-       </p>
-      </li>
-      <li>
-       <p>
-        不需要校正回歸
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      Commerce AD 導入財務報表
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      SuperDSP
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      帳務管理 - 每月使用報告 新增欄位 &amp; 資料排序
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      GET
-      <code>
-       api/v1/superdsp/billing_report?company_id={id}&amp;date={date}
-      </code>
-     </p>
-     <ul>
-      <li>
-       <p>
-        新增欄位：
-       </p>
-       <ul>
-        <li>
-         <p>
-          insertion_order_id (IO 單 ID)
-         </p>
-        </li>
-        <li>
-         <p>
-          campaign_id(廣告活動 ID)
-         </p>
-        </li>
-        <li>
-         <p>
-          ad_group_id(廣告組合 ID)
-         </p>
-        </li>
-        <li>
-         <p>
-          transaction_type(交易模式)：回傳 固定價格 or 即時競價
-          <br/>
-          (用 campaign_type 判斷)
-         </p>
-        </li>
-       </ul>
-      </li>
-      <li>
-       <p>
-        排序邏輯：
-        <br/>
-        第一排序邏輯｜固定價格在前, 即時競價在後
-       </p>
-       <p>
-        第二排序邏輯｜IO單 ID 由小至大, 由上至下排序
-       </p>
-       <p>
-        第三排序邏輯｜廣告活動 ID 由小至大, 由上至下排序
-       </p>
-       <p>
-        第四排序邏輯｜廣告組合 ID 由小至大, 由上至下排序
-       </p>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      SuperDSP
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      帳務管理 - 每月使用報告 報表下載 新增/修改欄位 &amp; 資料排序
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2597" data-macro-id="cb2dddb2-d880-414f-a7a8-83f2eae685e5" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2597">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2597
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      GET
-      <code>
-       api/v1/superdsp/billing_report/generate_excel_report?company_id={id}&amp;date={date}
-      </code>
-     </p>
-     <ul>
-      <li>
-       <p>
-        欄位 &amp; 排序邏輯 同
-        <code>
-         帳務管理 - 每月使用報告 新增欄位回傳 &amp; 資料排序
-        </code>
-       </p>
-      </li>
-      <li>
-       <p>
-        修改欄位：
-       </p>
-       <ul>
-        <li>
-         <p>
-          IO 單名稱
-         </p>
-        </li>
-        <li>
-         <p>
-          合約價格 → 計價
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      OSS
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      帳務管理 → SuperDSP 毛利 新增/修改欄位
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2598" data-macro-id="6c9bbd3d-1fe2-48be-abcd-d2b312346280" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2598">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2598
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      GET
-      <code>
-       billing_report/superdsp_monthly_gross_profit?date={date}
-      </code>
-     </p>
-     <ul>
-      <li>
-       <p>
-        新增欄位：
-       </p>
-       <ul>
-        <li>
-         <p>
-          transaction_type(交易模式)：回傳 固定價格 or 即時競價
-          <br/>
-          (用 campaign_type 判斷)
-         </p>
-        </li>
-       </ul>
-      </li>
-      <li>
-       <p>
-        修改欄位：
-       </p>
-       <ul>
-        <li>
-         <p>
-          <strong>
-           單價 → 計價
-          </strong>
-         </p>
-        </li>
-       </ul>
-      </li>
-     </ul>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      OSS
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      帳務管理 → SuperDSP 毛利 執行金額邏輯調整
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      1
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      現有邏輯：已花費（
-      <strong>
-       含
-      </strong>
-      Margin）
-     </p>
-     <p>
-      未來邏輯：應收金額（
-      <strong>
-       不含
-      </strong>
-      Margin）(不用判斷是否超跑)
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="confluenceTd">
-     <p>
-      BUG 處理
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      SuperDSP
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      帳務管理 - 每月使用報告 當月/跨月 應付金額對齊
-     </p>
-     <p>
-      <span class="confluence-jim-macro jira-issue conf-macro output-block" data-client-id="SINGLE_24a1d391-9248-3fbf-a8f8-0720e84a6cba_3975053313_557058:be8ff369-5496-40ce-8656-f3b7f6645c68" data-hasbody="false" data-jira-key="ITP-2538" data-macro-id="e9003a30-7f7c-44f5-bf7e-22103b210d46" data-macro-name="jira">
-       <a class="jira-issue-key" href="https://guoshi.atlassian.net/browse/ITP-2538">
-        <span class="aui-icon aui-icon-wait issue-placeholder">
-        </span>
-        ITP-2538
-       </a>
-       -
-       <span class="summary">
-        取得議題詳細資料...
-       </span>
-       <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
-        狀態
-       </span>
-      </span>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:e3581f4c-d04d-4541-b908-8c0775986275" data-base-url="https://guoshi.atlassian.net/wiki" data-linked-resource-id="3386245159" data-linked-resource-type="userinfo" data-linked-resource-version="1" href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence" target="_blank">
-       Kirt Hsu
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      2
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      同一筆活動 應付金額 當月/跨月 金額不一致，需修正
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能細項
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      開發人員
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      時程
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      細項
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Commerce AD 受眾洞察報表
+    </p>
+   </td>
+   <td>
+    <p>
+     SuperDSP
+    </p>
+   </td>
+   <td>
+    <p>
+     受眾洞察報告 維度 &amp; 欄位 新增屬於 Commerce Ad 的選項
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2588">
+      ITP-2588
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     0.5
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+     <code>
+      api/v1/superdsp/campaigns/report_options?product_category_id=7
+     </code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       維度：daily, hourly, targeting, os, media, product
+      </p>
+     </li>
+     <li>
+      <p>
+       欄位：superdsp_imp, clicks, ctr_imp, avg_cpc, cost, conversion
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     SuperDSP
+    </p>
+   </td>
+   <td>
+    <p>
+     匯出受眾洞察報告 新增維度 &amp; 新增欄位
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2589">
+      ITP-2589
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2590">
+      ITP-2590
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2591">
+      ITP-2591
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2592">
+      ITP-2592
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     10
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+     <code>
+      /campaigns/{id}/generate_report_xls
+     </code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       新增維度：
+      </p>
+      <ul>
+       <li>
+        <p>
+         數據鎖定 - 全域預測潛力模型
+        </p>
+       </li>
+       <li>
+        <p>
+         Product Key
+        </p>
+       </li>
+       <li>
+        <p>
+         產品
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       維度 - daily, hourly, demographic, os 需新增欄位：
+      </p>
+      <ul>
+       <li>
+        <p>
+         avg_cpc
+        </p>
+       </li>
+       <li>
+        <p>
+         cost
+        </p>
+       </li>
+       <li>
+        <p>
+         Conversion 的 相關欄位(14個)
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p>
+     除上述四個維度外, 其餘維度欄位皆以 - 呈現於報表
+    </p>
+    <p>
+    </p>
+    <ul>
+     <li>
+      <p>
+       ApiGateway 拉回來的數據要增加
+       <code>
+        amount_sell
+       </code>
+       數值
+       <br/>
+       (
+       <code>
+        amount_sell
+       </code>
+       當做 event 傳入參數)
+      </p>
+      <ul>
+       <li>
+        <p>
+         <code>
+          ProductKeyEvent
+         </code>
+         (summing_signal_categories)
+        </p>
+       </li>
+       <li>
+        <p>
+         <code>
+          SegmentEvent
+         </code>
+         (summing_segment_events)
+        </p>
+       </li>
+       <li>
+        <p>
+         <code>
+          DemographicEvent
+         </code>
+         (summing_demographics)
+        </p>
+       </li>
+       <li>
+        <p>
+         <code>
+          InterestEvent
+         </code>
+         (summing_interest_groups)
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     ApiGateway
+    </p>
+   </td>
+   <td>
+    <p>
+     ApiGateway 要新增 amount_sell 數值
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2593">
+      ITP-2593
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       新增撈取
+       sum(amount_sell) as amount_sell
+      </p>
+      <ul>
+       <li>
+        <p>
+         <code>
+          DeviceEvent
+         </code>
+         (summing_device_event_dicts)
+        </p>
+       </li>
+       <li>
+        <p>
+         <code>
+          Event
+         </code>
+         (summing_day_event_dicts)
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     ApiGateway
+    </p>
+   </td>
+   <td>
+    <p>
+     ApiGateway
+     <code>
+      RtbEventService
+     </code>
+     新增統計維度
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2594">
+      ITP-2594
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       prebuild.replacing_attr_events 新增統計維度
+      </p>
+     </li>
+     <li>
+      <p>
+       group_type：
+      </p>
+      <ul>
+       <li>
+        <p>
+         day_local
+        </p>
+       </li>
+       <li>
+        <p>
+         hour
+        </p>
+       </li>
+       <li>
+        <p>
+         user_de
+        </p>
+       </li>
+       <li>
+        <p>
+         os
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     ApiGateway
+    </p>
+   </td>
+   <td>
+    <p>
+     ApiGateway 新增 product 用 apigateway
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2595">
+      ITP-2595
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       大J 會新開一張 table (目前欄位依據 event_dict +
+       <code>
+        prd_title
+       </code>
+       /
+       <code>
+        prd_id
+       </code>
+       )
+      </p>
+     </li>
+     <li>
+      <p>
+       不需要校正回歸
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Commerce AD 導入財務報表
+    </p>
+   </td>
+   <td>
+    <p>
+     SuperDSP
+    </p>
+   </td>
+   <td>
+    <p>
+     帳務管理 - 每月使用報告 新增欄位 &amp; 資料排序
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+     <code>
+      api/v1/superdsp/billing_report?company_id={id}&amp;date={date}
+     </code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       新增欄位：
+      </p>
+      <ul>
+       <li>
+        <p>
+         insertion_order_id (IO 單 ID)
+        </p>
+       </li>
+       <li>
+        <p>
+         campaign_id(廣告活動 ID)
+        </p>
+       </li>
+       <li>
+        <p>
+         ad_group_id(廣告組合 ID)
+        </p>
+       </li>
+       <li>
+        <p>
+         transaction_type(交易模式)：回傳 固定價格 or 即時競價
+         <br/>
+         (用 campaign_type 判斷)
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       排序邏輯：
+       <br/>
+       第一排序邏輯｜固定價格在前, 即時競價在後
+      </p>
+      <p>
+       第二排序邏輯｜IO單 ID 由小至大, 由上至下排序
+      </p>
+      <p>
+       第三排序邏輯｜廣告活動 ID 由小至大, 由上至下排序
+      </p>
+      <p>
+       第四排序邏輯｜廣告組合 ID 由小至大, 由上至下排序
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     SuperDSP
+    </p>
+   </td>
+   <td>
+    <p>
+     帳務管理 - 每月使用報告 報表下載 新增/修改欄位 &amp; 資料排序
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2597">
+      ITP-2597
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+     <code>
+      api/v1/superdsp/billing_report/generate_excel_report?company_id={id}&amp;date={date}
+     </code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       欄位 &amp; 排序邏輯 同
+       <code>
+        帳務管理 - 每月使用報告 新增欄位回傳 &amp; 資料排序
+       </code>
+      </p>
+     </li>
+     <li>
+      <p>
+       修改欄位：
+      </p>
+      <ul>
+       <li>
+        <p>
+         IO 單名稱
+        </p>
+       </li>
+       <li>
+        <p>
+         合約價格 → 計價
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     帳務管理 → SuperDSP 毛利 新增/修改欄位
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2598">
+      ITP-2598
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+     <code>
+      billing_report/superdsp_monthly_gross_profit?date={date}
+     </code>
+    </p>
+    <ul>
+     <li>
+      <p>
+       新增欄位：
+      </p>
+      <ul>
+       <li>
+        <p>
+         transaction_type(交易模式)：回傳 固定價格 or 即時競價
+         <br/>
+         (用 campaign_type 判斷)
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       修改欄位：
+      </p>
+      <ul>
+       <li>
+        <p>
+         <strong>
+          單價 → 計價
+         </strong>
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     帳務管理 → SuperDSP 毛利 執行金額邏輯調整
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     現有邏輯：已花費（
+     <strong>
+      含
+     </strong>
+     Margin）
+    </p>
+    <p>
+     未來邏輯：應收金額（
+     <strong>
+      不含
+     </strong>
+     Margin）(不用判斷是否超跑)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     BUG 處理
+    </p>
+   </td>
+   <td>
+    <p>
+     SuperDSP
+    </p>
+   </td>
+   <td>
+    <p>
+     帳務管理 - 每月使用報告 當月/跨月 應付金額對齊
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-2538">
+      ITP-2538
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     同一筆活動 應付金額 當月/跨月 金額不一致，需修正
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>
-<h2 id="id-[功能細項]SuperDSP平台化Phase1.6.0-前端">
+<h2>
  <strong>
   前端
  </strong>
 </h2>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="center" data-local-id="1658d646-1dd3-4996-b536-98d364b52a2c" data-table-width="1800">
-  <colgroup>
-   <col style="width: 118.0px;"/>
-   <col style="width: 135.0px;"/>
-   <col style="width: 146.0px;"/>
-   <col style="width: 246.0px;"/>
-   <col style="width: 538.0px;"/>
-   <col style="width: 118.0px;"/>
-   <col style="width: 204.0px;"/>
-   <col style="width: 292.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       Story ID
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       系統
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       頁面
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       功能
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       細節
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       開發人員
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       預估時間(D)
-      </strong>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-      <strong>
-       備註
-      </strong>
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd" data-highlight-colour="#ffffff">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-     </p>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      Story ID
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      頁面
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      細節
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      開發人員
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      預估時間(D)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      備註
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
 <p>
 </p>

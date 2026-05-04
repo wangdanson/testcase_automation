@@ -1,6 +1,4 @@
-<div class="toc-macro client-side-toc-macro conf-macro output-block" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-layout="default" data-local-id="bc7614c0-2c32-42a1-96b0-07b39a824f02" data-macro-id="2a1f9dbb-3caf-4448-b84b-5280070ab123" data-macro-name="toc">
-</div>
-<h1 id="MeetingNote-20230831">
+<h1>
  20230831
 </h1>
 <p>
@@ -20,17 +18,15 @@
  <li>
   <p>
    受眾組合是否可以只選受眾包(包含||排除)？&gt;
-   <time class="date-past" datetime="2023-09-01">
-    2023年9月1日
-   </time>
+   2023年9月1日
    PM: 不行, 年齡性別一定要選
   </p>
  </li>
 </ul>
-<h1 id="MeetingNote-20230830">
+<h1>
  20230830
 </h1>
-<h2 id="MeetingNote-關鍵知識">
+<h2>
  關鍵知識
 </h2>
 <p>
@@ -41,116 +37,106 @@
 </p>
 <p>
 </p>
-<h2 id="MeetingNote-決定量體預估邏輯">
+<h2>
  決定量體預估邏輯
 </h2>
-<span class="confluence-embedded-file-wrapper image-center-wrapper">
- <img class="confluence-embedded-image image-center" data-height="584" data-image-src="image-20230830-073844.png" data-linked-resource-container-id="3455352860" data-linked-resource-container-version="5" data-linked-resource-content-type="image/png" data-linked-resource-default-alias="image-20230830-073844.png" data-linked-resource-id="3455189069" data-linked-resource-type="attachment" data-linked-resource-version="1" data-media-id="1055cdda-05c9-4af9-a5a6-14ff0649faba" data-media-type="file" data-unresolved-comment-count="0" data-width="686" loading="lazy" src="image-20230830-073844.png"/>
-</span>
+<img src="image-20230830-073844.png"/>
 <p>
 </p>
-<h2 id="MeetingNote-延伸議題(本階段不處理)">
+<h2>
  延伸議題(本階段不處理)
 </h2>
-<div class="table-wrap">
- <table class="confluenceTable" data-layout="full-width" data-local-id="14416638-9678-4e8c-aca0-97d97f2251a5">
-  <colgroup>
-   <col/>
-   <col style="width: 714.0px;"/>
-   <col style="width: 163.0px;"/>
-   <col style="width: 810.0px;"/>
-  </colgroup>
-  <tbody>
-   <tr>
-    <th class="numberingColumn confluenceTh">
-    </th>
-    <th class="confluenceTh">
-     <p>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-     </p>
-    </th>
-    <th class="confluenceTh">
-     <p>
-     </p>
-    </th>
-   </tr>
-   <tr>
-    <td class="numberingColumn confluenceTd">
-     1
-    </td>
-    <td class="confluenceTd">
-     <p>
-      廣告活動受眾包對應的年齡性別和受眾組合的年齡性別相衝突時, 怎麼防呆?
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:2a0a6948-6165-44a2-8547-4f55bebf29bb" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence" target="_blank">
-       Jamie Yeh (Unlicensed)
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      會影響時程, 未來再處理
-     </p>
-     <p>
-      <br/>
-      但這樣防呆能做的也有限, 效益不是很大
-      <br/>
-      假設:
-      <br/>
-      過去的廣告活動受眾: 10-20(uu: 90萬), 20-30(100)
-      <br/>
-      新的受眾組合: 年齡性別選擇 20-30, 30-40
-      <br/>
-      這樣實際的 uu 只有 100, BDCD 預估無法做到交集來判斷, 所以顯示 90萬, 這樣合理嗎?
-      <br/>
-      要防呆嗎? 沒有完全符合廣告活動的年齡性別設定就不給建立受眾組合, 這樣很難設定
-      <br/>
-      不防呆嗎? 那可能會出現真實的 uu 少很多
-     </p>
-     <p>
-     </p>
-     <p>
-      又或者 BDCD 這邊需要提供詳細的性別年齡分布資訊, 才有辦法做進一步的判斷
-     </p>
-    </td>
-   </tr>
-   <tr>
-    <td class="numberingColumn confluenceTd">
-     2
-    </td>
-    <td class="confluenceTd">
-     <p>
-      年齡性別 UI 機制調整
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <p>
-      <a class="confluence-userlink user-mention" data-account-id="712020:2a0a6948-6165-44a2-8547-4f55bebf29bb" data-base-url="https://guoshi.atlassian.net/wiki" href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence" target="_blank">
-       Jamie Yeh (Unlicensed)
-      </a>
-     </p>
-    </td>
-    <td class="confluenceTd">
-     <ol start="1">
-      <li>
-       <p>
-        預設全選
-       </p>
-      </li>
-      <li>
-       <p>
-        全選時 其他選項不會被勾選
-       </p>
-      </li>
-     </ol>
-    </td>
-   </tr>
-  </tbody>
- </table>
-</div>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     廣告活動受眾包對應的年齡性別和受眾組合的年齡性別相衝突時, 怎麼防呆?
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence">
+      Jamie Yeh (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     會影響時程, 未來再處理
+    </p>
+    <p>
+     <br/>
+     但這樣防呆能做的也有限, 效益不是很大
+     <br/>
+     假設:
+     <br/>
+     過去的廣告活動受眾: 10-20(uu: 90萬), 20-30(100)
+     <br/>
+     新的受眾組合: 年齡性別選擇 20-30, 30-40
+     <br/>
+     這樣實際的 uu 只有 100, BDCD 預估無法做到交集來判斷, 所以顯示 90萬, 這樣合理嗎?
+     <br/>
+     要防呆嗎? 沒有完全符合廣告活動的年齡性別設定就不給建立受眾組合, 這樣很難設定
+     <br/>
+     不防呆嗎? 那可能會出現真實的 uu 少很多
+    </p>
+    <p>
+    </p>
+    <p>
+     又或者 BDCD 這邊需要提供詳細的性別年齡分布資訊, 才有辦法做進一步的判斷
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     年齡性別 UI 機制調整
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence">
+      Jamie Yeh (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       預設全選
+      </p>
+     </li>
+     <li>
+      <p>
+       全選時 其他選項不會被勾選
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
