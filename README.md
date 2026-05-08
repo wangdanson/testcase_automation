@@ -21,18 +21,19 @@
 ├── requirements.txt         # Python 環境相依套件清單
 ├── package.json             # 專案配置文件
 ├── LICENSE                  # 專案授權條款
+├── Makefile                 # 自動化任務捷徑 (Lint, Sync, Clean)
+├── sync_knowledge.py        # [核心] 知識庫同步腳本：整合 Confluence 與 spec_knowledge
 ├── upload_to_sheets.py      # 自動化腳本：將產出的 CSV 上傳至 Google Sheets
 ├── validate_csv.py          # [守門員] 業務驗證腳本：檢查格式、標籤與「全角色隔離」矩陣
 ├── sync_from_sheets.py      # 反向同步腳本：將雲端變更同步回本地 CSV
 ├── sync_from_confluence.py  # 雲端同步腳本：從 Confluence 搜尋並抓取層級化規格文件
-├── confluence_state.json    # [本地] 紀錄 Confluence 頁面版本號，用於增量同步 (已忽略)
 ├── .env.example             # 環境變數設定範例
-├── knology_management/      # [紀錄] 存放專案技術決策、優化策略 (已忽略)
 ├── archive/                 # [封存] 存放舊版 SOP 或過時文件
 ├── credentials_stepsImg/    # [教學] 存放 README 使用的設置步驟截圖
+├── spec_knowledge/          # [大腦] 結構化規格知識庫：存放系統邏輯規則 (SuperDSP_RULES.md 等)
+├── source_files/            # 原始規格文件儲存區 (依 Confluence 階層自動還原)
 ├── user_manual/             # [手冊] 存放系統使用說明書 (如 ODM)
 ├── service_account/         # [資安] 存放 Google 服務帳號憑證
-├── source_files/            # 原始規格文件儲存區 (依 Confluence 階層自動還原)
 ├── generated_test_cases/    # 產出的測試案例儲存區 (依來源專案分類)
 └── .gemini/                 # Gemini CLI 配置資料夾
     ├── commands/            # 自定義 Speckit 系列指令
