@@ -1,0 +1,925 @@
+<h2>
+ 緣由
+</h2>
+<p>
+ 目前 AOE 人員需要在委刊單匯出後，手動將關鍵資訊複製到 Google 試算表中，以便掌握上刊進度與工作安排。
+</p>
+<p>
+ 本系統將在 ODM 平台內建立自動化機制，當委刊單匯出後，自動擷取關鍵欄位資訊並呈現在統一的管理介面上。透過月份分類、日期排序等功能，讓廣告投手能在活動追蹤管理快速掌握所有委刊單狀態。
+</p>
+<p>
+ 簡單來說,就是要將在Google功能搬到ODM中。
+</p>
+<p>
+ <a href="https://docs.google.com/spreadsheets/d/1S6ZRNrXPjE1ihrG3cX0FBATylV6Oq5UcSSd9D-8ICdk/edit?gid=1459390288#gid=1459390288">
+  目前 AOE 手動更新的試算表
+ </a>
+</p>
+<img alt="截圖 2025-08-21 上午10.20.11.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3983343624/%E6%88%AA%E5%9C%96%202025-08-21%20%E4%B8%8A%E5%8D%8810.20.11.png?version=1&amp;modificationDate=1755742839027&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=115"/>
+<img alt="截圖 2025-08-21 上午10.21.07.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3983343624/%E6%88%AA%E5%9C%96%202025-08-21%20%E4%B8%8A%E5%8D%8810.21.07.png?version=1&amp;modificationDate=1755742877966&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=110"/>
+<img alt="截圖 2025-08-21 上午10.21.39.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3983343624/%E6%88%AA%E5%9C%96%202025-08-21%20%E4%B8%8A%E5%8D%8810.21.39.png?version=1&amp;modificationDate=1755742920978&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=115"/>
+<p>
+</p>
+<img alt="截圖 2025-08-21 上午9.20.34.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3983343624/%E6%88%AA%E5%9C%96%202025-08-21%20%E4%B8%8A%E5%8D%889.20.34.png?version=1&amp;modificationDate=1755739258141&amp;cacheVersion=1&amp;api=v2&amp;width=517&amp;height=351"/>
+<p>
+</p>
+📦 統一術語說明
+<ul>
+ <li>
+  <p>
+   <strong>
+    委刊單 (Insertion Order, IO)
+   </strong>
+   ：客戶確認的廣告投放合約文件
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    ODM
+   </strong>
+   ：OneAD 內部的委刊單管理系統
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    AOE
+   </strong>
+   ：Advertisement Operations &amp; Execution，廣告優化操作投放部門
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    廣告投手
+   </strong>
+   ：AOE 部門負責廣告投放操作的人員
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    廣告組合 (Campaign)
+   </strong>
+   ：實際執行的廣告活動單位
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Start Date
+   </strong>
+   ：委刊單的開始執行日期，作為月份歸屬和排序的依據
+  </p>
+ </li>
+</ul>
+<h2>
+ UserStory 與驗收標準
+</h2>
+<h3>
+ AOE 廣告投手視角
+</h3>
+🔽 情境一：查看新匯出的委刊單
+<p>
+ 場景描述：AOE同仁在 ODM 系統中建立並匯出委刊單後，AOE 人員需要立即掌握這筆新的工作項目，以便安排後續的素材收集與上刊準備。
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 委刊單在 ODM 中被建立並匯出時
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 在活動追蹤介面立即看到這筆資料
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 及時安排廣告投放的準備工作
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      驗收標準
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       頁面叫做“活動追蹤”
+      </p>
+     </li>
+     <li>
+      <p>
+       建立時間點為Cue表的狀態為”已出委刊”
+      </p>
+     </li>
+     <li>
+      <p>
+       Cue表中1筆廣告預算將會產生1筆對應的活動追蹤資料
+      </p>
+     </li>
+     <li>
+      <p>
+       Google Sheet 欄位對應ODM Cue表來源
+      </p>
+      <ul>
+       <li>
+        <p>
+         A: 委刊單編號
+        </p>
+       </li>
+       <li>
+        <p>
+         B: 接單業務
+        </p>
+       </li>
+       <li>
+        <p>
+         C: 產品
+        </p>
+       </li>
+       <li>
+        <p>
+         D :買法
+        </p>
+       </li>
+       <li>
+        <p>
+         新增欄位: 買法備註
+        </p>
+       </li>
+       <li>
+        <p>
+         E: 廣告活動名稱
+        </p>
+       </li>
+       <li>
+        <p>
+         F: 廣告預算
+        </p>
+       </li>
+       <li>
+        <p>
+         G:廣告預算中的刊期起始
+        </p>
+       </li>
+       <li>
+        <p>
+         H:廣告預算中的刊期結束
+        </p>
+       </li>
+       <li>
+        <p>
+         I:版位名稱
+        </p>
+       </li>
+       <li>
+        <p>
+         J: 無,使用者手動選擇, 選項有1.已用印回簽 2.僅手簽(需補章) 3.僅信件確認, 預設為未選擇
+        </p>
+       </li>
+       <li>
+        <p>
+         K: 無,使用者自己勾選的欄位, 預設為未勾選
+        </p>
+       </li>
+       <li>
+        <p>
+         L: 無,使用者自己輸入的欄位, 預設為空白
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     1.點擊”匯出委刊單”按鈕
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       用Tab方式區分 前月 當月 下一個月
+      </p>
+     </li>
+     <li>
+      <p>
+       預設顯示當月資料
+      </p>
+     </li>
+     <li>
+      <p>
+       第一順序活動 Start Date 排序, 第二順序為業務名稱
+      </p>
+     </li>
+     <li>
+      <p>
+       以刊期初始日(G)判斷歸類在哪一個月份
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     1.進入 活動追蹤頁面
+    </p>
+    <p>
+     2.檢視資料
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔽 情境二：更新已存在的活動追蹤
+<p>
+ 場景描述：活動追蹤資訊可能因客戶需求變更或想更新資訊而需要調整。
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 想要更新資訊或客戶需求變更
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 編輯活動追蹤資料
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 根據最新資訊調整廣告投放策略
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      驗收標準
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      說明
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       可以編輯的欄位
+      </p>
+      <ul>
+       <li>
+        <p>
+         預算,需要可以寫入文字或金額
+        </p>
+       </li>
+       <li>
+        <p>
+         走期(起)
+        </p>
+       </li>
+       <li>
+        <p>
+         走期(迄)
+        </p>
+       </li>
+       <li>
+        <p>
+         回簽
+        </p>
+       </li>
+       <li>
+        <p>
+         上刊
+        </p>
+       </li>
+       <li>
+        <p>
+         備註
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       除此以外欄位唯讀
+      </p>
+     </li>
+     <li>
+      <p>
+       Cue表更新了資料, 不會連動更新活動追蹤對應欄位資料
+      </p>
+     </li>
+     <li>
+      <p>
+       ODM 廣告活動更新Placement 不會連動更新活動追蹤資料
+      </p>
+     </li>
+     <li>
+      <p>
+       備註不需要歷史紀錄
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     1.點擊活動追蹤頁面 某一筆資料的編輯按鈕
+    </p>
+    <p>
+     2.跳出編輯彈窗
+    </p>
+    <p>
+     3.送出
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔽 情境三：手動新增提醒類型
+<p>
+ 場景描述：某一個活動追蹤可能需要拆分成多個執行項目（如不同素材版本、不同投放策略），AOE 需要手動建立額外資料來管理這些細項。
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 需要為同一活動追蹤建立多個執行項目時, 或想建立一個提醒用活動追蹤
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 複製既有資料並修改部分欄位來建立新項目
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 更細緻地管理每個執行細項的進度
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      驗收標準
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      說明
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       以下欄位沿用來源的資料
+      </p>
+      <ul>
+       <li>
+        <p>
+         編號
+        </p>
+       </li>
+       <li>
+        <p>
+         負責業務
+        </p>
+       </li>
+       <li>
+        <p>
+         產品
+        </p>
+       </li>
+       <li>
+        <p>
+         買法
+        </p>
+       </li>
+       <li>
+        <p>
+         買法備註
+        </p>
+       </li>
+       <li>
+        <p>
+         Campaign / Placement名稱
+        </p>
+       </li>
+       <li>
+        <p>
+         格式
+        </p>
+       </li>
+       <li>
+        <p>
+         回簽
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       以下欄位讓使用者可在彈窗調整
+      </p>
+      <ul>
+       <li>
+        <p>
+         預算, 預設為“提醒用”文字,需要可以寫入文字或金額
+        </p>
+       </li>
+       <li>
+        <p>
+         走期(起),預設為來源資料
+        </p>
+       </li>
+       <li>
+        <p>
+         走期(迄),預設為來源資料
+        </p>
+       </li>
+       <li>
+        <p>
+         上刊, 預設未勾選
+        </p>
+       </li>
+       <li>
+        <p>
+         備註, 預設白
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       新增提醒資料, 不需要連動Cue表或ODM活動資料
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     1.點擊某筆資料的「複製」按鈕
+    </p>
+    <p>
+     2.跳出複製用彈窗
+    </p>
+    <p>
+     3.送出
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔽 情境四：可以過濾活動追蹤資料
+<p>
+ 場景描述：在查看活動追蹤頁面需時想要可以過濾一定範圍資料。
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 需要快速找到活動追蹤資料
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 有過濾條件讓我可以勾選或調整過濾欄位後送出
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 快速找到想要的活動追蹤
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      驗收標準
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       可以勾選(可複選)過濾的條件
+      </p>
+      <ul>
+       <li>
+        <p>
+         所有產品線
+        </p>
+       </li>
+       <li>
+        <p>
+         所有業務
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       可以調整的過濾條件
+      </p>
+      <ul>
+       <li>
+        <p>
+         走期(起) 的 一段日期區間
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     1.勾選或調整過濾欄位
+    </p>
+    <p>
+     2.點擊送出
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       即時儲存
+      </p>
+     </li>
+     <li>
+      <p>
+       自動記錄編輯者與時間
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     輸入備註內容
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       顯示格式：[姓名 日期時間] 內容
+      </p>
+     </li>
+     <li>
+      <p>
+       保留所有編輯記錄
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     查看備註歷史
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+🔽 情境五：已匯出的委刊單被新增內容或 被封存
+<p>
+ 場景描述：匯出的委刊單因為各種原因 被封存或新增/移除其中的廣告預算。
+</p>
+<p>
+ <strong>
+  When
+ </strong>
+ 委刊單被封存, 或新增/移除廣告預算
+ <br/>
+ <strong>
+  I want to
+ </strong>
+ 能在活動追蹤列表明確標示, 或新增對應的活動追蹤資料
+ <br/>
+ <strong>
+  So I can
+ </strong>
+ 保留完整的工作記錄並避免混淆
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      驗收標準
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     使用者操作
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       隸屬於此委刊單的所有活動追蹤資料將會在在頁面中顯示為“淺灰底”
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       封存了某筆Cue
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       隸屬於此委刊單中該產品線的所有活動追蹤資料將會在在頁面中顯示為“淺灰底
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       編輯某筆“已出委刊單“ 或 “已拋轉”的Cue
+      </p>
+     </li>
+     <li>
+      <p>
+       移除了某個產品線
+      </p>
+     </li>
+     <li>
+      <p>
+       儲存
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       該筆廣告預算對應的活動追蹤資料在頁面中顯示為“淺灰底”
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       編輯某筆“已出委刊單“ 或 “已拋轉”的Cue
+      </p>
+     </li>
+     <li>
+      <p>
+       移除了某筆廣告預算
+      </p>
+     </li>
+     <li>
+      <p>
+       儲存
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+      <p>
+       活動追蹤資料新增對應的資料
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       編輯某筆“已出委刊單“ 或 “已拋轉”的Cue
+      </p>
+     </li>
+     <li>
+      <p>
+       新增了某筆廣告預算
+      </p>
+     </li>
+     <li>
+      <p>
+       儲存
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h2>
+ 流程圖
+</h2>
+<h2>
+ <strong>
+  1. 已匯出委刊單
+ </strong>
+</h2>
+<p>
+</p>
+<h2>
+ <strong>
+  2. 更新已存在的活動追蹤
+ </strong>
+</h2>
+<h2>
+ <strong>
+  3. 活動追蹤新增提醒類型資料
+ </strong>
+</h2>
+<h2>
+ <strong>
+  4. 篩選活動追蹤資料
+ </strong>
+</h2>
+<h2>
+ <strong>
+  5. 已匯出委刊單被新增廣告預算
+ </strong>
+</h2>
+<h2>
+ <strong>
+  6. 委刊單封存或移除的調整行為
+ </strong>
+</h2>
+<h2>
+ <strong>
+  7. 委刊單解除封存
+ </strong>
+</h2>
+<h2>
+ Wireframe
+</h2>
+<p>
+</p>
+<h3>
+ 待確認項目清單
+</h3>
+<ol>
+ <li>
+  <p>
+   <strong>
+    介面設計
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     活動追蹤頁面是否需要向google中一樣, 有兩種底色交錯）
+    </p>
+   </li>
+   <li>
+    <p>
+     篩選區塊還需要別的選項嗎？
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    功能細節
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     手動新增資料是否需要特殊標記
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    權限控制
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <p>
+     是否所有 AOE 人員都有完整編輯權限
+    </p>
+   </li>
+  </ul>
+ </li>
+</ol>
+<h3>
+ 討論議題
+</h3>
+<ol>
+ <li>
+  <p>
+   <strong>
+    每位AOE同仁需要關注的活動依照產品線有所不同, 需要思考用什麼方式讓使用者不需要每次進來頁面後還需要篩選過濾一次自己負責的活動
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ A:
+ <strong>
+  若將使用者過濾條件紀錄在瀏覽器中, 並且設定2週過期需要重選一次
+ </strong>
+</p>
+<p>
+</p>
+<h3>
+ 會議紀錄
+</h3>
+<p>
+ <a href="/wiki/download/attachments/3983343624/20250827%5BODM%5D%20%E6%B4%BB%E5%8B%95%E8%BF%BD%E8%B9%A4%E9%9C%80%E6%B1%82%20%E6%9C%83%E8%AD%B0%E6%91%98%E8%A6%81.eml?version=1&amp;modificationDate=1756795134100&amp;cacheVersion=1&amp;api=v2">
+  <img src="https://guoshi.atlassian.net/wiki/download/thumbnails/3983343624/20250827%5BODM%5D%20%E6%B4%BB%E5%8B%95%E8%BF%BD%E8%B9%A4%E9%9C%80%E6%B1%82%20%E6%9C%83%E8%AD%B0%E6%91%98%E8%A6%81.eml?version=1&amp;modificationDate=1756795134100&amp;cacheVersion=1&amp;api=v2&amp;viewType=fileMacro"/>
+ </a>
+</p>
+<p>
+</p>

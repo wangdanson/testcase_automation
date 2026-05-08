@@ -1,0 +1,1106 @@
+<h2>
+ 功能一：素材秒數匹配驗證
+</h2>
+<h3>
+ 📋 功能概述
+</h3>
+<p>
+ 基於ODM系統API數據，在用戶選擇素材包時即時驗證素材包中的素材秒數是否與基本資料中選定的素材秒數範圍匹配，防止成本錯配問題。
+</p>
+<h3>
+ 🎯 功能目標
+</h3>
+<ul>
+ <li>
+  <p>
+   防止素材秒數與媒體供應商不匹配造成的成本浪費
+  </p>
+ </li>
+ <li>
+  <p>
+   確保投放成本效益最佳化
+  </p>
+ </li>
+ <li>
+  <p>
+   提供基於實際 API 數據的即時匹配狀態反饋
+  </p>
+ </li>
+ <li>
+  <p>
+   與現有ODM系統無縫整合
+  </p>
+ </li>
+</ul>
+<h3>
+ 📡 API 數據結構
+</h3>
+<h4>
+ Placement API 回應結構
+</h4>
+<pre>// GET /api/v1/odm/advertisers/{advertiser_id}/campaigns/{campaign_id}/placements/{placement_id}
+{
+  "status": "success",
+  "data": {
+    "id": 114528,
+    "inventory": {
+      "flv_second": 30  // 用戶在基本資料中選擇的素材秒數
+    },
+    "basic": {
+      "ad_format_type_ids": [27]  // 廣告格式類型ID
+    }
+  }
+}
+</pre>
+<h4>
+ Packs API 回應結構
+</h4>
+<pre>// GET /api/v1/odm/advertisers/{advertiser_id}/packs?flv_second=30&amp;ad_format_type_id=27
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 48789,
+      "title": "0606 吳羽保鮮膜&amp;一滴淨 618廣宣_APP",
+      "videos": [
+        {
+          "id": 25524,
+          "duration": 30  // 素材包中素材的實際秒數
+        }
+      ],
+      "ad_format": "Pre-Roll (App)"
+    }
+  ]
+}
+</pre>
+<h3>
+ 📝 詳細功能規格
+</h3>
+<h4>
+ 輸入參數
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     參數名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     類型
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+   <th>
+    <p>
+     來源
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     placementData
+    </p>
+   </td>
+   <td>
+    <p>
+     Object
+    </p>
+   </td>
+   <td>
+    <p>
+     Placement API 回應數據
+    </p>
+   </td>
+   <td>
+    <p>
+     GET Placement API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     selectedPackData
+    </p>
+   </td>
+   <td>
+    <p>
+     Object
+    </p>
+   </td>
+   <td>
+    <p>
+     用戶選擇的素材包數據
+    </p>
+   </td>
+   <td>
+    <p>
+     Packs API 中的單一項目
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h4>
+ 輸出結果
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     欄位名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     類型
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     isValid
+    </p>
+   </td>
+   <td>
+    <p>
+     Boolean
+    </p>
+   </td>
+   <td>
+    <p>
+     是否匹配
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     selectedDuration
+    </p>
+   </td>
+   <td>
+    <p>
+     Number
+    </p>
+   </td>
+   <td>
+    <p>
+     用戶設定的素材秒數
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     materialDuration
+    </p>
+   </td>
+   <td>
+    <p>
+     Number
+    </p>
+   </td>
+   <td>
+    <p>
+     素材的實際秒數
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     selectedRange
+    </p>
+   </td>
+   <td>
+    <p>
+     String
+    </p>
+   </td>
+   <td>
+    <p>
+     格式化的對應範圍
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     mismatchReason
+    </p>
+   </td>
+   <td>
+    <p>
+     String
+    </p>
+   </td>
+   <td>
+    <p>
+     不匹配的原因說明
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     packInfo
+    </p>
+   </td>
+   <td>
+    <p>
+     Object
+    </p>
+   </td>
+   <td>
+    <p>
+     素材包相關信息
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h4>
+ 驗證邏輯流程
+</h4>
+<pre>graph TD
+    A[用戶選擇素材包] --&gt; B[從Placement API獲取flv_second]
+    B --&gt; C[從Pack數據獲取videos[0].duration]
+    C --&gt; D[根據flv_second確定範圍區間]
+    D --&gt; E[處理小數點秒數]
+    E --&gt; F{素材秒數是否在範圍內?}
+    F --&gt;|是| G[驗證通過，允許選擇]
+    F --&gt;|否| H[驗證失敗，觸發警告]
+    G --&gt; I[更新Placement Creative設定]
+    H --&gt; J[顯示警告視窗]
+    J --&gt; K[阻止選擇操作]
+</pre>
+<h3>
+ 🔧 技術說明範例
+</h3>
+<h4>
+ API 整合驗證函數
+</h4>
+<pre>// 在Vue組件的methods中實作
+methods: {
+  // 從placement數據中獲取已選擇的素材秒數
+  getSelectedDurationFromPlacement: function(placementData) {
+    if (placementData &amp;&amp; placementData.data &amp;&amp; placementData.data.inventory) {
+      return placementData.data.inventory.flv_second;
+    }
+    return 0;
+  },
+  
+  // 從素材包數據中獲取素材秒數
+  getMaterialDurationFromPack: function(packData) {
+    if (packData.videos &amp;&amp; packData.videos.length &gt; 0) {
+      return packData.videos[0].duration;
+    }
+    return 0;
+  },
+  
+  // 根據具體秒數確定所屬範圍
+  getDurationRange: function(duration) {
+    if (duration &lt;= 30) return "1-30";
+    if (duration &lt;= 60) return "31-60";
+    if (duration &lt;= 90) return "61-90";
+    if (duration &lt;= 120) return "91-120";
+    return "121-150";
+  },
+  
+  // 基於API數據的完整驗證函數
+  validateMaterialPackageWithAPI: function(placementData, selectedPackData) {
+    try {
+      var selectedDuration = this.getSelectedDurationFromPlacement(placementData);
+      var materialDuration = this.getMaterialDurationFromPack(selectedPackData);
+      
+      // 處理小數點秒數（無條件捨去）
+      materialDuration = Math.floor(materialDuration);
+      
+      var durationRange = this.getDurationRange(selectedDuration);
+      var rangeParts = durationRange.split('-');
+      var minDuration = parseInt(rangeParts[0]);
+      var maxDuration = parseInt(rangeParts[1]);
+      
+      var isValid = materialDuration &gt;= minDuration &amp;&amp; materialDuration &lt;= maxDuration;
+      
+      var mismatchReason = '';
+      if (!isValid) {
+        if (materialDuration &lt; minDuration) {
+          mismatchReason = '素材秒數' + materialDuration + '秒小於選定範圍' + minDuration + '秒';
+        } else {
+          mismatchReason = '素材秒數' + materialDuration + '秒大於選定範圍' + maxDuration + '秒';
+        }
+      }
+      
+      return {
+        isValid: isValid,
+        selectedDuration: selectedDuration,
+        materialDuration: materialDuration,
+        selectedRange: durationRange + '秒',
+        mismatchReason: mismatchReason,
+        packInfo: {
+          id: selectedPackData.id,
+          title: selectedPackData.title,
+          videoId: selectedPackData.videos[0].id,
+          adFormat: selectedPackData.ad_format
+        }
+      };
+    } catch (error) {
+      console.error('驗證過程發生錯誤:', error);
+      return this.getDefaultValidationResult(false, '驗證過程發生錯誤');
+    }
+  },
+  
+  // 默認驗證結果
+  getDefaultValidationResult: function(isValid, reason) {
+    return {
+      isValid: isValid,
+      selectedDuration: 0,
+      materialDuration: 0,
+      selectedRange: '未知',
+      mismatchReason: reason || '未知錯誤',
+      packInfo: {
+        id: null,
+        title: '未知',
+        videoId: null,
+        adFormat: '未知'
+      }
+    };
+  }
+}
+</pre>
+<h3>
+ 🧪 API整合測試案例
+</h3>
+<h4>
+ 測試案例一：玉美生技實際案例
+</h4>
+<pre>methods: {
+  testYumeiRealCase: function() {
+    // 模擬實際的玉美生技API數據
+    var yumeiPlacementData = {
+      status: "success",
+      data: {
+        id: 114528,
+        inventory: {
+          flv_second: 30  // 實際API中的設定
+        },
+        basic: {
+          ad_format_type_ids: [27]
+        }
+      }
+    };
+    
+    var yumeiPackData = {
+      id: 48789,
+      title: "0606 吳羽保鮮膜&amp;一滴淨 618廣宣_APP",
+      videos: [
+        {
+          id: 25524,
+          duration: 30  // 實際素材秒數
+        }
+      ],
+      ad_format: "Pre-Roll (App)"
+    };
+    
+    var result = this.validateMaterialPackageWithAPI(yumeiPlacementData, yumeiPackData);
+    
+    // 驗證結果
+    console.assert(result.isValid === true, "30秒素材應該匹配30秒設定");
+    console.assert(result.selectedDuration === 30, "選定秒數應為30");
+    console.assert(result.materialDuration === 30, "素材秒數應為30");
+    console.assert(result.selectedRange === "1-30秒", "應屬於1-30秒範圍");
+    console.assert(result.packInfo.id === 48789, "素材包ID應正確");
+    
+    console.log("✓ 玉美生技實際案例測試通過");
+  }
+}
+</pre>
+<h4>
+ 測試案例二：19秒素材不匹配場景
+</h4>
+<pre>methods: {
+  test19SecondMismatch: function() {
+    // 用戶錯誤設定為60秒
+    var mockPlacementData = {
+      status: "success",
+      data: {
+        id: 12345,
+        inventory: {
+          flv_second: 60  // 用戶選擇60秒（對應31-60秒範圍）
+        }
+      }
+    };
+    
+    // 19秒素材包
+    var mock19SecPack = {
+      id: 67890,
+      title: "19秒測試素材包",
+      videos: [
+        {
+          id: 11111,
+          duration: 19
+        }
+      ],
+      ad_format: "Pre-Roll (App)"
+    };
+    
+    var result = this.validateMaterialPackageWithAPI(mockPlacementData, mock19SecPack);
+    
+    // 驗證結果
+    console.assert(result.isValid === false, "19秒素材不應匹配60秒設定");
+    console.assert(result.selectedDuration === 60, "選定秒數應為60");
+    console.assert(result.materialDuration === 19, "素材秒數應為19");
+    console.assert(result.selectedRange === "31-60秒", "應屬於31-60秒範圍");
+    console.assert(result.mismatchReason === "素材秒數19秒小於選定範圍31秒", "錯誤訊息正確");
+    
+    console.log("✓ 19秒素材不匹配測試通過");
+  }
+}
+</pre>
+<h4>
+ 測試案例三：邊界值測試
+</h4>
+<pre>methods: {
+  testBoundaryValues: function() {
+    var basePlacementData = {
+      status: "success",
+      data: {
+        id: 11111,
+        inventory: { flv_second: 30 }
+      }
+    };
+    
+    // 測試30秒邊界值（應該匹配）
+    var pack30 = { id: 1, videos: [{ id: 1, duration: 30 }] };
+    var result30 = this.validateMaterialPackageWithAPI(basePlacementData, pack30);
+    console.assert(result30.isValid === true, "30秒應該匹配1-30秒範圍");
+    
+    // 測試31秒邊界值（不應該匹配30秒設定）
+    var pack31 = { id: 2, videos: [{ id: 2, duration: 31 }] };
+    var result31 = this.validateMaterialPackageWithAPI(basePlacementData, pack31);
+    console.assert(result31.isValid === false, "31秒不應該匹配30秒設定");
+    
+    // 測試60秒設定下的31秒素材（應該匹配）
+    basePlacementData.data.inventory.flv_second = 60;
+    var result31_60 = this.validateMaterialPackageWithAPI(basePlacementData, pack31);
+    console.assert(result31_60.isValid === true, "31秒素材應該匹配60秒設定");
+    
+    console.log("✓ 邊界值測試通過");
+  }
+}
+</pre>
+<hr/>
+<h2>
+ 功能二：Popup 警告視窗
+</h2>
+<h3>
+ 📋 功能概述
+</h3>
+<p>
+ 當檢測到素材包與素材秒數不匹配時，立即彈出警告視窗，阻止用戶選擇並提供詳細的成本影響分析和操作建議。
+</p>
+<h3>
+ 🎯 功能目標
+</h3>
+<ul>
+ <li>
+  <p>
+   即時阻止不當選擇，防止成本浪費
+  </p>
+ </li>
+ <li>
+  <p>
+   提供清楚的成本風險說明和媒體供應商影響分析
+  </p>
+ </li>
+ <li>
+  <p>
+   引導用戶做出正確決策
+  </p>
+ </li>
+ <li>
+  <p>
+   提供具體的解決方案
+  </p>
+ </li>
+</ul>
+<h3>
+ 📝 詳細功能規格
+</h3>
+<h4>
+ 視窗觸發條件
+</h4>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     條件
+    </p>
+   </th>
+   <th>
+    <p>
+     觸發時機
+    </p>
+   </th>
+   <th>
+    <p>
+     行為
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     API驗證失敗
+    </p>
+   </td>
+   <td>
+    <p>
+     validateMaterialPackageWithAPI返回isValid = false
+    </p>
+   </td>
+   <td>
+    <p>
+     立即彈出警告視窗
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     用戶選擇操作
+    </p>
+   </td>
+   <td>
+    <p>
+     點擊不匹配的素材包時
+    </p>
+   </td>
+   <td>
+    <p>
+     阻止選擇並顯示警告
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     自動建議生成
+    </p>
+   </td>
+   <td>
+    <p>
+     警告觸發時
+    </p>
+   </td>
+   <td>
+    <p>
+     生成智能修正建議
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h4>
+ 視窗內容結構
+</h4>
+<pre>┌─────────────────────────────────────────────────┐
+│  ⚠️  素材包與素材秒數不匹配 - 成本風險警告            │
+├─────────────────────────────────────────────────┤
+│  您選擇的素材包不符合當前素材秒數設定                 │
+│                                                 │
+│  📊 詳細資訊：                                    │
+│  ├─ 當前設定：[X秒] (對應 [X-Y秒] 範圍)            │
+│  ├─ 素材包：[素材包名稱]                           │
+│  ├─ 素材秒數：[Z秒]                               │
+│  └─ 不匹配原因：[具體原因]                         │
+│                                                 │
+│                                                 │
+│  💡 建議操作：                                    │
+│  └─ [智能建議與解決方案]                           │
+│                                                 │
+│  [修改為X-Y秒] [重新選擇素材包] [取消]              │
+└─────────────────────────────────────────────────┘
+</pre>
+<h3>
+ 🔧 技術說明範例
+</h3>
+<h4>
+ 警告視窗組件
+</h4>
+<pre>&lt;template&gt;
+  &lt;div v-if="showWarning" class="modal-overlay" @click="handleOverlayClick"&gt;
+    &lt;div class="warning-modal" @click.stop&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;span class="warning-icon"&gt;⚠️&lt;/span&gt;
+        &lt;h3&gt;素材包與素材秒數不匹配 - 成本風險警告&lt;/h3&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="modal-content"&gt;
+        &lt;p class="main-message"&gt;您選擇的素材包不符合當前素材秒數設定&lt;/p&gt;
+        
+        &lt;div class="detail-section"&gt;
+          &lt;h4&gt;📊 詳細資訊：&lt;/h4&gt;
+          &lt;div class="detail-grid"&gt;
+            &lt;div class="detail-row"&gt;
+              &lt;span class="label"&gt;當前設定：&lt;/span&gt;
+              &lt;span class="value"&gt;{{ validationResult.selectedDuration }}秒 (對應 {{ validationResult.selectedRange }})&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="detail-row"&gt;
+              &lt;span class="label"&gt;素材包：&lt;/span&gt;
+              &lt;span class="value"&gt;{{ validationResult.packInfo.title }}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="detail-row"&gt;
+              &lt;span class="label"&gt;素材秒數：&lt;/span&gt;
+              &lt;span class="value"&gt;{{ validationResult.materialDuration }}秒&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="detail-row error"&gt;
+              &lt;span class="label"&gt;不匹配原因：&lt;/span&gt;
+              &lt;span class="value"&gt;{{ validationResult.mismatchReason }}&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        
+        &lt;div class="suggestions-section"&gt;
+          &lt;h4&gt;💡 建議操作：&lt;/h4&gt;
+          &lt;ol&gt;
+            &lt;li&gt;將素材秒數設定修改為 {{ getSuggestedRange() }}，以匹配{{ validationResult.materialDuration }}秒素材&lt;/li&gt;
+            &lt;li&gt;重新選擇符合{{ validationResult.selectedRange }}的素材包&lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="modal-actions"&gt;
+        &lt;button 
+          class="btn-primary" 
+          @click="modifyRange(getSuggestedRange())"
+        &gt;
+          修改為{{ getSuggestedRange() }}
+        &lt;/button&gt;
+        &lt;button class="btn-secondary" @click="reselect"&gt;
+          重新選擇素材包
+        &lt;/button&gt;
+        &lt;button class="btn-cancel" @click="cancel"&gt;
+          取消
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: 'MaterialMismatchWarning',
+  props: {
+    validationResult: {
+      type: Object,
+      required: true,
+      validator: function(value) {
+        return value &amp;&amp; typeof value.isValid === 'boolean';
+      }
+    },
+    showWarning: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    getSuggestedRange: function() {
+      var duration = this.validationResult.materialDuration;
+      if (duration &lt;= 30) return "1-5秒";
+      if (duration &lt;= 30) return "6-15秒";
+      if (duration &lt;= 30) return "16-30秒";
+      if (duration &lt;= 60) return "31-60秒";
+      if (duration &lt;= 90) return "61-90秒";
+      if (duration &lt;= 120) return "91-120秒";
+      return "121-150秒";
+    },
+    
+    
+    modifyRange: function(newRange) {
+      this.$emit('modify-range', newRange);
+    },
+    
+    reselect: function() {
+      this.$emit('reselect');
+    },
+    
+    cancel: function() {
+      this.$emit('cancel');
+    },
+    
+    handleOverlayClick: function() {
+      // 點擊背景時關閉（可選功能）
+      this.cancel();
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.warning-modal {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 2px solid #ff9800;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.warning-icon {
+  font-size: 28px;
+  margin-right: 12px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #d32f2f;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.main-message {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.detail-section, .cost-analysis-section, .suggestions-section {
+  margin-bottom: 20px;
+}
+
+.detail-section h4, .cost-analysis-section h4, .suggestions-section h4 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.detail-grid {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 6px;
+  border-left: 4px solid #ff9800;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-row.error .value {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.label {
+  font-weight: 600;
+  color: #555;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.value {
+  color: #333;
+  text-align: right;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.cost-impact {
+  background: #fff3e0;
+  padding: 16px;
+  border-radius: 6px;
+  border-left: 4px solid #ff9800;
+}
+
+.cost-impact p {
+  margin: 0 0 10px 0;
+  color: #333;
+  line-height: 1.5;
+}
+
+.cost-percentage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cost-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.cost-value {
+  color: #f57c00;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.suggestions-section ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.suggestions-section li {
+  margin-bottom: 8px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.btn-primary {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #f57c00;
+}
+
+.btn-secondary {
+  background-color: #757575;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #616161;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #f5f5f5;
+  border-color: #bbb;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .warning-modal {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .modal-actions button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .value {
+    text-align: left;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+}
+&lt;/style&gt;
+</pre>
+<h3>
+ 📋 警告視窗範例
+</h3>
+<h4>
+ 19秒素材選擇60秒設定的完整警告
+</h4>
+<pre>⚠️ 素材包與素材秒數不匹配 - 成本風險警告
+
+您選擇的素材包不符合當前素材秒數設定
+
+📊 詳細資訊：
+├─ 當前設定：30秒 (對應 16-30秒)
+├─ 素材包：15秒測試廣告素材
+├─ 素材秒數：15秒  
+└─ 不匹配原因：素材秒數15秒小於選定範圍30秒
+
+
+💡 建議操作：
+1. 將素材秒數設定修改為6-15秒，以匹配15秒素材
+2. 重新選擇符合16-30秒的素材包  
+
+[修改為6-15秒] [重新選擇素材包] [取消]
+</pre>
+<h3>
+ 🧪 警告視窗測試案例
+</h3>
+<h4>
+ 警告視窗顯示測試
+</h4>
+<pre>methods: {
+  testWarningDisplay: function() {
+    // 模擬不匹配的驗證結果
+    var mockValidationResult = {
+      isValid: false,
+      selectedDuration: 30,
+      materialDuration: 15,
+      selectedRange: "16-30秒",
+      mismatchReason: "素材秒數15秒小於選定範圍30秒",
+      packInfo: {
+        id: 12345,
+        title: "15秒測試廣告素材",
+        videoId: 67890,
+        adFormat: "Pre-Roll (App)"
+      }
+    };
+    
+    // 設定組件數據
+    this.currentValidation = mockValidationResult;
+    this.showWarningModal = true;
+    
+    // 驗證警告視窗內容
+    this.$nextTick(function() {
+      var warningModal = document.querySelector('.warning-modal');
+      console.assert(warningModal !== null, "警告視窗應該顯示");
+      
+      var primaryBtn = document.querySelector('.btn-primary');
+      console.assert(primaryBtn.textContent.includes('6-15'), "應建議正確範圍");
+      
+      console.log("✓ 警告視窗顯示測試通過");
+    });
+  }
+}
+</pre>
+<hr/>
+<h2>
+ 🔄 版本更新
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     版本
+    </p>
+   </th>
+   <th>
+    <p>
+     日期
+    </p>
+   </th>
+   <th>
+    <p>
+     更新內容
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     v1.0
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-06-13
+    </p>
+   </td>
+   <td>
+    <p>
+     初版建立
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>

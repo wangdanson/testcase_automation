@@ -1,0 +1,303 @@
+<h1>
+ Segment 設定
+</h1>
+<p>
+ 💡 Platform: ODM
+</p>
+<p>
+ 💡 Phase: *
+</p>
+<h1>
+ 需求
+</h1>
+<p>
+ 目前由於 Segment 的資訊過多，造成 CIS 在做設定時候不方便尋找到當下要設定的項目。
+</p>
+<p>
+ 討論後整理出下面優化要點：
+</p>
+<p>
+ 1. 項目由新到舊排序
+</p>
+<p>
+ 2. 搜尋功能
+</p>
+<p>
+ 3. 時間篩選 / 常駐更新篩選 / 已結束篩選：全部項目都一次全部列出，不好尋找需要的項目
+</p>
+<p>
+ 4. 秀出被選擇的項目[未選擇 | 已選擇]：因勾選的項目可能會是在之前的項目，所以再次進入時候會不好找尋。
+</p>
+<p>
+ 5. 優化確定按鈕邏輯：目前邏輯是當你勾選某一項在取消，確定按鈕會被 Disable 住無法送出。
+</p>
+<p>
+</p>
+<h4>
+ ! 20230617
+</h4>
+<pre>有兩點想要調整的～
+1. 走期改更新中 -只要有是自己包的持續更新中，就在這分類
+2. 搜尋是 全部搜尋，不依照分類
+謝謝～ (by Doris Duan)</pre>
+<p>
+ 因應使用者需求，新增調整如下：
+</p>
+<p>
+ 1. 時間篩選上移至搜尋功能同階層
+</p>
+<p>
+ 2. 不分類 / 更新中 / 常駐更新篩選 / 已結束篩選
+</p>
+<hr/>
+<h1>
+ 用途
+</h1>
+<ul>
+ <li>
+  <p>
+   幫助 CIS 能夠快速做 Segment 的相關調整設定，減少不必要的工時。
+  </p>
+ </li>
+</ul>
+<hr/>
+<h1>
+ 使用情境
+</h1>
+<p>
+ 新增投放條件設定 &gt; 請選擇廣告類型(OneAD Speed) &gt; 投放類型(Retargeting) &gt; Retargeting 資料源(自訂資料源) &gt; 選擇：資料源 &gt; 彈出設定視窗
+</p>
+<hr/>
+<h1>
+ 規則
+</h1>
+<p>
+ <strong>
+  優化調整：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   項目由新到舊排序：
+   <br/>
+   所有的項目顯示會是新建立的在最上面。
+  </p>
+ </li>
+ <li>
+  <p>
+   篩選區塊：
+  </p>
+  <ul>
+   <li>
+    <p>
+     輸入 [搜尋] Input 欄位要搜尋的部分內容，即可快速搜尋到該項目
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊 [走期] 選擇某日期，即會把某日期結束前的項目篩選出
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊 [常駐更新]，即會把”segment target”中
+     設定為常駐更新
+     的項目篩選出
+    </p>
+   </li>
+   <li>
+    <p>
+     點擊 [已結束]，即會把已到期的項目篩選出
+    </p>
+   </li>
+  </ul>
+  <p>
+  </p>
+  <p>
+   尚未被勾選區塊/ 已被勾選區塊：
+  </p>
+  <ul>
+   <li>
+    <p>
+     項目被勾選後會移動到另一邊已被勾選區塊，點擊已被勾選區塊中的項目則反之
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<hr/>
+<h1>
+ 畫面
+</h1>
+<h3>
+ Wireframe/ Prototype:
+</h3>
+<ul>
+ <li>
+  <p>
+   無
+  </p>
+ </li>
+</ul>
+<h3>
+ !1 截圖:
+</h3>
+<img src="rd-odm.onead.tw_(1920x1080).png"/>
+<img src="rd-odm.onead.tw_(1920x1080) (1).png"/>
+<img src="rd-odm.onead.tw_(1920x1080) (2).png"/>
+<img src="rd-odm.onead.tw_(1920x1080) (3).png"/>
+<p>
+</p>
+<h3>
+ !2 截圖:
+</h3>
+<img src="截圖 2023-06-17 下午5.42.46.png"/>
+<img src="截圖 2023-06-17 下午5.42.57.png"/>
+<img src="截圖 2023-06-17 下午5.43.04.png"/>
+<img src="截圖 2023-06-17 下午5.43.11.png"/>
+<img src="截圖 2023-06-17 下午5.43.23.png"/>
+<img src="截圖 2023-06-17 下午5.43.35.png"/>
+<img src="截圖 2023-06-17 下午5.43.50.png"/>
+<img src="截圖 2023-06-17 下午5.43.58.png"/>
+<p>
+</p>
+<hr/>
+<p>
+</p>
+<h1>
+ 開發紀錄
+</h1>
+<p>
+</p>
+<h3>
+ <strong>
+  Request:
+ </strong>
+</h3>
+<p>
+ api: {
+</p>
+<p>
+ method: "get"
+</p>
+<p>
+ params: {advertiser_id: "1159"
+</p>
+<p>
+ advertiser_id: "1159"
+</p>
+<p>
+ system: "erp"
+</p>
+<p>
+ url: "/api/v1/odm/others/targets/target_segments"
+ <br/>
+ }
+</p>
+<p>
+</p>
+<h3>
+ <strong>
+  Response:
+ </strong>
+</h3>
+<p>
+ data: [
+</p>
+<p>
+ {
+</p>
+<p>
+ id: 1,
+</p>
+<p>
+ segment_id: "2674e8ab-73d8-11ea-9ef3-42010a006ae7",
+</p>
+<p>
+ data_source: "其他客製化條件",
+</p>
+<p>
+ description: "積極性消費:流行傳染病議題 (近30天濃度前25%) [∩交集] 購物網站 ∪ 便利商店 ∪ 拍賣 ∪ 大型商店與百貨公司 ∪ 生活用品/食品產業鑽石受眾 (新制) ∪ 超級市場/大賣場 (此為現行沒有的特定議題，需評估是否足夠量體/來得及建置) (上述連擊之選項是否也可抓近30天濃度前25%)",
+</p>
+<p>
+ end_date: "2020-06-30",
+</p>
+<p>
+ expired: true,
+</p>
+<p>
+ oneid_qty: 737146,
+</p>
+<p>
+ permanent_updating: false,
+</p>
+<p>
+ segment_category: null,
+</p>
+<p>
+ start_date: "2020-04-01",
+</p>
+<p>
+ }
+</p>
+<p>
+ ],
+</p>
+<p>
+ success: true
+</p>
+<p>
+</p>
+<h2>
+ Frontend
+</h2>
+<p>
+ 修改檔案路徑: “../vue/src/components/TargetSegmentPicker.vue”
+</p>
+<p>
+</p>
+<p>
+ 篩選功能
+</p>
+<ul>
+ <li>
+  <p>
+   HTML
+  </p>
+ </li>
+</ul>
+<img src="篩選.png"/>
+<ul>
+ <li>
+  <p>
+   Logic
+  </p>
+ </li>
+</ul>
+<img src="篩選邏輯.png"/>
+<p>
+</p>
+<p>
+</p>
+<p>
+ 項目勾選區塊
+</p>
+<ul>
+ <li>
+  <p>
+   HTML
+  </p>
+ </li>
+</ul>
+<img src="項目.png"/>
+<ul>
+ <li>
+  <p>
+   Logic
+  </p>
+ </li>
+</ul>
+<img src="勾選邏輯.png"/>
+<p>
+</p>

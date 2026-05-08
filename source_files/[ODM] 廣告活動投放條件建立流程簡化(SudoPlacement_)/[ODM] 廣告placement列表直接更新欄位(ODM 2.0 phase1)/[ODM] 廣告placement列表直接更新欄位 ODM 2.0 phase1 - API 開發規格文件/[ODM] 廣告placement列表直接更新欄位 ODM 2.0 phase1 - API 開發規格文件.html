@@ -1,0 +1,87 @@
+<h1>
+ API
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{id}/campaigns/{id}/placements
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <p>
+     維持原本的 request
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "status": "success",
+  "success": true,
+  "message": "Successful at getting placements",
+  "total_pages": 1,
+  "data": [
+    {
+        "id": 95550,
+        "start_date": "2024/08/09",
+        "end_date": "2024/09/08",
+        "can_quick_edit": boolean,
+        ...
+    },
+  ]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     新增
+     <code>
+      can_quick_edit
+     </code>
+     判斷是否為可以在列表編輯
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>

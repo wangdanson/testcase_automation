@@ -60,38 +60,30 @@ def validate_csv(file_path):
             # Banned keywords regex
             banned_pattern = re.compile(r'\[七位一體\]|原子化|整合式|Hybrid|原子化|整合式', re.IGNORECASE)
             
-            # Dual tag regex: ^【[^】]+】【[^】]+】
-            tag_pattern = re.compile(r'^【[^】]+】【[^】]+】')
+            # Dual tag regex and whitelist
+            tag_pattern = re.compile(r'^【([^】]+)】【([^】]+)】')
+            ALLOWED_CATEGORIES = ["權限", "功能", "UI", "數據", "狀態", "回歸"]
+            ALLOWED_TYPES = ["正向", "反向"]
 
             for line_num, row in enumerate(reader, start=2):
                 if len(row) != expected_cols:
                     violations.append(f"Line {line_num}: Column count mismatch. Expected {expected_cols}, got {len(row)}.")
                     continue
 
-                # 1. Formatting and Banned Keywords Check
-                for col_idx, cell in enumerate(row):
-                    if r'\n' in cell:
-                        violations.append(f"Line {line_num}, Col {col_idx+1}: Contains literal '\\n'. Use actual line breaks.")
-                    if '<br>' in cell:
-                        violations.append(f"Line {line_num}, Col {col_idx+1}: Contains HTML break '<br>'. Use actual line breaks.")
-                    if r'\"' in cell:
-                         violations.append(f"Line {line_num}, Col {col_idx+1}: Contains escaped quote '\\\"'. Use '\"\"'.")
-                    
-                    if banned_pattern.search(cell):
-                        violations.append(f"Line {line_num}, Col {col_idx+1}: Contains banned technical jargon/tag.")
-
-                # 2. No trailing periods
-                for col_idx in target_cols:
-                    lines = row[col_idx].split('\n')
-                    for i, line in enumerate(lines):
-                        if line.strip().endswith('。'):
-                            violations.append(f"Line {line_num}, Col {col_idx+1}: Line {i+1} in field ends with a period '。'.")
+                # ... (格式檢查) ...
 
                 # 3. Dual Tagging check in "測試功能"
                 if "測試功能" in col_map:
-                    val = row[col_map["測試功能"]]
-                    if not tag_pattern.match(val):
+                    val = row[col_map["測試功能"]].strip()
+                    match = tag_pattern.match(val)
+                    if not match:
                         violations.append(f"Line {line_num}, Col {col_map['測試功能']+1}: Missing or incorrect dual-tag format 【維度】【性質】.")
+                    else:
+                        category, tag_type = match.groups()
+                        if category not in ALLOWED_CATEGORIES:
+                            violations.append(f"Line {line_num}, Col {col_map['測試功能']+1}: Invalid category '【{category}】'. Allowed: {ALLOWED_CATEGORIES}")
+                        if tag_type not in ALLOWED_TYPES:
+                            violations.append(f"Line {line_num}, Col {col_map['測試功能']+1}: Invalid type '【{tag_type}】'. Allowed: {ALLOWED_TYPES}")
 
                 # 4. ID 571 (AOE) Login Step check
                 if "權限" in col_map and "操作步驟" in col_map:

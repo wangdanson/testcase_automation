@@ -1,0 +1,2167 @@
+<h1>
+ 緣由
+</h1>
+<p>
+ 因應 OneAD 2025 策略佈局，RMN（Retail Media Network）已成為重點發展目標。
+</p>
+<p>
+ 為了確保 RMN 媒體合作契約能夠符合現行市場需求，需要對當前的 Cue 表進行必要的內容調整。
+ <br/>
+</p>
+<h1>
+ 目標
+</h1>
+<ul>
+ <li>
+  <p>
+   匯出委刊單 及 Cue 表, 可以同時滿足 RMN / 操作型 / OneAD / 業務 四方操作情境需求
+  </p>
+ </li>
+ <li>
+  <p>
+   藉由接單公司的切換, 委刊單 及 Cue 表可以切換不同的公司身份(LOGO / 檔名 / Header ….)做輸出
+  </p>
+ </li>
+</ul>
+<h1>
+ User
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      部門
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      User
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      權責
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     Penny
+    </p>
+   </td>
+   <td>
+    <p>
+     輸出 Cue 表及委刊單, 符合客戶需求
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     PM
+    </p>
+   </td>
+   <td>
+    <p>
+     Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     輸出 Cue 表及委刊單, 符合客戶需求
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     MAXI
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+    </p>
+   </td>
+   <td>
+    <p>
+     輸出 Cue 表及委刊單, 符合客戶需求。
+     <br/>
+     可以切換 MAXI 身份做輸出。
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Sales
+    </p>
+   </td>
+   <td>
+    <p>
+     Sales
+    </p>
+   </td>
+   <td>
+    <p>
+     爭取訂單時, Cue 表上面的名稱與客戶達成共識,
+     <br/>
+     業務可以很清楚的解釋該欄位於 OneAD 的定義是什麼.
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ UserStory
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      角色
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      需求目標/結果 - UserStory
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     Penny / Kerina / Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      Cue 表
+     </code>
+     <br/>
+     <u>
+      尺寸規範 Size/K數
+     </u>
+     欄位
+     <strong>
+      功能新增
+     </strong>
+    </p>
+    <img alt="截圖 2024-11-11 上午11.20.09.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/%E6%88%AA%E5%9C%96%202024-11-11%20%E4%B8%8A%E5%8D%8811.20.09.png?version=1&amp;modificationDate=1732156574207&amp;cacheVersion=1&amp;api=v2&amp;width=664&amp;height=261"/>
+    <hr/>
+    <p>
+     <code>
+      ERP｜設定 &gt; 格式設定 &gt; 操作型媒體格式設定
+     </code>
+    </p>
+    <p>
+     Create / Edit 介面
+     <strong>
+      新增欄位
+     </strong>
+    </p>
+    <img alt="截圖 2024-11-20 上午10.32.03.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/%E6%88%AA%E5%9C%96%202024-11-20%20%E4%B8%8A%E5%8D%8810.32.03.png?version=1&amp;modificationDate=1732070298306&amp;cacheVersion=1&amp;api=v2&amp;width=666&amp;height=445"/>
+    <p>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       針對第三方媒體新增此功能, 比照 OneAD 辦理
+      </p>
+     </li>
+     <li>
+      <p>
+       <u>
+        尺寸規範 Size/K數
+       </u>
+       之
+       <strong>
+        欄位內容維持
+       </strong>
+      </p>
+     </li>
+     <li>
+      <p>
+       <u>
+        尺寸規範 Size/K數
+       </u>
+       之
+       <strong>
+        新增功能, 當點擊該欄位內容時, 會開啟設定之指定網頁連結.
+       </strong>
+      </p>
+      <ul>
+       <li>
+        <p>
+         開啟之連結 URL：
+         <code>
+          ERP。設定 &gt; 格式設定 &gt; 操作型媒體格式設定
+         </code>
+         的
+         <u>
+          媒體格式連結
+         </u>
+         欄位 設定值
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p>
+    </p>
+    <hr/>
+    <ul>
+     <li>
+      <p>
+       於
+       <code>
+        ERP｜設定 &gt; 格式設定 &gt; 操作型媒體格式設定
+       </code>
+       Create / Read / Edit 介面
+       <strong>
+        新增欄位
+       </strong>
+       <u>
+        媒體格式連結
+       </u>
+      </p>
+      <ul>
+       <li>
+        <p>
+         該欄位非必填 (為符合各方使用需求，補充如下
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        補充(執行面說明)
+       </strong>
+      </p>
+      <ul>
+       <li>
+        <p>
+         <u>
+          Kerina
+         </u>
+         第三方媒體情境：
+         <br/>
+         現況第三方媒體廣告格式較單純, 將維持現況, 不會去設定
+         <u>
+          媒體格式連結
+         </u>
+         , 意味著點擊後不會有網頁開啟
+        </p>
+       </li>
+       <li>
+        <p>
+         <u>
+          Joellen
+         </u>
+         RMN 媒體情境：
+         <br/>
+         從 RMN 媒體端取得廣告格式文件, 將文件保存雲端空間做維護並取到 URL, 並更新
+         <u>
+          媒體格式連結
+         </u>
+         即可
+        </p>
+       </li>
+       <li>
+        <p>
+         <u>
+          Penny
+         </u>
+         OneAD 情境：
+         <br/>
+         維持現況
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      Cue 表
+     </code>
+     <br/>
+     <u>
+      預估總廣告執行次數
+     </u>
+     欄位
+     <strong>
+      內容異動
+     </strong>
+    </p>
+    <img alt="截圖 2024-11-11 上午11.26.05.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/%E6%88%AA%E5%9C%96%202024-11-11%20%E4%B8%8A%E5%8D%8811.26.05.png?version=1&amp;modificationDate=1732156600540&amp;cacheVersion=1&amp;api=v2&amp;width=664&amp;height=334"/>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       若計價單位為 CPD, 則
+       <u>
+        預估總廣告執行次數
+       </u>
+       之 欄位內容為 數字(天)
+      </p>
+     </li>
+     <li>
+      <p>
+       若計價單位為 CPT, 則
+       <u>
+        預估總廣告執行次數
+       </u>
+       之 欄位內容為 數字(趟)
+      </p>
+     </li>
+     <li>
+      <p>
+       若計價單位為 除了 CPD / CPT 以外, 則
+       <u>
+        預估總廣告執行次數
+       </u>
+       之 欄位內容為 數字
+      </p>
+     </li>
+     <li>
+      <p>
+       此欄位之數字計算邏輯是由 Excel 欄位的計算式得出, 並且對該格規範相應資料格式
+      </p>
+      <ul>
+       <li>
+        <p>
+         計算式： 廣告預算格子 / 單價格子
+        </p>
+       </li>
+       <li>
+        <p>
+         計價單位 CPD / CPT 時, 為了呈現
+         <strong>
+          數字(天) / 數字(趟)
+         </strong>
+         資訊, 該欄位
+         <strong>
+          資料格式需設為 "字串"
+         </strong>
+        </p>
+       </li>
+       <li>
+        <p>
+         計價單位 CPD / CPT 以外時, 呈現
+         <strong>
+          數字
+         </strong>
+         資訊, 該欄位
+         <strong>
+          資料格式需設為 "數值"
+         </strong>
+        </p>
+        <ul>
+         <li>
+          <p>
+           現階段就是設定為數值
+          </p>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       <strong>
+        補充：經使用者會議討論, 不用把全部計價單位都加上中文單位 ex CPM(次),
+       </strong>
+       因市場對於 CPT / CPD 較陌生, 所以僅針對 CPT / CPD 這兩個計價單位做額外說明
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     Penny / Kerina / Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      Cue 表
+     </code>
+     <br/>
+     <strong>
+      欄位名稱異動
+     </strong>
+     <br/>
+    </p>
+    <img alt="截圖 2024-12-11 下午1.49.29.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/%E6%88%AA%E5%9C%96%202024-12-11%20%E4%B8%8B%E5%8D%881.49.29.png?version=1&amp;modificationDate=1733896232170&amp;cacheVersion=1&amp;api=v2&amp;width=664&amp;height=270"/>
+    <p>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <strong>
+        欄位名稱異動,
+       </strong>
+       補充： 目的是讓
+       <code>
+        Cue
+       </code>
+       跟
+       <code>
+        委刊單
+       </code>
+       欄位名稱一致
+       <br/>
+       原：
+       <u>
+        版位名稱
+       </u>
+       <strong>
+        →
+       </strong>
+       新：
+       <u>
+        廣告產品/版位
+       </u>
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      Cue 表
+     </code>
+     <br/>
+     <u>
+      產品
+     </u>
+     欄位
+     <strong>
+      內容邏輯異動
+     </strong>
+    </p>
+    <img alt="unnamed.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/unnamed.png?version=1&amp;modificationDate=1732156760904&amp;cacheVersion=1&amp;api=v2&amp;width=432&amp;height=475"/>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       僅針對 RMN 產品, 該
+       <u>
+        產品
+       </u>
+       欄位內容異動
+       <br/>
+       原：“RMN”
+       <strong>
+        →
+       </strong>
+       新：“RMN_媒體平台(合約)名稱"
+      </p>
+      <ul>
+       <li>
+        <p>
+         補充：
+         <code>
+          ERP。設定 &gt; 格式設定 &gt; 操作型媒體格式設定
+         </code>
+         的
+         <u>
+          平台(合約)
+         </u>
+         欄位設定值
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       其餘產品 RichMedia / InStream / External 維持現況
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    5
+   </td>
+   <td>
+    <p>
+     Penny / Kerina / Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      委刊單
+     </code>
+     <br/>
+     <u>
+      單價
+     </u>
+     欄位
+     <strong>
+      內容優化
+     </strong>
+    </p>
+    <img alt="截圖 2024-11-11 上午11.39.31.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/%E6%88%AA%E5%9C%96%202024-11-11%20%E4%B8%8A%E5%8D%8811.39.31.png?version=2&amp;modificationDate=1732156704735&amp;cacheVersion=1&amp;api=v2&amp;width=664&amp;height=102"/>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       該欄位內容存在兩種顯示邏輯
+      </p>
+      <ul>
+       <li>
+        <p>
+         若是”整數”的情況不要有小數點
+        </p>
+       </li>
+       <li>
+        <p>
+         若是”浮點數”則固定小數點兩位
+        </p>
+       </li>
+       <li>
+        <p>
+         採用會計數值規則 (每三位數一個逗點)
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       依上述規則範例： NT$ 1,000  /  NT$ 1  /  NT$ 2.50  /  NT$ 3.33
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    6
+   </td>
+   <td>
+    <p>
+     Kerina
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      ODM｜排 Cue 系統 &gt; 接單公司 選擇 果然行銷
+     </code>
+    </p>
+    <img alt="截圖 2024-12-12 下午4.13.18.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/%E6%88%AA%E5%9C%96%202024-12-12%20%E4%B8%8B%E5%8D%884.13.18.png?version=1&amp;modificationDate=1733991249452&amp;cacheVersion=1&amp;api=v2&amp;width=579&amp;height=357"/>
+    <p>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       下拉選單選項：OneAD 果實夥伴 / MAXI 果然行銷
+      </p>
+     </li>
+     <li>
+      <p>
+       以 OneAD 果實夥伴 身份
+       <u>
+        輸出 Cue 表
+       </u>
+       &amp;
+       <u>
+        匯出委刊單
+       </u>
+       時, 維持現況
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        以 MAXI 果然行銷 身份
+        <u>
+         輸出 Cue 表
+        </u>
+        &amp;
+        <u>
+         匯出委刊單
+        </u>
+        時, 檔名 / LOGO / Header / 乙方 Email / 聯絡人資訊 / 文件備註 需要做異動
+       </strong>
+      </p>
+      <ul>
+       <li>
+        <p>
+         <strong>
+          檔名
+         </strong>
+         ( 按鈕動作：
+         <u>
+          輸出 Cue 表
+         </u>
+         /
+         <u>
+          匯出委刊單
+         </u>
+         )
+         <br/>
+         目前：
+         <strong>
+          果實夥伴 OneAD CUE
+         </strong>
+         _Oral-B ND'24 campaign_Youtube_20241004_r0
+         <br/>
+         改為：
+         <strong>
+          果然行銷 MAIX CUE
+         </strong>
+         _Oral-B ND'24 campaign_Youtube_20241004_r0
+         <br/>
+         --------------------------------------------------------------------------
+         <br/>
+         目前：
+         <strong>
+          果實夥伴 OneAD 委刊單
+         </strong>
+         _Oral-B ND'24 campaign_Youtube_20241004_r0
+         <br/>
+         改為：
+         <strong>
+          果然行銷 MAIX 委刊單
+         </strong>
+         _Oral-B ND'24 campaign_Youtube_20241004_r0
+        </p>
+       </li>
+       <li>
+        <p>
+         <strong>
+          MAXI LOGO
+         </strong>
+         ( Excel Sheet：
+         <u>
+          Cue 表
+         </u>
+         /
+         <u>
+          委刊單
+         </u>
+         /
+         <u>
+          果然 → 果實
+         </u>
+         )
+         <br/>
+         於文件的右上角需替換以下 LOGO
+        </p>
+        <img alt="maxi.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/maxi.png?version=1&amp;modificationDate=1731987785565&amp;cacheVersion=1&amp;api=v2&amp;width=365&amp;height=170"/>
+       </li>
+       <li>
+        <p>
+         <strong>
+          Header
+         </strong>
+         ( Excel Sheet：
+         <u>
+          委刊單
+         </u>
+         /
+         <u>
+          果然 → 果實
+         </u>
+         )
+         <br/>
+         目前：
+         <strong>
+          《 OneAD 智能品牌廣告專家 》
+         </strong>
+         廣告委刊單
+         <br/>
+         改為：
+         <strong>
+          《 MAXI 果然行銷股份有限公司 》
+         </strong>
+         廣告委刊單
+        </p>
+       </li>
+       <li>
+        <p>
+         <strong>
+          “乙方” E-mail
+         </strong>
+         ( Excel Sheet：
+         <u>
+          委刊單
+         </u>
+         /
+         <u>
+          果然 → 果實
+         </u>
+         )
+         <br/>
+         目前：
+         <strong>
+          kerina@onead.com.tw
+         </strong>
+         <br/>
+         改為：
+         <strong>
+          kerina@
+          maxi
+          .com.tw
+         </strong>
+         <br/>
+         單純僅是改字串輸出, 不更動 User 原本的帳號資料
+        </p>
+       </li>
+       <li>
+        <p>
+         <strong>
+          合約對象 / 乙方 / 甲方開據內容
+         </strong>
+         ( Excel Sheet：果然 → 果實 )
+         <br/>
+         將固定欄位更改資料如下(橘色底的部分)：
+        </p>
+        <img alt="截圖 2024-12-09 下午6.34.02.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3729326081/%E6%88%AA%E5%9C%96%202024-12-09%20%E4%B8%8B%E5%8D%886.34.02.png?version=1&amp;modificationDate=1733740528973&amp;cacheVersion=1&amp;api=v2&amp;width=564&amp;height=248"/>
+       </li>
+       <li>
+        <p>
+         <strong>
+          文件備註
+         </strong>
+         ( Excel Sheet：
+         <u>
+          Cue 表
+         </u>
+         )
+         <br/>
+         目前：
+         <br/>
+         <strong>
+          OneAD
+         </strong>
+         備註:
+         <br/>
+         1. 程序化受眾購買，不保證預算執行完畢
+         <br/>
+         2. 本CUE表報價有效期限為兩個星期，超過期限請以最後報價為主！
+         <br/>
+         3.
+         <strong>
+          OneAD
+         </strong>
+         受眾購買 若廣告預算未能於走期內執行完畢，客戶可選擇延長走期或是以已執行的次數結算。
+         <br/>
+         4. 投放媒體清單為不定期動態增減，包含但不限於上述提供之媒體名單。
+         <br/>
+         改為：
+         <br/>
+         <strong>
+          MAXI
+         </strong>
+         備註:
+         <br/>
+         1. 程序化受眾購買，不保證預算執行完畢
+         <br/>
+         2. 本CUE表報價有效期限為兩個星期，超過期限請以最後報價為主！
+         <br/>
+         3.
+         <strong>
+          MAXI
+         </strong>
+         受眾購買 若廣告預算未能於走期內執行完畢，客戶可選擇延長走期或是以已執行的次數結算。
+         <br/>
+         4. 投放媒體清單為不定期動態增減，包含但不限於上述提供之媒體名單。
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    7
+   </td>
+   <td>
+    <p>
+     Penny / Kerina / Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      Cue 表
+     </code>
+     及
+     <code>
+      委刊單
+     </code>
+     <br/>
+     文件內容 ”備註” 之 文本需要依照不同情境做調整
+    </p>
+    <p>
+     ( 不同
+     <u>
+      代理商
+     </u>
+     /
+     <u>
+      直客
+     </u>
+     /
+     <u>
+      RMN 媒體
+     </u>
+     都可能會影響備註輸出
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <strong>
+        Action：待 Joellen 確認 RMN 所有合約細項及內部條約審核後再討論執行細節
+       </strong>
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       及
+       <code>
+        委刊單
+       </code>
+       文件內容 ”備註” 之 文本需要依照不同情境做調整
+      </p>
+     </li>
+     <li>
+      <p>
+       情境：
+      </p>
+      <ul>
+       <li>
+        <p>
+         OneAD
+        </p>
+       </li>
+       <li>
+        <p>
+         操作型
+        </p>
+       </li>
+       <li>
+        <p>
+         RMN
+        </p>
+       </li>
+       <li>
+        <p>
+         OneAD ＋ 操作型 (複數情況)
+        </p>
+       </li>
+       <li>
+        <p>
+         OneAD ＋ RMN (複數情況)
+        </p>
+       </li>
+       <li>
+        <p>
+         RMN ＋ 操作型 (複數情況)
+        </p>
+       </li>
+       <li>
+        <p>
+         OneAD ＋ 操作型 ＋ RMN (複數情況)
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h1>
+ Diagram
+</h1>
+<h2>
+ 狀態機(Optional)
+</h2>
+<h2>
+ 時序圖(除非真的很單純, 否則必填)
+</h2>
+<h2>
+ Wireframe
+</h2>
+<p>
+</p>
+<h1>
+ 會議記錄
+</h1>
+<h1>
+ 功能細項
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      User Story ID
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      前/後端
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      細項
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      開發時間
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ERP
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     前
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       Create / Read / Edit 介面
+       <strong>
+        新增欄位
+       </strong>
+      </p>
+     </li>
+     <li>
+      <p>
+       <code>
+        API
+       </code>
+       介接確認
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#U1">
+      UserStory 1
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence">
+      stevesun
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        API
+       </code>
+       修改，C R U 新增 key
+      </p>
+     </li>
+     <li>
+      <p>
+       DB 新增欄位儲存 URL 連結
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#">
+      UserStory 1
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <u>
+        尺寸規範 Size/K數
+       </u>
+       欄位
+       <strong>
+        功能新增
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#">
+      UserStory 1
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <u>
+        預估總廣告執行次數
+       </u>
+       欄位
+       <strong>
+        內容異動
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#U2">
+      UserStory 2
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       欄位名稱異動
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#U3">
+      UserStory 3
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <u>
+        產品
+       </u>
+       欄位
+       <strong>
+        內容邏輯異動
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#U4">
+      UserStory 4
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <u>
+        單價
+       </u>
+       欄位
+       <strong>
+        內容優化
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#U5">
+      UserStory 5
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     6
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       以 MAXI 果然行銷 身份
+       <u>
+        輸出 Cue 表
+       </u>
+       or
+       <u>
+        匯出委刊單
+       </u>
+       時,
+       檔名 / LOGO / Header / 乙方 Email / 聯絡人資訊 / 文件備註 需要做異動
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="#U6">
+      UserStory 6
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:4551d073-dc57-4b81-9f43-7e2682075087?ref=confluence">
+      stevesun
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 驗收標準
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     系統
+    </p>
+   </th>
+   <th>
+    <p>
+     角色
+    </p>
+   </th>
+   <th>
+    <p>
+     此次開發
+    </p>
+   </th>
+   <th>
+    <p>
+     功能 / 頁面
+    </p>
+   </th>
+   <th>
+    <p>
+     測試功能
+    </p>
+   </th>
+   <th>
+    <p>
+     測試情境
+    </p>
+   </th>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     期望結果
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ERP
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+     <br/>
+     Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      設定 &gt; 格式設定 &gt; 操作型媒體格式設定
+     </code>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       Create / Edit 介面
+       <strong>
+        新增欄位
+       </strong>
+       <u>
+        媒體格式連結
+       </u>
+      </p>
+      <ul>
+       <li>
+        <p>
+         該欄位非必填
+        </p>
+       </li>
+       <li>
+        <p>
+         該欄位 Create / Edit / Show 功能正常
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       新建資料 → 查看 → 更新 → 查看
+      </p>
+     </li>
+     <li>
+      <p>
+       舊資料更新 → 查看
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+   <td>
+    <p>
+     所有情境下, 功能都正常執行
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+     <br/>
+     Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      排 Cue 系統 &gt;
+     </code>
+     <br/>
+     <code>
+      輸出 Cue 表(按鈕) or 匯出委刊單(按鈕)
+     </code>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       <u>
+        尺寸規範 Size/K數
+       </u>
+       欄位
+       <strong>
+        功能新增
+       </strong>
+       <br/>
+       當點擊該欄位內容時, 會開啟 ERP 設定之指定網頁連結.
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       ERP 設定後 →
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     輸出後, 點擊
+     <u>
+      尺寸規範 Size/K數
+     </u>
+     欄位
+    </p>
+   </td>
+   <td>
+    <p>
+     點擊該欄位內容時, 會開啟 ERP 設定之指定網頁連結.
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       第一次 輸出 Cue 表 or 匯出委刊單 →
+       <br/>
+       ERP 設定更新 →
+       <br/>
+       第二次 輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <strong>
+      第一次輸出
+     </strong>
+     <br/>
+     點擊該欄位內容時, 會開啟 ERP 設定之指定網頁連結.
+     <br/>
+     <br/>
+     <strong>
+      第二次輸出
+     </strong>
+     <br/>
+     點擊該欄位內容時, 會開啟 ERP 更新之指定網頁連結.
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+     <br/>
+     Joellen
+     <br/>
+     Penny
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       <u>
+        預估總廣告執行次數
+       </u>
+       欄位
+       <strong>
+        內容異動
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       計價單位 CPD
+      </p>
+     </li>
+     <li>
+      <p>
+       計價單位 CPT
+      </p>
+     </li>
+     <li>
+      <p>
+       計價單位非 CPD / CPT
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+   <td>
+    <p>
+     見
+     <a href="#U2">
+      UserSotry 2
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+     <br/>
+     Joellen
+     <br/>
+     Penny
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       欄位
+       <strong>
+        名稱異動
+       </strong>
+       <br/>
+       原：“版位名稱”
+       <strong>
+        →
+       </strong>
+       新：“廣告格式/版位名稱”
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+   <td>
+    <p>
+     欄位名稱正確顯示
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Joellen
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       <u>
+        產品
+       </u>
+       欄位
+       <strong>
+        內容邏輯異動
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       選擇 RMN 產品,
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+   <td>
+    <p>
+     見
+     <a href="#U4">
+      UserStroy 4
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+     <br/>
+     Penny
+    </p>
+   </td>
+   <td>
+    <p>
+     x
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       <u>
+        產品
+       </u>
+       欄位
+       <strong>
+        內容確認
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       選擇非 RMN 產品,
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+     <br/>
+     Joellen
+     <br/>
+     Penny
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        委刊單
+       </code>
+       <u>
+        單價
+       </u>
+       欄位
+       <strong>
+        內容優化
+       </strong>
+      </p>
+      <ul>
+       <li>
+        <p>
+         若是”整數”的情況不要有小數點
+        </p>
+       </li>
+       <li>
+        <p>
+         若是”浮點數”則固定小數點兩位
+        </p>
+       </li>
+       <li>
+        <p>
+         採用會計數值規則 (每三位數一個逗點)
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       計價設定為一位整數,
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+     <li>
+      <p>
+       計價設定為四位整數,
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+     <li>
+      <p>
+       計價設定為小數點一位,
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+     <li>
+      <p>
+       計價設定為小數點二位,
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+   <td>
+    <p>
+     見
+     <a href="#U5">
+      UserStory 5
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Kerina
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       及
+       <code>
+        委刊單
+       </code>
+       以 MAXI 身份輸出
+       <br/>
+       並且選項接單公司以 果然行銷
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       選擇 MAXI 果然行銷
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+   <td>
+    <p>
+     見
+     <a href="#U6">
+      UserStory 6
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Joellen
+     <br/>
+     Penny
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <code>
+        Cue 表
+       </code>
+       及
+       <code>
+        委刊單
+       </code>
+       以 OneAD 身份輸出
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       選擇 OneAD 果實夥伴
+       <br/>
+       輸出 Cue 表 or 匯出委刊單
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     常態操作
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 專案上線截圖
+</h1>
+說明
+<p>
+ 在確定畫面的時候, 將核心功能畫面截圖放在這裡
+</p>
+<p>
+</p>
+<p>
+ Ｑ：該截什麼圖？
+ <br/>
+ Ａ：假設你是 Paul, 你拿什麼圖跟 914 快速清楚地報告此專案重點是什麼
+</p>
+<h1>
+ 參考資料
+</h1>
+<p>
+</p>
+<h1>
+ 注意事項
+</h1>
+<p>
+ 待確認: API 規格請照
+ <a href="/wiki/spaces/ITOOperationManual/pages/3407052977/API">
+  API 制定規則
+ </a>
+ 或其他規範填寫, 需
+ <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+  Rocco
+ </a>
+ 協助確認
+</p>
+<h1>
+ 文件撰寫參考範例
+</h1>
+<p>
+ 實際使用的情形, 可參考
+</p>
+<p>
+ <a href="/wiki/spaces/ITO/pages/3433267201/ODM+Segment+Tool+SDD">
+  [ODM] Segment Tool SDD
+ </a>
+</p>
+<p>
+ <a href="/wiki/spaces/ITO/pages/3439493196/segment+target+v2">
+  segment target v2
+ </a>
+</p>

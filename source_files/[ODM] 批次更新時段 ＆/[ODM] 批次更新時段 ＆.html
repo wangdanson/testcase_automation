@@ -1,0 +1,1083 @@
+<h1>
+ 緣由
+</h1>
+<p>
+ 對ODM既有批次更新功能進行UI ＆操作流程調整與功能擴充.
+</p>
+<h1>
+ 目標
+</h1>
+<ul>
+ <li>
+  <p>
+   UI與操作流程調整為接近DV360的流程.
+  </p>
+ </li>
+ <li>
+  <p>
+   可批次更新的範圍增加走期與媒體
+  </p>
+ </li>
+</ul>
+<h1>
+ User
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      部門
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      User
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      權責
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     所有同仁
+    </p>
+   </td>
+   <td>
+    <p>
+     調整優化placement
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ UserStory
+</h1>
+<ul>
+ <li>
+  <p>
+   我是一位CIS廣告優化師，希望在因優化廣告調整placement走期時，可以一次調整多筆placement走期的開始與結束日期 ，藉此提高優化效率 。
+  </p>
+ </li>
+ <li>
+  <p>
+   我是一位CIS廣告優化師，希望在因優化廣告調整媒體時時，可以一次對多筆placement增加指定媒體 ，藉此提高優化效率 。
+  </p>
+ </li>
+ <li>
+  <p>
+   我是一位CIS廣告優化師，希望在因優化廣告調整媒體時時，可以一次對多筆placement移除指定媒體 ，藉此提高優化效率 。
+  </p>
+ </li>
+</ul>
+<h1>
+ Diagram
+</h1>
+<h3>
+ 更新走期
+</h3>
+<h3>
+ 新增媒體
+</h3>
+<h3>
+ <br/>
+ 移除媒體
+ <br/>
+</h3>
+<h2>
+ Wireframe
+</h2>
+<h1>
+ 錯誤訊息的情境
+</h1>
+<p>
+ 走期
+</p>
+<pre>placement 狀態-上刊
+
+placement id: 3 
+placement name: SI_Cover_正隆 情人寵物用抽取式紙巾10-11月宣傳 廣告案_seg
+"開始日期"更新失敗
+原因: 上刊狀態無法調整開始日期
+
+
+
+placement 狀態-停刊 ＆ 結案
+
+placement id: 3
+placement name: SI_Cover_正隆 情人寵物用抽取式紙巾10-11月宣傳 廣告案_seg
+"開始日期"與"結束日期"更新失敗
+原因: 停刊或結案狀態無法調整開始日期、結束日期
+
+
+
+placement 狀態-除此外的狀態
+"開始日期"更新失敗
+原因: XXXXXX無法調整開始日期
+</pre>
+<p>
+</p>
+<p>
+ 媒體
+</p>
+<pre>動作：新增合約
+
+placement id: 3
+placement name: SI_Cover_正隆 情人寵物用抽取式紙巾10-11月宣傳 廣告案_seg
+媒體: 自由時報
+原因: 沒有設定合約
+
+動作：移除合約
+
+placement id: 3
+placement name: SI_Cover_正隆 情人寵物用抽取式紙巾10-11月宣傳 廣告案_seg
+媒體: 中國時報
+原因: 有設定pricing, 需要設定至少1個以上的媒體
+</pre>
+<h1>
+ <br/>
+ <br/>
+ 驗收標準
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      ID
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     系統
+    </p>
+   </th>
+   <th>
+    <p>
+     角色
+    </p>
+   </th>
+   <th>
+    <p>
+     此次開發
+    </p>
+   </th>
+   <th>
+    <p>
+     功能 / 頁面
+    </p>
+   </th>
+   <th>
+    <p>
+     測試功能
+    </p>
+   </th>
+   <th>
+    <p>
+     測試情境
+    </p>
+   </th>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     期望結果
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告活動列表&gt;投放條件列表&gt;批次更新
+    </p>
+   </td>
+   <td>
+    <p>
+     更新投放優先度會檢查當前使用者角色
+    </p>
+   </td>
+   <td>
+    <p>
+     欲使用批次功能
+    </p>
+   </td>
+   <td>
+    <p>
+     1.點選批次更新按鈕
+     <br/>
+     2.選擇想更新的欄位
+    </p>
+   </td>
+   <td>
+    <p>
+     所有CIS同仁都可以批次更新
+     <br/>
+     1.狀態
+     <br/>
+     2.投放策略
+     <br/>
+     3.Pacing狀態
+     <br/>
+     4.走期
+     <br/>
+     5.媒體
+     <br/>
+     只有CIS主管可以批次更新
+     <br/>
+     1.投放優先度
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告活動列表&gt;投放條件列表&gt;批次更新&gt;走期
+    </p>
+   </td>
+   <td>
+    <p>
+     更新走期
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       還沒上刊更新走期
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     1.選擇開始日期
+     <br/>
+     2.選擇結束日期
+     <br/>
+     3.選擇不要的日期(Optional)
+     <br/>
+     4.更新
+    </p>
+   </td>
+   <td>
+    <p>
+     成功更新
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告活動列表&gt;投放條件列表&gt;批次更新&gt;走期
+    </p>
+   </td>
+   <td>
+    <p>
+     更新走期
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       已經上刊更新走期
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     1.選擇開始日期
+     <br/>
+     2.選擇結束日期
+     <br/>
+     3.選擇不要的日期(Optional)
+     <br/>
+     4.更新
+    </p>
+   </td>
+   <td>
+    <p>
+     部分成功,會顯示無法更新,然後顯示開始日期無法更新
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告活動列表&gt;投放條件列表&gt;批次更新&gt;媒體&gt;新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     對於指定的placements新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     1.從媒體列表勾選欲新增的媒體
+     <br/>
+     2.送出
+    </p>
+   </td>
+   <td>
+    <p>
+     新增成功
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告活動列表&gt;投放條件列表&gt;批次更新&gt;媒體&gt;新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     對於指定的placements新增媒體，但媒體並沒有對應的合約
+    </p>
+   </td>
+   <td>
+    <p>
+     1.從媒體列表勾選欲新增的媒體
+     <br/>
+     2.送出
+    </p>
+   </td>
+   <td>
+    <p>
+     無法更新，並顯示哪個placement 新增哪個媒體因為什麼原因導致失敗
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     6
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告活動列表&gt;投放條件列表&gt;批次更新&gt;媒體&gt;移除媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     移除媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     對於指定的placements移除媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     1.從媒體列表勾選欲移除的媒體
+     <br/>
+     2.送出
+    </p>
+   </td>
+   <td>
+    <p>
+     移除成功
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     7
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     v
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告活動列表&gt;投放條件列表&gt;批次更新
+    </p>
+   </td>
+   <td>
+    <p>
+     編輯紀錄
+    </p>
+   </td>
+   <td>
+    <p>
+     使用匹次更新功能後,是否有正確新增編輯紀錄
+    </p>
+   </td>
+   <td>
+    <p>
+     1.使用走期或媒體更新
+     <br/>
+     2.送出
+    </p>
+   </td>
+   <td>
+    <p>
+     被勾選的placement 若是”上刊”
+    </p>
+    <p>
+     狀態要增加編輯紀錄
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h1>
+ 功能細項
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      驗收標準ID
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      前/後端
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      細項
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      開發時間
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     前
+    </p>
+   </td>
+   <td>
+    <p>
+     使用批次更新功能
+    </p>
+   </td>
+   <td>
+    <p>
+     需要檢查當前使用者的角色
+     <br/>
+     所有CIS同仁都可以用
+     <br/>
+     1.狀態
+     <br/>
+     2.投放策略
+     <br/>
+     3.Pacing狀態
+     <br/>
+     4.走期
+     <br/>
+     5.媒體
+     <br/>
+     只有CIS主管可以用
+     <br/>
+     1.投放優先度
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     前
+    </p>
+   </td>
+   <td>
+    <p>
+     批次更新走期
+    </p>
+   </td>
+   <td>
+    <p>
+     1.不論勾選的placement 類型，都顯示相同的日期選擇器，初始狀態為空白
+     <br/>
+     2.開始日期不能早於campaign的開始日期
+     <br/>
+     3.結束日期不能晚於campaign的結束日期
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <p>
+     批次更新走期
+    </p>
+   </td>
+   <td>
+    <p>
+     對於不同類型的placement要存入不同的走期資料類型至資料庫
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     前
+    </p>
+   </td>
+   <td>
+    <p>
+     批次更新走期
+    </p>
+   </td>
+   <td>
+    <p>
+     無法更新訊息改為一個包含包含placement資訊與原因的確認彈窗
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <p>
+     批次更新走期
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       需要檢查placement 狀態, 結案與停刊將會無法更新
+      </p>
+     </li>
+     <li>
+      <p>
+       要檢查平均次數是否少於0
+      </p>
+     </li>
+     <li>
+      <p>
+       對於無法更新的placement要提供原因給前端
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     前
+    </p>
+   </td>
+   <td>
+    <p>
+     批次新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     1.照不同類型列出richmedia與superview的媒體
+     <br/>
+     2.第三方的媒體不用放入
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <p>
+     批次新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     需要提供richmedia＆superview的媒體列表給前端, 但不用第三方的媒體列表
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     前
+    </p>
+   </td>
+   <td>
+    <p>
+     批次新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     無法更新訊息改為一個包含placement資訊與原因與媒體資訊的確認彈窗
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <p>
+     批次新增媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     對於無法更新的placement要提供原因與媒體資訊給前端
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     6
+    </p>
+   </td>
+   <td>
+    <p>
+     前
+    </p>
+   </td>
+   <td>
+    <p>
+     批次移除媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     1.照不同類型列出richmedia與superview的媒體
+     <br/>
+     2.第三方的媒體不用放入
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     6
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <p>
+     批次移除媒體
+    </p>
+   </td>
+   <td>
+    <p>
+     1.針對指定的placement移除指定媒體
+     <br/>
+     <br/>
+     2.若placement開啟pacing,需要先檢查placement 此次移除的媒體真的發生後，是否還有剩餘便宜流量的媒體，若沒有就提供訊息並且此次的移除全都不會生效
+     <br/>
+     <br/>
+     3.若placement未開啟pacing需要先檢查placement 此次移除的媒體真的發生後，是否還有剩餘的媒體，若沒有就提供訊息並且此次的移除全都不會生效
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     7
+    </p>
+   </td>
+   <td>
+    <p>
+     後
+    </p>
+   </td>
+   <td>
+    <p>
+     增加編輯紀錄
+    </p>
+   </td>
+   <td>
+    <p>
+     1.若勾選的placment為上刊或暫停狀態, 需要在更新成功後,增加編輯紀錄資料
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 專案上線截圖
+</h1>
+<p>
+</p>
+<h1>
+ 參考資料
+</h1>
+<p>
+</p>
+<h1>
+ 注意事項
+</h1>
+<p>
+ 待確認: API 規格請照
+ <a href="/wiki/spaces/ITOOperationManual/pages/3407052977/API">
+  API 制定規則
+ </a>
+ 或其他規範填寫, 需
+ <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+  Rocco
+ </a>
+ 協助確認
+</p>
+<h1>
+ 文件撰寫參考範例
+</h1>
+<p>
+ 實際使用的情形, 可參考
+</p>
+<p>
+ <a href="/wiki/spaces/ITO/pages/3433267201/ODM+Segment+Tool+SDD">
+  [ODM] Segment Tool SDD
+ </a>
+</p>
+<p>
+ <a href="/wiki/spaces/ITO/pages/3439493196/segment+target+v2">
+  segment target v2
+ </a>
+</p>

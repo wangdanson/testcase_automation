@@ -1,0 +1,1675 @@
+<h2>
+ 📘 修訂追蹤表
+</h2>
+<p>
+ 請填寫每次文件變更的紀錄，例如版本號、時間、修訂人與內容摘要
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     版本號
+    </p>
+   </th>
+   <th>
+    <p>
+     修訂日期
+    </p>
+   </th>
+   <th>
+    <p>
+     修訂人
+    </p>
+   </th>
+   <th>
+    <p>
+     修訂內容摘要
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Phase1
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-06-13
+    </p>
+   </td>
+   <td>
+    <p>
+     Hanfour Huang
+    </p>
+   </td>
+   <td>
+    <p>
+     初版建立
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Phase1.1
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-06-13
+    </p>
+   </td>
+   <td>
+    <p>
+     Hanfour Huang
+    </p>
+   </td>
+   <td>
+    <p>
+     新增API整合說明與實際數據結構
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ 📖 項目概述
+</h2>
+<h3>
+ 📌 項目背景
+</h3>
+<p>
+ 在 ODM 系統平台中，用戶在操作 placement 建立與編輯時會先選擇素材秒數（決定可選媒體與素材清單），然後在素材選擇階段設定綁定素材包。目前系統未針對用戶在基本資料中選擇的素材秒數進行素材包篩選，導致可能選擇到秒數不匹配的素材包。
+</p>
+<p>
+ <strong>
+  核心問題：成本控制與媒體匹配
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   不同素材秒數對應不同的賣價結構
+  </p>
+ </li>
+ <li>
+  <p>
+   短秒數素材（如15秒）對應特定的短秒數媒體，成本較低
+  </p>
+ </li>
+ <li>
+  <p>
+   長秒數素材（如30秒）對應不同的長秒數媒體，成本較高
+  </p>
+ </li>
+ <li>
+  <p>
+   當操作人員誤用長秒數設定（如16-30秒）去投放短秒數素材（如15秒）時，系統會錯誤地選擇長秒數媒體進行投放
+  </p>
+ </li>
+ <li>
+  <p>
+   這種不匹配導致實際投放成本遠高於預期，造成不必要的成本浪費
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  實際影響案例：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   素材實際長度：15秒（應使用短秒數媒體）
+  </p>
+ </li>
+ <li>
+  <p>
+   操作人員設定：16-30秒範圍（系統選擇長秒數媒體）
+  </p>
+ </li>
+ <li>
+  <p>
+   結果：投放成本按長秒數計費，但實際素材只有15秒，造成成本效益不佳
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  API數據結構說明：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   Placement API 中的
+   <code>
+    inventory.flv_second
+   </code>
+   字段表示用戶選擇的素材秒數設定
+  </p>
+ </li>
+ <li>
+  <p>
+   Packs API 中的
+   <code>
+    videos[0].duration
+   </code>
+   字段表示素材包中實際素材的秒數
+  </p>
+ </li>
+ <li>
+  <p>
+   素材包採用單一素材設計，每個素材包僅包含一個素材
+  </p>
+ </li>
+</ul>
+<h3>
+ 🎯 項目目標
+</h3>
+<ul>
+ <li>
+  <p>
+   <strong>
+    成本控制
+   </strong>
+   ：防止素材秒數與媒體不匹配造成的成本浪費
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    精準投放
+   </strong>
+   ：確保素材秒數與選定的媒體類型一致
+  </p>
+ </li>
+ <li>
+  <p>
+   建立素材包與素材秒數的匹配驗證機制
+  </p>
+ </li>
+ <li>
+  <p>
+   透過 popup 警告視窗提醒用戶不匹配問題
+  </p>
+ </li>
+ <li>
+  <p>
+   防止用戶選擇不匹配的素材包，確保投放成本效益
+  </p>
+ </li>
+ <li>
+  <p>
+   提升用戶操作體驗，減少錯誤選擇導致的財務損失
+  </p>
+ </li>
+</ul>
+<h3>
+ 🧩 項目範圍
+</h3>
+<p>
+ <strong>
+  包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   基於實際 API 數據的素材包與素材秒數匹配驗證邏輯
+  </p>
+ </li>
+ <li>
+  <p>
+   Popup 警告視窗設計與實作
+  </p>
+ </li>
+ <li>
+  <p>
+   阻止不匹配素材包選擇的功能
+  </p>
+ </li>
+ <li>
+  <p>
+   錯誤提示與用戶引導機制
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  不包含：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   自動篩選素材包功能
+  </p>
+ </li>
+ <li>
+  <p>
+   批量素材包驗證
+  </p>
+ </li>
+ <li>
+  <p>
+   歷史數據修正功能
+  </p>
+ </li>
+ <li>
+  <p>
+   媒體賣價結構調整
+  </p>
+ </li>
+</ul>
+<h3>
+ ⚙️ 目標受眾
+</h3>
+<p>
+ 定義誰會使用此功能，他們的行為與需求為何？
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     用戶類型
+    </p>
+   </th>
+   <th>
+    <p>
+     描述
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     AOE
+    </p>
+   </td>
+   <td>
+    <p>
+     建立 placement 時需要正確選擇匹配的素材包
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ ⚙️ 功能需求
+</h2>
+<p>
+ 列出此專案的核心功能，可依照優先級排序，連結子頁提供詳情
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     功能名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     優先級
+    </p>
+   </th>
+   <th>
+    <p>
+     簡要描述
+    </p>
+   </th>
+   <th>
+    <p>
+     狀態
+    </p>
+   </th>
+   <th>
+    <p>
+     負責人
+    </p>
+   </th>
+   <th>
+    <p>
+     詳細頁面
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     素材秒數匹配驗證
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     基於API數據驗證素材包與選定素材秒數是否匹配
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+   <td>
+    <p>
+     [Owner]
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/edit-v2/3879862322#%E5%8A%9F%E8%83%BD%E4%B8%80%EF%BC%9A%E7%B4%A0%E6%9D%90%E7%A7%92%E6%95%B8%E5%8C%B9%E9%85%8D%E9%A9%97%E8%AD%89">
+      功能詳情子頁
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Popup警告視窗
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示不匹配警告與阻止選擇
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+   <td>
+    <p>
+     [Owner]
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/spaces/ITO/pages/edit-v2/3879862322#%E5%8A%9F%E8%83%BD%E4%BA%8C%EF%BC%9APopup%E8%AD%A6%E5%91%8A%E8%A6%96%E7%AA%97">
+      功能詳情子頁
+     </a>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ 🧾 非功能需求
+</h2>
+<p>
+ 針對性能、安全、可用性、兼容性、可維護性等非功能特性列出需求
+</p>
+<ul>
+ <li>
+  <p>
+   支援所有現有素材格式與秒數規格
+  </p>
+ </li>
+ <li>
+  <p>
+   警告視窗需具備良好的視覺層次與易讀性
+  </p>
+ </li>
+</ul>
+<h2>
+ 📚 用戶故事與用例
+</h2>
+<p>
+ 以角色 + 目的的方式撰寫使用者故事，並列出驗收標準
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     標題
+    </p>
+   </th>
+   <th>
+    <p>
+     角色
+    </p>
+   </th>
+   <th>
+    <p>
+     需求
+    </p>
+   </th>
+   <th>
+    <p>
+     目的
+    </p>
+   </th>
+   <th>
+    <p>
+     優先級
+    </p>
+   </th>
+   <th>
+    <p>
+     驗收標準
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     防止成本浪費
+    </p>
+   </td>
+   <td>
+    <p>
+     AOE
+    </p>
+   </td>
+   <td>
+    <p>
+     選擇素材包時進行秒數匹配檢查
+    </p>
+   </td>
+   <td>
+    <p>
+     避免選擇錯誤秒數範圍導致成本上升
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     選擇不匹配素材包時彈出警告，並無法完成選擇
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     正確投放指引
+    </p>
+   </td>
+   <td>
+    <p>
+     AOE
+    </p>
+   </td>
+   <td>
+    <p>
+     獲得正確的秒數設定建議
+    </p>
+   </td>
+   <td>
+    <p>
+     確保投放成本效益最佳化
+    </p>
+   </td>
+   <td>
+    <p>
+     中
+    </p>
+   </td>
+   <td>
+    <p>
+     警告視窗提供匹配的秒數範圍建議
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ 🎨 設計與界面
+</h2>
+<h3>
+ 警告視窗設計規格
+</h3>
+<p>
+ <strong>
+  Popup 警告視窗元素：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   標題：「素材包與素材秒數不匹配」
+  </p>
+ </li>
+ <li>
+  <p>
+   內容：顯示當前選擇的素材秒數與素材包支援秒數
+  </p>
+ </li>
+ <li>
+  <p>
+   建議操作：提供可選的匹配素材包或修改素材秒數選項
+  </p>
+ </li>
+ <li>
+  <p>
+   按鈕：「重新選擇」、「取消」
+  </p>
+ </li>
+ <li>
+  <p>
+   視覺設計：警告色系，具備良好的視覺層次
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  觸發時機：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   用戶在素材選擇階段點擊選擇素材包時
+  </p>
+ </li>
+ <li>
+  <p>
+   系統檢測到素材包支援秒數與已選素材秒數不匹配時立即觸發
+  </p>
+ </li>
+</ul>
+<h2>
+ 🔧 技術要求
+</h2>
+<h3>
+ 驗證邏輯
+</h3>
+<ul>
+ <li>
+  <p>
+   <strong>
+    前端驗證機制
+   </strong>
+   ：基於 Vue 2.5.7 的素材包秒數屬性比對邏輯
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    即時驗證
+   </strong>
+   ：在用戶選擇素材包時進行前端驗證
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    數據來源
+   </strong>
+   ：使用 ODM 系統 API 獲取的實際數據
+  </p>
+  <ul>
+   <li>
+    <p>
+     Placement API：
+     <code>
+      GET /api/v1/odm/advertisers/{advertiser_id}/campaigns/{campaign_id}/placements/{placement_id}
+     </code>
+    </p>
+   </li>
+   <li>
+    <p>
+     Packs API：
+     <code>
+      GET /api/v1/odm/advertisers/{advertiser_id}/packs?flv_second={seconds}&amp;ad_format_type_id={format_id}
+     </code>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h3>
+ 架構設計
+</h3>
+<p>
+ 在現有placement建立/編輯流程的素材包選擇階段新增前端驗證層，比對 API 獲取的 placement 中的
+ <code>
+  inventory.flv_second
+ </code>
+ 與素材包中的
+ <code>
+  videos[0].duration
+ </code>
+ ，不匹配時立即阻止選擇並顯示警告視窗。
+</p>
+<h3>
+ API整合要求
+</h3>
+<ul>
+ <li>
+  <p>
+   <strong>
+    錯誤處理
+   </strong>
+   ：完整的 HTTP 錯誤處理機制（404、403、500等）
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    性能優化
+   </strong>
+   ：API 調用須在10秒內完成響應
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    容錯機制
+   </strong>
+   ：API 異常時的降級處理方案
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    數據驗證
+   </strong>
+   ：對 API 回應數據格式的完整性檢查
+  </p>
+ </li>
+</ul>
+<h2>
+ 🗓 時間表與里程碑
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     里程碑名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     預計完成日期
+    </p>
+   </th>
+   <th>
+    <p>
+     負責人
+    </p>
+   </th>
+   <th>
+    <p>
+     交付物
+    </p>
+   </th>
+   <th>
+    <p>
+     狀態
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     PRD 完成
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-06-13
+    </p>
+   </td>
+   <td>
+    <p>
+     Hanfour Huang
+    </p>
+   </td>
+   <td>
+    <p>
+     完整 PRD 文件
+    </p>
+   </td>
+   <td>
+    <p>
+     完成
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     API 整合設計
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-06-15
+    </p>
+   </td>
+   <td>
+    <p>
+     [前端負責人]
+    </p>
+   </td>
+   <td>
+    <p>
+     API整合方案與錯誤處理設計
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     前端開發
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-06-27
+    </p>
+   </td>
+   <td>
+    <p>
+     [前端開發]
+    </p>
+   </td>
+   <td>
+    <p>
+     Vue 2.5.7 組件與驗證邏輯實作
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     API 整合測試
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-06-30
+    </p>
+   </td>
+   <td>
+    <p>
+     [測試人員]
+    </p>
+   </td>
+   <td>
+    <p>
+     完整 API 整合測試與性能驗證
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     上線部署
+    </p>
+   </td>
+   <td>
+    <p>
+     2025-07-05
+    </p>
+   </td>
+   <td>
+    <p>
+     [DevOps]
+    </p>
+   </td>
+   <td>
+    <p>
+     生產環境部署與監控
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ ⚠️ 風險與依賴
+</h2>
+<h3>
+ 風險
+</h3>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     描述
+    </p>
+   </th>
+   <th>
+    <p>
+     可能性
+    </p>
+   </th>
+   <th>
+    <p>
+     影響程度
+    </p>
+   </th>
+   <th>
+    <p>
+     緩解措施
+    </p>
+   </th>
+   <th>
+    <p>
+     負責人
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     前端驗證影響頁面載入效能
+    </p>
+   </td>
+   <td>
+    <p>
+     低
+    </p>
+   </td>
+   <td>
+    <p>
+     中
+    </p>
+   </td>
+   <td>
+    <p>
+     優化驗證演算法，採用非同步驗證
+    </p>
+   </td>
+   <td>
+    <p>
+     [前端開發]
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
+ 依賴
+</h3>
+<ul>
+ <li>
+  <p>
+   ODM 系統 API 穩定性與數據格式一致性
+  </p>
+ </li>
+ <li>
+  <p>
+   現有 placement 流程前端組件穩定性
+  </p>
+ </li>
+ <li>
+  <p>
+   前端組件庫支援 popup 組件
+  </p>
+ </li>
+</ul>
+<h2>
+ ✍️ 審批與簽核
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     姓名
+    </p>
+   </th>
+   <th>
+    <p>
+     角色/部門
+    </p>
+   </th>
+   <th>
+    <p>
+     簽核狀態
+    </p>
+   </th>
+   <th>
+    <p>
+     簽核日期
+    </p>
+   </th>
+   <th>
+    <p>
+     備註
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Hanfour
+    </p>
+   </td>
+   <td>
+    <p>
+     ITO FE Leader
+    </p>
+   </td>
+   <td>
+    <p>
+     待簽核
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Penny Huang
+    </p>
+   </td>
+   <td>
+    <p>
+     AOE 主管
+    </p>
+   </td>
+   <td>
+    <p>
+     待簽核
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     實際用戶
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<hr/>
+<h2>
+ 詳細功能規格
+</h2>
+<h3>
+ 素材秒數匹配驗證邏輯
+</h3>
+<p>
+ <strong>
+  驗證規則：
+ </strong>
+</p>
+<ol>
+ <li>
+  <p>
+   通過 Placement API 獲取用戶在基本資料中選擇的素材秒數（
+   <code>
+    inventory.flv_second
+   </code>
+   ）
+  </p>
+ </li>
+ <li>
+  <p>
+   通過 Packs API 獲取素材包中素材的實際秒數（
+   <code>
+    videos[0].duration
+   </code>
+   ）
+  </p>
+ </li>
+ <li>
+  <p>
+   根據選定秒數確定對應的範圍區間
+  </p>
+ </li>
+ <li>
+  <p>
+   比對兩者是否匹配（素材包中的素材秒數需在選定範圍內）
+  </p>
+ </li>
+ <li>
+  <p>
+   不匹配時觸發警告機制
+  </p>
+ </li>
+</ol>
+<p>
+ <strong>
+  範圍區間定義：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   1-5秒範圍：包含1秒到5秒（1 ≤ 素材秒數 ≤ 5）
+  </p>
+ </li>
+ <li>
+  <p>
+   6-15秒範圍：包含6秒到15秒（6 ≤ 素材秒數 ≤ 15）
+  </p>
+ </li>
+ <li>
+  <p>
+   16-30秒範圍：包含16秒到30秒（16 ≤ 素材秒數 ≤ 30）
+  </p>
+ </li>
+ <li>
+  <p>
+   31-60秒範圍：包含31秒到60秒（31 ≤ 素材秒數 ≤ 60）
+  </p>
+ </li>
+ <li>
+  <p>
+   61-90秒範圍：包含61秒到90秒（61 ≤ 素材秒數 ≤ 90）
+  </p>
+ </li>
+ <li>
+  <p>
+   91-120秒範圍：包含91秒到120秒（91 ≤ 素材秒數 ≤ 120）
+  </p>
+ </li>
+ <li>
+  <p>
+   以此類推...
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  具體案例分析 - 15秒素材：
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     對應範圍
+    </p>
+   </th>
+   <th>
+    <p>
+     19秒素材匹配結果
+    </p>
+   </th>
+   <th>
+    <p>
+     驗證狀態
+    </p>
+   </th>
+   <th>
+    <p>
+     說明
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1-5秒
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 不匹配
+    </p>
+   </td>
+   <td>
+    <p>
+     警告
+    </p>
+   </td>
+   <td>
+    <p>
+     15 ∉ [1,5]，觸發警告視窗
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     6-15秒
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅ 匹配
+    </p>
+   </td>
+   <td>
+    <p>
+     通過
+    </p>
+   </td>
+   <td>
+    <p>
+     15 ∈ [6,15]，允許選擇
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     16-30秒
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 不匹配
+    </p>
+   </td>
+   <td>
+    <p>
+     警告
+    </p>
+   </td>
+   <td>
+    <p>
+     15 ∉ [16,30]，觸發警告視窗
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     31-60秒
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 不匹配
+    </p>
+   </td>
+   <td>
+    <p>
+     警告
+    </p>
+   </td>
+   <td>
+    <p>
+     15 ∉ [31,60]，觸發警告視窗
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     61-90秒
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 不匹配
+    </p>
+   </td>
+   <td>
+    <p>
+     警告
+    </p>
+   </td>
+   <td>
+    <p>
+     15 ∉ [61,90]，觸發警告視窗
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     91-120秒
+    </p>
+   </td>
+   <td>
+    <p>
+     ❌ 不匹配
+    </p>
+   </td>
+   <td>
+    <p>
+     警告
+    </p>
+   </td>
+   <td>
+    <p>
+     15 ∉ [91,120]，觸發警告視窗
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  前端驗證邏輯範例：
+ </strong>
+</p>
+<pre>// 在Vue組件的methods中實作
+methods: {
+  // 從placement數據中獲取已選擇的素材秒數
+  getSelectedDurationFromPlacement: function(placementData) {
+    return placementData.data.inventory.flv_second;
+  },
+  
+  // 從素材包數據中獲取素材秒數
+  getMaterialDurationFromPack: function(packData) {
+    if (packData.videos &amp;&amp; packData.videos.length &gt; 0) {
+      return packData.videos[0].duration;
+    }
+    return 0;
+  },
+  
+  // 根據具體秒數確定所屬範圍
+  getDurationRange: function(duration) {
+    if (duration &lt;= 5) return "1-5";
+    if (duration &lt;= 15) return "6-15";
+    if (duration &lt;= 30) return "16-30";
+    if (duration &lt;= 60) return "31-60";
+    if (duration &lt;= 90) return "61-90";
+    if (duration &lt;= 120) return "91-120";
+    return "121-150";
+  },
+  
+  // 驗證素材包與選定秒數是否匹配
+  validateMaterialPackageWithAPI: function(placementData, selectedPackData) {
+    var selectedDuration = this.getSelectedDurationFromPlacement(placementData);
+    var materialDuration = this.getMaterialDurationFromPack(selectedPackData);
+    
+    var durationRange = this.getDurationRange(selectedDuration);
+    var rangeParts = durationRange.split('-');
+    var minDuration = parseInt(rangeParts[0]);
+    var maxDuration = parseInt(rangeParts[1]);
+    
+    var isValid = materialDuration &gt;= minDuration &amp;&amp; materialDuration &lt;= maxDuration;
+    
+    var mismatchReason = '';
+    if (!isValid) {
+      if (materialDuration &lt; minDuration) {
+        mismatchReason = '素材秒數' + materialDuration + '秒小於選定範圍' + minDuration + '秒';
+      } else {
+        mismatchReason = '素材秒數' + materialDuration + '秒大於選定範圍' + maxDuration + '秒';
+      }
+    }
+    
+    return {
+      isValid: isValid,
+      selectedDuration: selectedDuration,
+      materialDuration: materialDuration,
+      selectedRange: durationRange + '秒',
+      mismatchReason: mismatchReason,
+      packInfo: {
+        id: selectedPackData.id,
+        title: selectedPackData.title,
+        videoId: selectedPackData.videos[0].id
+      }
+    };
+  }
+}
+</pre>
+<p>
+ <strong>
+  特殊情況處理：
+ </strong>
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    API異常處理
+   </strong>
+   ：
+  </p>
+  <ul>
+   <li>
+    <p>
+     Placement API 無法訪問時的降級處理
+    </p>
+   </li>
+   <li>
+    <p>
+     Packs API 回應格式異常的容錯機制
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    數據完整性檢查
+   </strong>
+   ：
+  </p>
+  <ul>
+   <li>
+    <p>
+     <code>
+      inventory.flv_second
+     </code>
+     字段缺失的處理
+    </p>
+   </li>
+   <li>
+    <p>
+     <code>
+      videos
+     </code>
+     陣列為空的處理
+    </p>
+   </li>
+   <li>
+    <p>
+     素材duration為0或負值的處理
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    邊界值素材
+   </strong>
+   ：
+  </p>
+  <ul>
+   <li>
+    <p>
+     15秒素材選擇15秒設定：匹配（包含邊界值）
+    </p>
+   </li>
+   <li>
+    <p>
+     15秒素材選擇16-30秒設定：不匹配
+    </p>
+   </li>
+  </ul>
+ </li>
+</ol>
+<h3>
+ Popup警告視窗規格
+</h3>
+<p>
+ <strong>
+  視窗內容結構：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   圖示：警告圖標
+  </p>
+ </li>
+ <li>
+  <p>
+   標題：「素材包與素材秒數不匹配」
+  </p>
+ </li>
+ <li>
+  <p>
+   說明：「您選擇的素材包不符合當前素材秒數設定」
+  </p>
+ </li>
+ <li>
+  <p>
+   詳細資訊：
+  </p>
+  <ul>
+   <li>
+    <p>
+     當前選擇：[X秒] (對應 [X-Y秒] 範圍)
+    </p>
+   </li>
+   <li>
+    <p>
+     素材包包含：[Z秒]
+    </p>
+   </li>
+   <li>
+    <p>
+     不匹配原因：[具體原因，以紅色標示]
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   建議操作：「請重新選擇符合秒數要求的素材包，或修改基本資料中的素材秒數設定」
+  </p>
+ </li>
+ <li>
+  <p>
+   操作按鈕：
+  </p>
+  <ul>
+   <li>
+    <p>
+     主要按鈕：「修改為[建議範圍]秒」
+    </p>
+   </li>
+   <li>
+    <p>
+     次要按鈕：「重新選擇素材包」
+    </p>
+   </li>
+   <li>
+    <p>
+     取消按鈕：「取消」
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+ <strong>
+  15秒素材警告視窗範例：
+ </strong>
+</p>
+<p>
+ <em>
+  當用戶設定30秒（對應16-30秒範圍），但素材包為15秒素材時：
+ </em>
+</p>
+<pre>⚠️ 素材包與素材秒數不匹配
+
+您選擇的素材包不符合當前素材秒數設定
+
+當前選擇：30秒 (對應 16-30秒 範圍)
+素材秒數：15秒
+不匹配原因：素材秒數15秒小於選定範圍30秒
+
+建議操作：
+1. 將素材秒數設定修改成正確秒數
+2. 選擇正確秒數的素材包
+
+[修改為1-30秒] [重新選擇素材包] [取消]
+</pre>
+<h3>
+ API整合規格
+</h3>
+<p>
+ <strong>
+  必要的API端點：
+ </strong>
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Placement 詳情 API
+   </strong>
+  </p>
+  <pre>GET /api/v1/odm/advertisers/{advertiser_id}/campaigns/{campaign_id}/placements/{placement_id}
+</pre>
+  <p>
+   用途：獲取當前placement的素材秒數設定
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    素材包列表 API
+   </strong>
+  </p>
+  <pre>GET /api/v1/odm/advertisers/{advertiser_id}/packs?flv_second={seconds}&amp;ad_format_type_id={format_id}
+</pre>
+  <p>
+   用途：獲取可用的素材包及其實際素材秒數
+  </p>
+ </li>
+</ol>
+<p>
+ <strong>
+  API 調用時序：
+ </strong>
+</p>
+<ol>
+ <li>
+  <p>
+   頁面載入時調用 Placement API 獲取基本設定
+  </p>
+ </li>
+ <li>
+  <p>
+   根據設定調用 Packs API 獲取可用素材包
+  </p>
+ </li>
+ <li>
+  <p>
+   用戶選擇素材包時進行即時驗證
+  </p>
+ </li>
+ <li>
+  <p>
+   如需修改範圍，重新調用 Packs API 獲取新的素材包列表
+  </p>
+ </li>
+</ol>
+<p>
+ <strong>
+  錯誤處理規範：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   404錯誤：顯示「找不到指定的 Placement 」
+  </p>
+ </li>
+ <li>
+  <p>
+   403錯誤：顯示「沒有權限訪問此 Placement 」
+  </p>
+ </li>
+ <li>
+  <p>
+   500錯誤：顯示「服務器內部錯誤，請稍後再試」
+  </p>
+ </li>
+ <li>
+  <p>
+   網絡錯誤：顯示「網絡連接失敗，請檢查網絡設定」
+  </p>
+ </li>
+</ul>
+<h2>
+ 📊 測試計劃
+</h2>
+<h3>
+ 功能測試
+</h3>
+<ul>
+ <li>
+  <p>
+   19秒素材在不同設定下的匹配測試
+  </p>
+ </li>
+ <li>
+  <p>
+   邊界值測試（30/31秒等關鍵節點）
+  </p>
+ </li>
+ <li>
+  <p>
+   警告視窗的完整交互測試
+  </p>
+ </li>
+</ul>
+<h3>
+ 性能測試
+</h3>
+<ul>
+ <li>
+  <p>
+   驗證響應時間 &lt; 500ms
+  </p>
+ </li>
+ <li>
+  <p>
+   API 調用完成時間 &lt; 3秒
+  </p>
+ </li>
+ <li>
+  <p>
+   大量素材包載入的性能測試
+  </p>
+ </li>
+</ul>
+<h3>
+ 用戶體驗測試
+</h3>
+<ul>
+ <li>
+  <p>
+   警告視窗的可讀性測試
+  </p>
+ </li>
+ <li>
+  <p>
+   操作流程的順暢性測試
+  </p>
+ </li>
+ <li>
+  <p>
+   錯誤提示的準確性測試
+  </p>
+ </li>
+</ul>

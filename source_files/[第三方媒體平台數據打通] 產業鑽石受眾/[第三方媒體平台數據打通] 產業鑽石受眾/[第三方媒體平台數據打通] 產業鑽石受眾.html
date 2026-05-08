@@ -1,0 +1,579 @@
+<h2>
+ 📘 修訂追蹤表
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     版本號
+    </p>
+   </th>
+   <th>
+    <p>
+     修訂日期
+    </p>
+   </th>
+   <th>
+    <p>
+     修訂人
+    </p>
+   </th>
+   <th>
+    <p>
+     修訂內容摘要
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Phase 1
+    </p>
+   </td>
+   <td>
+    <p>
+     2025年6月30日
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b504fe01d006baa6c0f?ref=confluence">
+      JimmyTsai
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     初版建立
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Phase 1
+    </p>
+   </td>
+   <td>
+    <p>
+     2025年8月25日
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:9b151930-90df-4e9d-9085-76dd1a4418d9?ref=confluence">
+      Nancy Wu (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     初版內容修改
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Phase 1
+    </p>
+   </td>
+   <td>
+    <p>
+     2025年9月3日
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:9b151930-90df-4e9d-9085-76dd1a4418d9?ref=confluence">
+      Nancy Wu (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     OSS 新增功能需求
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ 📖 項目概述
+</h2>
+<h3>
+ 📌 項目背景
+</h3>
+<p>
+ 為提升 Maxi 的廣告競爭力，需要讓 OneAD 的「產業鑽石受眾」數據能應用於各大廣告平台（Google Ads、Meta、TikTok）。因此須在 ODM 與 OSS 中新增相關設定，利用再行銷技術將數據串接至第三方平台。
+</p>
+<h3>
+ 🎯 項目目標
+</h3>
+<ul>
+ <li>
+  <p>
+   ODM 在建立 Campaign 時，能夠自動因應不同的產業別帶入相對應的第三方平台追蹤碼
+  </p>
+ </li>
+ <li>
+  <p>
+   OSS 新增「追蹤碼管理」頁面
+  </p>
+ </li>
+ <li>
+  <p>
+   OSS 「廣告分類設定」頁面新增「事件名稱」欄位
+  </p>
+ </li>
+</ul>
+<h2>
+ 🧑‍💼 目標受眾
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     用戶類型
+    </p>
+   </th>
+   <th>
+    <p>
+     描述
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     AOE
+    </p>
+   </td>
+   <td>
+    <p>
+     在建立 Campaign 時，系統會根據 AOE 選擇的產業主次類別，自動帶入相對應的追蹤碼
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Data PM
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       可檢視「追蹤碼管理」頁面的所有內容，包含：
+      </p>
+      <ul>
+       <li>
+        <p>
+         追蹤碼與產業主次類別的對應關係
+        </p>
+       </li>
+       <li>
+        <p>
+         各大媒體平台的追蹤碼內容
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       在「廣告分類設定」頁面新增產業時，能填入對應的第三方媒體的「事件名稱」
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ ⚙️ 功能需求
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     功能名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     優先級
+    </p>
+   </th>
+   <th>
+    <p>
+     簡要描述
+    </p>
+   </th>
+   <th>
+    <p>
+     狀態
+    </p>
+   </th>
+   <th>
+    <p>
+     功能細項
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     [ODM] Campaign 追蹤碼自動生成
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     根據產業主次類別自動產生各平台追蹤碼
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/x/AYCC7g">
+      [ODM] Campaign 追蹤碼自動生成(新)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     [OSS] 新增「追蹤碼管理」頁面
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     建立「追蹤碼管理」頁面的所有內容
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       介面設計請參見下方 wireframe
+      </p>
+     </li>
+     <li>
+      <p>
+       文字內容請參見此
+       <a href="https://docs.google.com/spreadsheets/d/1hjEWrN4j4wzVjWKAWZ-ES4vDF54IpiHE/edit?usp=sharing&amp;ouid=110684140353553089181&amp;rtpof=true&amp;sd=true">
+        文件
+       </a>
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     [OSS] 「廣告分類設定」頁面新增「事件名稱」欄位
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     「廣告分類設定」中的「廣告主類別」和「廣告子類別」都需要加一個欄位，來標示對應的第三方媒體「事件名稱」
+    </p>
+   </td>
+   <td>
+    <p>
+     待辦
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       介面設計請參見下方 wireframe
+      </p>
+     </li>
+     <li>
+      <p>
+       文字內容請參見此
+       <a href="https://docs.google.com/spreadsheets/d/1hlsUzix5RY-5MuzL7CLwsxOUC0KGbAdKdO3GeQ3wZzY/edit?gid=1864608450#gid=1864608450">
+        文件
+       </a>
+       中的 E 欄
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ 📚 用戶故事與用例
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     對應系統
+    </p>
+   </th>
+   <th>
+    <p>
+     對應頁面
+    </p>
+   </th>
+   <th>
+    <p>
+     標題
+    </p>
+   </th>
+   <th>
+    <p>
+     角色
+    </p>
+   </th>
+   <th>
+    <p>
+     需求
+    </p>
+   </th>
+   <th>
+    <p>
+     目的
+    </p>
+   </th>
+   <th>
+    <p>
+     優先級
+    </p>
+   </th>
+   <th>
+    <p>
+     驗收標準
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     新增廣告活動
+    </p>
+   </td>
+   <td>
+    <p>
+     追蹤碼自動生成
+    </p>
+   </td>
+   <td>
+    <p>
+     AOE
+    </p>
+   </td>
+   <td>
+    <p>
+     我需要在建立 campaign 時，根據所選的產業主次類別，自動帶入相對應的追蹤碼
+    </p>
+   </td>
+   <td>
+    <p>
+     以便 PM 能利用追蹤碼搜集各大媒體平台的數據資料
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     可在建立 campaign 時，根據所選的產業主次類別，帶入相對應的追蹤碼事件
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     設定
+    </p>
+   </td>
+   <td>
+    <p>
+     可在「設定」新增「第三方媒體平台追蹤碼」頁面
+    </p>
+   </td>
+   <td>
+    <p>
+     DATA PM
+    </p>
+   </td>
+   <td>
+    <p>
+     我需要在「設定」新增「第三方媒體平台追蹤碼」頁面，並可以檢視內容
+    </p>
+   </td>
+   <td>
+    <p>
+     以便 PM 能維運不同媒體平台的追蹤碼
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     可檢視「第三方媒體平台追蹤碼」頁面的所有內容
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告分類設定
+    </p>
+   </td>
+   <td>
+    <p>
+     在「廣告分類設定」中的「廣告主類別」和「廣告子類別」都加一個欄位
+    </p>
+   </td>
+   <td>
+    <p>
+     DATA PM
+    </p>
+   </td>
+   <td>
+    <p>
+     我需要在「廣告分類設定」中的「廣告主類別」和「廣告子類別」都加一個欄位，來標示對應的第三方媒體的「事件名稱」
+    </p>
+   </td>
+   <td>
+    <p>
+     以便 PM 在新增產業時，能填入對應的第三方媒體的「事件名稱」
+    </p>
+   </td>
+   <td>
+    <p>
+     高
+    </p>
+   </td>
+   <td>
+    <p>
+     可檢視「廣告分類設定」中每個類別對應的第三方媒體「事件名稱」
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ 🎨 設計與界面
+</h2>
+<p>
+ <strong>
+  [Wireframe] OSS - 設定
+ </strong>
+</p>
+<h2>
+ 🗓️ ✍️ 審批與簽核
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     姓名
+    </p>
+   </th>
+   <th>
+    <p>
+     角色/部門
+    </p>
+   </th>
+   <th>
+    <p>
+     簽核狀態
+    </p>
+   </th>
+   <th>
+    <p>
+     簽核日期
+    </p>
+   </th>
+   <th>
+    <p>
+     備註
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Hanfour Huang
+    </p>
+   </td>
+   <td>
+    <p>
+     ITO Lead
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>

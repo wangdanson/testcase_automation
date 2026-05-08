@@ -1,0 +1,531 @@
+<p>
+ 前端路徑: advertiser/632/campaign/22177/show
+</p>
+<p>
+ 後端路徑: POST api/v1/odm/advertisers/632/campaigns/22177/aii_reports/export
+</p>
+<p>
+</p>
+<p>
+ <strong>
+  參數說明：
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   advertiser_id: 632 (廣告主 ID)
+  </p>
+ </li>
+ <li>
+  <p>
+   campaign_id: 22177 (Campaign ID)
+  </p>
+ </li>
+ <li>
+  <p>
+   report_type: "aii_report" (由 defaults 自動設定)
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    路由定義
+   </strong>
+  </p>
+ </li>
+</ol>
+位置： config/routes.rb:1394-1401
+<pre>  namespace :odm, module: 'programmatics' do
+    resources :advertisers, only: %i(index show) do
+      resources :campaigns, only: %i(index create show update) do
+        resources :aii_reports,
+          controller: 'reports',
+          defaults: { report_type: 'aii_report' },
+          only: %i(index create) do
+          collection do
+            post :export
+          end
+        end
+      end
+    end
+  end</pre>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Controller 處理
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ <strong>
+  位置：
+ </strong>
+ app/controllers/api/v1/programmatics/reports_controller.rb
+</p>
+Before Action：set_campaign（行 121-130）
+<pre>def set_campaign
+    @campaign = OneCampaign.find_by(
+      one_campaign_advertiser_id: params[:advertiser_id],
+      id: params[:campaign_id],
+    )
+
+    validate_campaign_for_user(current_user, @campaign)
+end
+
+流程：
+  1. 根據 advertiser_id 和 campaign_id 查找 OneCampaign
+  2. 驗證當前用戶是否有權限訪問
+  3. 將結果存入 @campaign</pre>
+Export Action（行 88-117)
+<pre>def export
+    if params[:report_type].in? %w(weekly_report big_data_report)
+      # 週報 / 受眾報告 (前面已分析過)
+      report = CampaignReportExport.new(params)
+      report.send("generate_#{params[:report_type]}")
+      # ... 生成 Excel
+    elsif params[:report_type] == 'aii_report'
+      # AII 報告 (本次分析重點)
+      @data = UseCases::ReportGeneration::ProcessAiiDimensionUseCase.new(@campaign).run
+      render xlsx: "api/v1/programmatics/reports/generate_aii_report_xls.xlsx.axlsx"
+    else
+      render json: { message: 'Invalid report type' }
+    end
+  end
+
+ AII 報告流程：
+  1. 創建 ProcessAiiDimensionUseCase 實例，傳入 @campaign
+  2. 執行 run 方法，取得 AII 報告數據
+  3. 使用 axlsx 模板渲染 Excel 文件</pre>
+<ol>
+ <li>
+  <p>
+   <strong>
+    UseCase 層：ProcessAiiDimensionUseCase
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ 位置： app/domains/use_cases/report_generation/process_aii_dimension_use_case.rb
+</p>
+3.1 AII 報告概念說明
+<pre>  AII (Attention Impact Index) - 注意力衝擊指標
+
+  AII 是衡量廣告格式「注意力效果」的指標，綜合考慮：
+  - 注意力時間：用戶在廣告上的互動時長
+  - 廣告格式特性：長寬比（aspect_ratio）、標準單價（default_vcpm）
+  - 與標準格式的比較：以標準格式為基準進行標準化
+
+  AII 計算公式：
+  AII = (aspect_ratio × duration × default_vcpm) / (std_duration × std_vcpm)</pre>
+3.2 常數定義（行 3-7）
+<pre># 注意力事件類型
+  IMPACT_EVENTS = %w(aclick aclose leave_ad ascroll).freeze
+
+  # 各事件的持續時間欄位
+  DURATION_EVENTS = IMPACT_EVENTS.map{|x| "#{x}_durations" }.freeze
+  # ["aclick_durations", "aclose_durations", "leave_ad_durations", "ascroll_durations"]
+
+  # 各事件的計數欄位
+  COUNT_EVENTS = IMPACT_EVENTS.map{|x| "#{x}_counts" }.freeze
+  # ["aclick_counts", "aclose_counts", "leave_ad_counts", "ascroll_counts"]
+
+  # AII 標準格式的 ID（用於計算基準值）
+  AII_STANDARD_AFT_ID = 137.freeze
+
+  事件說明：
+  - aclick: 廣告點擊
+  - aclose: 廣告關閉
+  - leave_ad: 離開廣告
+  - ascroll: 廣告滾動</pre>
+3.3 初始化（行 8-33）
+<pre>步驟 1: 過濾符合條件的 Placements（行 9-20）
+
+  @placements = one_campaign.placements.
+    after_oncue.  # 只取已上線的
+    joins(:pre_campaign_details).
+    where(
+      pre_campaign_detail: {
+        ad_format_type_id: AdFormatType.aii_report
+      },
+    ).
+    select("distinct pre_campaign.id, ad_format_type_id")
+
+  AdFormatType.aii_report 定義（model）：
+  scope :aii_report, -&gt; { where.not(aspect_ratio: nil, default_vcpm: nil) }
+
+  作用： 只選擇有設定 aspect_ratio 和 default_vcpm 的廣告格式（這些是計算 AII 所需的參數）
+
+  ---
+  步驟 2: 取得廣告格式 IDs（行 22-24）
+
+  aft_ids = (@placements.map(&amp;:ad_format_type_id) &lt;&lt; AII_STANDARD_AFT_ID).uniq
+
+  範例：
+  # @placements 使用的格式 IDs: [140, 145]
+  # 加上標準格式 ID: 137
+  # aft_ids = [140, 145, 137]
+
+  ---
+  步驟 3: 從 API Gateway 取得 AII 事件數據（行 25-31）
+
+  @events = ApiGateway::Reportor::AiiEvent.new(
+    ids: @placements.map(&amp;:id).join(","),        # placement IDs
+    aft_ids: aft_ids.join(","),                   # 廣告格式 IDs
+    start_date: one_campaign.start_date,
+    end_date: one_campaign.end_date,
+  ).run
+
+  API Gateway 回傳格式（推測）：
+  [
+    {
+      "group_type" =&gt; "plaid",               # 按 placement 分組
+      "id" =&gt; 31605,
+      "aclick_durations" =&gt; 5000,            # 點擊持續時間 (毫秒)
+      "aclick_counts" =&gt; 10,                 # 點擊次數
+      "aclose_durations" =&gt; 2000,
+      "aclose_counts" =&gt; 5,
+      "leave_ad_durations" =&gt; 1500,
+      "leave_ad_counts" =&gt; 8,
+      "ascroll_durations" =&gt; 3000,
+      "ascroll_counts" =&gt; 12,
+      "cpe" =&gt; 20,                           # 互動次數
+      "impression" =&gt; 1000,                  # 曝光次數
+      "bannerClick" =&gt; 5,
+      "videoClick" =&gt; 3
+    },
+    {
+      "group_type" =&gt; "ad_format_type_id",   # 按廣告格式分組
+      "id" =&gt; 137,                           # 標準格式
+      "aclick_durations" =&gt; 50000,
+      "aclick_counts" =&gt; 100,
+      ...
+    },
+    {
+      "group_type" =&gt; "ad_format_type_id",
+      "id" =&gt; 140,                           # 其他格式
+      ...
+    },
+    ...
+  ]
+
+  ---
+  步驟 4: 建立廣告格式映射（行 32）
+
+  @aft_by_id = AdFormatType.where(id: aft_ids).index_by(&amp;:id)
+
+  結果範例：
+  {
+    137 =&gt; #&lt;AdFormatType id: 137, title: "標準格式", aspect_ratio: 1.0, default_vcpm: 100&gt;,
+    140 =&gt; #&lt;AdFormatType id: 140, title: "橫幅廣告", aspect_ratio: 0.8, default_vcpm: 80&gt;,
+    145 =&gt; #&lt;AdFormatType id: 145, title: "直立廣告", aspect_ratio: 1.2, default_vcpm: 120&gt;
+  }
+
+  ---</pre>
+3.4 執行流程：run 方法（行 35-62)
+<pre>def run
+    # 1. 資料驗證
+    if @placements.blank? || @events.blank?
+      return {}
+    end
+
+    # 2. 重組事件數據：按 [group_type, id] 索引
+    events_by_type = @events.index_by{|x| x.values_at('group_type', 'id') }
+    events_by_type.default = Hash.new(0)
+
+    # 3. 計算標準格式的基準值
+    v1 = events_by_type[["ad_format_type_id", AII_STANDARD_AFT_ID]].
+      values_at(*DURATION_EVENTS).sum
+    v2 = events_by_type[["ad_format_type_id", AII_STANDARD_AFT_ID]].
+      values_at(*COUNT_EVENTS).sum
+
+    std_duration = (v1.to_f / v2)                  # 標準注意力時間 (毫秒)
+    std_vcpm = @aft_by_id[AII_STANDARD_AFT_ID].default_vcpm  # 標準單價
+
+    # 4. 按廣告格式加總 placements 的事件數據
+    pcs_aii_sum_events = sum_pcs_events_by_aft(@placements, events_by_type)
+
+    # 5. 計算活動的 AII (按格式分組)
+    pcs_aii = calculate_pcs_aii(pcs_aii_sum_events, std_duration * std_vcpm)
+
+    # 6. 計算各格式的 AII (benchmark)
+    aft_aii = calculate_aft_aii(@aft_by_id.keys, events_by_type, std_duration * std_vcpm)
+
+    # 7. 回傳結果
+    {
+      pcs_aii: pcs_aii,        # 活動各格式的 AII
+      aft_aii: aft_aii,        # 各格式的 benchmark AII
+      aft_by_id: @aft_by_id,   # 廣告格式資訊
+    }
+  end</pre>
+3.5 關鍵方法分析
+<pre>sum_pcs_events_by_aft（行 67-95）
+
+  作用： 按廣告格式分組，加總所有 placements 的事件數據。
+
+  def sum_pcs_events_by_aft(pcs, events_by_type)
+    pcs.group_by(&amp;:ad_format_type_id).map do |aft_id, pcs|
+      impact_duration, impact_counts = 0, 0
+      cpe, imp, click = 0, 0, 0
+
+      pcs.each do |pc|
+        key = ['plaid', pc.id]
+        if events_by_type[key]
+          # 累加注意力時間
+          impact_duration += events_by_type[key].values_at(*DURATION_EVENTS).sum
+          # 累加注意力事件次數
+          impact_counts += events_by_type[key].values_at(*COUNT_EVENTS).sum
+          # 累加互動次數
+          cpe += events_by_type[key]['cpe']
+          # 累加曝光次數
+          imp += events_by_type[key]['impression']
+          # 累加點擊次數
+          click += events_by_type[key].values_at('bannerClick', 'videoClick').sum
+        end
+      end
+
+      {
+        aft_id: aft_id,
+        impact_duration: impact_duration,
+        impact_counts: impact_counts,
+        cpe: cpe,
+        imp: imp,
+        click: click,
+      }
+    end
+  end
+
+  範例輸出：
+  [
+    {
+      aft_id: 140,                  # 橫幅廣告
+      impact_duration: 15000,       # 總注意力時間 15 秒
+      impact_counts: 35,            # 總注意力事件 35 次
+      cpe: 50,                      # 總互動次數 50
+      imp: 2000,                    # 總曝光次數 2000
+      click: 18                     # 總點擊次數 18
+    },
+    {
+      aft_id: 145,                  # 直立廣告
+      impact_duration: 20000,
+      impact_counts: 40,
+      cpe: 60,
+      imp: 2500,
+      click: 22
+    }
+  ]
+
+  ---
+  calculate_pcs_aii（行 97-131）
+
+  作用： 計算活動中各廣告格式的 AII 及相關指標。
+
+  def calculate_pcs_aii(pcs_aii_sum_events, std)
+    pcs_aii_sum_events.map do |data|
+      aft_id = data[:aft_id]
+
+      # 1. 計算平均注意力時間 (毫秒)
+      duration = if data[:impact_counts].zero?
+        0
+      else
+        data[:impact_duration].to_f / data[:impact_counts]
+      end
+
+      # 2. 計算 AII
+      # AII = (aspect_ratio × duration × default_vcpm) / (std_duration × std_vcpm)
+      aii = @aft_by_id[aft_id].aspect_ratio * duration * @aft_by_id[aft_id].default_vcpm
+      aii /= std
+
+      # 3. 計算互動率 (CPE Ratio)
+      cpe_ratio = if data[:imp].zero?
+        0
+      else
+        data[:cpe].to_f / data[:imp]
+      end
+
+      # 4. 計算點擊率 (Click Ratio)
+      click_ratio = if data[:imp].zero?
+        0
+      else
+        data[:click].to_f / data[:imp]
+      end
+
+      {
+        aft_id: aft_id,
+        duration: duration,
+        cpe_ratio: cpe_ratio,
+        click_ratio: click_ratio,
+        aii: aii,
+      }
+    end
+  end
+
+  範例計算：
+  # 假設標準值：
+  std_duration = 500 (毫秒)
+  std_vcpm = 100
+  std = 500 * 100 = 50000
+
+  # 橫幅廣告 (aft_id: 140)
+  aspect_ratio = 0.8
+  duration = 15000 / 35 = 428.57 (毫秒)
+  default_vcpm = 80
+  aii = (0.8 × 428.57 × 80) / 50000 = 0.549
+
+  cpe_ratio = 50 / 2000 = 0.025 (2.5%)
+  click_ratio = 18 / 2000 = 0.009 (0.9%)
+
+  # 輸出
+  {
+    aft_id: 140,
+    duration: 428.57,
+    cpe_ratio: 0.025,
+    click_ratio: 0.009,
+    aii: 0.549
+  }
+
+  ---
+  calculate_aft_aii（行 133-177）
+
+  作用： 計算各廣告格式的 benchmark AII（不限於本次活動，是格式的整體表現）。
+
+  與 calculate_pcs_aii 的差異：
+  - calculate_pcs_aii: 使用本次活動的 placements 數據（key = ['plaid', pc.id]）
+  - calculate_aft_aii: 使用廣告格式的總體數據（key = ['ad_format_type_id', aft_id]）
+
+  def calculate_aft_aii(aft_ids, events_by_type, std)
+    aft_ids.map do |aft_id|
+      key = ['ad_format_type_id', aft_id]
+      obj = events_by_type[key]
+
+      data = {
+        impact_duration: obj.values_at(*DURATION_EVENTS).sum,
+        impact_counts: obj.values_at(*COUNT_EVENTS).sum,
+        cpe: obj['cpe'],
+        imp: obj['impression'],
+        click: obj.values_at('bannerClick', 'videoClick').sum,
+      }
+
+      # 計算邏輯與 calculate_pcs_aii 相同
+      duration = data[:impact_counts].zero? ? 0 : data[:impact_duration].to_f / data[:impact_counts]
+      aii = (@aft_by_id[aft_id].aspect_ratio * duration * @aft_by_id[aft_id].default_vcpm) / std
+      cpe_ratio = data[:imp].zero? ? 0 : data[:cpe].to_f / data[:imp]
+      click_ratio = data[:imp].zero? ? 0 : data[:click].to_f / data[:imp]
+
+      {
+        aft_id: aft_id,
+        duration: duration,
+        cpe_ratio: cpe_ratio,
+        click_ratio: click_ratio,
+        aii: aii,
+      }
+    end
+  end
+
+  ---</pre>
+3.6 最終輸出結構
+<pre>{
+    pcs_aii: [
+      {
+        aft_id: 140,
+        duration: 428.57,        # 本次活動的平均注意力時間
+        cpe_ratio: 0.025,        # 本次活動的互動率
+        click_ratio: 0.009,      # 本次活動的點擊率
+        aii: 0.549               # 本次活動的 AII
+      },
+      {
+        aft_id: 145,
+        duration: 500,
+        cpe_ratio: 0.024,
+        click_ratio: 0.0088,
+        aii: 0.72
+      }
+    ],
+    aft_aii: [
+      {
+        aft_id: 137,             # 標準格式 (benchmark)
+        duration: 500,
+        cpe_ratio: 0.03,
+        click_ratio: 0.01,
+        aii: 1.0                 # 標準格式的 AII = 1.0
+      },
+      {
+        aft_id: 140,             # 橫幅廣告的 benchmark
+        duration: 450,
+        cpe_ratio: 0.028,
+        click_ratio: 0.011,
+        aii: 0.576
+      },
+      {
+        aft_id: 145,             # 直立廣告的 benchmark
+        duration: 520,
+        cpe_ratio: 0.026,
+        click_ratio: 0.009,
+        aii: 0.748
+      }
+    ],
+    aft_by_id: {
+      137 =&gt; #&lt;AdFormatType id: 137, title: "標準格式", ...&gt;,
+      140 =&gt; #&lt;AdFormatType id: 140, title: "橫幅廣告", ...&gt;,
+      145 =&gt; #&lt;AdFormatType id: 145, title: "直立廣告", ...&gt;
+    }
+  }</pre>
+<p>
+ 4.
+ <strong>
+  流程圖總結
+ </strong>
+</p>
+<pre>API Request (POST /api/v1/odm/advertisers/632/campaigns/22177/aii_reports/export)
+      ↓
+  ReportsController#export
+      ↓
+  set_campaign (before_action)
+      └─ 載入 OneCampaign (advertiser_id + campaign_id)
+      └─ 驗證權限
+      ↓
+  判斷 report_type == 'aii_report'
+      ↓
+  ProcessAiiDimensionUseCase.new(@campaign)
+      ↓
+  Initialize
+      ├─ 過濾 Placements
+      │   └─ where(ad_format_type: { aspect_ratio &amp; default_vcpm 不為空 })
+      ├─ 收集廣告格式 IDs (含標準格式 137)
+      ├─ 調用 API Gateway
+      │   └─ ApiGateway::Reportor::AiiEvent (ClickHouse)
+      │       └─ 回傳各 placement 和格式的注意力事件數據
+      └─ 建立廣告格式映射
+      ↓
+  run
+      ├─ 重組數據：按 [group_type, id] 索引
+      ├─ 計算標準基準值
+      │   ├─ std_duration = 標準格式的平均注意力時間
+      │   └─ std = std_duration × std_vcpm
+      ├─ sum_pcs_events_by_aft
+      │   └─ 按廣告格式分組，加總 placements 的事件
+      ├─ calculate_pcs_aii
+      │   └─ 計算活動各格式的 AII
+      ├─ calculate_aft_aii
+      │   └─ 計算各格式的 benchmark AII
+      └─ 回傳 { pcs_aii, aft_aii, aft_by_id }
+      ↓
+  render xlsx (使用 axlsx 模板)
+      ↓
+  generate_aii_report_xls.xlsx.axlsx
+      ├─ 建立 "AII Report" worksheet
+      ├─ 寫入標題 (日期範圍、活動名稱)
+      ├─ 遍歷 pcs_aii
+      │   ├─ 寫入欄位標題
+      │   ├─ 寫入活動實際數據
+      │   └─ 寫入 benchmark 數據
+      └─ 生成 Excel 文件
+      ↓
+  回傳 Excel 文件給前端</pre>

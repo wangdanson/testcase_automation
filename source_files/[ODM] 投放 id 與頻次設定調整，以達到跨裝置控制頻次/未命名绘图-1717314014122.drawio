@@ -1,0 +1,43 @@
+<mxfile host="ac.draw.io" modified="2024-06-02T07:54:58.678Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="5NdQW74IIDqf2vNgihgq" version="24.4.13" type="embed">
+  <diagram id="hTXQsSvrcWZ1ThPjCUg4" name="第 1 页">
+    <mxGraphModel dx="954" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IL-F5SGo77XrfygH1GlQ-2" target="IL-F5SGo77XrfygH1GlQ-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IL-F5SGo77XrfygH1GlQ-2" target="IL-F5SGo77XrfygH1GlQ-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IL-F5SGo77XrfygH1GlQ-2" target="IL-F5SGo77XrfygH1GlQ-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IL-F5SGo77XrfygH1GlQ-2" target="IL-F5SGo77XrfygH1GlQ-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-2" value="OneIDx&lt;div&gt;pool&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="180" y="240" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-3" value="Desktop&lt;div&gt;Impression&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-5" value="Mobile&lt;div&gt;Impression&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-7" value="App&lt;div&gt;Impression&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IL-F5SGo77XrfygH1GlQ-11" target="IL-F5SGo77XrfygH1GlQ-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-11" value="&lt;div&gt;HHID&lt;/div&gt;&lt;div&gt;pool&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="180" y="350" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IL-F5SGo77XrfygH1GlQ-13" value="CTV&lt;div&gt;Impression&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,633 @@
+<h1>
+ 目的
+</h1>
+<ol>
+ <li>
+  <p>
+   Contextual targeting / Sequential signal targeting 皆是投放環境而非投放受眾，因此使用頻次鎖定不符合產品設計理念
+  </p>
+ </li>
+ <li>
+  <p>
+   四個投放類型，鎖定頻次底層邏輯應一致，不該有的可以改有的不能改
+  </p>
+ </li>
+</ol>
+<h1>
+ 調整內容
+</h1>
+<p>
+ 1.預設
+ <code>
+  最高觀看頻次設定
+ </code>
+ 即
+ <code>
+  可輸入值域
+ </code>
+ 調整
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      投放類型
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      目前
+     </strong>
+    </p>
+    <p>
+     <strong>
+      最高觀看頻次設定
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      目前
+     </strong>
+    </p>
+    <p>
+     <strong>
+      可輸入值域
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      希望調整
+     </strong>
+    </p>
+    <p>
+     <strong>
+      最高觀看頻次設定
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      希望調整
+     </strong>
+    </p>
+    <p>
+     <strong>
+      可輸入值域
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     一般
+    </p>
+   </td>
+   <td>
+    <p>
+     Speed/ Publisher Speed
+    </p>
+   </td>
+   <td>
+    <p>
+     預設2
+    </p>
+   </td>
+   <td>
+    <p>
+     1-50
+    </p>
+   </td>
+   <td>
+    <p>
+     預設2
+    </p>
+    <p>
+     Speed UI 預設選擇 限制次數
+    </p>
+   </td>
+   <td>
+    <p>
+     參照下表
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Retargeting
+    </p>
+   </td>
+   <td>
+    <p>
+     Speed
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Contextual targeting (內文比對)
+    </p>
+   </td>
+   <td>
+    <p>
+     Speed
+    </p>
+   </td>
+   <td>
+    <p>
+     固定 10
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+   <td>
+    <p>
+     預設 0
+    </p>
+    <p>
+     UI 預設選擇 無限制
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Sequential signal targeting (ProductKey)
+    </p>
+   </td>
+   <td>
+    <p>
+     Speed
+    </p>
+   </td>
+   <td>
+    <p>
+     固定 100
+    </p>
+   </td>
+   <td>
+    <p>
+     -
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      限制次數
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      無限制
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <code>
+      is_campaign_freq_limit
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     true
+    </p>
+   </td>
+   <td>
+    <p>
+     false
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <code>
+      campaign_freq
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     1-100
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<ol>
+ <li>
+  <p>
+   Placement 上刊後，Speed/ Publisher Speed 皆可更改頻次設定
+  </p>
+ </li>
+</ol>
+<p>
+</p>
+<h1>
+ Wireframe
+</h1>
+<p>
+ Speed
+</p>
+<h1>
+ 實做方式
+</h1>
+<h3>
+ 增加
+ <code>
+  is_campaign_freq_limit
+ </code>
+ (boolean)
+</h3>
+<ul>
+ <li>
+  <p>
+   sequence 文件：
+   <a href="/wiki/spaces/OSS/pages/8781860/Sequences.json">
+    Sequences.json 欄位規格
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   參考對話：
+   <a href="https://onead.slack.com/archives/C01JJLD8BK3/p1695091258804029">
+    https://onead.slack.com/archives/C01JJLD8BK3/p1695091258804029
+   </a>
+  </p>
+ </li>
+</ul>
+<h1>
+ 功能細項
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      估時(h)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      備註
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     FE:
+    </p>
+    <p>
+     調整編輯鎖定條件
+    </p>
+    <p>
+     Placement 上刊後，皆可更改頻次設定(Speed/ Publisher Speed)
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence">
+      mariodeng (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     3h
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     FE:
+    </p>
+    <p>
+     調整 UI(見 wireframe)
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence">
+      mariodeng (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     6h
+    </p>
+   </td>
+   <td>
+    <p>
+     原先最高觀看次數`input`改為 radio button
+     可以選擇：
+    </p>
+    <ol>
+     <li>
+      <p>
+       限制次數 (Number input)
+      </p>
+      <ol>
+       <li>
+        <p>
+         限制次數起始值以及最大值參照
+         <strong>
+          調整內容
+         </strong>
+        </p>
+       </li>
+      </ol>
+     </li>
+     <li>
+      <p>
+       無限制
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     FE:
+    </p>
+    <p>
+     新增/編輯 placement 的 API 多帶
+     <code>
+      is_campaign_freq_limit
+     </code>
+     的資料
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence">
+      mariodeng (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     3h
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     BE:
+    </p>
+    <p>
+     API 新增欄位：
+     <code>
+      is_campaign_freq_limit
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     3h
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     BE:
+    </p>
+    <p>
+     sequence.json 新增欄位
+     <code>
+      is_campaign_freq_limit
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     3h
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     SIO
+    </p>
+   </td>
+   <td>
+    <p>
+     利用 sequence.json 新增欄位
+     <code>
+      is_campaign_freq_limit
+     </code>
+     判斷是否要鎖頻次
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/557058:6f28c8ad-d507-44a4-9eb6-15b48217eda5?ref=confluence">
+      jimmy kuo
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ARE-1163">
+      ARE-1163
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 驗收項目
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      項目
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      備註
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     最高觀看頻次設定與值域的設定符合預期
+    </p>
+   </td>
+   <td>
+    <p>
+     測試案例參考
+     <code>
+      調整內容
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     不論 Targeting 的類型為何, 更改頻次設定的條件相同
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     sequence.json
+    </p>
+   </td>
+   <td>
+    <p>
+     產出符合設定
+    </p>
+   </td>
+   <td>
+    <p>
+     測試案例參考
+     <code>
+      實作方式
+     </code>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>

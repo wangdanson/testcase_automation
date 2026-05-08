@@ -1,0 +1,615 @@
+<h2>
+ <strong>
+  功能需求
+ </strong>
+</h2>
+<p>
+ 在廣告設定流程中，當 AOE 點選「完成新增」後，系統會依據「廣告主產業類別(OneAD)」和「廣告子產業類別(OneAD)」，自動帶入「媒體平台追蹤碼」在 campaign 裡
+</p>
+AOE 廣告設定流程
+<ul>
+ <li>
+  <p>
+   Step 1：點選「廣告活動」
+  </p>
+ </li>
+ <li>
+  <p>
+   Step 2：選擇「廣告主產業類別(OneAD)」、「廣告子產業類別(OneAD)」等相關設定
+  </p>
+ </li>
+ <li>
+  <p>
+   Step 3：點選「完成新增」
+  </p>
+ </li>
+</ul>
+<p>
+ 畫面示意
+</p>
+<img alt="截圖 2025-06-26 下午5.09.48.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/4001529857/%E6%88%AA%E5%9C%96%202025-06-26%20%E4%B8%8B%E5%8D%885.09.48.png?version=1&amp;modificationDate=1755849726341&amp;cacheVersion=1&amp;api=v2&amp;width=746&amp;height=384"/>
+<p>
+</p>
+<h2>
+ <strong>
+  功能步驟
+ </strong>
+</h2>
+<p>
+ 以下將「廣告主產業類別(OneAD)」以及「廣告子產業類別(OneAD)」簡稱主和子
+</p>
+<p>
+ STEP 1：會依據使用者設定的「主」和「子」，來生成追蹤碼的
+ <strong>
+  欲搜集的事件名稱
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   所有產業鑽石受眾的
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+   ，請參見此
+   <a href="https://docs.google.com/spreadsheets/d/1hlsUzix5RY-5MuzL7CLwsxOUC0KGbAdKdO3GeQ3wZzY/edit?gid=1864608450#gid=1864608450">
+    文件
+   </a>
+  </p>
+ </li>
+</ul>
+欲搜集的事件名稱 的所有情境與命名邏輯
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     三種情境
+    </p>
+   </th>
+   <th>
+    <p>
+     主類別
+     <br/>
+     名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     one_category_id
+    </p>
+   </th>
+   <th>
+    <p>
+     子類別
+     <br/>
+     名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     one_sub_category_id
+    </p>
+   </th>
+   <th>
+    <p>
+     事件名稱
+    </p>
+   </th>
+   <th>
+    <p>
+     單一媒體平台的總追蹤碼組數
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     選主, 不選子
+    </p>
+   </td>
+   <td>
+    <p>
+     國產汽車
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     7_1_DomesticCar
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     選主, 選一個子
+    </p>
+   </td>
+   <td>
+    <p>
+     國產汽車
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     轎車/掀背車
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     7_1_1_SedanHatch
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     選主, 選複數子
+    </p>
+   </td>
+   <td>
+    <p>
+     國產汽車
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     轎車/掀背車
+     <br/>
+     休旅車
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+     <br/>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     7_1_1_SedanHatch
+     <br/>
+     7_1_2_SUV
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ *註1：ODM 有預設使用者必選「主」，所以每個 campaign 建立時，必定都會產生追蹤碼
+</p>
+<p>
+ *註2：
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件名稱
+   </strong>
+   命名原則：
+   segment-category-id
+   _
+   one-category-id
+   _
+   one-sub-category-id
+   _
+   子類別名稱
+  </p>
+ </li>
+ <li>
+  <p>
+   segment-category-id
+   固定為 7，代表
+   <strong>
+    產業鑽石受眾
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    子類別名稱
+   </strong>
+   為優先，若無，才使用
+   <strong>
+    主類別名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+<p>
+ STEP 2：確定
+ <strong>
+  欲搜集的事件名稱
+ </strong>
+ 後，自動產生
+ <strong>
+  對應的追蹤碼
+ </strong>
+ ，包含初始化程式碼 + 兩個事件參數的程式碼
+</p>
+<ul>
+ <li>
+  <p>
+   此次要打通的數據鎖定僅有「產業鑽石受眾」，所以每個媒體平台的追蹤碼僅需替換
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+Meta 追蹤碼 需變動的位置
+<ul>
+ <li>
+  <p>
+   <strong>
+    初始化程式碼
+   </strong>
+   ：不變
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var topHead = window.top.document.head;
+var initializationScript = document.createElement('script');
+var initializationCode = "!function (f, b, e, v, n, t, s) {if (f.fbq) return; n = f.fbq = function () {n.callMethod ?n.callMethod.apply(n, arguments) : n.queue.push(arguments)};if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';n.queue = []; t = b.createElement(e); t.async = !0;t.src = v; s = b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t, s)}(window, document, 'script','https://connect.facebook.net/en_US/fbevents.js');";
+initializationScript.innerHTML = initializationCode;
+topHead.appendChild(initializationScript);
+})();
+&lt;/script&gt;</pre>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件參數 1 的程式碼
+   </strong>
+   ：第四行的 eventName 須替換成對應的
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var account = 1195973755133879;
+var eventName = '7_1_1_SedanHatch';
+var topHead = window.top.document.head;
+var eventScript = document.createElement('script');
+var eventCode = "fbq('init', '" + account + "');fbq('trackSingleCustom', '" + account + "', '" + eventName + "');";
+eventScript.innerHTML = eventCode;
+topHead.appendChild(eventScript);
+})();
+&lt;/script&gt;</pre>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件參數 2 的程式碼
+   </strong>
+   ：第四行的 eventName 須替換成對應的
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var account = 1195973755133879;
+var eventName = '7_1_1_SedanHatch';
+var topHead = window.top.document.head;
+var eventScript = document.createElement('script');
+var eventCode = "fbq('init', '" + account + "');fbq('trackSingleCustom', '" + account + "', '" + eventName + "');";
+eventScript.innerHTML = eventCode;
+topHead.appendChild(eventScript);
+})();
+&lt;/script&gt;</pre>
+Google Ads 追蹤碼 需變動的位置
+<ul>
+ <li>
+  <p>
+   <strong>
+    初始化程式碼
+   </strong>
+   ：不變
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var account = 'AW-11482244970';
+var topHead = window.top.document.head;
+var scriptDiv = document.createElement('script');
+scriptDiv.src = 'https://www.googletagmanager.com/gtag/js?id=' + account;
+var initializationScript = document.createElement('script');
+var initializationCode = "window.dataLayer = top.dataLayer || [];function gtag() {dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '" + account + "');";
+initializationScript.innerHTML = initializationCode;
+topHead.appendChild(scriptDiv);
+topHead.appendChild(initializationScript);
+}) ();
+&lt;/script&gt;</pre>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件參數 1 的程式碼
+   </strong>
+   ：第四行的 eventName 須替換成對應的
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var account = 'AW-11482244970';
+var eventName = '7_1_1_SedanHatch';
+var topHead = window.top.document.head;
+var eventCode = "gtag('event', '" + eventName + "', { 'send_to': '" + account + "', '" + eventName + "': '" + eventName + "' });";
+var eventScript = document.createElement('script');
+eventScript.innerHTML = eventCode;
+topHead.appendChild(eventScript);
+}) ();
+&lt;/script&gt;</pre>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件參數 2 的程式碼
+   </strong>
+   ：第四行的 eventName 須替換成對應的
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var account = 'AW-11482244970';
+var eventName = '7_1_1_SedanHatch';
+var topHead = window.top.document.head;
+var eventCode = "gtag('event', '" + eventName + "', { 'send_to': '" + account + "', '" + eventName + "': '" + eventName + "' });";
+var eventScript = document.createElement('script');
+eventScript.innerHTML = eventCode;
+topHead.appendChild(eventScript);
+}) ();
+&lt;/script&gt;</pre>
+TikTok 追蹤碼 需變動的位置
+<ul>
+ <li>
+  <p>
+   <strong>
+    初始化程式碼
+   </strong>
+   ：TikTok 沒有初始化程式碼
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    事件參數 1 的程式碼
+   </strong>
+   ：最後一行 ttq.track('7_1_1_SedanHatch') 須替換成對應的
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;if (typeof ttqMethodArray === 'undefined') { window.ttqMethodArray = ['page', 'track', 'identify', 'instances', 'debug', 'on', 'off', 'once', 'ready', 'alias', 'group', 'enableCookie', 'disableCookie', 'holdConsent', 'revokeConsent', 'grantConsent'] } if (typeof ttqSetAndDefer === 'undefined') { window.ttqSetAndDefer = (t, e) =&gt; { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } } if (typeof ttqInstance === 'undefined') { window.ttqInstance = () =&gt; { const ttq = window.ttq; const e = ttq._i['CPK0U53C77U57258LAC0'] || []; for (let n = 0; n &lt; ttq.methods.length; n++) { ttqSetAndDefer(e, ttq.methods[n]) } return e } } if (typeof ttqLoad === 'undefined') { window.ttqLoad = (e, n) =&gt; { const ttq = window.ttq; const r = 'https://analytics.tiktok.com/i18n/pixel/events.js'; const o = n &amp;&amp; n.partner; ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = r; ttq._t = ttq._t || {}; ttq._t[e] = +new Date(); ttq._o = ttq._o || {}; ttq._o[e] = n || {}; n = document.createElement('script'); n.type = 'text/javascript'; n.async = !0; n.src = r + '?sdkid=' + e + '&amp;lib=' + 'ttq'; e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(n, e); } } if (![...window.document.getElementsByTagName('script')].some(script =&gt; script.src.includes('https://analytics.tiktok.com/i18n/pixel/events.js'))) { !(function (w, d, t) { w.TiktokAnalyticsObject = t; var ttq = (w[t] = w[t] || []); ttq.methods = w.ttqMethodArray; ttq.setAndDefer = w.ttqSetAndDefer; for (var i = 0; i &lt; ttq.methods.length; i++) { ttq.setAndDefer(ttq, ttq.methods[i]) } ttq.instance = w.ttqInstance; ttq.load = w.ttqLoad; ttq.load('7320461965761986561'); ttq.page(); })(window, document, 'ttq') } ttq.track('7_1_1_SedanHatch')&lt;/script&gt;</pre>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件參數 2 的程式碼
+   </strong>
+   ：最後一行 ttq.track('7_1_1_SedanHatch') 須替換成對應的
+   <strong>
+    欲搜集的事件名稱
+   </strong>
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;if (typeof ttqMethodArray === 'undefined') { window.ttqMethodArray = ['page', 'track', 'identify', 'instances', 'debug', 'on', 'off', 'once', 'ready', 'alias', 'group', 'enableCookie', 'disableCookie', 'holdConsent', 'revokeConsent', 'grantConsent'] } if (typeof ttqSetAndDefer === 'undefined') { window.ttqSetAndDefer = (t, e) =&gt; { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } } if (typeof ttqInstance === 'undefined') { window.ttqInstance = () =&gt; { const ttq = window.ttq; const e = ttq._i['CPK0U53C77U57258LAC0'] || []; for (let n = 0; n &lt; ttq.methods.length; n++) { ttqSetAndDefer(e, ttq.methods[n]) } return e } } if (typeof ttqLoad === 'undefined') { window.ttqLoad = (e, n) =&gt; { const ttq = window.ttq; const r = 'https://analytics.tiktok.com/i18n/pixel/events.js'; const o = n &amp;&amp; n.partner; ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = r; ttq._t = ttq._t || {}; ttq._t[e] = +new Date(); ttq._o = ttq._o || {}; ttq._o[e] = n || {}; n = document.createElement('script'); n.type = 'text/javascript'; n.async = !0; n.src = r + '?sdkid=' + e + '&amp;lib=' + 'ttq'; e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(n, e); } } if (![...window.document.getElementsByTagName('script')].some(script =&gt; script.src.includes('https://analytics.tiktok.com/i18n/pixel/events.js'))) { !(function (w, d, t) { w.TiktokAnalyticsObject = t; var ttq = (w[t] = w[t] || []); ttq.methods = w.ttqMethodArray; ttq.setAndDefer = w.ttqSetAndDefer; for (var i = 0; i &lt; ttq.methods.length; i++) { ttq.setAndDefer(ttq, ttq.methods[i]) } ttq.instance = w.ttqInstance; ttq.load = w.ttqLoad; ttq.load('7320461965761986561'); ttq.page(); })(window, document, 'ttq') } ttq.track('7_1_1_SedanHatch')&lt;/script&gt;</pre>
+<p>
+ *註1：若未來會打通其他數據鎖定，則需要重新生產追蹤碼
+</p>
+「媒體平台追蹤碼生成方式」 總覽
+<ul>
+ <li>
+  <p>
+   以下生成方式適用的媒體平台： Google Ads、Meta、TikTok
+  </p>
+ </li>
+ <li>
+  <p>
+   追蹤碼埋設邏輯：[各媒體平台]基底程式碼 + [OneAD定義]事件參數
+  </p>
+ </li>
+ <li>
+  <p>
+   追蹤碼產生步驟：
+  </p>
+  <ul>
+   <li>
+    <p>
+     STEP 1：確認
+     <strong>
+      要追蹤媒體平台
+     </strong>
+     和
+     <strong>
+      欲搜集的事件參數
+     </strong>
+    </p>
+    <ul>
+     <li>
+      <p>
+       媒體平台：Meta
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        產業鑽石受眾
+       </strong>
+       事件參數：影片或 Banner 點擊(click)、影片 100％ 完整觀看(q100)
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     STEP 2：確認
+     <strong>
+      媒體平台帳戶ID
+     </strong>
+     和
+     <strong>
+      欲搜集的事件名稱
+     </strong>
+    </p>
+    <ul>
+     <li>
+      <p>
+       媒體平台帳戶ID：1195973755133879
+      </p>
+     </li>
+     <li>
+      <p>
+       欲搜集的事件名稱：7_1_1_SedanHatch（國產汽車-轎車/掀背車）
+      </p>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <p>
+     STEP 3：會產生
+     <strong>
+      初始化程式碼
+     </strong>
+     和
+     <strong>
+      對應事件的程式碼
+     </strong>
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+產業鑽石受眾(國產汽車-轎車/掀背車) 的 Meta 追蹤碼
+<ul>
+ <li>
+  <p>
+   <strong>
+    初始化程式碼
+   </strong>
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var topHead = window.top.document.head;
+var initializationScript = document.createElement('script');
+var initializationCode = "!function (f, b, e, v, n, t, s) {if (f.fbq) return; n = f.fbq = function () {n.callMethod ?n.callMethod.apply(n, arguments) : n.queue.push(arguments)};if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';n.queue = []; t = b.createElement(e); t.async = !0;t.src = v; s = b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t, s)}(window, document, 'script','https://connect.facebook.net/en_US/fbevents.js');";
+initializationScript.innerHTML = initializationCode;
+topHead.appendChild(initializationScript);
+})();
+&lt;/script&gt;</pre>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件參數 1 的程式碼：
+   </strong>
+   影片或 Banner 點擊(click)
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var account = 1195973755133879;
+var eventName = '7_1_1_SedanHatch';
+var topHead = window.top.document.head;
+var eventScript = document.createElement('script');
+var eventCode = "fbq('init', '" + account + "');fbq('trackSingleCustom', '" + account + "', '" + eventName + "');";
+eventScript.innerHTML = eventCode;
+topHead.appendChild(eventScript);
+})();
+&lt;/script&gt;</pre>
+<ul>
+ <li>
+  <p>
+   <strong>
+    事件參數 2 的程式碼
+   </strong>
+   ：影片 100％ 完整觀看(q100)
+  </p>
+ </li>
+</ul>
+<pre>&lt;script&gt;
+(function () {
+var account = 1195973755133879;
+var eventName = '7_1_1_SedanHatch';
+var topHead = window.top.document.head;
+var eventScript = document.createElement('script');
+var eventCode = "fbq('init', '" + account + "');fbq('trackSingleCustom', '" + account + "', '" + eventName + "');";
+eventScript.innerHTML = eventCode;
+topHead.appendChild(eventScript);
+})();
+&lt;/script&gt;</pre>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>

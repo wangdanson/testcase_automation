@@ -27,3 +27,40 @@
 *   **格式**: 僅接受 UTF-8 編碼的 CSV 檔案。
 *   **位置**: `generated_test_cases/[來源]/[檔名].csv`。
 *   **同步**: 產出後必須執行 `upload_to_sheets.py`。
+
+## 4. 知識治理與增量維護協議 (Knowledge Governance)
+為確保 `spec_knowledge/` 知識庫的權威性與完整性，維護時必須遵循：
+
+1.  **讀前必審 (Read-Before-Write)**: 在更新知識庫檔案前，必須先讀取現有內容，嚴禁盲寫覆蓋。
+2.  **歷史保留 (History-Preserving)**: 
+    *   嚴禁隨意刪除既有業務邏輯。
+    *   若功能已廢棄，必須使用 `~~[已廢棄]~~` 標記並註明版本（如：Phase 1.4.0 移除）。
+3.  **增量更新 (Incremental Updates)**: 僅針對規格異動的「差異點 (Delta)」進行原子級追加或修正。
+4.  **結構一致性**: 必須維持原有的 Markdown 標題層級與表格結構，確保文件可讀性。
+5.  **Git 門禁**: 所有知識庫改動必須受 Git 追蹤，確保邏輯演進可回溯。
+6.  **附件邏輯深度偵測**: 更新知識庫時，必須優先分析 `.mmd` (Mermaid)、`.drawio` 與 `.csv` 附件中的變動，確保「流程圖邏輯」與「數據規則」與文字描述保持一致。
+
+## 5. 規格知識庫同步觸發協議 (Spec Knowledge Sync)
+當使用者提到以下關鍵字時，必須視為「同步 Confluence 並更新 `spec_knowledge/`」任務：
+
+*   「同步規格知識庫」
+*   「更新規格知識庫」
+*   「同步 Confluence 並更新 spec_knowledge」
+*   「下載 confluence 文件及更新文件」
+*   「同步文件並整合知識庫」
+
+執行流程：
+
+1.  從專案根目錄執行 `python3 sync_knowledge.py`。
+2.  讀取終端機輸出的同步摘要。
+3.  依終端機列出的新增/修改來源，分析 `source_files/` 與 `user_manual/` 的規格。
+4.  若規格屬於既有系統，更新對應知識文件，例如 `SuperDSP_RULES.md` 或 `ODM_REPORT_TRACKING.md`。
+5.  若新增 OSS/ERP/OYM/Studio 等具備獨立規則的系統，需在 `spec_knowledge/` 新增對應 `*_RULES.md`。
+6.  必須同步更新 `spec_knowledge/SYSTEM_MAP.md`，補上來源索引、系統歸屬、跨系統依賴與規則落點。
+
+限制：
+
+*   不可只依資料夾名稱分類，必須依內容與跨系統影響判斷。
+*   在使用者明確要求前，不得修改 `sync_from_confluence.py` 的 HTML 清理流程。
+*   `SYSTEM_MAP.md` 只放索引與導航；詳細規則需放在系統專屬知識文件。
+*   預設只在終端機輸出同步摘要，不產出 `.sync_reports/`；若需要保存報告，才使用 `python3 sync_knowledge.py --write-report`。

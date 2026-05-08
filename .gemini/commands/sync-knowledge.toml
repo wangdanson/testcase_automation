@@ -1,0 +1,25 @@
+description = "Sync Confluence files and update spec_knowledge through the project knowledge governance workflow."
+
+prompt = """
+請使用繁體中文執行規格知識庫同步流程。
+
+## Trigger
+當使用者執行 `/sync-knowledge` 或要求「同步規格知識庫」、「更新規格知識庫」、「同步 Confluence 並更新 spec_knowledge」、「下載 confluence 文件及更新文件」時，依照本流程執行。
+
+## Steps
+1. 從專案根目錄執行：
+   ```bash
+   python3 sync_knowledge.py
+   ```
+2. 讀取終端機輸出的同步摘要。
+3. 依終端機列出的新增/修改來源，分析 `source_files/` 與 `user_manual/` 的規格。
+4. 更新或新增對應的 `spec_knowledge/*.md`。
+5. 必須同步更新 `spec_knowledge/SYSTEM_MAP.md`，補上來源索引、系統歸屬、跨系統關係與規則落點。
+
+## Constraints
+- 先讀現有知識庫內容，再做增量更新。
+- 不只依資料夾名稱分類，必須依內容與跨系統影響判斷。
+- 不要刪除既有業務規則；若規格已廢棄，使用刪除線標註。
+- 在使用者明確要求前，不要修改 `sync_from_confluence.py` 的 HTML 清理流程。
+- 不要產出 `.sync_reports/`，除非使用者明確要求保留報告檔。
+"""

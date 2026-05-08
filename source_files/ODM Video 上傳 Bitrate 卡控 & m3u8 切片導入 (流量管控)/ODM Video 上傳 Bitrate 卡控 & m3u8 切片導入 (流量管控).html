@@ -1,0 +1,805 @@
+<h1>
+ 緣由
+</h1>
+<p>
+ CDN 計費方式調整, 現有流量成本大幅提高(6-7倍)
+</p>
+<h1>
+ 目標
+</h1>
+<ul>
+ <li>
+  <p>
+   減少流量消耗, 分別從
+   <strong>
+    源頭
+   </strong>
+   及
+   <strong>
+    輸出
+   </strong>
+   做控管
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    源頭：
+   </strong>
+   對上傳影片之檔案進行卡控及檢查, 並提供影片資訊, 確保
+   <strong>
+    減少檔案大小
+   </strong>
+   並符合客戶需求
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    輸出：
+   </strong>
+   所有上傳之影片檔案進行 m3u8 切片, 讓
+   <strong>
+    廣告播放流量減少
+   </strong>
+  </p>
+ </li>
+</ul>
+<h1>
+ User
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      部門
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      User
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      權責
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     設計
+    </p>
+    <p>
+     設計主管
+    </p>
+   </td>
+   <td>
+    <p>
+     上傳原始影片檔
+    </p>
+    <p>
+     上傳轉檔過的影片檔
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ UserStory
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      角色
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      需求目標/結果 - UserStory
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     設計
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      ODM|新增影片素材
+     </code>
+    </p>
+    <p>
+     切換不同的影片用途時,
+     <strong>
+      介面提示 警告標準 及 卡控標準
+     </strong>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       <strong>
+        介面出現兩行提示, 警告標準 及 卡控標準
+       </strong>
+      </p>
+      <ul>
+       <li>
+        <p>
+         第一行
+         <strong>
+          卡控標準
+         </strong>
+         ：
+         <br/>
+         所有格式統一卡控標準 - 卡控標準：bitrate &gt; 10000 Kbits 或 音訊 bitrate &gt; 128Kbps
+        </p>
+        <ul>
+         <li>
+          <p>
+           此資訊必定顯示
+          </p>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <p>
+         第二行
+         <strong>
+          警告標準
+         </strong>
+         ：
+         <br/>
+         通用格式 (1200K) - 警告標準：bitrate &gt; 2000 Kbits 或 檔案大小 &gt; 5MB ||
+         <br/>
+         CTV 格式 (6800K) - 警告標準：bitrate &gt; 7000 Kbits ||
+         <br/>
+         凱擘格式 (2500K) - 警告標準：bitrate &gt; 3000 Kbits
+        </p>
+        <ul>
+         <li>
+          <p>
+           以上三種提示資訊, 切換不同用途時顯示
+          </p>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      ODM|新增影片素材
+     </code>
+    </p>
+    <p>
+     上傳影片後,
+     <strong>
+      介面提示 影片資訊 及 警告卡控訊息
+     </strong>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       上傳影片以後,
+       <strong>
+        介面提示 影片資訊 / 警告訊息 or 卡控訊息
+       </strong>
+      </p>
+      <ul>
+       <li>
+        <p>
+         影片資訊：
+         <br/>
+         影片大小: 4.44 MB, bitrate: 1200 Kbit/s, fps: 23.976 音訊: 64 Kbit/s
+        </p>
+        <ul>
+         <li>
+          <p>
+           必定出現
+          </p>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <p>
+         警告訊息：
+         <br/>
+         - 通用：您上傳的影片 bit_rate 超過 2000 Kbit/s, 檔案大小超過 5 MB。建議調整影片規格以符合規範。
+         <br/>
+         - CTV：您上傳的影片 bit_rate 超過 7000 Kbit/s。建議調整影片規格以符合規範。
+         <br/>
+         - 凱擘 CTV：您上傳的影片 bit_rate 超過 3000 Kbit/s。建議調整影片規格以符合規範。
+        </p>
+        <ul>
+         <li>
+          <p>
+           若滿足相應警告條件, 依情境出現相應訊息
+          </p>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <p>
+         卡控訊息：
+         <br/>
+         - 通用 / CTV (三種組合情境)：
+         <br/>
+         - 您上傳的影片 bit_rate 超過 10000 Kbit/s。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 您上傳的影片 音訊 bit_rate 超過 128 Kbit/s。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 您上傳的影片 bit_rate 超過 10000 Kbit/s, 音訊 bit_rate 超過 128 Kbit/s。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 凱擘 CTV (六種組合情境)：
+         <br/>
+         - 您上傳的影片 bit_rate 超過 10000 Kbit/s。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 您上傳的影片 音訊 bit_rate 超過 128 Kbit/s。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 您上傳的影片 KBRO CTV 影片 fps 必需為 29.97。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 您上傳的影片 bit_rate 超過 10000 Kbit/s, 音訊 bit_rate 超過 128 Kbit/s。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 您上傳的影片 bit_rate 超過 10000 Kbit/s, KBRO CTV 影片 fps 必需為 29.97。無法上傳此影片，請調整影片設定以符合規範。
+         <br/>
+         - 您上傳的影片 bit_rate 超過 10000 Kbit/s, 音訊 bit_rate 超過 128 Kbit/s, KBRO CTV 影片 fps 必需為 29.97。無法上傳此影片，請調整影片設定以符合規範。
+        </p>
+        <ul>
+         <li>
+          <p>
+           通用 / CTV 若滿足
+           <u>
+            bit_rate 超過 10000 Kbit/s
+           </u>
+           或
+           <u>
+            音訊 bit_rate 超過 128 Kbit/s
+           </u>
+           條件, 依情境出現相應訊息
+          </p>
+         </li>
+         <li>
+          <p>
+           凱擘 CTV 若滿足
+           <u>
+            bit_rate 超過 10000 Kbit/s
+           </u>
+           或
+           <u>
+            音訊 bit_rate 超過 128 Kbit/s
+           </u>
+           或
+           <u>
+            fps 不等於 29.97
+           </u>
+           條件, 依情境出現相應訊息
+          </p>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <p>
+         警告訊息 跟 卡控訊息 不會同時出現, 僅兩者出現其一
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     10/10 ~ 10/17 上傳了 X 素材, 總共有 X 超過警戒值
+    </p>
+    <p>
+     通用 X 個
+    </p>
+    <p>
+     素材 id, 素材名稱, kbps, 上傳日期
+     <br/>
+     素材 id, 素材名稱, kbps, 上傳日期
+    </p>
+    <p>
+     CTV X 個
+    </p>
+    <p>
+     素材 id, 素材名稱, kbps, 上傳日期
+     <br/>
+     素材 id, 素材名稱, kbps, 上傳日期
+    </p>
+    <p>
+     凱擘 X 個
+    </p>
+    <p>
+     素材 id, 素材名稱, kbps, 上傳日期
+     <br/>
+     素材 id, 素材名稱, kbps, 上傳日期
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     MTO
+    </p>
+   </td>
+   <td>
+    <p>
+     節省影片下載流量
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       在任何的影片類型上傳(不管是否選擇轉檔)都會進行切片做 m4u &amp; ts 檔案同時輸出
+      </p>
+      <ul>
+       <li>
+        <p>
+         輸出於資料夾 895a9559-2b3a-479d-bc87-421fecb0f79c_m3u8(m4u)
+        </p>
+       </li>
+       <li>
+        <p>
+         輸出於資料夾 895a9559-2b3a-479d-bc87-421fecb0f79c_m3u8_ts(ts)
+        </p>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 功能
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      作用
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      描述
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     影片上傳防呆
+    </p>
+   </td>
+   <td>
+    <p>
+     顯示警示訊息, 並依情形阻擋不合規範的影片上傳
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ Diagram
+</h1>
+<h2>
+ Wireframe
+</h2>
+<h1>
+ 會議記錄
+</h1>
+按一下此處以展開...
+<p>
+</p>
+<h1>
+ 功能細項
+</h1>
+說明
+<p>
+ 基於 功能 之上, 進一步將功能拆分, 列出達成某功能需要完成哪些開發項目
+</p>
+<p>
+ 描述的部分在進一步描述清楚: FE: UI 在 wireframe 沒有講到的畫面, 操作細節
+</p>
+<p>
+ BE: API 規格可寫在此, 又或者另開一個 API 規格 小節紀錄
+</p>
+<p>
+ 例如:
+</p>
+<p>
+ 功能: 建立 Placement
+</p>
+<p>
+ 功能細項:
+</p>
+<p>
+ FE: 建立 Placement 的頁面開發
+</p>
+<p>
+ BE: 1. 建立 Placement 的 API 2. 更新 sequence.json
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      User Story ID
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      前/後端
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      細項
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      開發時間
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      描述
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Conversion Worker
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     後端
+    </p>
+   </td>
+   <td>
+    <p>
+     調整轉檔指令
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       新增 m3u8_ts 轉檔指令
+      </p>
+     </li>
+     <li>
+      <p>
+       移除已未使用的轉檔指令
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="/wiki/spaces/OCC/pages/711622767/012+-+m3u8">
+      012 - m3u8
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 驗收標準
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     系統
+    </p>
+   </th>
+   <th>
+    <p>
+     角色
+    </p>
+   </th>
+   <th>
+    <p>
+     此次開發
+    </p>
+   </th>
+   <th>
+    <p>
+     功能 / 頁面
+    </p>
+   </th>
+   <th>
+    <p>
+     測試功能
+    </p>
+   </th>
+   <th>
+    <p>
+     測試情境
+    </p>
+   </th>
+   <th>
+    <p>
+     操作步驟
+    </p>
+   </th>
+   <th>
+    <p>
+     期望結果
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 參考資料
+</h1>
+<h1>
+ 注意事項
+</h1>
+<p>
+ 待確認: API 規格請照
+ <a href="/wiki/spaces/ITOOperationManual/pages/3407052977/API">
+  API 制定規則
+ </a>
+ 或其他規範填寫, 需
+ <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+  Rocco
+ </a>
+ 協助確認
+</p>
+<h1>
+ 文件撰寫參考範例
+</h1>
+<p>
+ 實際使用的情形, 可參考
+</p>
+<p>
+ <a href="/wiki/spaces/ITO/pages/3433267201/ODM+Segment+Tool+SDD">
+  [ODM] Segment Tool SDD
+ </a>
+</p>
+<p>
+ <a href="/wiki/spaces/ITO/pages/3439493196/segment+target+v2">
+  segment target v2
+ </a>
+</p>

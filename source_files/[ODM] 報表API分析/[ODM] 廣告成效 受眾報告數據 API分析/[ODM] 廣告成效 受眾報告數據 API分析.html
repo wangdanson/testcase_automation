@@ -1,0 +1,411 @@
+<p>
+ 前端路徑: advertiser/632/campaign/22177/report
+</p>
+<p>
+ 後端路徑: GET api/v1/odm/others/speed_reports/22177/odm_big_data
+</p>
+<p>
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    路由定義
+   </strong>
+  </p>
+ </li>
+</ol>
+位置： config/routes.rb:1275
+<pre>  namespace :odm, module: 'programmatics' do
+    namespace :others do
+      resources :speed_reports, only: :none do
+        member do
+          get :odm_big_data  # 對應 API
+        end
+      end
+    end
+  end</pre>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Controller 處理
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ <strong>
+  位置：
+ </strong>
+ app/controllers/api/v1/programmatics/others/speed_reports_controller.rb:162-164
+</p>
+Action
+<pre>def odm_big_data
+    get_target_type_big_data(target_name: params[:target_type] || '', params: params)
+end</pre>
+get_target_type_big_data 方法（行 216-359
+<pre>步驟 1: 創建 BigDataReport Service（行 217-223）
+
+  report_service = BigDataReport.new(
+    one_campaign_id: params[:id],
+    placement_id: params[:placement_id],
+    start_date: params[:start_date],
+    end_date: params[:end_date]
+  )
+  result = report_service.big_data_report(target_name: target_name)
+
+  ---
+  步驟 2: 取得維度翻譯（行 225）
+
+  tab_names = OdmReportConstant::CLICKHOUSE_TARGET_TRANSLATION.fetch(target_name)
+
+  範例：
+  # target_name = "demographic"
+  # tab_names = "年齡性別"
+
+  # target_name = "product_key"
+  # tab_names = "ProductKey 類別"
+
+  所有支援的維度：
+  CLICKHOUSE_TARGET_TRANSLATION = {
+    "os" =&gt; "裝置",
+    "product_key" =&gt; "ProductKey 類別",
+    "in_market" =&gt; "In-Market 類別",
+    "segment" =&gt; "Segment 類別",
+    "interest" =&gt; "興趣",
+    "keyword" =&gt; "特定議題",
+    "demographic" =&gt; "年齡性別",
+    "pack" =&gt; "素材成效",
+    "media" =&gt; "媒體",
+  }
+
+  ---
+  步驟 3: 定義前端欄位配置（行 227-347）
+
+  columns = [
+    { key: 'cv', text: '曝光次數(cv)', type: 'thousand_number', ... },
+    { key: 'impression', text: '可視曝光次數', type: 'thousand_number', ... },
+    { key: 'videoClick', text: '影片點擊次數', ... },
+    { key: 'bannerClick', text: 'Banner點擊次數', ... },
+    { key: 'ctr_cv', text: '點擊率CTR(%) - cv', type: 'percentage', ... },
+    { key: 'ctr_imp', text: '點擊率CTR(%) - imp', type: 'percentage', ... },
+    { key: 'cpe', text: '互動次數(CPE)', ... },
+    { key: 'cpeRatio_cv', text: '互動率(%) - cv', ... },
+    { key: 'cpeRatio_imp', text: '互動率(%) - imp', ... },
+    { key: 'q0', text: '影片觀看次數(View0)', ... },
+    { key: 'q25', text: '觀看四階25%次數', ... },
+    { key: 'q50', text: '觀看四階50%次數', ... },
+    { key: 'q75', text: '觀看四階75%次數', ... },
+    { key: 'q100', text: '觀看四階100%次數', ... },
+    { key: 'q100Ratio_cv', text: '完整觀看率(%) - cv', ... },
+    { key: 'q100Ratio_imp', text: '完整觀看率(%) - imp', ... },
+    { key: 'view30s', text: '30秒觀看次數', ... },
+    { key: 'totalClick', text: '總點擊數', ... },
+  ]
+
+  # 在最前面插入維度欄位
+  target_column = {
+    key: 'target_name',
+    text: target_name_trans_text(target_name),  # "受眾" 或 "信號類別"
+    is_fixed: true,
+    min_width: 100,
+  }
+  columns.insert(0, target_column)
+
+  ---
+  步驟 4: 回傳 JSON（行 350-358）
+
+  render json: @response.set_data({
+    tab_names: tab_names,        # "年齡性別"
+    columns: columns,             # 欄位配置
+    row_key: 'target_name',      # 用於前端識別唯一行
+    data: result,                 # 實際數據
+    is_dynamic_column: true       # 標記為動態欄位
+  })
+
+  ---</pre>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Service 層：BigDataReport
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ 位置： app/services/big_data_report.rb
+</p>
+3.1 類別繼承
+<pre>  class BigDataReport &lt; OdmNewReport
+
+  繼承自 OdmNewReport（與 one_campaign_summary_new API 使用相同的父類）</pre>
+3.2 初始化（initialize 方法，行 2-20
+<pre>步驟 1: 參數驗證
+
+  fail ArgumentError, "Please specify campaign id or placement id" if params_validatior(params)
+
+  ---
+  步驟 2: 載入 OneCampaign
+
+  @one_campaign = OneCampaign.find(params[:one_campaign_id])
+
+  ---
+  步驟 3: 決定 Placement 範圍
+
+  情境 A：指定單一 Placement
+  if params[:placement_id].present?
+    @placement_ids = [{ id: params[:placement_id].to_i }]
+  end
+
+  情境 B：使用整個 Campaign 的所有 Placements
+  else
+    placements = @one_campaign.placements.
+      includes(:pre_campaign_details).
+      where(status: ['oncue', 'pending', 'aborted', 'closed']).
+      where(pre_campaign_detail: { enable: true })
+
+    @placement_ids = placements.map { |placement| { id: placement.id } }
+  end
+
+  範例：
+  # 情境 A
+  @placement_ids = [{ id: 31605 }]
+
+  # 情境 B
+  @placement_ids = [
+    { id: 31605 },
+    { id: 31608 },
+    { id: 31609 }
+  ]
+
+  ---
+  步驟 4: 設定日期範圍
+
+  @start_date = params[:start_date].try(:to_date) || @one_campaign.start_date.to_s
+  @end_date = params[:end_date].try(:to_date) || @one_campaign.end_date.to_s
+
+  ---</pre>
+3.3 核心方法：big_data_report（行 22-64）
+<pre>步驟 1: 構建 CampaignReportExport 參數（行 24-37）
+
+  params = ActionController::Parameters.new({
+    id: @one_campaign.id,
+    date_range: [@start_date, @end_date],
+    exports: [
+      {
+        id: nil,                      # tab id (不需要)
+        name: target_name,            # 維度名稱 (例如 "demographic")
+        placements: @placement_ids,   # 要分析的 placements
+        stat_colnames: CampaignReportExport::FORMAT_CODES.keys.reject { |e| e == 'view10s' },
+        target_colnames: [target_name]  # 目標維度
+      },
+    ],
+    report_type: "big_data_report",  # 報告類型
+  })
+
+  stat_colnames 包含：
+  [
+    'cv', 'impression', 'videoClick', 'bannerClick', 'tb',
+    'totalClick', 'ctr_cv', 'ctr_imp', 'cpe', 'cpeRatio_cv',
+    'cpeRatio_imp', 'aerRatio', 'q0', 'q25', 'q50', 'q75',
+    'q100', 'q100Ratio_cv', 'q100Ratio_imp', 'view2s', 'view3s',
+    'view5s', 'view30s', 'uengage', 'vtr25', 'vtr50', 'vtr75',
+    'vtr100', 'superdsp_imp', 'avg_cpc', 'amount_sell',
+    'page_view_count', 'complete_registration_count',
+    'add_to_cart_count', 'initial_checkout_count', 'purchase',
+    'revenue', 'cost_per_landing_page_view', 'cost_per_registration',
+    'cost_per_add_to_cart', 'cost_per_initial_checkout',
+    'cost_per_purchase', 'roas'
+  ]
+  # 但排除 'view10s'
+
+  ---
+  步驟 2: 調用 CampaignReportExport（行 39-40）
+
+  report = CampaignReportExport.new(params)
+  report.generate_big_data_report
+
+  這裡呼叫的是我們之的 generate_big_data_report 方法！
+
+  ---
+  步驟 3: 取得格式化數據（行 42）
+
+  @formatted_one_campaign_data = report.formatted_one_campaign_data
+
+  回憶 formatted_one_campaign_data 結構（big_data_report 模式）：
+  {
+    one_campaign_name: "春季促銷活動",
+    table_datas: [
+      {
+        colnames: ["年齡性別", "曝光次數(cv)", "可視曝光次數", "影片點擊次數", ...],
+        data: [
+          ["male_25_34", 1000, 800, 50, 10, 3.13, ...],
+          ["female_35_44", 1200, 900, 60, 12, 3.45, ...],
+          ["Total", 2200, 1700, 110, 22, 3.28, ...]
+        ],
+        format_codes: ["regular", "thousand", "thousand", "thousand", ...]
+      }
+    ]
+  }
+
+  ---
+  步驟 4: 轉換數據格式（行 44-63）
+
+  原始結構是為了 Excel 輸出，需要轉換成前端 Table 格式：
+
+  result = []
+
+  cn_column_names = @formatted_one_campaign_data[:table_datas][0][:colnames]
+  # ["年齡性別", "曝光次數(cv)", "可視曝光次數", "影片點擊次數", ...]
+
+  @formatted_one_campaign_data[:table_datas][0][:data].each do |row|
+    row_data = {}
+    row.each_with_index do |column, index|
+      if index == 0
+        # 第一欄是維度值
+        row_data[:target_name] = column
+        next
+      end
+      # 反查 key: 從中文欄位名找回英文 key
+      row_data[OdmReportConstant::TRANSLATION.key(cn_column_names[index])] = column
+    end
+    result &lt;&lt; row_data
+  end
+
+  轉換過程範例：
+
+  輸入（Excel 格式）：
+  colnames: ["年齡性別", "曝光次數(cv)", "可視曝光次數", "影片點擊次數"]
+  data: [
+    ["male_25_34", 1000, 800, 50],
+    ["female_35_44", 1200, 900, 60]
+  ]
+
+  處理邏輯：
+  # 第一列處理
+  row = ["male_25_34", 1000, 800, 50]
+
+  # index = 0
+  row_data[:target_name] = "male_25_34"
+
+  # index = 1
+  cn_column_names[1] = "曝光次數(cv)"
+  TRANSLATION.key("曝光次數(cv)") = "cv"
+  row_data["cv"] = 1000
+
+  # index = 2
+  cn_column_names[2] = "可視曝光次數"
+  TRANSLATION.key("可視曝光次數") = "impression"
+  row_data["impression"] = 800
+
+  # index = 3
+  cn_column_names[3] = "影片點擊次數"
+  TRANSLATION.key("影片點擊次數") = "videoClick"
+  row_data["videoClick"] = 50
+
+  輸出（JSON 格式）：
+  [
+    {
+      target_name: "male_25_34",
+      cv: 1000,
+      impression: 800,
+      videoClick: 50,
+      bannerClick: 10,
+      ctr_cv: 3.13,
+      ctr_imp: 4.0,
+      ...
+    },
+    {
+      target_name: "female_35_44",
+      cv: 1200,
+      impression: 900,
+      videoClick: 60,
+      bannerClick: 12,
+      ctr_cv: 3.45,
+      ctr_imp: 4.2,
+      ...
+    },
+    {
+      target_name: "Total",
+      cv: 2200,
+      impression: 1700,
+      videoClick: 110,
+      bannerClick: 22,
+      ctr_cv: 3.28,
+      ctr_imp: 4.1,
+      ...
+    }
+  ]</pre>
+<p>
+ 4.
+ <strong>
+  流程圖總結
+ </strong>
+</p>
+<pre>API Request
+      ↓
+  SpeedReportsController#odm_big_data
+      ↓
+  get_target_type_big_data
+      ├─ 創建 BigDataReport Service
+      │   ↓
+      │  BigDataReport#big_data_report
+      │   ├─ 構建 CampaignReportExport 參數
+      │   ├─ 調用 CampaignReportExport#generate_big_data_report
+      │   │   ↓
+      │   │  CampaignReportExport 流程:
+      │   │   ├─ 初始化空數據結構
+      │   │   ├─ fetch_api_gateway_data
+      │   │   │   └─ ReportDataFetcher.fetch_demographic_event (ClickHouse)
+      │   │   ├─ fetch_api_gateway_rtb_data
+      │   │   │   └─ ReportDataFetcher.fetch_rtb_event_by_demographic
+      │   │   ├─ process_dimension_data_use_case
+      │   │   │   └─ ProcessDemographicDimensionUseCase
+      │   │   │       ├─ fetch_demographics (DB)
+      │   │   │       ├─ process_event_data (累加數據)
+      │   │   │       └─ process_rtb_data (累加轉換數據)
+      │   │   ├─ calculate_one_campaign (計算衍生指標)
+      │   │   └─ format_one_campaign_data (轉成 Excel 格式)
+      │   │
+      │   └─ 將 Excel 格式轉成 JSON Table 格式
+      │
+      ├─ 取得維度翻譯 (tab_names)
+      ├─ 定義欄位配置 (columns)
+      └─ 回傳 JSON
+          {
+            tab_names: "年齡性別",
+            columns: [...],
+            row_key: "target_name",
+            data: [
+              { target_name: "male_25_34", cv: 800, impression: 596, ... },
+              { target_name: "female_18_24", cv: 600, impression: 420, ... },
+              { target_name: "Total", cv: 1400, impression: 1016, ... }
+            ],
+            is_dynamic_column: true
+          }</pre>
+<ol>
+ <li>
+  <p>
+   <strong>
+    支援的維度類型
+   </strong>
+  </p>
+ </li>
+</ol>
+<pre>根據 OdmReportConstant::CLICKHOUSE_TARGET_TRANSLATION：
+
+  | target_type 參數 | 中文名稱          | UseCase                            |
+  |----------------|---------------|------------------------------------|
+  | os             | 裝置            | ProcessOsDimensionUseCase          |
+  | demographic    | 年齡性別          | ProcessDemographicDimensionUseCase |
+  | product_key    | ProductKey 類別 | ProcessProductKeyDimensionUseCase  |
+  | in_market      | In-Market 類別  | ProcessInMarketDimensionUseCase    |
+  | segment        | Segment 類別    | ProcessSegmentDimensionUseCase     |
+  | interest       | 興趣            | ProcessInterestDimensionUseCase    |
+  | keyword        | 特定議題          | ProcessKeywordDimensionUseCase     |
+  | pack           | 素材成效          | ProcessPackDimensionUseCase        |
+  | media          | 媒體            | ProcessMediaDimensionUseCase       |
+
+  每個維度都有對應的 UseCase 處理其特定的數據結構和邏輯。</pre>

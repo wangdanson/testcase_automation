@@ -1,0 +1,185 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","Onead User (AOE Admin)","素材管理","【權限】【正向】ID 571 素材包自動通過","驗證果實夥伴代理商上傳素材包後可直接通過審核並立即投入後續流程","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 進入「素材管理」並新增屬於果實夥伴代理商的素材包
+3. 上傳素材並完成儲存
+4. 返回素材列表查看審核狀態","1. 素材包儲存成功後狀態應立即為「Passed」
+2. 上傳流程不應要求在素材層級填寫 OneAD 產業類別
+3. 該素材包應可立即於 RichMedia 廣告組合中被選取","主文件：SuperDSP Pilot for AOE (Phase 2).html；素材審核流程.mmd"
+"SuperDSP","superdsp_agency","素材管理","【權限】【反向】驗證一般代理商素材包仍走標準審核","驗證 AOE 免審核機制不會外溢到非 571 代理商","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入「素材管理」新增一般代理商的素材包
+3. 上傳素材並儲存
+4. 查看素材包狀態","1. 素材包狀態不得直接為「Passed」
+2. 素材包應維持既有待審核流程
+3. 系統不得顯示 AOE 專屬免審核提示","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","superdsp_client","素材管理","【權限】【反向】驗證廣告主帳號無法取得 AOE 免審核特權","驗證廣告主帳號上傳素材包時不應套用果實夥伴的自動通過規則","1. 以 superdsp_client 權限之帳號登入系統
+2. 進入「素材管理」建立素材包並上傳素材
+3. 儲存後查看狀態","1. 素材包不得自動轉為「Passed」
+2. 上傳結果應遵循既有審核流程
+3. 介面不應出現 AOE 專屬特權資訊","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","superdsp_media","素材管理","【權限】【反向】驗證媒體帳號無法取得 AOE 免審核特權","驗證媒體帳號即使可操作素材包也不得套用果實夥伴的自動通過規則","1. 以 superdsp_media 權限之帳號登入系統
+2. 進入「素材管理」新增素材包並上傳素材
+3. 儲存後查看狀態","1. 素材包不得自動轉為「Passed」
+2. 媒體帳號不得因本次開發而取得 AOE 免審核能力
+3. 系統應維持既有媒體角色之審核規則","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"ODM","Onead User (AOE Admin)","ODM 素材審核列表","【回歸】【正向】ODM 審核列表排除果實夥伴素材","驗證果實夥伴素材包改為自動通過後不會再出現在 ODM 素材審核清單","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 先於 SuperDSP 上傳一筆果實夥伴素材包並確認已自動通過
+3. 以 Onead User (AOE Admin) 身分登入 ODM 素材審核列表
+4. 以素材名稱或時間條件搜尋該筆素材","1. 果實夥伴素材包不應出現在 ODM 待審核列表
+2. 其他非果實夥伴素材仍應正常顯示於列表
+3. 審核列表的既有審核功能不得受到影響","主文件：素材審核流程.mmd；SuperDSP Pilot Phase 2 後端開發文件.html"
+"ODM","superdsp_agency","ODM 素材審核列表","【權限】【反向】驗證一般代理商無法存取 ODM 素材審核列表","驗證一般代理商不能因 AOE 流程調整而取得 ODM 審核介面權限","1. 以 superdsp_agency 權限之帳號登入系統
+2. 嘗試直接開啟 ODM 素材審核列表網址或從選單進入","1. 系統應拒絕進入或顯示無權限提示
+2. 選單中不應新增 ODM 審核入口給一般代理商","主文件：素材審核流程.mmd；GEMINI_ERROR_LOG.md"
+"ODM","superdsp_client","ODM 素材審核列表","【權限】【反向】驗證廣告主帳號無法存取 ODM 素材審核列表","驗證廣告主帳號不應取得 ODM 素材審核介面的檢視或操作權限","1. 以 superdsp_client 權限之帳號登入系統
+2. 嘗試進入 ODM 素材審核列表","1. 系統應顯示權限不足或拒絕進入
+2. 廣告主帳號不得看到審核清單資料","主文件：素材審核流程.mmd；GEMINI_ERROR_LOG.md"
+"ODM","superdsp_media","ODM 素材審核列表","【權限】【反向】驗證媒體帳號無法存取 ODM 素材審核列表","驗證媒體帳號不應取得 ODM 素材審核介面的檢視或操作權限","1. 以 superdsp_media 權限之帳號登入系統
+2. 嘗試進入 ODM 素材審核列表","1. 系統應顯示權限不足或拒絕進入
+2. 媒體帳號不得看到審核清單資料","主文件：素材審核流程.mmd；GEMINI_ERROR_LOG.md"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【權限】【正向】驗證果實夥伴顯示 OneAD 產業主子類別","驗證果實夥伴代理商建立指定產品線活動時會顯示專屬的 OneAD 產業主子類別欄位","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 依序建立或編輯 RichMedia、InStream、Text Drive、Commerce AD 活動
+3. 觀察活動表單中的欄位顯示","1. 四種產品線的活動表單皆應顯示「OneAD 產業類別」主類別與子類別欄位
+2. 該欄位僅應在果實夥伴代理商脈絡下出現
+3. 下拉選單資料應由後端 option API 正常回傳","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","superdsp_agency","廣告活動編輯","【權限】【反向】驗證一般代理商不顯示 OneAD 產業欄位","驗證非果實夥伴代理商建立相同產品線活動時不應看到 OneAD 專屬欄位","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入 RichMedia、InStream、Text Drive 或 Commerce AD 活動建立頁
+3. 檢查活動表單欄位","1. 表單中不應出現「OneAD 產業類別」主類別與子類別欄位
+2. 一般代理商介面應維持現況","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","superdsp_client","廣告活動編輯","【權限】【反向】驗證廣告主不顯示 OneAD 產業欄位","驗證廣告主帳號不應看到果實夥伴專屬的 OneAD 產業欄位","1. 以 superdsp_client 權限之帳號登入系統
+2. 進入活動建立或編輯頁
+3. 檢查表單欄位","1. 表單中不應出現「OneAD 產業類別」相關欄位
+2. 不得因產品線切換而誤顯示果實夥伴專屬欄位","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","superdsp_media","廣告活動編輯","【權限】【反向】驗證媒體帳號不顯示 OneAD 產業欄位","驗證媒體帳號不應看到果實夥伴專屬的 OneAD 產業欄位","1. 以 superdsp_media 權限之帳號登入系統
+2. 進入活動建立或編輯頁
+3. 檢查表單欄位","1. 表單中不應出現「OneAD 產業類別」相關欄位
+2. 系統應維持媒體角色既有活動表單","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【功能】【正向】OneAD 產業類別為必填","驗證果實夥伴建立活動時若未選擇 OneAD 產業主子類別將無法儲存","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 建立一筆 RichMedia 活動並故意不選擇 OneAD 產業主子類別
+3. 點擊儲存
+4. 再補齊主子類別後重新儲存","1. 未選擇主子類別時系統應阻擋儲存並顯示必填提示
+2. 補齊主子類別後才可成功儲存活動
+3. 主類別與子類別的必填驗證應同時生效","主文件：SuperDSP Pilot for AOE (Phase 2).html；GEMINI_ERROR_LOG.md"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【狀態】【正向】OneAD 產業欄位鎖定時不可編輯","驗證後端回傳欄位鎖定條件時前端下拉選單會轉為不可編輯","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 開啟一筆已被後端標記為鎖定的果實夥伴活動
+3. 嘗試展開或修改 OneAD 產業主子類別","1. 主類別與子類別下拉選單應呈現禁用或唯讀狀態
+2. 使用者不得變更已鎖定的 OneAD 產業設定
+3. 鎖定狀態的視覺提示應清楚可辨識","主文件：SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【回歸】【正向】驗證未編輯活動不會更新既有 Sequence","驗證 ERP 新增合作媒體或更新手機 URL 後未重新編輯活動時既有 Oncue Sequence 仍維持原值","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 準備一筆已 Oncue 的果實夥伴活動並記錄當前 Sequence 的媒體清單與黑白名單 URL
+3. 由 PAD 在 ERP 新增合作媒體或更新既有媒體的手機 URL
+4. 不對該活動做任何編輯並等待同步批次執行
+5. 重新檢查該活動目前使用中的 Sequence","1. 活動若未被重新編輯儲存，既有 Sequence 應維持原本的媒體清單
+2. 黑白名單中既有 URL 也應維持 Oncue 當下版本
+3. 系統不得自動覆寫投放中的媒體或 URL","主文件：SuperDSP Pilot for AOE (Phase 2).html；GEMINI.md"
+"SuperDSP","Onead User (AOE Admin)","廣告活動編輯","【回歸】【正向】驗證編輯儲存後重新產生 Sequence 並套用最新媒體資料","驗證 ERP 媒體設定變更後只要重新編輯並儲存活動就會產出新的 Sequence 套用最新媒體清單與手機 URL","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 準備一筆已 Oncue 的果實夥伴活動
+3. 由 PAD 在 ERP 新增合作媒體或更新既有媒體的手機 URL
+4. 返回該活動任意編輯一個允許修改的欄位並儲存
+5. 重新檢查新產出的 Sequence 與黑白名單 URL","1. 系統應產出新的 Sequence
+2. 新 Sequence 的媒體清單應包含 ERP 最新合作媒體
+3. 黑白名單引用的媒體 URL 應同步帶入 ERP 最新的手機 URL","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【UI】【正向】驗證果實夥伴專用 Ad Group 抽屜版型","驗證果實夥伴在 RichMedia 廣告組合中會看到專用抽屜版型與更新後卡片資訊","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 進入 RichMedia 活動並開啟廣告組合編輯抽屜
+3. 觀察廣告格式、素材包、黑白名單、時段與地區卡片區塊","1. 應顯示果實夥伴專用的 Ad Group 抽屜版型
+2. 卡片資訊應帶有對應副標
+3. 素材包區不應再顯示舊版新增素材包快捷入口","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","superdsp_agency","廣告組合編輯","【權限】【反向】驗證一般代理商維持既有 Ad Group 編輯介面","驗證非果實夥伴代理商不會看到果實夥伴專用的 RichMedia 抽屜版型","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入同類型活動並開啟廣告組合編輯抽屜","1. 介面應維持既有 Ad Group 編輯樣式
+2. 不應出現果實夥伴專用卡片副標與抽屜重排","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","superdsp_client","廣告組合編輯","【權限】【反向】驗證廣告主維持既有 Ad Group 編輯介面","驗證廣告主帳號不會看到果實夥伴專用的 RichMedia 抽屜版型","1. 以 superdsp_client 權限之帳號登入系統
+2. 進入同類型活動並開啟廣告組合編輯抽屜","1. 介面應維持既有 Ad Group 編輯樣式
+2. 不應出現果實夥伴專用卡片副標與抽屜重排","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","superdsp_media","廣告組合編輯","【權限】【反向】驗證媒體維持既有 Ad Group 編輯介面","驗證媒體帳號不會看到果實夥伴專用的 RichMedia 抽屜版型","1. 以 superdsp_media 權限之帳號登入系統
+2. 進入同類型活動並開啟廣告組合編輯抽屜","1. 介面應維持既有 Ad Group 編輯樣式
+2. 不應出現果實夥伴專用卡片副標與抽屜重排","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【功能】【正向】驗證廣告格式列表依簽約與品類動態篩選排序","驗證 RichMedia 廣告格式列表會依 SuperDSP 合約開通格式與 OneAD 產業類別動態顯示並按指定順序排列","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 進入 RichMedia 廣告組合編輯抽屜
+3. 切換不同 OneAD 產業類別並展開廣告格式選單
+4. 比對清單順序與格式副標","1. 格式列表應只顯示該廣告主已簽約且符合品類可用的格式
+2. 格式列表順序應依指定 sort_ad_format_type_ids 排列，未列入排序者排在最後
+3. 每個格式應正確顯示來自 ad_format_type.title 的副標
+4. 列表內容應為動態顯示而非固定清單","主文件：20260113_New_UI_RichMedia_Format_Filter_with_ERP.csv；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【回歸】【正向】驗證變更格式會自動清空已選素材包","驗證使用者改變廣告格式後系統會清空原先綁定的素材包避免規格不匹配","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 開啟 RichMedia 廣告組合並先選定一個可用素材包
+3. 將廣告格式切換成另一個不同格式
+4. 觀察素材包欄位與儲存前狀態","1. 廣告格式變更後已選素材包應立即被清空
+2. 使用者應被要求重新選擇符合新格式的素材包
+3. 不得殘留舊格式素材包造成錯誤儲存","主文件：SuperDSP Pilot for AOE (Phase 2).html；spec_knowledge/SuperDSP_RULES.md"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【狀態】【正向】驗證上刊後移除格式設定按鈕","驗證廣告組合上刊後不得再修改廣告格式","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 開啟一筆已上刊或投遞中的 RichMedia 廣告組合
+3. 進入編輯抽屜觀察廣告格式區塊","1. 廣告格式設定按鈕應被移除或禁用
+2. 使用者不得變更上刊後的廣告格式
+3. 其他允許操作的欄位不得因格式鎖定而異常","主文件：SuperDSP Pilot for AOE (Phase 2).html；spec_knowledge/SuperDSP_RULES.md"
+"SuperDSP","Onead User (AOE Admin)","廣告組合編輯","【UI】【正向】驗證時段與地區選項載入及回填","驗證果實夥伴抽屜可正確載入時段與地區選項並在儲存後完整回填","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 開啟 RichMedia 廣告組合編輯抽屜
+3. 選擇多個時段與多個地區後儲存
+4. 重新開啟同一筆廣告組合","1. 時段選單應顯示中文名稱與對應整點時間
+2. 地區選單應正確顯示縣市名稱
+3. 重新開啟後已選時段與地區應完整回填","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","黑白名單設定","【功能】【正向】驗證黑白名單媒體 URL 採用手機版網址","驗證果實夥伴在黑白名單設定中引用媒體資料時會帶入 mobile_url 而非其他網址欄位","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 開啟 RichMedia 廣告組合的黑白名單設定
+3. 從媒體清單加入數筆白名單與黑名單媒體
+4. 檢查產生的 URL 內容","1. 黑白名單帶入的網址應來自 customers.mobile_url
+2. 白名單區應能看到「廣告將投放到所有合作媒體」相關說明已置於白名單脈絡內
+3. 清單內容應與所選媒體一一對應","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","superdsp_agency","黑白名單設定","【權限】【反向】驗證一般代理商不顯示果實夥伴專用黑白名單改版","驗證非果實夥伴代理商不會看到果實夥伴專用的黑白名單改版內容","1. 以 superdsp_agency 權限之帳號登入系統
+2. 進入相同產品線的黑白名單設定","1. 介面應維持既有黑白名單設定樣式
+2. 不應出現果實夥伴專用的清單文案與改版行為","主文件：SuperDSP Pilot for AOE (Phase 2).html"
+"SuperDSP","superdsp_client","黑白名單設定","【權限】【反向】驗證廣告主不顯示果實夥伴專用黑白名單改版","驗證廣告主帳號不會看到果實夥伴專用的黑白名單改版內容","1. 以 superdsp_client 權限之帳號登入系統
+2. 進入黑白名單設定","1. 介面應維持既有黑白名單設定樣式
+2. 不應出現果實夥伴專用的清單文案與改版行為","主文件：SuperDSP Pilot for AOE (Phase 2).html"
+"SuperDSP","superdsp_media","黑白名單設定","【權限】【反向】驗證媒體不顯示果實夥伴專用黑白名單改版","驗證媒體帳號不會看到果實夥伴專用的黑白名單改版內容","1. 以 superdsp_media 權限之帳號登入系統
+2. 進入黑白名單設定","1. 介面應維持既有黑白名單設定樣式
+2. 不應出現果實夥伴專用的清單文案與改版行為","主文件：SuperDSP Pilot for AOE (Phase 2).html"
+"SuperDSP","Onead User (AOE Admin)","黑白名單設定","【功能】【正向】驗證黑白名單各自最多 100 筆 URL","驗證黑白名單對白名單與黑名單分別限制最多 100 筆網址","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 開啟黑白名單設定並於白名單輸入 100 筆 URL
+3. 再嘗試輸入第 101 筆 URL
+4. 對黑名單重複相同步驟","1. 白名單與黑名單應各自獨立限制在 100 筆
+2. 超過上限時系統應立即阻擋新增並顯示提示
+3. 已輸入的前 100 筆資料不得被異常清除","主文件：SuperDSP Pilot for AOE (Phase 2).html"
+"SuperDSP","Onead User (AOE Admin)","黑白名單設定","【功能】【正向】驗證黑白名單跨清單重複 URL 即時攔截","驗證使用者在尚未儲存前輸入與另一側清單重複的 URL 會立即收到提示","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 於白名單新增一筆 URL
+3. 尚未儲存前將相同 URL 輸入到黑名單
+4. 觀察介面提示","1. 系統應在輸入當下即提示黑白名單 URL 重複
+2. 重複資料不得被靜默接受
+3. 使用者應可清楚辨識衝突的 URL","主文件：SuperDSP Pilot for AOE (Phase 2).html"
+"SuperDSP","Onead User (AOE Admin)","黑白名單設定","【回歸】【正向】驗證清空名單後仍可儲存為空","驗證黑白名單屬於非必填設定，使用者清空所有 URL 後仍可成功儲存","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 先於白名單或黑名單建立數筆 URL 並成功儲存
+3. 再次進入設定將所有 URL 清空
+4. 點擊儲存","1. Footer 的取消與儲存按鈕應維持可操作
+2. 使用者清空所有 URL 後仍應可以成功儲存空名單
+3. 重新開啟設定時黑白名單應保持為空","主文件：SuperDSP Pilot for AOE (Phase 2).html"
+"SuperDSP","Onead User (AOE Admin)","黑白名單設定","【UI】【正向】驗證網站清單套用與儲存按鈕行為","驗證使用網站清單套用網址群組時按鈕文案與儲存行為符合新版設計","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 開啟黑白名單設定並選擇一個網站清單群組
+3. 套用群組後觀察按鈕文案與儲存狀態
+4. 進行反向編輯並再次儲存","1. 套用網站清單的主要按鈕文案應為「儲存」
+2. 套用後儲存按鈕應維持可操作，支援後續反向編輯
+3. 已套用的網址群組應正確寫入黑白名單內容","主文件：SuperDSP Pilot for AOE (Phase 2).html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告組合報表","【數據】【正向】驗證一階與二階指標的 0 與 - 顯示語意","驗證廣告組合報表在無數據情境下會正確區分一階指標與二階指標的顯示方式","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 下載一筆無曝光或無點擊的廣告組合報表
+3. 檢查曝光、點擊、花費、CTR、CPM、ROAS 等欄位","1. 曝光、點擊、花費等一階指標在無資料時應顯示 0 或 $0
+2. CTR、CPM、ROAS 與 cost_per 類二階指標在分母為 0 時應顯示「-」
+3. 系統畫面與下載報表的顯示語意應一致","主文件：SuperDSP Pilot Phase 2 前端開發文件.html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","superdsp_agency","廣告組合報表","【數據】【正向】驗證代理商授權範圍內報表格式一致","驗證一般代理商在其授權範圍下載報表時也套用相同的數值顯示規則","1. 以 superdsp_agency 權限之帳號登入系統
+2. 下載一筆授權範圍內的廣告組合報表
+3. 檢查一階與二階指標顯示","1. 一階與二階指標應套用相同的 0 與 - 顯示規則
+2. 角色不同不得導致報表格式不一致","主文件：SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","superdsp_client","廣告組合報表","【數據】【正向】驗證廣告主授權範圍內報表格式一致","驗證廣告主在其授權範圍下載報表時也套用相同的數值顯示規則","1. 以 superdsp_client 權限之帳號登入系統
+2. 下載一筆授權範圍內的廣告組合報表
+3. 檢查一階與二階指標顯示","1. 一階與二階指標應套用相同的 0 與 - 顯示規則
+2. 角色不同不得導致報表格式不一致","主文件：SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","superdsp_media","廣告組合報表","【數據】【正向】驗證媒體授權範圍內報表格式一致","驗證媒體帳號在其授權範圍下載報表時也套用相同的數值顯示規則","1. 以 superdsp_media 權限之帳號登入系統
+2. 下載一筆授權範圍內的廣告組合報表
+3. 檢查一階與二階指標顯示","1. 一階與二階指標應套用相同的 0 與 - 顯示規則
+2. 角色不同不得導致報表格式不一致","主文件：SuperDSP Pilot Phase 2 前端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告組合報表","【數據】【正向】驗證無效欄位原樣維持 -","驗證 Banner 等不適用的觀看率欄位會被視為無效欄位並原樣顯示為 -","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 下載一筆 Banner 類型的廣告組合報表
+3. 檢查 vtr25 至 vtr100 或其他不適用欄位","1. 後端回傳為「-」的無效欄位在系統畫面與 Excel 報表中都應原樣顯示
+2. 前端不得將無效欄位轉成 0 或空白","主文件：SuperDSP Pilot Phase 2 前端開發文件.html；SuperDSP Pilot Phase 2 後端開發文件.html"
+"SuperDSP","Onead User (AOE Admin)","廣告組合報表","【數據】【正向】Excel 格式與 Sheet 命名規則","驗證下載的廣告組合報表具有正確的貨幣與百分比格式並符合分頁命名規則","1. 以『果實夥伴 (ID 571)』代理商權限之帳號登入系統
+2. 下載包含多個廣告組合的報表並以 Excel 開啟
+3. 檢查分頁名稱與數值格式
+4. 嘗試對金額欄位執行加總","1. 除總覽頁外，各廣告組合分頁名稱應為 ad_group_id + 「_」 + ad_group_name
+2. 貨幣欄位應具備千分位與正確小數位數
+3. 百分比欄位應具備正確小數位數且可作為數值運算
+4. 下載後的金額欄位應能直接被 Excel 正常加總","主文件：SuperDSP Pilot Phase 2 前端開發文件.html；.gemini/skills/test-case-automation-expert/SKILL.md"

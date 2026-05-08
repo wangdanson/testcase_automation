@@ -1,0 +1,465 @@
+<h2>
+ Phase 2 (走期 &amp; 媒體)
+</h2>
+媒體 批次修改
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{advertisers_id}/campaigns/{campaigns_id}/placements/batch_update
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "placement_ids": [int,...],
+  "key": "media",
+  "val": {
+    "is_additive"=&gt; boolean,
+    "ids"=&gt;[int,...],
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  "success": String, 
+  "data": [
+    {
+      "placement_id": int,
+      "placement_name": string,
+      "title": string,
+      "message": string,
+    },..
+  ]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+Placement 列表頁取得媒體 list
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      GET
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/odm/others/media/valid_media_by_placements
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "placement_ids": [int,...]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  "success": String, 
+  "data": [
+    {
+      "id": int,
+      "name": string,
+      "enable": boolean,
+      "checked": boolean,
+      "media": [
+        {
+          "id": int,
+          "description": string,
+        },...
+      ]
+    },..            
+  ]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+走期 批次修改
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{advertisers_id}/campaigns/{campaigns_id}/placements/batch_update
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "placement_ids": [int,...],
+  "key": "placement_schedule",
+  "val": {
+    "start_date"=&gt;"2024-12-18",
+    "end_date"=&gt;"2024-12-31",
+    "dates"=&gt;["2024-12-18",...],
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  "success": String, 
+  "data": [
+    {
+      "placement_id": int,
+      "placement_name": string,
+      "title": string,
+      "message": string,
+    },..
+  ]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h2>
+ Phase 1 (BrandSafety &amp; 上下文比對)
+</h2>
+<p>
+</p>
+BrandSafety 批次修改
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{advertisers_id}/campaigns/{campaigns_id}/placements/batch_update
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "placement_ids": [int,...],
+  "key": "brand_safety",
+  "val": {
+    "is_additive": boolean,
+    "ids": [int,...],
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  "success": String, 
+  "data": [
+    {
+      "placement_id": int,
+      "placement_name": string,
+      "title": string,
+      "message": string,
+    },..
+  ]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+上下文比對 批次修改
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      PUT
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{advertisers_id}/campaigns/{campaigns_id}/placements/batch_update
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "placement_ids": [int,...],
+  "key": "contextual_segment",
+  "val": {
+    "is_additive": boolean,
+    "ids": {
+      "include": [int,...],
+      "exclude": [int,...],
+    }
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  "success": String, 
+  "data": [
+    {
+      "placement_id": int,
+      "placement_name": string,
+      "title": string,
+      "message": string,
+    },..
+  ]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     who
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>

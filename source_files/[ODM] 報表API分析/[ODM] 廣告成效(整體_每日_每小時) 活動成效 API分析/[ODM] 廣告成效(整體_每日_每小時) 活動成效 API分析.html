@@ -1,0 +1,502 @@
+<p>
+ 前端路徑: advertiser/632/campaign/22177/report
+</p>
+<p>
+ 後端路徑: GET api/v1/odm/others/speed_reports/:id/one_campaign_summary_new
+</p>
+<p>
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    路由定義
+   </strong>
+  </p>
+ </li>
+</ol>
+位置： config/routes.rb:1273
+<pre>namespace :odm, module: 'programmatics' do
+    namespace :others do
+      resources :speed_reports, only: :none do
+        member do
+          get :one_campaign_summary_new  # 對應 API
+        end
+      end
+    end
+  end</pre>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Controller 處理
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ <strong>
+  位置：
+ </strong>
+ app/controllers/api/v1/programmatics/others/speed_reports_controller.rb:155-160
+</p>
+2.1 Before Action（行 4）
+<pre>before_action :set_one_campaign, only: %i(one_campaign_summary one_campaign_summary_new)
+
+  set_one_campaign 方法（行 174-178）：
+  def set_one_campaign
+    one_campaign = ::OneCampaign.includes(:placements).find(params[:id])
+    validate_campaign_for_user(current_user, one_campaign)
+    @one_campaign = one_campaign
+  end
+
+  流程：
+  1. 根據 params[:id] (22177) 查找 OneCampaign
+  2. 預載 placements 關聯
+  3. 驗證當前用戶是否有權限訪問該 campaign
+  4. 將結果存入 @one_campaign</pre>
+2.2 Action 執行（行 155-160)
+<pre>def one_campaign_summary_new
+    report_service = OdmOneCampaignNewReport.new(one_campaign_id: params[:id])
+    result = report_service.odm_one_campaign_report
+
+    render json: @response.set_data(result).success!
+  end
+
+  流程：
+  1. 創建 OdmOneCampaignNewReport service 實例
+  2. 調用 odm_one_campaign_report 方法生成報告
+  3. 包裝成 JSON 回傳</pre>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Service 層：OdmOneCampaignNewReport
+   </strong>
+  </p>
+ </li>
+</ol>
+<p>
+ 位置： app/services/odm_one_campaign_new_report.rb
+</p>
+3.1 初始化（initialize 方法，行 3-34）
+<pre>1. 載入 OneCampaign 與 Placements
+
+  @one_campaign = OneCampaign.find(params[:one_campaign_id])
+  @placements = @one_campaign.placements.
+    includes(
+      pre_campaign_details: [
+        :media, :pricing_model,
+        ad_format_type: :ad_format,
+      ]).
+    where(status: ['oncue', 'pending', 'aborted', 'closed']).
+    where(cprp: true, pre_campaign_detail: { enable: true })
+
+  條件：
+  - 只取特定狀態的 placements
+  - cprp: true（代表是 Programmatic 類型）
+  - pre_campaign_detail 必須是 enabled
+
+  ---
+  2. 建立計價單位映射
+
+  @placements_denominator_type = @placements.each_with_object({}) do |placement, hash|
+    if placement.first_enable_item.pricing_model.name == "CPM"
+      hash[placement.id.to_s] = "cv"
+    else
+      hash[placement.id.to_s] = "impression_count"
+    end
+  end
+
+  目的： 記錄每個 placement 用哪種分母計算率（CPM 用 cv，非 CPM 用 impression_count）
+
+  範例：
+  {
+    "12345" =&gt; "cv",
+    "12346" =&gt; "impression_count"
+  }
+
+  ---
+  3. 從 API Gateway 取得事件數據
+
+  事件數據（按 placement 分組）：
+  @apigateway_event = get_apigateway_event(
+    ids: params[:one_campaign_id],
+    ids_type: ApiGateway::Reportor::IdsType::ONE_CAMPAIGN,
+    group_type: ApiGateway::Reportor::GroupType::PLACEMENT,
+    type: Event.names,
+    start_date: start_date,
+    end_date: end_date
+  )
+
+  回傳格式：
+  [
+    {
+      "id" =&gt; 12345,           # placement ID
+      "day_local" =&gt; "2023-01-01",
+      "event" =&gt; "cv",
+      "count" =&gt; 1000,
+      "uid" =&gt; 123
+    },
+    {
+      "id" =&gt; 12345,
+      "day_local" =&gt; "2023-01-01",
+      "event" =&gt; "impression",
+      "count" =&gt; 800,
+      "uid" =&gt; 123
+    },
+    ...
+  ]
+
+  ---
+  每小時事件數據：
+  @apigateway_hourly_event = get_apigateway_hourly_event(
+    ids: @placements.ids.uniq.join(","),
+    start_date: start_date,
+    end_date: end_date
+  )
+
+  回傳格式：
+  [
+    {
+      "id" =&gt; 12345,           # placement ID
+      "date_local" =&gt; "2023-01-01",
+      "result_array" =&gt; [
+        { "hour" =&gt; 0, "event" =&gt; "cv", "count" =&gt; 50 },
+        { "hour" =&gt; 0, "event" =&gt; "impression", "count" =&gt; 40 },
+        { "hour" =&gt; 1, "event" =&gt; "cv", "count" =&gt; 45 },
+        ...
+      ]
+    },
+    ...
+  ]</pre>
+3.2 主要報告生成（odm_one_campaign_report 方法，行 40-174）
+<pre>階段 1: 資料結構初始化（行 47-86）
+
+  建立兩個 Hash 來組織 placements：
+
+  1. 不分計價單位（用於每日數據）：
+  placements = {
+    desktop: {
+      Video: [placement1, placement2, ...],
+      Banner: [placement3, ...]
+    },
+    mobile: {
+      Video: [placement4, ...],
+    },
+    ctv: { ... }
+  }
+
+  2. 分計價單位（用於摘要）：
+  placements_group_by_event = {
+    desktop: {
+      Video: {
+        #&lt;PricingModel CPM&gt; =&gt; [placement1, placement2],
+        #&lt;PricingModel vCPM&gt; =&gt; [placement3]
+      },
+      Banner: { ... }
+    }
+  }
+
+  建立 device_total：
+  placements[:desktop_total] = [placement1, placement2, placement3, ...]
+
+  ---
+  階段 2: 計算每日數據（行 91-111）
+
+  對每個裝置類型：
+  devices.each do |device|  # [:desktop, :mobile, :ctv]
+    if placements[device].present?
+      # 取得該裝置所有 placements 的每日數據
+      device_daily_datas = one_campaign_merge_and_sum_by_date(
+        get_ad_format_daily(placements[device].values.flatten)
+      )
+
+      # 計算合計
+      device_daily_datas_summary = summarize_daily_data(...)
+
+      # 儲存到 report_data
+      report_data["#{device}_daily".to_sym] =
+        device_daily_datas &lt;&lt; device_daily_datas_summary
+    end
+  end
+
+  get_ad_format_daily 流程（行 280-308）：
+  1. 取得排程的執行次數（play_times）
+  2. 從 @apigateway_event 篩選出這些 placements 的數據
+  3. 重新命名 key（cv → cv, impression → impression_count）
+  4. 計算 ct_ratio, eng_ratio, aer_ratio, cpe_ratio
+  5. 合併 play_times 數據
+
+  輸出範例：
+  [
+    {
+      "date_index" =&gt; "2023-01-01",
+      "cv" =&gt; 1000,
+      "impression_count" =&gt; 800,
+      "video_click" =&gt; 20,
+      "banner_click" =&gt; 5,
+      "total_click" =&gt; 25,
+      "ct_ratio" =&gt; 3.13,  # (25 / 800) * 100
+      "eng_ratio" =&gt; 2.5,
+      "play_times" =&gt; 500
+    },
+    {
+      "date_index" =&gt; "2023-01-02",
+      ...
+    },
+    {  # 合計
+      "cv" =&gt; 5000,
+      "impression_count" =&gt; 4000,
+      ...
+    }
+  ]
+
+  ---
+  階段 3: 計算廣告格式摘要（行 113-134）
+
+  對每個裝置 + 廣告格式 + 計價模型的組合：
+  devices.each do |device|
+    placements_group_by_event[device].each do |ad_format_name, placement_group|
+      placement_group.each do |pricing_model, each_placements|
+        # 1. 取得每日數據
+        daily_data = get_ad_format_daily(each_placements)
+
+        # 2. 計算摘要
+        item = one_campaign_get_ad_format_summary(daily_data, ad_format_name)
+
+        # 3. 計算已執行次數
+        executions_count = pricing_model.event_name_array.inject(0) do |sum, name|
+          sum + (item[name_map[name]] || 0)
+        end
+
+        # 4. 合併資料
+        item.merge!({
+          "pricing_model_name" =&gt; pricing_model_name,
+          "executions_count" =&gt; executions_count,
+        })
+
+        # 5. 儲存
+        report_data["#{device}_summary".to_sym][ad_format_name] &lt;&lt; item
+      end
+    end
+  end
+
+  輸出範例：
+  report_data[:desktop_summary] = {
+    Video: [
+      {
+        "pricing_model_name" =&gt; "vCPM",
+        "executions_count" =&gt; 800,
+        "cv" =&gt; 1000,
+        "impression_count" =&gt; 800,
+        "ct_ratio" =&gt; 3.13,
+        "start_date" =&gt; "2023-01-01",
+        "end_date" =&gt; "2023-01-05",
+        "ad_format_full_name" =&gt; "桌機影音廣告",
+        "expect_ratio" =&gt; "3~5"
+      },
+      {
+        "pricing_model_name" =&gt; "CPM",
+        "executions_count" =&gt; 1200,
+        ...
+      }
+    ],
+    Banner: [ ... ]
+  }
+
+  ---
+  階段 4: 計算媒體摘要（行 135-145）
+
+  流程：
+  # 1. 將同裝置的所有 placements 按計價單位分組
+  result_group_by_denominator =
+    pricing_model_plmts_group_by_denominator(
+      placements_group_by_event[device].values.flatten
+    )
+
+  # 2. 計算媒體報告
+  report_data["#{device}_media_summary".to_sym] =
+    one_campaign_get_media_report(result_group_by_denominator)
+
+  pricing_model_plmts_group_by_denominator 做了什麼（行 762-843）：
+  1. 按計價單位將 placements 分組
+  2. 對每組調用 API Gateway 取得按 UID 分組的事件數據
+  3. 計算每個媒體（UID）的統計數據
+
+  輸出範例：
+  report_data[:desktop_media_summary] = [
+    {
+      "media_name" =&gt; "Yahoo新聞",
+      "cv" =&gt; 2000,
+      "impression_count" =&gt; 1500,
+      "video_click" =&gt; 50,
+      "total_click" =&gt; 60,
+      "ct_ratio" =&gt; 4.0,
+      "eng_ratio" =&gt; 3.2,
+      "denominator_name" =&gt; "impression_count"
+    },
+    {
+      "media_name" =&gt; "ETtoday",
+      ...
+    },
+    {  # 合計
+      "cv" =&gt; 5000,
+      "impression_count" =&gt; 4000,
+      "ct_ratio" =&gt; 3.5,
+      ...
+    }
+  ]
+
+  ---
+  階段 5: 計算所有裝置總和（行 147-151）
+
+  report_data[:device_all_summary] = devices.each_with_object({}) do |device, hash|
+    hash.merge!(
+      one_campaign_get_device_total_summary(
+        placements["#{device}_total".to_sym], device
+      )
+    )
+  end
+
+  one_campaign_get_device_total_summary 做了什麼（行 410-445）：
+  1. 取得該裝置所有 placements 的每日數據
+  2. 加總成摘要
+  3. 如果活動已結束，調用 API Gateway 取得 reach（觸及人數）和 hpc（每人觸及次數）
+
+  輸出範例：
+  report_data[:device_all_summary] = {
+    desktop: {
+      "cv" =&gt; 10000,
+      "impression_count" =&gt; 8000,
+      "total_click" =&gt; 250,
+      "ct_ratio" =&gt; 3.13,
+      "start_date" =&gt; "2023-01-01",
+      "end_date" =&gt; "2023-01-05",
+      "reach" =&gt; 5000,          # 觸及人數
+      "hpc_total" =&gt; 12000,     # 總觸及次數
+      "hpc_ratio" =&gt; 240,       # 平均每人觸及次數 (12000/5000*100)
+      "executions_count" =&gt; 2000,      # 後續補上
+      "total_executed_rate" =&gt; 25.0    # 後續補上
+    },
+    mobile: { ... },
+    ctv: { ... }
+  }
+
+  ---
+  階段 6: 計算執行率（行 154-169）
+
+  devices.each do |device|
+    device_all_summary_hash = report_data[:device_all_summary]["#{device}".to_sym]
+
+    # 1. 計算該裝置所有計價模型的已執行次數總和
+    device_all_summary_hash["executions_count"] =
+      report_data["#{device}_summary".to_sym].values.
+        sum do |device_ad_format_values|
+          device_ad_format_values.sum do |hash|
+            hash["executions_count"]
+          end
+        end
+
+    # 2. 計算整體已執行率
+    device_all_summary_hash["total_executed_rate"] =
+      (device_all_summary_hash["executions_count"].to_f * 100 /
+       device_all_summary_hash["play_times"].to_f).round(2)
+  end
+
+  範例計算：
+  # desktop_summary 有兩個計價模型
+  executions_count = 800 + 1200 = 2000
+
+  # play_times = 8000
+  total_executed_rate = (2000 / 8000) * 100 = 25.0%
+
+  ---
+  階段 7: 計算每小時數據（行 171）
+
+  report_data.merge!(get_ad_format_hour)
+
+  get_ad_format_hour 流程（行 310-381）：
+  1. 建立裝置與 placement 的映射
+  2. 初始化 0-23 小時的空數據結構
+  3. 遍歷 @apigateway_hourly_event，累加每小時的事件數
+  4. 計算每小時的 ct_ratio, eng_ratio, aer_ratio, cpe_ratio
+  5. 計算「總計」列
+  6. 轉換成陣列格式
+
+  輸出範例：
+  report_data[:desktop_hourly] = [
+    {
+      "hour" =&gt; 0,
+      "cv" =&gt; 500,
+      "impression_count" =&gt; 400,
+      "video_click" =&gt; 12,
+      "total_click" =&gt; 15,
+      "ct_ratio" =&gt; 3.75,
+      ...
+    },
+    {
+      "hour" =&gt; 1,
+      ...
+    },
+    ...
+    {
+      "hour" =&gt; "總計",
+      "cv" =&gt; 10000,
+      "impression_count" =&gt; 8000,
+      ...
+    }
+  ]</pre>
+<p>
+ 4.
+ <strong>
+  流程圖總結
+ </strong>
+</p>
+<pre>API Request (GET /api/v1/odm/others/speed_reports/22177/one_campaign_summary_new)
+      ↓
+  SpeedReportsController#one_campaign_summary_new
+      ↓
+  set_one_campaign (before_action)
+      ↓ 載入 OneCampaign + Placements
+  OdmOneCampaignNewReport.new
+      ↓
+  Initialize
+      ├─ 建立計價單位映射 (@placements_denominator_type)
+      ├─ 從 API Gateway 取得事件數據 (@apigateway_event)
+      └─ 從 API Gateway 取得每小時數據 (@apigateway_hourly_event)
+      ↓
+  odm_one_campaign_report
+      ↓
+  階段1: 組織 Placements
+      ├─ 按 device + ad_format 分組（不分計價單位）
+      └─ 按 device + ad_format + pricing_model 分組
+      ↓
+  階段2: 計算每日數據
+      ├─ get_ad_format_daily → 取得每日事件 + play_times
+      ├─ one_campaign_merge_and_sum_by_date → 按日期合併
+      └─ 儲存到 report_data[:device_daily]
+      ↓
+  階段3: 計算廣告格式摘要
+      ├─ one_campaign_get_ad_format_summary → 計算摘要
+      ├─ 計算 executions_count
+      └─ 儲存到 report_data[:device_summary]
+      ↓
+  階段4: 計算媒體摘要
+      ├─ pricing_model_plmts_group_by_denominator → 按媒體分組
+      ├─ one_campaign_get_media_report → 計算媒體統計
+      └─ 儲存到 report_data[:device_media_summary]
+      ↓
+  階段5: 計算所有裝置總和
+      ├─ one_campaign_get_device_total_summary
+      ├─ get_apigateway_reach (如已結束)
+      ├─ get_apigateway_hpc (如已結束)
+      └─ 儲存到 report_data[:device_all_summary]
+      ↓
+  階段6: 計算執行率
+      └─ 補充 executions_count 與 total_executed_rate
+      ↓
+  階段7: 計算每小時數據
+      └─ get_ad_format_hour → 處理 @apigateway_hourly_event
+      ↓
+  回傳 report_data (JSON)</pre>

@@ -1,0 +1,566 @@
+<h1>
+ TODOs
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      確認
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/557058:652386fa-01fc-429c-829f-bec269bafc07?ref=confluence">
+      samchang
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     新的 l.xml 資料結構設計
+    </p>
+   </td>
+   <td>
+    <p>
+     2023年8月31日
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence">
+      Jamie Yeh (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     當倒數時間 &gt; 48 小時的時候, 使用者看到的是 48 小時, 還是 2 天？
+    </p>
+    <p>
+     這決定了讓使用者設定倒數的單位(天/小時)是否合理？
+    </p>
+   </td>
+   <td>
+    <p>
+     2023年8月31日
+    </p>
+    <p>
+     Slack
+    </p>
+    <p>
+     使用者設定小時就用小時呈現
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:2a0a6948-6165-44a2-8547-4f55bebf29bb?ref=confluence">
+      Jamie Yeh (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     倒數文字前後是否自動加上空格 &gt; 不用
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ul>
+     <li>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     設計
+    </p>
+   </td>
+   <td>
+    <p>
+     新的作動機制確認
+    </p>
+   </td>
+   <td>
+    <p>
+     9/1
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 緣由&amp;目標
+</h1>
+<ul>
+ <li>
+  <p>
+   廣告主經由廣告活動和受眾溝通時, 針對新產品的上線, 或活動截止, 會需要根據特定日期顯示剩餘的時間
+  </p>
+ </li>
+ <li>
+  <p>
+   CIS 在目前系統要實現此需求, 會需要不斷手動調整素材包
+  </p>
+ </li>
+ <li>
+  <p>
+   讓設計能在設定文字素材時, 設定倒計時, 在廣告產生時由 Player 計算, 自動改變剩下的時間
+  </p>
+ </li>
+</ul>
+<h1>
+ User
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      User
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      權責
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     設計
+    </p>
+   </td>
+   <td>
+    <p>
+     設定文字素材
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ UseCase
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      使用者
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      使用情境
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     設計
+    </p>
+   </td>
+   <td>
+    <p>
+     新增, 編輯, 移除倒計時設定
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ Diagram
+</h1>
+<h2>
+ Wireframe
+</h2>
+<p>
+</p>
+<h1>
+ 關鍵設計
+</h1>
+<ul>
+ <li>
+  <p>
+   中文字數長度 35(之後若確定為 25, 再另外調整)
+  </p>
+ </li>
+ <li>
+  <p>
+   倒數計時文字 = 數字(最大 3 位數) + 單位 =&gt; 使用者可用字元: 96(105 - 9)
+  </p>
+ </li>
+ <li>
+  <p>
+   預設到期時間：明天的凌晨
+  </p>
+ </li>
+ <li>
+  <p>
+   預設計時單位：天  or 小時
+  </p>
+ </li>
+ <li>
+  <p>
+   [time] 只能出現一次
+  </p>
+ </li>
+ <li>
+  <p>
+   如有勾選倒數計時，送出表單前會檢查輸入文字必須含有
+   <code>
+    [time]
+   </code>
+  </p>
+ </li>
+</ul>
+<h2>
+ l.xml (20230831 會議確認)
+</h2>
+<pre>&lt;xml&gt;
+  ...
+  &lt;text_contents&gt;
+    &lt;text_content type="countDown" &gt;
+      &lt;tid&gt;139&lt;/tid&gt;
+      &lt;title&gt;ProductKey商品信號定向廣告文案&lt;/title&gt;
+      &lt;content&gt;倒數 [time], 玩遊戲拿玩命光頭 100 門票!!&lt;/content&gt;
+      &lt;countDown&gt;
+        &lt;unit&gt;day/hour&lt;/unit&gt;
+        &lt;dueDayTime&gt;1693465241374&lt;/dueDayTime&gt;
+      &lt;/countDown&gt;
+      &lt;linkURL&gt;活動頁網址&lt;/linkURL&gt;
+    &lt;/text_content&gt;
+  &lt;/text_contents&gt;
+  ...
+</pre>
+<p>
+</p>
+<p>
+ Time Stamp 注意事項：須確認時間轉換正確
+</p>
+<h1>
+ 功能細項
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      細項
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      開發時間
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      描述
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     ODM
+    </p>
+   </td>
+   <td>
+    <p>
+     新增倒計時
+    </p>
+   </td>
+   <td>
+    <p>
+     UI 新增倒計時設定
+    </p>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e98e27bb-3a8b-4be0-9eb5-24dcc10ba3dd?ref=confluence">
+      mariodeng (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2d
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       如不勾選，則維持原樣。
+      </p>
+     </li>
+     <li>
+      <p>
+       如勾選，展開其餘兩個欄位：
+      </p>
+      <ol>
+       <li>
+        <p>
+         設定結束時間欄位「日期/小時/分鐘」
+        </p>
+       </li>
+       <li>
+        <p>
+         廣告呈現計時單位欄位「天或小時」
+        </p>
+       </li>
+       <li>
+        <p>
+         新增按鈕輔助設計: 複製 [time] 到剪貼簿
+        </p>
+       </li>
+      </ol>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     API 調整, 傳入倒計時設定
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     MOAI
+    </p>
+   </td>
+   <td>
+    <p>
+     l.xml 結構調整
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     sequence.json
+    </p>
+   </td>
+   <td>
+    <p>
+     最下方 l.xml 確認
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h1>
+ 驗收標準
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      項目
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      備註
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     截止時間換算正確
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     文字訊息顯示正確
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ 參考資料
+</h1>
+<h2>
+ 需求
+</h2>
+<p>
+ <a href="/wiki/spaces/FRON/pages/3452830045/TextDrive">
+  TextDrive倒數計時器功能
+ </a>
+</p>

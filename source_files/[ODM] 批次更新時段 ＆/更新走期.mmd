@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant Client as 客戶端
+    participant API as API伺服器
+    participant DB as 資料庫
+
+    Client->>API: 批次更新請求 (多個 placement ID 與對應的日期)
+    API->>DB: 查詢所有指定 Placement 的資料
+    DB-->>API: 返回所有 Placement 的詳細資料
+
+    loop 遍歷每個 Placement 資料
+        alt Placement 狀態為 "結案" 或 "停刊"
+            API-->>Client: 無法更新，Placement 狀態為 "結案" 或 "停刊"
+        else Placement 狀態為 "非上刊"
+            API->>API: 模擬更新，檢查平均次數是否不少於 0
+            alt 平均次數不少於 0
+                API->>DB: 更新開始日期與結束日期
+                DB-->>API: 更新成功
+                API-->>Client: 更新成功
+            else 平均次數少於 0
+                API-->>Client: 返回錯誤訊息，無法更新
+            end
+        else Placement 狀態為 "上刊"
+            API->>API: 模擬更新，檢查平均次數是否不少於 0
+            alt 平均次數不少於 0
+                API->>DB: 僅更新結束日期
+                DB-->>API: 更新成功
+                API-->>Client: 已更新結束日期，開始日期無法更新
+            else 平均次數少於 0
+                API-->>Client: 返回錯誤訊息，無法更新
+            end
+        end
+    end
+    API-->>Client: 返回批次更新結果

@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant Client as 客戶端
+    participant API as API伺服器
+    participant DB as 資料庫
+
+    Client->>API: 請求移除多個 Placement 的數個媒體
+    API->>DB: 查詢所有指定 Placement 的資料與相關媒體
+    DB-->>API: 返回所有 Placement 資料與媒體列表
+
+    loop 遍歷每個 Placement
+        alt Placement 已開啟 pacing
+            API->>API: 模擬移除指定媒體，檢查是否還有剩餘便宜流量的媒體
+            alt 沒有剩餘便宜流量的媒體
+                API-->>Client: 返回錯誤訊息，此 Placement 無法移除媒體
+            else 有剩餘便宜流量的媒體
+                API->>DB: 執行移除多個媒體
+                DB-->>API: 移除成功
+                API-->>Client: 返回此 Placement 移除成功的訊息
+            end
+        else Placement 未開啟 pacing
+            API->>API: 模擬移除指定媒體，檢查是否還有剩餘媒體
+            alt 沒有剩餘媒體
+                API-->>Client: 返回錯誤訊息，此 Placement 無法移除媒體
+            else 有剩餘媒體
+                API->>DB: 執行移除多個媒體
+                DB-->>API: 移除成功
+                API-->>Client: 返回此 Placement 移除成功的訊息
+            end
+        end
+    end
+    API-->>Client: 返回所有 Placement 的批次移除結果

@@ -1,0 +1,520 @@
+<p>
+ <strong>
+  背景說明
+ </strong>
+ ：
+</p>
+<ul>
+ <li>
+  <p>
+   Household ID (HHID)  說明：
+  </p>
+  <ul>
+   <li>
+    <p>
+     定義：家戶 CTV 裝置 ID，OneDATA 內部技術使用 hashID (IP+useragent)，欄位名稱為
+     <code>
+      xx_uaip
+     </code>
+    </p>
+   </li>
+   <li>
+    <p>
+     標籤 (年齡性別、興趣) 來源：藉由 IP 當作 Key 值，比對 CTV 裝置外的家庭成員標籤，再將標籤歸戶至 HHID
+     (備註1)
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   CTV-pre-roll 格式使用 HHID 投放，承上説明 HHID 本身會帶著多個年齡性別標籤，因為一個家戶可能會有多個年齡性別組合
+   (備註2)
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  調整原因
+ </strong>
+ ：別於其他格式每個廣告查詢只會有一個年齡性別，在投放 CTV-pre-roll 廣告時，會產生一個查詢比對到多個年齡性別的情形，會造成投放成效報告錯亂
+</p>
+<p>
+ <strong>
+  投放邏輯說明
+ </strong>
+ ：
+</p>
+<ul>
+ <li>
+  <p>
+   ctv-pre-roll 年齡性別僅會判斷
+   <code>
+    user_des
+   </code>
+   欄位，
+   <code>
+    user_de
+   </code>
+   為 CTV-pre-roll 以外的格式使用
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    camp_de
+   </code>
+   為 campaign 指定的年齡性別
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    des
+   </code>
+   為
+   <code>
+    user_des
+   </code>
+   與
+   <code>
+    camp_de
+   </code>
+   交集的年齡性別 (不會比對
+   <code>
+    user_de
+   </code>
+   )
+  </p>
+ </li>
+ <li>
+  <p>
+   user_des, des 為本次新增欄位
+  </p>
+ </li>
+</ul>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      HHID
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      user_des
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      user_de
+     </strong>
+     <br/>
+     <strong>
+      (ctv-pre-roll 不使用 user_de)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      camp_de
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      des
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      是否投放
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      備註
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     AAA
+    </p>
+   </td>
+   <td>
+    <p>
+     1,2,3
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     1,2
+    </p>
+   </td>
+   <td>
+    <p>
+     1,2
+    </p>
+   </td>
+   <td>
+    <p>
+     V
+    </p>
+   </td>
+   <td>
+    <p>
+     user_des 與 camp_de 有交集 des
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     BBB
+    </p>
+   </td>
+   <td>
+    <p>
+     3,4
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     1,2
+    </p>
+   </td>
+   <td>
+    <p>
+     null
+    </p>
+   </td>
+   <td>
+    <p>
+     X
+    </p>
+   </td>
+   <td>
+    <p>
+     user_des 與 camp_de 無交集
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     CCC
+    </p>
+   </td>
+   <td>
+    <p>
+     null &gt; 0 (unknown)
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     1,2
+    </p>
+   </td>
+   <td>
+    <p>
+     null
+    </p>
+   </td>
+   <td>
+    <p>
+     V (unknown)
+    </p>
+   </td>
+   <td>
+    <p>
+     user_des 沒有值，unknown 會投放
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  調整項目
+ </strong>
+ ：CTV-pre-roll 遇到多個年齡性別時，平均權重給各年齡性別，以上述 raw data 為例
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      HHID \ 年齡性別
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      1
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      2
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     AAA
+    </p>
+   </td>
+   <td>
+    <p>
+     0.5
+    </p>
+   </td>
+   <td>
+    <p>
+     0.5
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     BBB
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     CCC
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <strong>
+      total
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      0.5
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      0.5
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     報表數字
+    </p>
+   </td>
+   <td>
+    <p>
+     2次 * 權重 0.5/(0.5+0.5) = 1
+    </p>
+   </td>
+   <td>
+    <p>
+     2次 * 權重 0.5/(0.5+0.5) = 1
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  需求1 - ODM 需要調整有呈現年齡性別的相關報表
+ </strong>
+ ：
+</p>
+<ul>
+ <li>
+  <p>
+   報表1：廣告活動 &gt; 廣告成效 &gt; 受眾報告數據 &gt; 年齡性別
+  </p>
+ </li>
+ <li>
+  <p>
+   報表2：投放項目設定 &gt; 投放成效報告 &gt; 受眾報告數據 &gt; 年齡性別
+  </p>
+ </li>
+ <li>
+  <p>
+   小數點歸戶邏輯待確認
+  </p>
+ </li>
+</ul>
+<p>
+ <strong>
+  需求2 - Unique User 需要調整為 Unique HHID
+ </strong>
+ ：
+</p>
+<ul>
+ <li>
+  <p>
+   當裝置為 CTV，Unique User 需要改為 Unique HHID
+  </p>
+ </li>
+ <li>
+  <p>
+   Unique HHID 計算邏輯為 count(distinct
+   <code>
+    xx_uaip
+   </code>
+   )
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://guoshi.atlassian.net/browse/ARE-1225">
+    ARE-1225
+   </a>
+   -
+   取得議題詳細資料...
+   狀態
+  </p>
+ </li>
+ <li>
+  <p>
+   呈現位置：
+  </p>
+  <ul>
+   <li>
+    <p>
+     廣告活動 &gt; 廣告成效 &gt; 整體活動成效
+    </p>
+   </li>
+   <li>
+    <p>
+     投放項目設定 &gt; 投放成效 &gt; 整體活動成效
+    </p>
+   </li>
+   <li>
+    <p>
+     備註：走期結束才會出現 Unique User / Unique HHID (原邏輯，非此次異動)
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+ 期望時程：2/29
+</p>
+<p>
+</p>
+<p>
+ 備註：
+</p>
+<ol>
+ <li>
+  <p>
+   HHID 與 OneID 關係圖
+  </p>
+ </li>
+</ol>
+<img alt="image (1).png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3523411982/image%20(1).png?version=2&amp;modificationDate=1706171236616&amp;cacheVersion=1&amp;api=v2&amp;width=290&amp;height=328"/>
+<ol>
+ <li>
+  <p>
+   BDCD 給 SIO 的 HHID 年齡性別 data 示意
+  </p>
+ </li>
+</ol>
+<pre>+-------------------+--------------------+
+|             hashid|                 des|
++-------------------+--------------------+
+|  27646388787362730|           [9, 5, 3]|
+| 154395699554919323|                 [5]|
+| 280837241113857448|              [6, 3]|
+| 353073222278685426|          [5, 24, 7]|
+| 411347140832720389|   [5, 24, 3, 10, 4]|</pre>
+<p>
+</p>
+<h3>
+ ClickHouse 查詢 weights 及 UU
+</h3>
+<ul>
+ <li>
+  <p>
+   <a href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-demographic-%E5%88%86%E4%BD%88-for-household">
+    https://github.com/onead/clickhouse-schema/wiki/查詢-demographic-分佈-for-household
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://github.com/onead/clickhouse-schema/wiki/%E6%9F%A5%E8%A9%A2-UU-%E5%9F%BA%E6%96%BC-xx_uaip-(hhid)">
+    https://github.com/onead/clickhouse-schema/wiki/查詢-UU-基於-xx_uaip-(hhid)
+   </a>
+  </p>
+ </li>
+</ul>

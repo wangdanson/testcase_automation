@@ -1,0 +1,3495 @@
+<p>
+ 前端路徑：advertiser/1817/campaign/22762/report_export
+</p>
+<p>
+ 後端API路徑: POST api/v1/odm/advertisers/1817/campaigns/22762/generate_report_xls
+</p>
+<h2>
+ 報表生成
+</h2>
+<p>
+ input
+</p>
+<pre>  {
+    a_id: 1817,                    // 廣告主ID
+    c_id: 22762,                   // 廣告活動ID  
+    report_type: "weekly_report",  // 報表類型
+    export_format: "only_date",    // 時間格式：only_date/only_hour/date_with_hour
+    date_range: ["2023-01-01", "2023-01-31"], // 日期範圍
+    exports: [                     // 匯出表單列表
+      {
+        id: 1,
+        name: "週報表單1",
+        placements: [{id: 123, name: "placement名稱"}], // 選中的placements
+        stat_colnames: ["cv", "impression", "videoClick", "bannerClick"] // 選擇的統計欄位
+      }
+    ]
+  }</pre>
+<p>
+</p>
+<h2>
+ 受眾報告數據
+</h2>
+<p>
+ input
+</p>
+<pre>{
+    a_id: 1817,
+    c_id: 22762,
+    report_type: "big_data_report",
+    date_range: ["2023-01-01", "2023-01-31"],
+    exports: [
+      {
+        id: 1,
+        name: "受眾報告表單1",
+        placements: [{id: 123, name: "placement名稱"}],
+        stat_colnames: ["cv", "impression", "videoClick"], // 統計欄位
+        target_colnames: ["interest", "demographic", "keyword"] // 投放條件維度
+      }
+    ]
+  }</pre>
+<p>
+</p>
+<p>
+ output
+</p>
+<p>
+ 前端彈出Excel下載
+</p>
+<h2>
+ 邏輯流程與呼叫鏈
+</h2>
+1. 接收請求參數
+<p>
+ -驗證 campaign 權限並設置 @campaign
+</p>
+<p>
+ -解析 report_type (weekly_report 或 big_data_report)
+</p>
+2. 建立報表服務物件
+<p>
+ report = CampaignReportExport.new(params)
+</p>
+<p>
+ CampaignReportExport 服務類別處理步驟：
+</p>
+<p>
+ 初始化階段 (initialize)：
+</p>
+<ol>
+ <li>
+  <p>
+   解析參數並驗證 placement 不為空
+  </p>
+ </li>
+ <li>
+  <p>
+   設置翻譯對照表 (OdmReportConstant::TRANSLATION)
+  </p>
+ </li>
+ <li>
+  <p>
+   取得相關的 placement 詳細資訊
+  </p>
+ </li>
+ <li>
+  <p>
+   計算需要的統計欄位和依賴關係
+  </p>
+ </li>
+</ol>
+<ol>
+ <li>
+  <p>
+   根據報表類型執行對應方法 report.send("generate_#{report_type}")  # 執行 generate_weekly_report 或 generate_big_data_report
+  </p>
+ </li>
+</ol>
+<p>
+ Weekly Report 處理流程：
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    初始化空白資料結構
+   </strong>
+   (empty_placements_set_data, empty_one_campaign_data)
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    呼叫 UseCase 處理資料
+   </strong>
+  </p>
+  <ol>
+   <li>
+    <p>
+     UseCases::ReportGeneration::ProcessExportFormatDataUseCase.new().run
+    </p>
+    <ol>
+     <li>
+      <p>
+       初始化參數
+      </p>
+      <pre>def initialize(fetch_data_params, process_data_params)
+@fetch_data_params = fetch_data_params     # API 查詢參數
+@export_format = process_data_params[:export_format]  # 時間格式
+@lookup_placement_export = process_data_params[:lookup_placement_export]  # placement 對應表
+@placements_set_data = process_data_params[:placements_set_data]  # 分組資料結構
+@one_campaign_data = process_data_params[:one_campaign_data]      # 活動總計資料
+end
+</pre>
+     </li>
+     <li>
+      <p>
+       執行主流程 (run 方法)
+      </p>
+      <pre>def run
+fetch_api_gateway_data  # 步驟1: 從 API Gateway 獲取資料
+process_event_data(@fetch_data_params)  # 步驟2: 處理事件資料
+end
+</pre>
+     </li>
+     <li>
+      <p>
+       資料獲取階段 (fetch_api_gateway_data) 根據前端選擇的時間格式，決定呼叫不同的 API：
+      </p>
+      <ol>
+       <li>
+        <p>
+         <strong>
+          僅日期格式 (only_date)
+         </strong>
+         <br/>
+         ReportDataFetcher.fetch_event_by_pl(@fetch_data_params)
+         <br/>
+         呼叫: ApiGateway::Reportor::Event
+         <br/>
+         功能: 按日期和 placement 分組統計
+         <br/>
+         回傳格式: [{id: 123, day_local: "2023-01-01", event: "cv", count: 1000}]
+        </p>
+       </li>
+       <li>
+        <p>
+         <strong>
+          小時格式 (only_hour 或 date_with_hour)
+         </strong>
+         <br/>
+         呼叫: ReportDataFetcher.fetch_date_hourly_event
+         <br/>
+         功能: 按小時統計，然後重新組織資料結構
+         <br/>
+         特殊處理: 根據格式決定分組邏輯
+         <br/>
+         only_hour: 按小時分組 ("01", "02", "03"...)
+         <br/>
+         date_with_hour: 按日期+小時分組 ("2023-01-01 - 01")
+        </p>
+       </li>
+       <li>
+        <p>
+         API Gateway 到 ClickHouse 的資料流
+        </p>
+        <ol>
+         <li>
+          <p>
+           API Gateway 連接器
+           <br/>
+           ApiGateway::Connector.new().find
+           <br/>
+           實際發送 HTTP 請求到 API Gateway 服務
+          </p>
+         </li>
+         <li>
+          <p>
+           ClickHouse 查詢流程
+          </p>
+          <ol>
+           <li>
+            <p>
+             <strong>
+              解析參數
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <p>
+               ids: Placement IDs (如: "17908,17897,17898")
+              </p>
+             </li>
+             <li>
+              <p>
+               ids_type: "placement"
+              </p>
+             </li>
+             <li>
+              <p>
+               group_type: "placement" 或 "pid"
+              </p>
+             </li>
+             <li>
+              <p>
+               type: 事件類型 (如: "'cv','impression','videoClick'")
+              </p>
+             </li>
+             <li>
+              <p>
+               start_date/end_date: 日期範圍
+              </p>
+             </li>
+            </ul>
+           </li>
+           <li>
+            <p>
+             <strong>
+              建構 ClickHouse SQL
+             </strong>
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              回傳資料格式
+             </strong>
+            </p>
+            <pre>  [
+    {"id": 17908, "day_local": "2023-01-01", "event": "cv", "count": 1523},
+    {"id": 17908, "day_local": "2023-01-01", "event": "impression", "count": 1200},
+    {"id": 17897, "day_local": "2023-01-01", "event": "videoClick", "count": 45}
+  ]
+</pre>
+           </li>
+          </ol>
+         </li>
+        </ol>
+       </li>
+       <li>
+        <p>
+         資料結構轉換
+         <br/>
+         <strong>
+          原始 ClickHouse 資料
+         </strong>
+         →
+         <strong>
+          應用程式資料結構
+         </strong>
+        </p>
+        <ol>
+         <li>
+          <p>
+           <strong>
+            分組資料
+           </strong>
+           (@placements_set_data)
+          </p>
+          <pre>  {
+    0 =&gt; {  # 第一個 export 表單
+      "2023-01-01" =&gt; {"cv" =&gt; 1523, "impression" =&gt; 1200},
+      "2023-01-02" =&gt; {"cv" =&gt; 1678, "impression" =&gt; 1350},
+      "total" =&gt; {"cv" =&gt; 3201, "impression" =&gt; 2550}
+    },
+    1 =&gt; {  # 第二個 export 表單
+      "2023-01-01" =&gt; {"cv" =&gt; 890, "videoClick" =&gt; 45},
+      # ...
+    }
+  }
+</pre>
+         </li>
+         <li>
+          <p>
+           <strong>
+            活動總計資料
+           </strong>
+           (@one_campaign_data)
+          </p>
+          <pre>{
+    "2023-01-01" =&gt; {"cv" =&gt; 2413, "impression" =&gt; 1200, "videoClick" =&gt; 45},
+    "2023-01-02" =&gt; {"cv" =&gt; 2568, "impression" =&gt; 1350, "videoClick" =&gt; 52},
+    "total" =&gt; {"cv" =&gt; 4981, "impression" =&gt; 2550, "videoClick" =&gt; 97}
+  }
+</pre>
+          <p>
+          </p>
+         </li>
+        </ol>
+       </li>
+      </ol>
+     </li>
+    </ol>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   <strong>
+    處理互動明細資料
+   </strong>
+   (如果有選擇 eng_detail)
+  </p>
+  <pre>    if @selected_clickhouse_events_with_deps.include?('eng_detail')
+      use_case = UseCases::ReportGeneration::ProcessEngDetailDataUseCase.new(
+        fetch_data_params(placement_ids),
+        process_data_params,
+        @pre_campaign_details,
+        @translation
+      ).run
+    end
+    @formatted_eng_detail =
+      use_case.nil? ? {} : use_case[:formatted_eng_detail]
+</pre>
+  <p>
+   ProcessEngDetailDataUseCase 的完整流程：
+  </p>
+  <ol>
+   <li>
+    <p>
+     <strong>
+      初始化
+     </strong>
+     → 接收參數和設定翻譯對照表
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      資料獲取
+     </strong>
+     → 從 ClickHouse 獲取互動明細和排除明細
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      事件定義
+     </strong>
+     → 建立英文→中文的事件翻譯對照表
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      時間處理
+     </strong>
+     → 根據時間維度重組資料格式
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      名稱翻譯
+     </strong>
+     → 使用正規表達式進行序列和一般翻譯
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      結構準備
+     </strong>
+     → 初始化資料結構並分配事件到各表單
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      資料填入
+     </strong>
+     → 將實際互動次數填入準備好的結構
+    </p>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   <strong>
+    處理第三方數據
+   </strong>
+  </p>
+  <ol>
+   <li>
+    <p>
+     第三方數據架構分析
+    </p>
+    <ol>
+     <li>
+      <p>
+       資料表關係結構
+      </p>
+      <ol>
+       <li>
+        <p>
+         <strong>
+          pre_campaign_externals (第三方關聯表)
+         </strong>
+         <br/>
+         建立 ODM placement 與第三方平台廣告的對應關係
+         <br/>
+         記錄哪些 placement 在外部平台投放
+        </p>
+        <pre># 表結構:
+  {
+    one_campaign_id: 22762,           # ODM 活動 ID
+    pre_campaign_id: 70149,          # ODM placement ID  
+    external_platform: "youtube",    # 第三方平台名稱
+    external_pre_campaign_id: 98765  # 第三方平台的廣告 ID
+  }
+</pre>
+       </li>
+       <li>
+        <p>
+         <strong>
+          pre_campaign_external_reports (第三方報表數據)
+         </strong>
+         <br/>
+         儲存從第三方平台取得的統計數據
+         <br/>
+         支援不同時間維度的資料
+        </p>
+        <pre># 表結構:
+  {
+    platform: "youtube",             # 第三方平台
+    external_pre_campaign_id: 98765, # 第三方廣告 ID
+    report_type: "date",             # 報表類型: date/hour/date_hour
+    report_value: "2023-06-01",      # 時間值 (依 report_type 而定)
+    impression: 1500,                # 曝光次數
+    video_click: 45,                 # 影片點擊
+    ctr_imp: 0.03,                   # 點擊率
+    q0: 1200,                        # 影片觀看統計
+    q25: 800, q50: 600, q75: 400, q100: 200
+  }
+</pre>
+        <p>
+        </p>
+       </li>
+      </ol>
+     </li>
+    </ol>
+   </li>
+   <li>
+    <p>
+     第三方數據獲取 (related_external_data)
+    </p>
+    <ol>
+     <li>
+      <p>
+       時間維度對應
+      </p>
+      <pre>external_report_type =
+    case @export_format
+    when 'only_date'      # 前端選擇「僅日期」
+      'date'              # 查詢日期維度數據
+    when 'only_hour'      # 前端選擇「僅小時」  
+      'hour'              # 查詢小時維度數據
+    else                  # 前端選擇「日期+小時」
+      'date_hour'         # 查詢日期小時維度數據
+    end
+</pre>
+     </li>
+     <li>
+      <p>
+       複雜的關聯查詢
+      </p>
+      <pre>external_data = PreCampaignExternalReport.select(
+    "record.pre_campaign_id, pre_campaign_external_reports.*"
+  ).joins(
+    "JOIN pre_campaign_externals AS record
+     ON pre_campaign_external_reports.platform = record.external_platform
+     AND pre_campaign_external_reports.external_pre_campaign_id = record.external_pre_campaign_id"
+  ).where(
+    "report_type = ? AND record.pre_campaign_id IN (?)",
+    external_report_type,
+    @placement_ids
+  ).group_by(&amp;:pre_campaign_id)
+  
+  查詢邏輯解析:
+  1. 主表: pre_campaign_external_reports (第三方報表數據)
+  2. 關聯表: pre_campaign_externals (ODM 與第三方的對應關係)
+  3. 關聯條件:
+    - 平台名稱相符: platform = external_platform
+    - 第三方廣告 ID 相符: external_pre_campaign_id
+  4. 篩選條件:
+    - 報表類型符合前端選擇的時間維度
+    - ODM placement ID 在指定範圍內
+  5. 分組: 按 ODM placement ID 分組
+  
+  SQL 範例:
+  SELECT
+    record.pre_campaign_id,
+    pre_campaign_external_reports.*
+  FROM pre_campaign_external_reports
+  JOIN pre_campaign_externals AS record
+    ON pre_campaign_external_reports.platform = record.external_platform
+    AND pre_campaign_external_reports.external_pre_campaign_id = record.external_pre_campaign_id
+  WHERE
+    report_type = 'date'
+    AND record.pre_campaign_id IN (70149, 70150, 70151)
+
+  查詢結果格式:
+  external_data = {
+    70149 =&gt; [  # placement ID 70149 的第三方數據
+      {
+        platform: "youtube",
+        external_pre_campaign_id: 98765,
+        report_type: "date",
+        report_value: "2023-06-01",
+        impression: 1500,
+        video_click: 45,
+        q0: 1200, q25: 800, q50: 600, q75: 400, q100: 200
+      },
+      {
+        platform: "youtube",
+        external_pre_campaign_id: 98765,
+        report_type: "date",
+        report_value: "2023-06-02",
+        impression: 1800,
+        video_click: 62,
+        q0: 1400, q25: 950, q50: 720, q75: 480, q100: 250
+      }
+    ],
+    70150 =&gt; [ ... ]  # placement ID 70150 的第三方數據
+  }
+</pre>
+      <p>
+      </p>
+     </li>
+    </ol>
+   </li>
+   <li>
+    <p>
+     第三方數據處理 (process_event_data)
+    </p>
+    <ol>
+     <li>
+      <p>
+       時間標籤格式化
+      </p>
+      <pre>  def process_event_data(external_data, external_report_type)
+    external_data.each do |placement_id, data|
+      data.each do |record|
+        # 根據報表類型格式化時間標籤
+        report_value =
+          if external_report_type == 'date_hour'
+            # "2023-06-01 14:00:00" → "2023-06-01 - 14"
+            record.report_value.gsub(' ', ' - ').split(":").first
+          else
+            # "2023-06-01" 或 "14" 保持原樣
+            record.report_value
+          end
+ 時間格式轉換範例:
+  # date 類型: "2023-06-01" → "2023-06-01"
+  # hour 類型: "14" → "14"  
+  # date_hour 類型: "2023-06-01 14:00:00" → "2023-06-01 - 14"
+</pre>
+     </li>
+     <li>
+      <p>
+       數據合併邏輯
+      </p>
+      <pre># 找出該 placement 屬於哪些 export 表單
+        tab_indices = @lookup_placement_export[placement_id.to_s] || []
+
+        tab_indices.each do |tab_index|
+          # 檢查該時間標籤是否存在於現有資料結構中
+          next if @placements_set_data[tab_index][report_value].blank?
+
+          # 遍歷所有需要處理的事件類型
+          @events.each do |event|
+            next if event == "eng_detail"  # 跳過互動明細
+
+            # 處理事件名稱對應 (videoClick → video_click)
+            record_event = event == "videoClick" ? record["video_click"] : record[event]
+
+            # 累加到對應的資料結構
+            @placements_set_data[tab_index][report_value][event] += record_event || 0
+            @placements_set_data[tab_index]["total"][event] += record_event || 0
+            @one_campaign_data[report_value][event] += record_event || 0
+            @one_campaign_data["total"][event] += record_event || 0
+          end
+        end
+      end
+    end
+  end
+</pre>
+     </li>
+     <li>
+      <p>
+       事件名稱對應處理
+      </p>
+      <pre>特殊處理: videoClick 事件
+  - ODM 內部使用: videoClick
+  - 第三方數據欄位: video_click
+  - 需要進行名稱轉換
+
+  其他事件直接對應:
+  - impression → impression
+  - q0 → q0
+  - q25 → q25
+  - q50 → q50
+  - q75 → q75
+  - q100 → q100
+
+  3.4 數據累加範例
+
+  處理前的資料結構:
+  @placements_set_data[0]["2023-06-01"] = {
+    "impression" =&gt; 1200,    # 來自 ClickHouse
+    "videoClick" =&gt; 35,      # 來自 ClickHouse
+    "q0" =&gt; 950,             # 來自 ClickHouse
+    "q25" =&gt; 600             # 來自 ClickHouse
+  }
+
+  第三方數據:
+  record = {
+    platform: "youtube",
+    report_value: "2023-06-01",
+    impression: 1500,       # YouTube 數據
+    video_click: 45,        # YouTube 數據  
+    q0: 1200,               # YouTube 數據
+    q25: 800                # YouTube 數據
+  }
+
+  累加後的結果:
+  @placements_set_data[0]["2023-06-01"] = {
+    "impression" =&gt; 2700,    # 1200 + 1500 (ODM + YouTube)
+    "videoClick" =&gt; 80,      # 35 + 45 (ODM + YouTube)
+    "q0" =&gt; 2150,            # 950 + 1200 (ODM + YouTube)
+    "q25" =&gt; 1400            # 600 + 800 (ODM + YouTube)
+  }
+</pre>
+      <p>
+      </p>
+     </li>
+    </ol>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   <strong>
+    計算衍生指標
+   </strong>
+   (calculate_one_campaign, calculate_export_tables)
+  </p>
+  <ol>
+   <li>
+    <p>
+     calculate_one_campaign 方法分析-週報模式 (weekly_report) 計算
+    </p>
+    <pre>def calculate_one_campaign(source = false)
+    if @report_type == 'weekly_report'
+      # 1. 準備欄位清單和依賴關係
+      selected_colnames = @exports.map {|h| h["stat_colnames"]}.flatten.uniq
+      stats_calculated = @stats_calculated.map {|stat| DEPENDENCIES[stat]}.flatten.uniq
+      unselected_colnames = stats_calculated - selected_colnames
+
+  步驟 1: 欄位分析
+  - selected_colnames: 前端勾選的統計欄位
+  - stats_calculated: 需要計算的衍生指標
+  - unselected_colnames: 計算用但不顯示的欄位
+
+  範例:
+  # 前端選擇的欄位
+  selected_colnames = ["cv", "impression", "videoClick", "ctr_cv", "ctr_imp"]
+
+  # 計算 ctr_cv 需要的依賴欄位
+  DEPENDENCIES["ctr_cv"] = ["videoClick", "bannerClick", "tb", "cv"]
+  DEPENDENCIES["ctr_imp"] = ["videoClick", "bannerClick", "tb", "impression", "cv"]
+
+  # 計算所需但不顯示的欄位
+  unselected_colnames = ["bannerClick", "tb"]  # 使用者沒選，但計算需要
+  
+  步驟 2: 衍生指標計算
+      @one_campaign_data.each do |date, val|
+        @stats_calculated.each do |stat_colname|
+          @one_campaign_data[date][stat_colname] = calculate_by_stat(
+            val: val,
+            stat_colname: stat_colname
+          )
+        end
+        # 移除不顯示的欄位
+        val.delete_if { |event, _| unselected_colnames.include?(event) }
+      end
+
+  計算範例:
+  # 計算前的資料
+  @one_campaign_data["2023-06-01"] = {
+    "cv" =&gt; 1523,
+    "impression" =&gt; 1200,
+    "videoClick" =&gt; 45,
+    "bannerClick" =&gt; 12,
+    "tb" =&gt; 3
+  }
+
+  # 計算 ctr_cv
+  ctr_cv = calculate_ctr(45, 12, 3, 1523)  # (45+12+3)/1523 = 0.0394
+
+  # 計算後的資料  
+  @one_campaign_data["2023-06-01"] = {
+    "cv" =&gt; 1523,
+    "impression" =&gt; 1200,
+    "videoClick" =&gt; 45,
+    "ctr_cv" =&gt; 0.0394,
+    "ctr_imp" =&gt; 0.05    # (45+12+3)/1200
+    # bannerClick, tb 被移除
+  }
+
+  步驟 3: 欄位排序
+      @one_campaign_data = @one_campaign_data.map do |date, data|
+        # 按照預定義順序排列
+        filtered_col = data.select { |key, _| @col_order.key?(key) }
+        sorted_col = filtered_col.sort_by { |key, _| @col_order[key] }.to_h
+
+        # 未定義的欄位放在最後 (如互動明細)
+        undefined_col = data.except(*filtered_col.keys)
+        undefined_col = sort_eng_col(undefined_col)
+
+        [date, sorted_col.merge!(undefined_col)]
+      end.to_h
+</pre>
+   </li>
+   <li>
+    <p>
+     calculate_export_tables 方法分析-週報模式分組計算
+    </p>
+    <pre>def calculate_export_tables(source = false)
+    if @report_type == 'weekly_report'
+      @placements_set_data.each do |index, dataset|
+        # 1. 取得該表單選擇的欄位
+        selected_colnames = @exports[index]["stat_colnames"]
+        col_calculation_required = selected_colnames - Event.names
+
+  步驟 1: 按表單分別計算
+  - 每個 export 表單有自己選擇的統計欄位
+  - 只計算該表單需要的衍生指標
+
+        # 2. 計算每個時間點的衍生指標
+        dataset.each do |date, val|
+          col_calculation_required.each do |stat_colname|
+            @placements_set_data[index][date][stat_colname] = calculate_by_stat(
+              val: val,
+              stat_colname: stat_colname
+            )
+          end
+        end
+
+  計算範例:
+  # 表單 0 選擇的欄位
+  @exports[0]["stat_colnames"] = ["cv", "impression", "videoClick", "ctr_cv"]
+
+  # 計算前
+  @placements_set_data[0]["2023-06-01"] = {
+    "cv" =&gt; 800, "impression" =&gt; 650, "videoClick" =&gt; 25, "bannerClick" =&gt; 8
+  }
+
+  # 計算 ctr_cv (需要 videoClick, bannerClick, tb, cv)
+  ctr_cv = calculate_ctr(25, 8, 0, 800) = 0.04125
+
+  # 計算後
+  @placements_set_data[0]["2023-06-01"] = {
+    "cv" =&gt; 800, "impression" =&gt; 650, "videoClick" =&gt; 25, "ctr_cv" =&gt; 0.04125
+  }
+
+  步驟 2: 處理互動明細欄位
+        # 3. 檢查是否有選擇 eng_detail
+        if selected_colnames.include?("eng_detail")
+          engs_evnets = @placements_set_data[index]["total"].keys - @translation.keys
+          selected_colnames += engs_evnets
+        end
+
+  如果使用者勾選了「互動明細」，系統會自動加入所有翻譯後的互動事件。
+
+  步驟 3: 過濾顯示欄位
+        # 4. 移除不需要顯示的欄位
+        @placements_set_data[index] = dataset.map do |k, v|
+          [k, v.select {|event, count| selected_colnames.include?(event)}]
+        end.to_h
+</pre>
+   </li>
+   <li>
+    <p>
+     衍生指標計算邏輯詳解-ODM 衍生指標計算公式 (calculate_by_stat)
+    </p>
+    <pre>A. 點擊率計算 (CTR)
+  def calculate_ctr(video_click, banner_click, tb, cv_imp)
+    retval = ((video_click.to_f + banner_click.to_f + tb.to_f) / cv_imp.to_f).round(4)
+    retval.nan? ? 0 : retval
+  end
+
+  # 應用場景:
+  # ctr_cv: 基於 cv 的點擊率
+  # ctr_imp: 基於 impression 的點擊率
+
+  計算範例:
+  # 資料: videoClick=45, bannerClick=12, tb=3, cv=1523
+  ctr_cv = calculate_ctr(45, 12, 3, 1523)
+  # = (45 + 12 + 3) / 1523 = 60 / 1523 = 0.0394 (3.94%)
+
+  B. 互動率計算 (CPE Ratio)
+  def calculate_cperatio(cpe, cv_imp)
+    retval = (cpe.to_f / cv_imp.to_f).round(4)
+    retval.nan? ? 0 : retval
+  end
+
+  # 應用場景:
+  # cpeRatio_cv: 基於 cv 的互動率
+  # cpeRatio_imp: 基於 impression 的互動率
+
+  C. AER 比率計算
+  def calculate_aerratio(video_click, banner_click, view5s, cpe, cv_imp)
+    sum_stats = video_click.to_f + banner_click.to_f + view5s.to_f + cpe.to_f
+    retval = (sum_stats / cv_imp.to_f).round(4)
+    retval.nan? ? 0 : retval
+  end
+
+  # AER = (所有互動行為總和) / 曝光次數
+
+  D. 完整觀看率計算
+  def calculate_q100ratio(q100, cv_imp)
+    retval = (q100.to_f / cv_imp.to_f).round(4)
+    retval.nan? ? 0 : retval
+  end
+
+  # q100Ratio_cv: 基於 cv 的完整觀看率  
+  # q100Ratio_imp: 基於 impression 的完整觀看率
+
+  E. 總點擊數計算
+  def calculate_totalclick(video_click, banner_click, tb)
+    video_click.to_i + banner_click.to_i + tb.to_i
+  end
+
+  # 所有點擊行為的總和
+</pre>
+   </li>
+   <li>
+    <p>
+     <strong>
+      計算衍生指標的完整機制
+     </strong>
+     <br/>
+     核心設計原則
+    </p>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        智能依賴解析
+       </strong>
+       - 系統自動分析用戶選擇的指標，找出計算所需的基礎數據
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        分層計算
+       </strong>
+       - 先計算活動總計，再計算各表單分組，確保數據一致性
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        彈性公式支援
+       </strong>
+       - ODM 和 SuperDSP 使用不同的計算公式，適應不同平台需求
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        優雅的排序機制
+       </strong>
+       - 標準欄位按業務邏輯排序，互動明細按語言特性排序
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        高效過濾
+       </strong>
+       - 只保留用戶選擇的欄位，移除計算用的中間數據
+      </p>
+     </li>
+    </ol>
+    <p>
+     處理流程
+    </p>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        依賴分析
+       </strong>
+       → 解析用戶選擇的指標，確定需要獲取和計算的欄位
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        基礎數據獲取
+       </strong>
+       → 從 ClickHouse、第三方平台、互動明細獲取原始數據
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        衍生指標計算
+       </strong>
+       → 使用預定義公式計算點擊率、互動率等衍生指標
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        資料結構整理
+       </strong>
+       → 按用戶選擇過濾欄位，按業務邏輯排序
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        格式化輸出
+       </strong>
+       → 轉換成 Excel 輸出所需的格式
+       <br/>
+      </p>
+     </li>
+    </ol>
+   </li>
+   <li>
+    <p>
+     欄位排序和過濾機制
+    </p>
+    <ol>
+     <li>
+      <p>
+       欄位順序控制 (@col_order)
+      </p>
+      <pre>def col_order
+    @translation.transform_values.with_index { |_, i| i }
+  end
+
+  # @translation 來自 OdmReportConstant::TRANSLATION
+  # 定義了所有欄位的顯示順序和中文名稱
+
+  排序邏輯:
+  # 1. 已定義欄位按 @col_order 排序
+  filtered_col = data.select { |key, _| @col_order.key?(key) }
+  sorted_col = filtered_col.sort_by { |key, _| @col_order[key] }.to_h
+
+  # 2. 未定義欄位 (如互動明細) 放在最後
+  undefined_col = data.except(*filtered_col.keys)
+  undefined_col = sort_eng_col(undefined_col)
+
+  # 3. 合併結果
+  sorted_col.merge!(undefined_col)
+</pre>
+     </li>
+     <li>
+      <p>
+       互動明細欄位排序 (sort_eng_col)
+      </p>
+      <pre>def sort_eng_col(undefined_col)
+    # 定義權重, 越前面的順位權重越高
+    sort_order = [
+      { order: 1, condition: lambda { |key, _| key.match?(/\\A[\\p{Han}\\d]+\\z/) } }, # 中文字串
+      { order: 2, condition: lambda { |key, _| key.match?('_') } },                # 有底線的字串  
+      { order: 3, condition: lambda { |key, _| key.match?(/\\A[A-Za-z]+\\z/) } },    # 英文字串
+    ]
+
+    sorted_data = undefined_col.sort do |(key1, value1), (key2, value2)|
+      order1 = sort_order.find { |rule| rule[:condition].call(key1, value1) }&amp;.dig(:order) || Float::INFINITY
+      order2 = sort_order.find { |rule| rule[:condition].call(key2, value2) }&amp;.dig(:order) || Float::INFINITY
+      order1 &lt;=&gt; order2
+    end
+
+    sorted_data.to_h
+  end
+
+  排序範例:
+  # 原始未排序的互動明細
+  undefined_col = {
+    "canvasClick" =&gt; 25,           # 英文字串 (order: 3)
+    "map_open_btn" =&gt; 18,          # 有底線字串 (order: 2)  
+    "地圖開啟按鈕_第n家" =&gt; 15,      # 中文字串 (order: 1)
+    "Line分享" =&gt; 12,              # 中文字串 (order: 1)
+    "unknownEvent" =&gt; 8            # 英文字串 (order: 3)
+  }
+
+  # 排序後結果
+  sorted_col = {
+    "地圖開啟按鈕_第n家" =&gt; 15,      # 中文優先
+    "Line分享" =&gt; 12,
+    "map_open_btn" =&gt; 18,          # 底線其次
+    "canvasClick" =&gt; 25,           # 英文最後
+    "unknownEvent" =&gt; 8
+  }
+</pre>
+     </li>
+     <li>
+      <p>
+       欄位過濾機制
+      </p>
+      <pre>週報過濾:
+  # 只保留使用者選擇的欄位
+  @placements_set_data[index] = dataset.map do |k, v|
+    [k, v.select {|event, count| selected_colnames.include?(event)}]
+  end.to_h
+</pre>
+     </li>
+     <li>
+      <p>
+       完整的資料轉換流程
+      </p>
+      <pre>輸入資料 (原始 + 第三方 + 互動明細):
+  {
+    "2023-06-01" =&gt; {
+      "cv" =&gt; 1523, "impression" =&gt; 1200, "videoClick" =&gt; 45,
+      "bannerClick" =&gt; 12, "tb" =&gt; 3, "cpe" =&gt; 85,
+      "地圖開啟按鈕_第n家" =&gt; 15, "Line分享" =&gt; 8,
+      "canvasClick" =&gt; 5
+    }
+  }
+
+  計算衍生指標後:
+  {
+    "2023-06-01" =&gt; {
+      "cv" =&gt; 1523, "impression" =&gt; 1200, "videoClick" =&gt; 45,
+      "bannerClick" =&gt; 12, "tb" =&gt; 3, "cpe" =&gt; 85,
+      "ctr_cv" =&gt; 0.0394,      # 計算得出
+      "ctr_imp" =&gt; 0.05,       # 計算得出 
+      "cpeRatio_cv" =&gt; 0.0558, # 計算得出
+      "totalClick" =&gt; 60,      # 計算得出
+      "地圖開啟按鈕_第n家" =&gt; 15, "Line分享" =&gt; 8, "canvasClick" =&gt; 5
+    }
+  }
+
+  過濾不需要的欄位 (假設用戶只選擇了基本指標):
+  {
+    "2023-06-01" =&gt; {
+      "cv" =&gt; 1523, "impression" =&gt; 1200, "videoClick" =&gt; 45,
+      "ctr_cv" =&gt; 0.0394, "totalClick" =&gt; 60
+      # bannerClick, tb, cpe 被移除 (計算用但不顯示)
+      # 互動明細保留 (用戶有勾選 eng_detail)
+      "地圖開啟按鈕_第n家" =&gt; 15, "Line分享" =&gt; 8, "canvasClick" =&gt; 5
+    }
+  }
+
+  最終排序結果:
+  {
+    "2023-06-01" =&gt; {
+      # 標準欄位按預定義順序
+      "cv" =&gt; 1523, "impression" =&gt; 1200, "videoClick" =&gt; 45,
+      "totalClick" =&gt; 60, "ctr_cv" =&gt; 0.0394,
+      # 互動明細按語言類型排序
+      "地圖開啟按鈕_第n家" =&gt; 15, "Line分享" =&gt; 8, "canvasClick" =&gt; 5
+    }
+  }
+</pre>
+     </li>
+    </ol>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   <strong>
+    格式化輸出資料(format_one_campaign_data, format_placements_data)
+   </strong>
+  </p>
+  <ol>
+   <li>
+    <p>
+     format_one_campaign_data 活動總計格式化
+    </p>
+    <pre>1.1 週報模式活動總計處理
+
+  def format_one_campaign_data
+    if @report_type == 'weekly_report'
+      # 步驟 1: 建立欄位標題行
+      row_one_campaign_col =
+        ["時間"] +  # 第一欄固定為時間
+        @one_campaign_data["total"].keys.map do |col|
+          @translation[col] || col  # 翻譯欄位名稱，如 cv → 曝光次數
+        end
+
+  欄位標題範例:
+  # 原始欄位 keys
+  @one_campaign_data["total"].keys = ["cv", "impression", "videoClick", "ctr_cv", "地圖開啟按鈕_第n家"]
+
+  # 翻譯後的標題行
+  row_one_campaign_col = [
+    "時間",
+    "曝光次數(cv)",
+    "可視曝光次數",
+    "影片點擊次數",
+    "點擊率CTR(%) - cv",
+    "地圖開啟按鈕_第n家"  # 互動明細保持原名
+  ]
+
+  1.2 時間排序和標籤轉換
+
+      # 步驟 2: 將 one_campaign_data 排序(日期排序,最後列總計), 並將 total 改為 總計
+      @one_campaign_data = @one_campaign_data.map do |date, data|
+        new_date = date == "total" ? "總計" : date
+        [new_date, data]
+      end.sort
+
+  排序邏輯:
+  - 日期按字典順序排序 (2023-06-01, 2023-06-02, ...)
+  - "總計" 會在 .sort 後自動排到最後面
+  - 時間格式根據前端選擇可能是日期、小時或日期+小時
+
+  排序範例:
+  # 排序前
+  @one_campaign_data = {
+    "total" =&gt; {...},
+    "2023-06-02" =&gt; {...},
+    "2023-06-01" =&gt; {...},
+    "2023-06-03" =&gt; {...}
+  }
+
+  # 排序後  
+  @one_campaign_data = [
+    ["2023-06-01", {...}],
+    ["2023-06-02", {...}],
+    ["2023-06-03", {...}],
+    ["總計", {...}]
+  ]
+
+  1.3 數據行格式轉換
+
+      # 步驟 3: 轉換成 Excel 需要的二維陣列格式
+      rows_one_campaign_data =
+        @one_campaign_data.map do |date, events|
+          [[date] + events.values].flatten
+        end
+
+  資料轉換範例:
+  # 輸入格式
+  @one_campaign_data = [
+    ["2023-06-01", {"cv" =&gt; 1523, "impression" =&gt; 1200, "videoClick" =&gt; 45}],
+    ["總計", {"cv" =&gt; 4569, "impression" =&gt; 3600, "videoClick" =&gt; 135}]
+  ]
+
+  # 輸出格式 (Excel 二維陣列)
+  rows_one_campaign_data = [
+    ["2023-06-01", 1523, 1200, 45],
+    ["總計", 4569, 3600, 135]
+  ]
+
+  1.4 格式代碼設定
+
+      # 步驟 4: 設定各欄位的 Excel 格式代碼
+      format_codes =
+        ['regular'] +  # 時間欄使用一般格式
+        @one_campaign_data.first[1].map {|k, v| FORMAT_CODES[k] || "thousand"}
+
+  FORMAT_CODES 對照表:
+  FORMAT_CODES = {
+    'cv' =&gt; 'thousand',          # 1,523 (千分位)
+    'impression' =&gt; 'thousand',   # 1,200 (千分位)
+    'videoClick' =&gt; 'thousand',   # 45 (千分位)
+    'ctr_cv' =&gt; 'percentage',     # 3.94% (百分比)
+    'ctr_imp' =&gt; 'percentage',    # 5.00% (百分比)
+    'amount_sell' =&gt; 'currency'   # $1,523.00 (貨幣)
+  }
+
+  最終輸出結構:
+  result = {
+    colnames: ["時間", "曝光次數(cv)", "可視曝光次數", "影片點擊次數", "點擊率CTR(%) - cv"],
+    data: [
+      ["2023-06-01", 1523, 1200, 45, 0.0296],
+      ["2023-06-02", 1678, 1350, 52, 0.0310],
+      ["總計", 3201, 2550, 97, 0.0303]
+    ],
+    format_codes: ['regular', 'thousand', 'thousand', 'thousand', 'percentage']
+  }
+</pre>
+   </li>
+   <li>
+    <p>
+     format_placements_data 分組表單格式化
+    </p>
+    <pre>2.1 週報模式分組處理
+
+  def format_placements_data
+    result = {}
+    if @report_type == 'weekly_report'
+      report_index = 0  # Excel 工作表索引計數器
+      @lookup_index_exportname = format_tab_name  # 格式化表單名稱
+
+      @placements_set_data.map do |index, data|
+        # 步驟 1: 取得表單名稱
+        tab_name = @lookup_index_exportname[index]
+
+  @lookup_index_exportname 範例:
+  # 格式化前 (來自前端)
+  @exports = [
+    {name: "重點投放區域", placements: [...]},
+    {name: "一般投放區域", placements: [...]}
+  ]
+
+  # 格式化後 (處理特殊字元和長度限制)
+  @lookup_index_exportname = {
+    0 =&gt; "重點投放區域",
+    1 =&gt; "一般投放區域"
+  }
+
+  2.2 表單數據格式化
+
+        # 步驟 2: 建立該表單的欄位標題
+        row_placements_col =
+          ["時間"] +
+          @placements_set_data[index]["total"].keys.map do |col|
+            @translation[col] || col
+          end
+
+        # 步驟 3: 時間排序和標籤轉換 (同活動總計邏輯)
+        @placements_set_data[index] = @placements_set_data[index].map do |date, data|
+          new_date = date == "total" ? "總計" : date
+          [new_date, data]
+        end.sort
+
+        # 步驟 4: 轉換成二維陣列
+        rows_placements_data =
+          @placements_set_data[index].map do |date, events|
+            [[date] + events.values].flatten
+          end
+
+  2.3 表單結果結構
+
+        # 步驟 5: 建立該表單的結果結構
+        result[report_index] = {
+          tab_name: tab_name,                    # Excel 工作表名稱
+          colnames: row_placements_col,          # 欄位標題行
+          data: rows_placements_data,            # 數據行
+          format_codes: format_codes             # 格式代碼
+        }
+        report_index += 1
+
+  單一表單結果範例:
+  result[0] = {
+    tab_name: "重點投放區域",
+    colnames: ["時間", "曝光次數(cv)", "可視曝光次數", "影片點擊次數"],
+    data: [
+      ["2023-06-01", 800, 650, 25],
+      ["2023-06-02", 920, 750, 32],
+      ["總計", 1720, 1400, 57]
+    ],
+    format_codes: ['regular', 'thousand', 'thousand', 'thousand']
+  }
+
+  2.4 特殊功能：序列互動報表
+
+        # 步驟 6: 處理序列互動明細 (如果有 $ 符號的事件)
+        serial_eng_info = @formatted_eng_detail&amp;.
+          group_by { |item| [item["tab_index"], item["defined_ch_eng"]] }&amp;.
+          select { |key, value| key.last&amp;.include?('$') }
+
+        if serial_eng_info.present? &amp;&amp; @export_format == 'only_date'
+          next if @exports[index]["stat_colnames"].exclude?("eng_detail")
+
+          tab_name_with_eng = format_tab_name(serial_eng_info, index)
+
+          serial_eng_info.each do |key, records|
+            tab_index, defined_ch_eng = key.first, key.last
+            next if tab_index != index
+
+            # 建立序列報表的欄位和數據
+            row_placements_col = [defined_ch_eng.gsub(/\\$/, 'n'), "次數"]
+            rows_placements_data =
+              records.map { |h| [h["translated_eng"], h["count"]] }.
+              sort_by { |arr| arr[0].scan(/\\d+/).map(&amp;:to_i) }
+            rows_placements_data &lt;&lt; ["總計", rows_placements_data.map { |k, v| v}.sum]
+
+  序列報表範例:
+  如果有事件 "致電店家_第$家"，會產生額外的工作表：
+
+  result[1] = {
+    tab_name: "重點投放區域｜致電店家_第n家",
+    colnames: ["致電店家_第n家", "次數"],
+    data: [
+      ["致電店家_第1家", 15],
+      ["致電店家_第2家", 8],
+      ["致電店家_第3家", 12],
+      ["致電店家_第5家", 3],
+      ["總計", 38]
+    ],
+    format_codes: ['regular', 'thousand']
+  }
+</pre>
+   </li>
+   <li>
+    <p>
+     rename_tab_names 表單名稱處理
+    </p>
+    <ol>
+     <li>
+      <p>
+       重複名稱處理邏輯
+      </p>
+      <pre>
+  def rename_tab_names(data)
+    exists_tab_names = { '總計' =&gt; 1 }  # 預設保留 '總計' 名稱
+
+    data.each do |ind, v|
+      tab_name = v[:tab_name]
+
+      if exists_tab_names[tab_name]
+        # 如果名稱重複，加上編號前綴
+        v[:tab_name] = "(#{exists_tab_names[tab_name]}) #{tab_name} "
+        v[:tab_name] = limit_tab_name(v[:tab_name]) if v[:tab_name].bytesize &gt; 31
+        exists_tab_names[tab_name] += 1
+      else
+        # 第一次出現的名稱，記錄到追蹤表中
+        exists_tab_names[tab_name] = 1
+      end
+    end
+  end
+
+  重複名稱處理範例:
+  # 處理前
+  data = {
+    0 =&gt; {tab_name: "投放區域"},
+    1 =&gt; {tab_name: "投放區域"},  # 重複
+    2 =&gt; {tab_name: "投放區域"},  # 重複
+    3 =&gt; {tab_name: "特殊區域"}
+  }
+
+  # 處理後
+  data = {
+    0 =&gt; {tab_name: "投放區域"},         # 第一個保持原名
+    1 =&gt; {tab_name: "(1) 投放區域 "},    # 第二個加上編號
+    2 =&gt; {tab_name: "(2) 投放區域 "},    # 第三個加上編號
+    3 =&gt; {tab_name: "特殊區域"}          # 無重複保持原名
+  }
+</pre>
+     </li>
+     <li>
+      <p>
+       Excel 限制處理
+      </p>
+      <pre>  def limit_tab_name(tab_name)
+    final_tab_name = ""
+    tab_name.each_char do |char|
+      limit_bytesize = final_tab_name.bytesize + char.bytesize
+      break if limit_bytesize &gt; 31  # Excel 工作表名稱限制 31 bytes
+      final_tab_name &lt;&lt; char
+    end
+    final_tab_name
+  end
+
+  長度限制範例:
+  # 超長名稱
+  original_name = "(1) 這是一個非常長的投放區域名稱包含很多中文字 "
+  # bytesize = 54 bytes (中文字每個 3 bytes)
+
+  # 截斷後
+  limited_name = "(1) 這是一個非常長的投放區域名稱包"
+  # bytesize = 30 bytes (符合 31 bytes 限制)
+</pre>
+     </li>
+    </ol>
+   </li>
+  </ol>
+ </li>
+</ol>
+<p>
+ <br/>
+ Big Data Report 處理流程：
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    初始化空白資料結構
+   </strong>
+   (empty_placements_set_data, empty_one_campaign_data)
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    從 API Gateway 取得 ClickHouse 資料
+   </strong>
+  </p>
+  <ol>
+   <li>
+    <p>
+     @report_data = fetch_api_gateway_data
+    </p>
+    <pre>負責從 ClickHouse 拉取主要的廣告事件資料
+ 1.1 執行流程步驟
+
+  def fetch_api_gateway_data
+    data = {}
+    all_params = fetch_data_params(placement_ids)
+
+    # 步驟1: 根據選擇的維度決定要呼叫哪些 API
+    @clickhouse_target_colnames.
+      map { |dimension| DimensionData[dimension] }.
+      flatten.uniq.each do |key|
+
+        # 步驟2: 特殊處理 demographic 維度（區分 CTV 和非 CTV 裝置）
+        if key == "demographic_event" &amp;&amp;
+           @clickhouse_target_colnames.include?("demographic") &amp;&amp;
+           @start_date.to_date &gt;= "2024-01-31".to_date
+
+          # 步驟2a: 分別處理 CTV 和非 CTV 資料
+          ctv_params = fetch_ctv_data_params
+          non_ctv_params = fetch_non_ctv_data_params
+          data[key] ||= []
+
+          if ctv_params[:pl_ids].present?
+            ctv_data = ReportDataFetcher.send("fetch_ctv_#{key}", ctv_params)
+            data[key].concat(ctv_data)
+          end
+
+          if non_ctv_params[:pl_ids].present?
+            non_ctv_data = ReportDataFetcher.send("fetch_#{key}", non_ctv_params)
+            data[key].concat(non_ctv_data)
+          end
+        else
+          # 步驟2b: 一般維度直接呼叫對應的 API
+          data[key] ||= ReportDataFetcher.send("fetch_#{key}", all_params)
+        end
+      end
+    data
+  end
+
+  1.2 DimensionData 對應關係
+
+  DimensionData = {
+    'daily' =&gt; %w(event_by_pl),           # 按日期分析
+    "media" =&gt; %w(event_by_pid),          # 按媒體分析
+    "os" =&gt; %w(event_by_pl device_event), # 按作業系統分析
+    "hourly" =&gt; %w(hourly_event),         # 按小時分析
+    "product_key" =&gt; %w(product_key_event), # 按產品關鍵字分析
+    "segment" =&gt; %w(segment_event),       # 按受眾區隔分析
+    "interest" =&gt; %w(interest_event),     # 按興趣分析
+    "demographic" =&gt; %w(demographic_event), # 按人口統計分析
+    "device" =&gt; %w(event_by_pl device_event), # 按裝置分析
+    # ... 更多維度
+  }
+
+  1.3 實際呼叫的 API 方法
+
+  例如選擇 ["demographic", "device"] 維度時：
+
+  # 會呼叫以下方法
+  ReportDataFetcher.fetch_demographic_event(params)
+  ReportDataFetcher.fetch_device_event(params)
+
+  1.4 回傳的資料結構
+
+  @report_data = {
+    "demographic_event" =&gt; [
+      {"dimension_type" =&gt; "demographic", "dimension_value" =&gt; "male_25_34",
+       "impression" =&gt; 1000, "click" =&gt; 50, "video_view" =&gt; 200},
+      {"dimension_type" =&gt; "demographic", "dimension_value" =&gt; "female_35_44",
+       "impression" =&gt; 800, "click" =&gt; 40, "video_view" =&gt; 160}
+    ],
+    "device_event" =&gt; [
+      {"dimension_type" =&gt; "device", "dimension_value" =&gt; "desktop",
+       "impression" =&gt; 900, "click" =&gt; 45, "video_view" =&gt; 180},
+      {"dimension_type" =&gt; "device", "dimension_value" =&gt; "mobile",
+       "impression" =&gt; 900, "click" =&gt; 45, "video_view" =&gt; 180}
+    ]
+  }
+</pre>
+   </li>
+   <li>
+    <p>
+     @report_data.merge!(fetch_api_gateay_rtb_data)
+    </p>
+    <pre>負責合併 RTB（Real-Time Bidding）轉換資料
+2.1 執行流程步驟
+
+  def fetch_api_gateway_rtb_data
+    # 步驟1: 檢查是否需要拉取轉換資料
+    return {} if @tab_stat_colnames.exclude?('conversion')
+
+    # 步驟2: 準備 PID 參數
+    all_pids = @pre_campaign_details.map(&amp;:pid)
+    params = {
+      start_date: @start_date,
+      end_date: @end_date
+    }
+
+    # 步驟3: 找出支援 RTB 轉換追蹤的維度
+    dimensions = @clickhouse_target_colnames &amp; DimensionRtbData.keys
+
+    # 步驟4: 批次呼叫 RTB API
+    dimensions.
+      map { |dimension| DimensionRtbData[dimension] }.
+      flatten.uniq.each_with_object({}) do |key, obj|
+        obj[key] ||=
+          all_pids.in_groups_of(400, false).map do |pids|
+            ReportDataFetcher.send("fetch_#{key}", params.merge(ids: pids))
+          end.flatten
+      end
+  end
+
+  2.2 DimensionRtbData 對應關係
+
+  DimensionRtbData = {
+    'daily' =&gt; %w(rtb_event_by_date),         # 按日期的轉換資料
+    'hourly' =&gt; %w(rtb_event_by_hourly),      # 按小時的轉換資料
+    'demographic' =&gt; %w(rtb_event_by_demographic), # 按人口統計的轉換資料
+    'os' =&gt; %w(rtb_event_by_device)           # 按作業系統的轉換資料
+  }
+
+  2.3 實際呼叫的 RTB API 方法
+
+  # 如果選擇 demographic 維度
+  ReportDataFetcher.fetch_rtb_event_by_demographic(params)
+
+  # 如果選擇 daily 維度
+  ReportDataFetcher.fetch_rtb_event_by_date(params)
+
+  2.4 RTB 資料結構
+
+  rtb_data = {
+    "rtb_event_by_demographic" =&gt; [
+      {"dimension_type" =&gt; "demographic", "dimension_value" =&gt; "male_25_34",
+       "conversion" =&gt; 5, "revenue" =&gt; 250.0, "post_click_conversion" =&gt; 3},
+      {"dimension_type" =&gt; "demographic", "dimension_value" =&gt; "female_35_44",
+       "conversion" =&gt; 3, "revenue" =&gt; 150.0, "post_click_conversion" =&gt; 2}
+    ]
+  }
+  
+  3.1 merge! 操作的詳細過程
+
+  # 執行前
+  @report_data = {
+    "demographic_event" =&gt; [...],
+    "device_event" =&gt; [...]
+  }
+
+  # 執行 merge!
+  rtb_data = {
+    "rtb_event_by_demographic" =&gt; [...],
+    "rtb_event_by_device" =&gt; [...]
+  }
+
+  @report_data.merge!(rtb_data)
+
+  # 執行後
+  @report_data = {
+    "demographic_event" =&gt; [...],      # 原有的廣告事件資料
+    "device_event" =&gt; [...],           # 原有的廣告事件資料
+    "rtb_event_by_demographic" =&gt; [...], # 新增的轉換資料
+    "rtb_event_by_device" =&gt; [...]      # 新增的轉換資料
+  }
+</pre>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   <strong>
+    處理維度資料
+   </strong>
+  </p>
+  <ol>
+   <li>
+    <p>
+     process_dimension_data_use_case
+    </p>
+    <pre>process_dimension_data_use_case 是 big_data_report 的核心資料處理引擎，負責將從 ClickHouse
+拉取的原始資料按照不同維度進行分組和處理。
+
+1.1 主要流程
+
+  def process_dimension_data_use_case
+    params = process_data_params
+    @clickhouse_target_colnames.map do |dimension|
+      # 步驟1: 根據維度更新參數
+      update_params_based_on_dimension(dimension, params)
+
+      # 步驟2: 準備該維度的資料
+      data = {}
+      DimensionData[dimension].each do |key|
+        data[key] = dimension == "instream_category_url" ? @domain_event_list : @report_data[key]
+      end
+
+      # 步驟3: 加入 RTB 轉換資料（如果有的話）
+      if DimensionRtbData[dimension]
+        DimensionRtbData[dimension].each do |key|
+          data[key] = @report_data[key] if @report_data[key]
+        end
+      end
+
+      # 步驟4: 動態載入對應的 UseCase 類別並執行
+      class_name = "UseCases::ReportGeneration::Process#{dimension.camelize}DimensionUseCase"
+      class_name.constantize.new(params, data, dimension).run
+    end
+  end
+
+  2. 動態 UseCase 載入機制
+
+  系統根據選擇的維度動態載入對應的 UseCase 類別：
+
+  2.1 類別名稱對應
+
+  | 維度          | 動態生成的類別名稱                          | 實際檔案
+   |
+  |-------------|------------------------------------|-------------------------------------------|
+  | demographic | ProcessDemographicDimensionUseCase | process_demographic_dimension_use_case.rb |
+  | daily       | ProcessDailyDimensionUseCase       | process_daily_dimension_use_case.rb       |
+  | device      | ProcessDeviceDimensionUseCase      | process_device_dimension_use_case.rb      |
+  | hourly      | ProcessHourlyDimensionUseCase      | process_hourly_dimension_use_case.rb      |
+  | interest    | ProcessInterestDimensionUseCase    | process_interest_dimension_use_case.rb    |
+
+  2.2 動態載入示例
+
+  # 例如 dimension = "demographic"
+  class_name = "UseCases::ReportGeneration::Process#{demographic.camelize}DimensionUseCase"
+  # 結果: "UseCases::ReportGeneration::ProcessDemographicDimensionUseCase"
+
+  class_name.constantize.new(params, data, dimension).run
+  # 等同於: UseCases::ReportGeneration::ProcessDemographicDimensionUseCase.new(params, data, dimension).run
+  
+  3. 資料準備和參數傳遞
+
+  3.1 process_data_params 準備
+
+  def process_data_params
+    @process_data_params ||=
+      if @report_type == 'big_data_report'
+        {
+          source: @source,                           # 資料源（odm 或 superdsp）
+          placement_is_banner: @placement_is_banner, # Placement 是否為 Banner 格式
+          lookup_placement_export: @lookup_placement_export, # Placement 與 Tab 的對應關係
+          placements_set_data: @placements_set_data, # 每個 Tab 的資料容器
+          one_campaign_data: @one_campaign_data,     # 整個 Campaign 的總計資料
+          stats_calculated: @stats_calculated,       # 需要計算的統計指標
+          pricing_event_by_plaid: @pricing_event_by_plaid, # 價格模型與事件的對應
+          pre_campaign_details: @pre_campaign_details, # Placement 詳細資訊
+          selected_clickhouse_events_with_deps: @selected_clickhouse_events_with_deps, # 選擇的事件
+          conditional_pricing_raw_columns: @conditional_pricing_raw_columns, # 條件價格欄位
+          detail_mapping: detail_mapping             # ID 對應關係
+        }
+      end
+  end
+
+  3.2 維度特定參數更新
+
+  def update_params_based_on_dimension(dimension, params)
+    case dimension
+    when 'hourly'
+      params[:hours_translation] = hours_translation     # 小時翻譯對照表
+    when 'media'
+      params[:medium_translation] = medium_translation   # 媒體翻譯對照表
+    when 'instream_category'
+      params[:category_translation] = category_translation # 分類翻譯對照表
+    when 'instream_category_url'
+      params[:media_index_by_uid] = media_index_by_uid   # 媒體 UID 索引
+    end
+  end
+
+  3.3 維度資料組裝
+
+  每個維度會組裝對應的資料：
+
+  # 例如 demographic 維度
+  data = {}
+
+  # 主要廣告事件資料
+  DimensionData["demographic"].each do |key|  # ["demographic_event"]
+    data[key] = @report_data[key]
+  end
+
+  # RTB 轉換資料（如果存在）
+  if DimensionRtbData["demographic"]  # ["rtb_event_by_demographic"]
+    DimensionRtbData["demographic"].each do |key|
+      data[key] = @report_data[key] if @report_data[key]
+    end
+  end
+
+  # 最終 data 結構:
+  # {
+  #   "demographic_event" =&gt; [...],
+  #   "rtb_event_by_demographic" =&gt; [...]
+  # }
+
+⏺ 4. 維度特定處理邏輯
+
+  每個維度 UseCase 都有相似的處理模式，但針對不同維度有特殊邏輯：
+
+  4.1 ProcessDemographicDimensionUseCase 流程
+
+  def run
+    filter_superdsp_events    # 1. 過濾 SuperDSP 特定事件
+    fetch_demographics        # 2. 獲取人口統計分類對照表
+    process_event_data        # 3. 處理主要廣告事件資料
+    process_rtb_data          # 4. 處理 RTB 轉換資料
+  end
+
+  詳細步驟：
+
+  1. filter_superdsp_events: 根據 Placement 格式決定要保留的事件類型
+    - Outstream 影片格式：使用 impression 作為曝光
+    - 純 Banner 格式：使用 cv 作為曝光
+  2. fetch_demographics: 從資料庫獲取人口統計分類
+  @demographic_mapping = Demographic.where(enable: true).order(:position).pluck(:id, :name).to_h
+  # 結果: {11 =&gt; "15-17M", 12 =&gt; "18-24M", ...}
+  3. process_event_data: 處理廣告事件
+  # 將原始資料按人口統計分組
+  record["demographic_name"]  # "15-17M"
+  # 加入到對應的 Tab 和總計中
+  temp_pl_set[key][event] += count
+  temp_oc_set[key][event] += count
+  4. process_rtb_data: 處理轉換事件
+  # RTB 資料結構
+  # {"dimension"=&gt;"2", "id"=&gt;6431255, "page_view_count"=&gt;50, "conversion"=&gt;10}
+  key = @demographic_mapping[record["dimension"].to_i]  # 將 ID 轉成名稱
+
+  4.2 ProcessDailyDimensionUseCase 流程
+
+  def run
+    filter_superdsp_events    # 1. 過濾不需要的事件
+    process_event_data        # 2. 按日期處理事件資料  
+    process_rtb_data          # 3. 按日期處理轉換資料
+  end
+
+  特點：
+  - 按日期 (day_local) 分組資料
+  - 支援 SuperDSP 特殊計價模型
+  - 處理每日轉換追蹤
+
+  4.3 通用的資料累加邏輯
+
+  所有維度 UseCase 都使用相同的累加邏輯：
+
+  def add_cnt_to_objs(objs, key, event, cnt)
+    objs.each do |obj|
+      obj[key][event] ||= 0
+      obj[key][event] += cnt        # 加到對應維度值
+      obj['total'][event] ||= 0
+      obj['total'][event] += cnt    # 加到總計
+    end
+  end
+
+  這確保每個維度的資料都會同時更新：
+  - @placements_set_data[tab_index][dimension][key] - 各 Tab 的分組資料
+  - @one_campaign_data[dimension][key] - 整個 Campaign 的分組資料
+  - total - 各維度的總計
+
+  5. 最終資料結構
+
+  處理完成後，資料會存放在：
+
+  @placements_set_data = {
+    0 =&gt; {  # Tab 0
+      "demographic" =&gt; {
+        "male_25_34" =&gt; {"impression" =&gt; 1000, "click" =&gt; 50, "conversion" =&gt; 5},
+        "female_35_44" =&gt; {"impression" =&gt; 800, "click" =&gt; 40, "conversion" =&gt; 3},
+        "total" =&gt; {"impression" =&gt; 1800, "click" =&gt; 90, "conversion" =&gt; 8}
+      }
+    }
+  }
+
+  @one_campaign_data = {
+    "demographic" =&gt; {
+      "male_25_34" =&gt; {"impression" =&gt; 1000, "click" =&gt; 50, "conversion" =&gt; 5},
+      "female_35_44" =&gt; {"impression" =&gt; 800, "click" =&gt; 40, "conversion" =&gt; 3},
+      "total" =&gt; {"impression" =&gt; 1800, "click" =&gt; 90, "conversion" =&gt; 8}
+    }
+  }
+</pre>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   <strong>
+    計算衍生指標
+   </strong>
+   (calculate_one_campaign(@source), calculate_export_tables(@source))
+  </p>
+  <ol>
+   <li>
+    <p>
+     calculate_one_campaign(@source)
+    </p>
+    <pre>calculate_one_campaign 方法負責計算衍生指標，將原始的廣告事件資料轉換成有意義的分析指標。
+1.1 方法簽名和參數
+
+  def calculate_one_campaign(source = false)
+    # source 參數用於區分不同的計算邏輯：
+    # - "superdsp": SuperDSP 專案，有特殊的計算邏輯
+    # - nil/false: ODM 專案，使用標準計算邏輯
+  end
+  
+2.1 資料結構遍歷
+
+  if @report_type == 'big_data_report'
+    @one_campaign_data.each do |target_colname, target_stat|
+      # target_colname: 維度名稱，如 "demographic", "device"
+      # target_stat: 該維度下的所有資料
+
+      target_stat.each do |target_id, val|
+        # target_id: 維度值，如 "male_25_34", "desktop"
+        # val: 該維度值的事件資料，如 {"impression" =&gt; 1000, "click" =&gt; 50}
+
+        @stats_calculated.each do |stat_colname|
+          # stat_colname: 需要計算的指標，如 "ctr_imp", "totalClick"
+          # 根據專案類型選擇計算方法
+        end
+      end
+    end
+  end
+  2.2 實際資料範例
+
+  計算前的 @one_campaign_data 結構：
+
+  {
+    "demographic" =&gt; {
+      "male_25_34" =&gt; {
+        "impression" =&gt; 1000,
+        "click" =&gt; 50,
+        "videoClick" =&gt; 30,
+        "bannerClick" =&gt; 20,
+        "cv" =&gt; 800,
+        "q25" =&gt; 200,
+        "q50" =&gt; 150,
+        "q75" =&gt; 100,
+        "q100" =&gt; 50
+      },
+      "female_35_44" =&gt; {
+        "impression" =&gt; 800,
+        "click" =&gt; 40,
+        "videoClick" =&gt; 25,
+        "bannerClick" =&gt; 15,
+        "cv" =&gt; 600,
+        "q25" =&gt; 160,
+        "q50" =&gt; 120,
+        "q75" =&gt; 80,
+        "q100" =&gt; 40
+      }
+    }
+  }
+  
+  3. SuperDSP 和 ODM 的差異
+
+  3.1 計算方法選擇
+
+  @stats_calculated.each do |stat_colname|
+    if source == "superdsp"
+      # SuperDSP 專用計算邏輯
+      @one_campaign_data[target_colname][target_id][stat_colname] =
+        calculate_superdsp_by_stat(val: val, stat_colname: stat_colname)
+    else
+      # ODM 標準計算邏輯
+      next if @one_campaign_data[target_colname][target_id].blank?
+
+      @one_campaign_data[target_colname][target_id][stat_colname] =
+        calculate_by_stat(val: val, stat_colname: stat_colname)
+    end
+  end
+  
+  
+  3.2 SuperDSP 特殊邏輯
+
+  SuperDSP 專案的特點：
+  - 不同的曝光計算：根據廣告格式選擇不同的曝光指標
+  - 特殊的 CTR 計算：考慮 impression 和 cv 的關係
+  - VTR 計算：觀看完成率計算邏輯不同
+
+  def calculate_superdsp_by_stat(val: {}, stat_colname: '')
+    case stat_colname
+    when "ctr_imp"
+      # SuperDSP 的 CTR 計算考慮 cv
+      calculate_superdsp_ctr(
+        val["videoClick"], val["bannerClick"], val["tb"],
+        val["impression"], val["cv"]
+      )
+    when "superdsp_imp"
+      # SuperDSP 的曝光計算
+      calculate_impression(val["impression"], val["cv"])
+    when "vtr25", "vtr50", "vtr75", "vtr100"
+      # SuperDSP 的 VTR 計算
+      calculate_vtr(val["q25"], val["impression"], val["cv"])
+    end
+  end
+
+3.3 ODM 標準邏輯
+
+  ODM 專案使用標準的數位廣告計算：
+
+  def calculate_by_stat(val: {}, stat_colname: '')
+    case stat_colname
+    when "ctr_imp"
+      # 標準 CTR = (總點擊數 / 曝光數) * 100
+      calculate_ctr(
+        val["videoClick"], val["bannerClick"], val["tb"], val["impression"]
+      )
+    when "totalClick"
+      # 總點擊數 = 影片點擊 + Banner點擊 + TB點擊
+      calculate_totalclick(
+        val["videoClick"], val["bannerClick"], val["tb"]
+      )
+    when "q100Ratio_imp"
+      # 完整觀看率 = (完整觀看數 / 曝光數) * 100
+      calculate_q100ratio(val["q100"], val["impression"])
+    end
+  end
+  
+4. 計算方法和依賴關係
+
+  4.1 DEPENDENCIES 定義
+
+  DEPENDENCIES = {
+    "ctr_cv" =&gt; %w(videoClick bannerClick tb cv),           # CTR（以cv為分母）
+    "ctr_imp" =&gt; %w(videoClick bannerClick tb impression cv), # CTR（以impression為分母）
+    "cpeRatio_cv" =&gt; %w(cpe cv),                           # CPE比率（以cv為分母）
+    "cpeRatio_imp" =&gt; %w(cpe impression),                   # CPE比率（以impression為分母）
+    "aerRatio" =&gt; %w(videoClick bannerClick view5s cpe impression), # AER比率
+    "q100Ratio_cv" =&gt; %w(q100 cv),                          # 完整觀看率（以cv為分母）
+    "q100Ratio_imp" =&gt; %w(q100 impression),                 # 完整觀看率（以impression為分母）
+    "totalClick" =&gt; %w(videoClick bannerClick tb),          # 總點擊數
+    "vtr25" =&gt; %w(q25 impression cv),                       # 25%觀看率
+    "vtr50" =&gt; %w(q50 impression cv),                       # 50%觀看率
+    "vtr75" =&gt; %w(q75 impression cv),                       # 75%觀看率
+    "vtr100" =&gt; %w(q100 impression cv),                     # 100%觀看率
+    # RTB 轉換相關
+    "cost_per_landing_page_view" =&gt; %w(amount_sell page_view_count),
+    "cost_per_registration" =&gt; %w(amount_sell complete_registration_count),
+    "cost_per_add_to_cart" =&gt; %w(amount_sell add_to_cart_count),
+    "cost_per_purchase" =&gt; %w(amount_sell purchase),
+    "roas" =&gt; %w(amount_sell revenue)
+  }
+
+  4.2 計算邏輯範例
+
+  CTR 計算:
+  def calculate_ctr(video_click, banner_click, tb, base)
+    total_clicks = (video_click || 0) + (banner_click || 0) + (tb || 0)
+    return 0 if base.nil? || base == 0
+    (total_clicks.to_f / base * 100).round(2)
+  end
+
+  VTR 計算:
+  def calculate_vtr(quartile, impression, cv)
+    # SuperDSP 根據廣告格式選擇分母
+    base = impression || cv || 0
+    return 0 if base == 0
+    ((quartile || 0).to_f / base * 100).round(2)
+  end
+
+  轉換成本計算:
+  def calculate_cost_per_conversion(cost, conversion_count)
+    return 0 if conversion_count.nil? || conversion_count == 0
+    (cost.to_f / conversion_count).round(2)
+  end
+
+  4.3 計算後的資料結構
+
+  # 計算後的 @one_campaign_data
+  {
+    "demographic" =&gt; {
+      "male_25_34" =&gt; {
+        # 原始事件資料
+        "impression" =&gt; 1000,
+        "videoClick" =&gt; 30,
+        "bannerClick" =&gt; 20,
+        "q25" =&gt; 200,
+        "q50" =&gt; 150,
+
+        # 計算出的衍生指標
+        "totalClick" =&gt; 50,              # 30 + 20 + 0
+        "ctr_imp" =&gt; 5.0,                # (50 / 1000) * 100
+        "vtr25" =&gt; 20.0,                 # (200 / 1000) * 100
+        "vtr50" =&gt; 15.0,                 # (150 / 1000) * 100
+        "q100Ratio_imp" =&gt; 5.0           # (50 / 1000) * 100
+      }
+    }
+  }
+
+  5. 資料清理和排序
+
+  5.1 移除依賴欄位
+
+  # remove the DEPENDENCIES columns
+  @one_campaign_data = @one_campaign_data.map do |target_colname, target_stat|
+    target_stat.map do |k, v|
+      # 只保留最終需要顯示的欄位
+      [[target_colname, k], v.keep_if {|a, b| @all_stat_colnames.include?(a) }]
+    end.to_h
+  end
+
+  5.2 欄位排序
+
+  # 依照應有的欄位順序排列
+  @one_campaign_data = @one_campaign_data.map do |target_data|
+    target_data.map { |k, v| [k, v.sort_by { |k, v| @col_order[k].to_f }.to_h] }.to_h
+  end
+  
+  6. 完整的執行範例
+
+  假設有以下設定：
+  - 維度：demographic
+  - 指標：ctr_imp, totalClick, vtr25
+  - 專案：ODM（@source = nil）
+
+  執行過程：
+  1. 遍歷 demographic 維度的每個值（male_25_34, female_35_44）
+  2. 對每個值計算 ctr_imp, totalClick, vtr25
+  3. 使用 calculate_by_stat 方法進行計算
+  4. 移除不需要的依賴欄位
+  5. 按照預定義順序排列欄位
+
+  最終結果提供完整的分析指標，支援多維度的深度分析和比較。
+</pre>
+   </li>
+   <li>
+    <p>
+     calculate_export_tables(@source)
+    </p>
+    <pre>calculate_export_tables 方法負責處理各個 Tab（匯出表格）的資料計算，與 calculate_one_campaign
+不同的是，這個方法處理的是分組後的詳細資料。
+
+2.1 主要步驟概覽
+
+  if @report_type == 'big_data_report'
+    @placements_set_data.each do |tab_i, dataset|
+      # 步驟1: 準備該 Tab 的欄位設定
+      selected_colnames = get_target_colnames(@exports[tab_i]["stat_colnames"])
+      col_calculation_required = stats_calculated(selected_colnames)
+
+      # 步驟2: 遍歷每個維度和維度值，進行計算
+      dataset.each do |target_col, target_set|
+        target_set.each do |target_id, val|
+          # 步驟3: 計算衍生指標
+          # 步驟4: 清理不需要的欄位
+          # 步驟5: 排序欄位
+        end
+      end
+    end
+  end
+  
+  2.2 資料結構說明
+
+  執行前的 @placements_set_data 結構：
+
+  @placements_set_data = {
+    0 =&gt; {  # Tab 0
+      "demographic" =&gt; {
+        "male_25_34" =&gt; {
+          "impression" =&gt; 1000,
+          "videoClick" =&gt; 30,
+          "bannerClick" =&gt; 20,
+          "cv" =&gt; 800,
+          "q25" =&gt; 200,
+          "q50" =&gt; 150,
+          "conversion" =&gt; 5,
+          "revenue" =&gt; 250.0
+        },
+        "female_35_44" =&gt; {
+          "impression" =&gt; 800,
+          "videoClick" =&gt; 25,
+          "bannerClick" =&gt; 15,
+          "cv" =&gt; 600,
+          "q25" =&gt; 160,
+          "q50" =&gt; 120,
+          "conversion" =&gt; 3,
+          "revenue" =&gt; 150.0
+        },
+        "total" =&gt; {
+          "impression" =&gt; 1800,
+          "videoClick" =&gt; 55,
+          "bannerClick" =&gt; 35,
+          "cv" =&gt; 1400,
+          "q25" =&gt; 360,
+          "q50" =&gt; 270,
+          "conversion" =&gt; 8,
+          "revenue" =&gt; 400.0
+        }
+      }
+    },
+    1 =&gt; {  # Tab 1 (其他維度或不同的分組)
+      "device" =&gt; {
+        "desktop" =&gt; {...},
+        "mobile" =&gt; {...},
+        "total" =&gt; {...}
+      }
+    }
+  }
+  
+  3. 詳細處理步驟
+
+  3.1 步驟1: 欄位設定準備
+
+  # 獲取該 Tab 要顯示的統計欄位
+  selected_colnames = get_target_colnames(@exports[tab_i]["stat_colnames"])
+  # 例如：@exports[0]["stat_colnames"] = ["clicks", "four_vtr", "conversion"]
+
+  # get_target_colnames 展開集合欄位
+  def get_target_colnames(tab_stat_colnames)
+    tab_stat_colnames.flatten.map do |s|
+      COLLECTIONS_DEPENDENCIES[s] || s
+    end.flatten.uniq
+  end
+
+  # 結果：
+  # ["clicks"] -&gt; ["totalClick"]
+  # ["four_vtr"] -&gt; ["vtr25", "vtr50", "vtr75", "vtr100"]  
+  # ["conversion"] -&gt; ["page_view_count", "complete_registration_count", ..., "roas"]
+  # 最終: ["totalClick", "vtr25", "vtr50", "vtr75", "vtr100", "page_view_count", ...]
+
+  # 計算需要進行運算的欄位（排除原始事件和特殊欄位）
+  col_calculation_required = stats_calculated(selected_colnames)
+
+  def stats_calculated(colnames)
+    colnames - CONDITIONAL_PRICING_RAW_COLUMNS - Event.names - RTB_EVENT_ROW_COLUMNS
+  end
+
+  # 過濾掉：
+  # - CONDITIONAL_PRICING_RAW_COLUMNS: ["superdsp_view30s", "amount_sell"]
+  # - Event.names: ["impression", "click", "videoClick", "bannerClick", ...]
+  # - RTB_EVENT_ROW_COLUMNS: ["page_view_count", "complete_registration_count", ...]
+  # 
+  # 剩下需要計算的：["totalClick", "vtr25", "vtr50", "vtr75", "vtr100", "cost_per_landing_page_view", ...]
+
+  3.2 步驟2: 三層嵌套遍歷
+
+  dataset.each do |target_col, target_set|
+    # target_col: "demographic", "device" 等維度名稱
+
+    target_set.each do |target_id, val|
+      # target_id: "male_25_34", "desktop" 等維度值
+      # val: 該維度值的原始資料 hash
+
+      col_calculation_required.each do |stat_col|
+        # stat_col: "totalClick", "vtr25" 等需要計算的指標
+      end
+    end
+  end
+
+  3.3 步驟3: 計算衍生指標
+
+  col_calculation_required.each do |stat_col|
+    if source == "superdsp"
+      @placements_set_data[tab_i][target_col][target_id][stat_col] =
+        calculate_superdsp_by_stat(val: val, stat_colname: stat_col)
+    else
+      # ODM 標準計算
+      next if !@placements_set_data[tab_i][target_col][target_id].present?
+
+      @placements_set_data[tab_i][target_col][target_id][stat_col] =
+        calculate_by_stat(val: val, stat_colname: stat_col)
+    end
+  end
+
+  實際計算範例:
+  # 對於 "male_25_34" 這個維度值
+  val = {
+    "impression" =&gt; 1000,
+    "videoClick" =&gt; 30,
+    "bannerClick" =&gt; 20,
+    "q25" =&gt; 200,
+    "q50" =&gt; 150
+  }
+
+  # 計算 totalClick
+  calculate_by_stat(val: val, stat_colname: "totalClick")
+  # 結果: 30 + 20 + 0 = 50
+
+  # 計算 vtr25  
+  calculate_by_stat(val: val, stat_colname: "vtr25")
+  # 結果: (200 / 1000) * 100 = 20.0
+
+  # 計算 vtr50
+  calculate_by_stat(val: val, stat_colname: "vtr50")
+  # 結果: (150 / 1000) * 100 = 15.0
+
+⏺ 4. 資料結構變化
+
+  4.1 計算後的資料結構
+
+  # 計算完成後
+  @placements_set_data = {
+    0 =&gt; {
+      "demographic" =&gt; {
+        "male_25_34" =&gt; {
+          # 原始資料
+          "impression" =&gt; 1000,
+          "videoClick" =&gt; 30,
+          "bannerClick" =&gt; 20,
+          "cv" =&gt; 800,
+          "q25" =&gt; 200,
+          "q50" =&gt; 150,
+          "conversion" =&gt; 5,
+          "revenue" =&gt; 250.0,
+
+          # 新計算的衍生指標
+          "totalClick" =&gt; 50,
+          "vtr25" =&gt; 20.0,
+          "vtr50" =&gt; 15.0,
+          "cost_per_landing_page_view" =&gt; 50.0,  # amount_sell / page_view_count
+          "roas" =&gt; 5.0  # revenue / amount_sell
+        }
+      }
+    }
+  }
+
+  4.2 步驟4: 清理依賴欄位
+
+  # remove the DEPENDENCIES columns
+  @placements_set_data[tab_i] = dataset.map do |target_col, target_stat|
+    target_stat.map do |k, v|
+      # 只保留 selected_colnames 中定義的欄位
+      [[target_col, k], v.keep_if {|a, b| selected_colnames.include?(a)}]
+    end.to_h
+  end
+
+  清理邏輯:
+  - 移除計算過程中需要但不顯示的欄位
+  - 只保留最終要在報表中呈現的欄位
+  - 例如：計算 totalClick 需要 videoClick, bannerClick, tb，但最終只顯示 totalClick
+
+  # 清理前
+  {
+    "male_25_34" =&gt; {
+      "impression" =&gt; 1000,
+      "videoClick" =&gt; 30,      # 計算用，可能被移除
+      "bannerClick" =&gt; 20,     # 計算用，可能被移除
+      "totalClick" =&gt; 50,      # 最終顯示
+      "q25" =&gt; 200,           # 計算用，可能被移除
+      "vtr25" =&gt; 20.0         # 最終顯示
+    }
+  }
+
+  # 清理後（取決於 selected_colnames 設定）
+  {
+    "male_25_34" =&gt; {
+      "totalClick" =&gt; 50,
+      "vtr25" =&gt; 20.0,
+      "cost_per_landing_page_view" =&gt; 50.0,
+      "roas" =&gt; 5.0
+    }
+  }
+
+⏺ 5. 欄位管理和排序
+
+  5.1 步驟5: 欄位排序
+
+  # 依照應有的欄位順序排列
+  @placements_set_data = @placements_set_data.map do |tab_i, target_sets|
+    target_sets.map do |target_set|
+      target_set.map do |k, v|
+        [k, v.sort_by{|c, d| @col_order[c].to_f}.to_h]
+      end.to_h
+    end
+  end
+
+  5.2 @col_order 定義
+
+  def col_order
+    @translation.transform_values.with_index { |_, i| i }
+  end
+
+  # @translation 例如：
+  # {
+  #   "impression" =&gt; "曝光次數",
+  #   "totalClick" =&gt; "總點擊次數", 
+  #   "vtr25" =&gt; "25%觀看率",
+  #   "vtr50" =&gt; "50%觀看率",
+  #   "conversion" =&gt; "轉換次數",
+  #   "roas" =&gt; "廣告投資報酬率"
+  # }
+
+  # @col_order 結果：
+  # {
+  #   "impression" =&gt; 0,
+  #   "totalClick" =&gt; 1,
+  #   "vtr25" =&gt; 2,
+  #   "vtr50" =&gt; 3,
+  #   "conversion" =&gt; 4,
+  #   "roas" =&gt; 5
+  # }
+
+  5.3 排序邏輯
+
+  # 排序前
+  {
+    "male_25_34" =&gt; {
+      "roas" =&gt; 5.0,
+      "totalClick" =&gt; 50,
+      "conversion" =&gt; 5,
+      "vtr25" =&gt; 20.0
+    }
+  }
+
+  # 排序後（按照 @col_order 定義的順序）
+  {
+    "male_25_34" =&gt; {
+      "totalClick" =&gt; 50,     # @col_order["totalClick"] = 1
+      "vtr25" =&gt; 20.0,        # @col_order["vtr25"] = 2  
+      "conversion" =&gt; 5,      # @col_order["conversion"] = 4
+      "roas" =&gt; 5.0          # @col_order["roas"] = 5
+    }
+  }
+
+  6. 完整的執行範例
+
+  假設有以下設定：
+  - Tab 0: 人口統計分析，欄位包含 ["clicks", "four_vtr", "conversion"]
+  - 資料源: ODM (@source = nil)
+
+  執行過程：
+
+  1. 欄位準備:
+  selected_colnames = ["totalClick", "vtr25", "vtr50", "vtr75", "vtr100",
+                      "page_view_count", "conversion", "revenue", "roas"]
+  col_calculation_required = ["totalClick", "vtr25", "vtr50", "vtr75", "vtr100", "roas"]
+  2. 計算執行:
+  # 對每個人口統計群體（male_25_34, female_35_44, total）
+  # 計算每個衍生指標（totalClick, vtr25, vtr50, vtr75, vtr100, roas）
+  3. 資料清理:
+  # 移除計算用的原始欄位（videoClick, bannerClick, q25, q50 等）
+  # 保留最終顯示欄位
+  4. 排序整理:
+  # 按照預定義的欄位順序排列
+  # 確保 Excel 輸出時欄位順序正確
+</pre>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   <strong>
+    處理 SuperDSP 特殊資料格式(process_superdsp_data)
+   </strong>
+  </p>
+  <pre>1. 整體用途分析
+
+  process_superdsp_data 是專門為 SuperDSP 專案設計的資料後處理方法，主要目的是：
+
+  1. 資料完整性保證：確保所有維度的所有指標欄位都有值
+  2. 特殊邏輯處理：針對不同維度套用不同的填充規則
+  3. 統一排序：按照 SuperDSP 專案的特定欄位順序排列
+  
+  2. SuperDSP 特殊處理邏輯
+
+  2.1 方法執行條件
+
+  def process_superdsp_data
+    return if @source != "superdsp"  # 只有 SuperDSP 專案才執行
+
+    # 處理兩組資料
+    fill_and_sort_data(@one_campaign_data)        # 總計資料
+    @placements_set_data.map! { |pla_data| fill_and_sort_data(pla_data) }  # 各 Tab 資料
+  end
+
+  2.2 SuperDSP 與 ODM 的差異
+
+  SuperDSP 專案有以下特殊需求：
+
+  1. 完整性要求：報表必須顯示所有選定的指標欄位，即使沒有資料也要顯示
+  2. 維度限制：某些維度不支援特定類型的資料（如轉換資料）
+  3. 產品維度特殊處理：product 維度只顯示點擊相關指標
+  4. 固定欄位順序：使用 SuperDSP 專屬的欄位排序
+
+  3. fill_and_sort_data 方法分析
+
+  3.1 方法結構
+
+  def fill_and_sort_data(data)
+    data.map! do |target_data|
+      target_data.each_with_object({}) do |(target_colname, inner_data), new_hash|
+        # 步驟1: 判斷維度類型
+        dimension = target_colname[0]
+        is_rtb_dimension = DimensionRtbData.key?(dimension)
+
+        # 步驟2: 遍歷所有需要的統計欄位
+        @all_stat_colnames.each do |stat_colname|
+          # 步驟3: 套用填充邏輯
+          # 步驟4: 排序處理
+        end
+      end
+    end
+  end
+
+  3.2 資料結構說明
+
+  輸入資料結構：
+  # target_data 例子
+  [
+    [["demographic", "male_25_34"], {"impression" =&gt; 1000, "totalClick" =&gt; 50}],
+    [["demographic", "female_35_44"], {"impression" =&gt; 800, "totalClick" =&gt; 40}],
+    [["device", "desktop"], {"impression" =&gt; 900, "totalClick" =&gt; 45}]
+  ]
+
+  target_colname 解析：
+  target_colname = ["demographic", "male_25_34"]
+  dimension = target_colname[0]  # "demographic"
+  # 維度值: target_colname[1] = "male_25_34"
+
+⏺ 4. 資料填充邏輯
+
+  4.1 維度支援判斷
+
+  dimension = target_colname[0]  # 取得維度名稱
+  is_rtb_dimension = DimensionRtbData.key?(dimension)
+
+  # DimensionRtbData 支援的維度：
+  # {'daily', 'hourly', 'demographic', 'os'}
+  # 只有這些維度有轉換追蹤資料
+
+  4.2 三種填充規則
+
+  @all_stat_colnames.each do |stat_colname|
+    if !is_rtb_dimension &amp;&amp; COLLECTIONS_DEPENDENCIES['conversion'].include?(stat_colname)
+      # 規則1: 非 RTB 維度的轉換指標填入 '-'
+      inner_data[stat_colname] = '-'
+
+    elsif dimension == 'product' &amp;&amp; stat_colname != 'totalClick'
+      # 規則2: product 維度只顯示 totalClick，其他填入 '-'
+      inner_data[stat_colname] = '-'
+
+    else
+      # 規則3: 其他情況填入 0（如果沒有值的話）
+      inner_data[stat_colname] ||= 0
+    end
+  end
+
+  4.3 實際填充範例
+
+  範例1: demographic 維度（支援 RTB）
+  # 輸入
+  inner_data = {"impression" =&gt; 1000, "totalClick" =&gt; 50}
+
+  # 處理後（假設 @all_stat_colnames 包含所有指標）
+  inner_data = {
+    "impression" =&gt; 1000,
+    "totalClick" =&gt; 50,
+    "superdsp_imp" =&gt; 0,           # 規則3: 填充 0
+    "vtr25" =&gt; 0,                  # 規則3: 填充 0
+    "page_view_count" =&gt; 0,        # 規則3: 填充 0（RTB 維度支援轉換）
+    "conversion" =&gt; 0,             # 規則3: 填充 0
+    "roas" =&gt; 0                    # 規則3: 填充 0
+  }
+
+  範例2: interest 維度（不支援 RTB）
+  # 輸入
+  inner_data = {"impression" =&gt; 800, "totalClick" =&gt; 40}
+
+  # 處理後
+  inner_data = {
+    "impression" =&gt; 800,
+    "totalClick" =&gt; 40,
+    "superdsp_imp" =&gt; 0,           # 規則3: 填充 0
+    "vtr25" =&gt; 0,                  # 規則3: 填充 0
+    "page_view_count" =&gt; '-',      # 規則1: 轉換指標填入 '-'
+    "conversion" =&gt; '-',           # 規則1: 轉換指標填入 '-'
+    "roas" =&gt; '-'                  # 規則1: 轉換指標填入 '-'
+  }
+
+  範例3: product 維度
+  # 輸入
+  inner_data = {"impression" =&gt; 500, "totalClick" =&gt; 25}
+
+  # 處理後
+  inner_data = {
+    "totalClick" =&gt; 25,            # 唯一保留的指標
+    "impression" =&gt; '-',           # 規則2: 非 totalClick 填入 '-'
+    "superdsp_imp" =&gt; '-',         # 規則2: 非 totalClick 填入 '-'
+    "vtr25" =&gt; '-',                # 規則2: 非 totalClick 填入 '-'
+    "page_view_count" =&gt; '-',      # 規則2: 非 totalClick 填入 '-'
+    "conversion" =&gt; '-',           # 規則2: 非 totalClick 填入 '-'
+    "roas" =&gt; '-'                  # 規則2: 非 totalClick 填入 '-'
+  }
+
+⏺ 5. 排序機制
+
+  5.1 SORTED_STAT_COLNAMES 定義
+
+  SORTED_STAT_COLNAMES = %w(
+    superdsp_imp superdsp_view30s totalClick ctr_imp    # SuperDSP 特有指標
+    q25 q50 q75 q100                                    # 觀看四分位數
+    vtr25 vtr50 vtr75 vtr100                            # 觀看完成率
+    avg_cpc amount_sell                                 # 成本指標
+    page_view_count cost_per_landing_page_view          # 轉換漏斗 - 到達
+    complete_registration_count cost_per_registration   # 轉換漏斗 - 註冊
+    add_to_cart_count cost_per_add_to_cart             # 轉換漏斗 - 加入購物車
+    add_to_cart_cost initial_checkout_count cost_per_initial_checkout  # 轉換漏斗 - 初次結帳
+    initial_checkout_cost purchase cost_per_purchase    # 轉換漏斗 - 購買
+    revenue roas                                        # 收益指標
+  )
+
+  5.2 排序邏輯
+
+  # 將處理好的 key 和 value 加入新的 hash
+  new_hash[target_colname] =
+    inner_data.sort_by { |k, _| SORTED_STAT_COLNAMES.index(k) || Float::INFINITY }.to_h
+
+  排序說明：
+  - 按照 SORTED_STAT_COLNAMES 定義的順序排列
+  - 如果欄位不在 SORTED_STAT_COLNAMES 中，則排在最後（Float::INFINITY）
+  - 確保 Excel 輸出時欄位順序符合 SuperDSP 的業務需求
+
+  5.3 排序範例
+
+  # 排序前
+  inner_data = {
+    "roas" =&gt; 5.0,
+    "impression" =&gt; 1000,
+    "totalClick" =&gt; 50,
+    "superdsp_imp" =&gt; 1000,
+    "page_view_count" =&gt; 100,
+    "vtr25" =&gt; 20.0
+  }
+
+  # 排序後（按照 SORTED_STAT_COLNAMES 順序）
+  inner_data = {
+    "superdsp_imp" =&gt; 1000,        # index 0
+    "totalClick" =&gt; 50,            # index 2
+    "vtr25" =&gt; 20.0,              # index 8
+    "page_view_count" =&gt; 100,      # index 14
+    "roas" =&gt; 5.0,                # index 21
+    "impression" =&gt; 1000           # Float::INFINITY (不在列表中)
+  }
+
+  6. 完整執行流程
+
+  6.1 執行前的資料狀態
+
+  @one_campaign_data = [
+    [["demographic", "male_25_34"], {"impression" =&gt; 1000, "totalClick" =&gt; 50}],
+    [["interest", "technology"], {"impression" =&gt; 800, "totalClick" =&gt; 40}],
+    [["product", "automotive"], {"impression" =&gt; 600, "totalClick" =&gt; 30}]
+  ]
+
+  6.2 執行後的資料狀態
+
+  @one_campaign_data = [
+    [["demographic", "male_25_34"], {
+      "superdsp_imp" =&gt; 0,
+      "totalClick" =&gt; 50,
+      "vtr25" =&gt; 0,
+      "page_view_count" =&gt; 0,    # RTB 維度，填充 0
+      "roas" =&gt; 0
+    }],
+    [["interest", "technology"], {
+      "superdsp_imp" =&gt; 0,
+      "totalClick" =&gt; 40,
+      "vtr25" =&gt; 0,
+      "page_view_count" =&gt; '-',  # 非 RTB 維度，填充 '-'
+      "roas" =&gt; '-'
+    }],
+    [["product", "automotive"], {
+      "totalClick" =&gt; 30,        # 唯一保留
+      "superdsp_imp" =&gt; '-',     # product 維度特殊處理
+      "vtr25" =&gt; '-',
+      "page_view_count" =&gt; '-',
+      "roas" =&gt; '-'
+    }]
+  ]
+</pre>
+ </li>
+ <li>
+  <p>
+   <strong>
+    格式化輸出資料(format_one_campaign_data, format_placements_data)
+   </strong>
+  </p>
+  <ol>
+   <li>
+    <p>
+     <strong>
+      format_one_campaign_data
+     </strong>
+    </p>
+    <pre>1. 整體架構分析
+
+  format_one_campaign_data 方法負責將計算完成的 @one_campaign_data 轉換成 Excel
+  輸出所需的格式，這是資料處理鏈的最後一個環節。
+
+⏺ 2. big_data_report 的格式化流程
+
+  2.1 主要步驟概覽
+
+  if @report_type == 'big_data_report'
+    # 步驟1: 遍歷每個維度，準備表格資料
+    table_datas = @one_campaign_data.each_with_index.map do |data, index|
+      # 步驟2: 取得維度類型
+      target_type = data.keys.first.first
+
+      # 步驟3: 建立欄位標題
+      row_one_campaign_col = get_row_col(source_class: target_type, data: data, index: index)
+
+      # 步驟4: 處理資料列
+      if @clickhouse_target_colnames.include?(target_type)
+        rows_one_campaign_data = calc_clickhouse_row_data(source_class: target_type, data: data)
+      end
+
+      # 步驟5: 調整 Total 列位置
+      # 步驟6: 設定格式代碼
+      # 步驟7: 組合成表格物件
+    end
+
+    # 步驟8: 建立最終結果
+    result = {
+      one_campaign_name: OneCampaign.find_by(id: @one_campaign_id).name,
+      table_datas: table_datas,
+    }
+  end
+
+  2.2 輸入資料結構
+
+  執行前的 @one_campaign_data 結構：
+
+  @one_campaign_data = [
+    {
+      ["demographic", "male_25_34"] =&gt; {
+        "totalClick" =&gt; 50,
+        "vtr25" =&gt; 20.0,
+        "vtr50" =&gt; 15.0,
+        "conversion" =&gt; 5,
+        "roas" =&gt; 5.0
+      },
+      ["demographic", "female_35_44"] =&gt; {
+        "totalClick" =&gt; 40,
+        "vtr25" =&gt; 18.0,
+        "vtr50" =&gt; 13.0,
+        "conversion" =&gt; 3,
+        "roas" =&gt; 3.5
+      },
+      ["demographic", "total"] =&gt; {
+        "totalClick" =&gt; 90,
+        "vtr25" =&gt; 19.0,
+        "vtr50" =&gt; 14.0,
+        "conversion" =&gt; 8,
+        "roas" =&gt; 4.2
+      }
+    },
+    # 如果有多個維度，會有更多的 hash...
+  ]
+
+  3. 詳細處理步驟
+
+  3.1 步驟2: 取得維度類型
+
+  target_type = data.keys.first.first
+  # 例如：data.keys.first = ["demographic", "male_25_34"]
+  # target_type = "demographic"
+
+  3.2 步驟3: 建立欄位標題
+
+  row_one_campaign_col = get_row_col(source_class: target_type, data: data, index: index)
+
+  def get_row_col(source_class: '', data: [], index: 0)
+    col = @clickhouse_target_translation[source_class]  # 維度的中文名稱
+    [col] + data.first[1].map { |k, v| @translation[k] }  # 加上統計指標的中文名稱
+  end
+
+  實際範例：
+  # @clickhouse_target_translation["demographic"] = "人口統計"
+  # @translation = {"totalClick" =&gt; "總點擊次數", "vtr25" =&gt; "25%觀看率", ...}
+
+  row_one_campaign_col = [
+    "人口統計",     # 維度名稱
+    "總點擊次數",   # 統計指標1
+    "25%觀看率",    # 統計指標2
+    "50%觀看率",    # 統計指標3
+    "轉換次數",     # 統計指標4
+    "廣告投資報酬率" # 統計指標5
+  ]
+
+⏺ 3.3 步驟4: 處理資料列
+
+  if @clickhouse_target_colnames.include?(target_type)
+    rows_one_campaign_data = calc_clickhouse_row_data(source_class: target_type, data: data)
+  end
+
+  calc_clickhouse_row_data 方法有兩種處理模式：
+
+  一般維度處理：
+  # 對於 demographic, device 等一般維度
+  def calc_clickhouse_row_data(source_class: '', data: {})
+    # ...else 分支
+    data.map do |target_type_data, target_stat|
+      [target_type_data.second] + target_stat.map {|k, v| v}
+    end
+  end
+
+  產品相關維度處理：
+  # 對於 product_key, in_market 維度
+  if source_class.in?(["product_key", 'in_market'])
+    # 需要從資料庫取得分類階層資訊
+    sources = Target::IndustryCategory.where(...).index_by(&amp;:id)
+
+    # 特殊排序邏輯
+    data = data.sort_by do |target_colname_id, target_stat|
+      id = target_colname_id.second
+      if id == 'total'
+        [Float::INFINITY, Float::INFINITY]  # total 排最後
+      else
+        [sources[id].parent_id, id]  # 按照階層排序
+      end
+    end
+
+    # 建立階層式的行標題
+    data.map do |target_colname_id, target_stat|
+      # 產生 "父分類 &gt; 子分類" 格式的標題
+    end
+  end
+
+  實際範例（一般維度）：
+  # 輸入資料
+  data = {
+    ["demographic", "male_25_34"] =&gt; {"totalClick" =&gt; 50, "vtr25" =&gt; 20.0, "conversion" =&gt; 5},
+    ["demographic", "female_35_44"] =&gt; {"totalClick" =&gt; 40, "vtr25" =&gt; 18.0, "conversion" =&gt; 3},
+    ["demographic", "total"] =&gt; {"totalClick" =&gt; 90, "vtr25" =&gt; 19.0, "conversion" =&gt; 8}
+  }
+
+  # 處理結果
+  rows_one_campaign_data = [
+    ["male_25_34", 50, 20.0, 5],      # 維度值 + 統計數據
+    ["female_35_44", 40, 18.0, 3],
+    ["total", 90, 19.0, 8]
+  ]
+
+  3.4 步驟5: 調整 Total 列位置
+
+  # move the total to the bottom
+  rows_one_campaign_data.insert(
+    -1,
+    rows_one_campaign_data.delete_at(
+      rows_one_campaign_data.index {|x| x[0].to_s.upcase == 'TOTAL' }
+    )
+  )
+  rows_one_campaign_data[-1][0] = "Total"
+
+  這段邏輯確保：
+  1. 找到 total 列（不區分大小寫）
+  2. 將它移動到陣列最後
+  3. 統一 total 的顯示格式為 "Total"
+
+  調整後：
+  rows_one_campaign_data = [
+    ["male_25_34", 50, 20.0, 5],
+    ["female_35_44", 40, 18.0, 3],
+    ["Total", 90, 19.0, 8]          # 移動到最後，統一格式
+  ]
+
+  3.5 步驟6: 設定格式代碼
+
+  format_codes = ['regular'] + data.first[1].map {|k, v| FORMAT_CODES[k]}
+
+  FORMAT_CODES 對應：
+  FORMAT_CODES = {
+    'totalClick' =&gt; 'thousand',      # 千分位格式
+    'vtr25' =&gt; 'percentage',         # 百分比格式
+    'vtr50' =&gt; 'percentage',
+    'conversion' =&gt; 'thousand',
+    'roas' =&gt; 'thousand',
+    # ... 更多格式定義
+  }
+
+  實際結果：
+  format_codes = [
+    'regular',      # 第一欄（維度值）使用一般格式
+    'thousand',     # totalClick
+    'percentage',   # vtr25
+    'percentage',   # vtr50
+    'thousand',     # conversion
+    'thousand'      # roas
+  ]
+
+⏺ 4. Excel 輸出格式
+
+  4.1 步驟7: 組合成表格物件
+
+  {
+    colnames: row_one_campaign_col,
+    data: rows_one_campaign_data,
+    format_codes: format_codes,
+  }
+
+  每個維度會產生一個表格物件，包含：
+  - colnames: 欄位標題陣列
+  - data: 資料內容（二維陣列）
+  - format_codes: 每欄的格式化代碼
+
+  4.2 步驟8: 建立最終結果
+
+  result = {
+    one_campaign_name: OneCampaign.find_by(id: @one_campaign_id).name,
+    table_datas: table_datas,
+  }
+
+  最終 @formatted_one_campaign_data 結構：
+
+  @formatted_one_campaign_data = {
+    one_campaign_name: "春季促銷活動",
+    table_datas: [
+      {
+        # 第一個維度表格（例如：人口統計）
+        colnames: ["人口統計", "總點擊次數", "25%觀看率", "50%觀看率", "轉換次數", "廣告投資報酬率"],
+        data: [
+          ["male_25_34", 50, 20.0, 15.0, 5, 5.0],
+          ["female_35_44", 40, 18.0, 13.0, 3, 3.5],
+          ["Total", 90, 19.0, 14.0, 8, 4.2]
+        ],
+        format_codes: ["regular", "thousand", "percentage", "percentage", "thousand", "thousand"]
+      },
+      {
+        # 第二個維度表格（例如：裝置類型）
+        colnames: ["裝置類型", "總點擊次數", "25%觀看率", "50%觀看率", "轉換次數", "廣告投資報酬率"],
+        data: [
+          ["desktop", 60, 22.0, 16.0, 6, 4.8],
+          ["mobile", 30, 16.0, 12.0, 2, 3.2],
+          ["Total", 90, 19.0, 14.0, 8, 4.2]
+        ],
+        format_codes: ["regular", "thousand", "percentage", "percentage", "thousand", "thousand"]
+      }
+      // 如果有更多維度，會繼續...
+    ]
+  }
+</pre>
+   </li>
+   <li>
+    <p>
+     <strong>
+      format_placements_data
+     </strong>
+    </p>
+    <pre>1. 整體架構
+
+  format_placements_data 方法負責將計算完成的 @placements_set_data 轉換成 Excel
+  輸出所需的格式，這是資料處理鏈的最後環節。與 format_one_campaign_data 不同的是，它處理的是按 tab 分組的多個 
+  placement 集合。
+
+  
+ 2. big_data_report 格式化流程（行 965-1020）
+
+  2.1 主要步驟概覽
+
+  if @report_type == 'big_data_report'
+    @lookup_index_exportname = format_tab_name  # 步驟1: 格式化 tab 名稱
+
+    @placements_set_data.each_with_index.map do |data, index|
+      # 步驟2: 取得 tab 名稱
+      row_export_name = @lookup_index_exportname[index]
+
+      # 步驟3: 遍歷該 tab 下的每個維度資料
+      table_datas = data.each_with_index.map do |source_data, source_index|
+        # 步驟4: 取得維度類型
+        target_type = source_data.keys.first.first
+
+        # 步驟5: 建立欄位標題
+        row_placements_col = get_row_col(...)
+
+        # 步驟6: 處理資料列
+        rows_placements_data = calc_clickhouse_row_data(...)
+
+        # 步驟7: 調整 Total 列位置
+        # 步驟8: 設定格式代碼
+      end
+
+      # 步驟9: 收集該 tab 的 placement IDs
+      # 步驟10: 組合成最終結果
+    end
+  end
+  
+  2.2 輸入資料結構
+
+  執行前的 @placements_set_data 結構：
+
+  @placements_set_data = {
+    0 =&gt; {  # Tab 0 (例如："Set A")
+      ["demographic", "male_25_34"] =&gt; {
+        "totalClick" =&gt; 30,
+        "vtr25" =&gt; 18.0,
+        "vtr50" =&gt; 12.0,
+        "conversion" =&gt; 3,
+        "roas" =&gt; 4.2
+      },
+      ["demographic", "female_35_44"] =&gt; {
+        "totalClick" =&gt; 25,
+        "vtr25" =&gt; 15.0,
+        "vtr50" =&gt; 10.0,
+        "conversion" =&gt; 2,
+        "roas" =&gt; 3.8
+      },
+      ["demographic", "total"] =&gt; {
+        "totalClick" =&gt; 55,
+        "vtr25" =&gt; 16.5,
+        "vtr50" =&gt; 11.0,
+        "conversion" =&gt; 5,
+        "roas" =&gt; 4.0
+      },
+      ["device", "desktop"] =&gt; {
+        "totalClick" =&gt; 40,
+        "vtr25" =&gt; 20.0,
+        "vtr50" =&gt; 14.0,
+        "conversion" =&gt; 4,
+        "roas" =&gt; 5.0
+      },
+      ["device", "mobile"] =&gt; {
+        "totalClick" =&gt; 15,
+        "vtr25" =&gt; 13.0,
+        "vtr50" =&gt; 8.0,
+        "conversion" =&gt; 1,
+        "roas" =&gt; 3.0
+      },
+      ["device", "total"] =&gt; {
+        "totalClick" =&gt; 55,
+        "vtr25" =&gt; 16.5,
+        "vtr50" =&gt; 11.0,
+        "conversion" =&gt; 5,
+        "roas" =&gt; 4.0
+      }
+    },
+    1 =&gt; {  # Tab 1 (例如："Set B")
+      # 類似結構...
+    }
+  }
+
+  關鍵觀察：
+  - 第一層 key 是 tab index（對應不同的 export set）
+  - 第二層 key 是 [維度類型, 維度值] 的陣列
+  - 每個 tab 可能包含多個維度的資料（例如同時有 demographic 和 device
+  
+  
+  3. 詳細處理步驟
+
+  3.1 步驟1: 格式化 Tab 名稱（行 966）
+
+  @lookup_index_exportname = format_tab_name
+
+  format_tab_name 方法（行 1084-1110）做了什麼：
+
+  def format_tab_name(serial_eng_info = nil, tab_index = nil)
+    result = @lookup_index_exportname.map do |index, name|
+      # 1. 移除 Excel 不允許的特殊字元
+      tab_name = name.gsub(/[\\/\\\\?*\\[\\]:]/, '')
+
+      # 2. 限制長度至 31 bytes（Excel 限制）
+      tab_name = limit_tab_name(tab_name) if tab_name.bytesize &gt; 31
+
+      # 3. 空名稱給預設值
+      tab_name = "Tab #{index + 1}" if tab_name.empty?
+
+      [index, tab_name]
+    end.to_h
+    result
+  end
+
+  實際範例：
+  # 輸入
+  @lookup_index_exportname = {
+    0 =&gt; "Campaign A - Performance Report",
+    1 =&gt; "測試專案/結果*分析[重要]",
+    2 =&gt; ""
+  }
+
+  # 輸出
+  {
+    0 =&gt; "Campaign A - Performance Rep",  # 超過 31 bytes 被截斷
+    1 =&gt; "測試專案結果分析重要",           # 特殊字元被移除
+    2 =&gt; "Tab 3"                          # 空名稱給預設值
+  }
+  
+  
+  3.2 步驟3: 資料結構重組（行 968）
+
+  @placements_set_data.each_with_index.map do |data, index|
+
+  這裡的 data 是什麼？
+  - 是單個 tab 的所有維度資料（包含多個維度混在一起）
+
+  接下來需要將同一維度的資料分組：
+
+  # 原始資料（混合）
+  data = {
+    ["demographic", "male_25_34"] =&gt; {...},
+    ["demographic", "female_35_44"] =&gt; {...},
+    ["demographic", "total"] =&gt; {...},
+    ["device", "desktop"] =&gt; {...},
+    ["device", "mobile"] =&gt; {...},
+    ["device", "total"] =&gt; {...}
+  }
+
+  # 在 line 972 會遍歷，實際上 source_data 會是：
+  # 第一次迭代: {["demographic", "male_25_34"] =&gt; {...}, ["demographic", "female_35_44"] =&gt; {...}, ...}
+  # 第二次迭代: {["device", "desktop"] =&gt; {...}, ["device", "mobile"] =&gt; {...}, ...}
+  
+  3.3 步驟4-5: 取得維度類型與欄位標題（行 974-977）
+
+  target_type = source_data.keys.first.first
+  row_placements_col = get_row_col(
+    source_class: target_type, data: source_data, index: source_index
+  )
+
+  範例：
+  # source_data (demographic 維度的資料)
+  source_data = {
+    ["demographic", "male_25_34"] =&gt; {"totalClick" =&gt; 30, "vtr25" =&gt; 18.0},
+    ["demographic", "female_35_44"] =&gt; {"totalClick" =&gt; 25, "vtr25" =&gt; 15.0},
+    ["demographic", "total"] =&gt; {"totalClick" =&gt; 55, "vtr25" =&gt; 16.5}
+  }
+
+  # target_type = "demographic"
+
+  # get_row_col 回傳
+  row_placements_col = [
+    "人口統計",      # @clickhouse_target_translation["demographic"]
+    "總點擊次數",    # @translation["totalClick"]
+    "25%觀看率"      # @translation["vtr25"]
+  ]
+  
+  3.4 步驟6: 處理資料列（行 979-983）
+
+  if @clickhouse_target_colnames.include?(target_type)
+    rows_placements_data = calc_clickhouse_row_data(
+      source_class: target_type, data: source_data
+    )
+  end
+  
+  calc_clickhouse_row_data 的兩種模式：
+
+  模式 1: 產品階層維度（product_key / in_market）
+
+  if source_class.in?(["product_key", 'in_market'])
+    # 從資料庫載入分類階層
+    sources = Target::IndustryCategory
+      .where("parent_id = ? OR id IN (?)", 0, data.keys.map(&amp;:second))
+      .select(:id, :parent_id, :name)
+      .index_by(&amp;:id)
+
+    # 特殊排序：先按 parent_id，再按 id
+    data = data.sort_by do |target_colname_id, target_stat|
+      id = target_colname_id.second
+      if id == 'total'
+        [Float::INFINITY, Float::INFINITY]  # total 永遠最後
+      else
+        [sources[id].parent_id, id]
+      end
+    end
+
+    # 建立階層式標題
+    data.map do |target_colname_id, target_stat|
+      id = target_colname_id.second
+      row_title = if id == "total"
+        ["total"]
+      else
+        parent_id = sources[id].parent_id
+        source_name = sources[id].name
+        if parent_id == 0
+          ["#{source_name}"]                    # 頂層分類
+        else
+          parent_name = sources[parent_id].name
+          ["#{parent_name} &gt; #{source_name}"]   # 子分類
+        end
+      end
+      row_title + target_stat.map {|k, v| v}    # 加上統計數據
+    end
+  end
+
+  實際範例：
+  # 輸入資料（假設 ID 對應）
+  # 1: "3C" (parent_id=0)
+  # 101: "筆記型電腦" (parent_id=1)
+  # 102: "手機" (parent_id=1)
+
+  data = {
+    ["product_key", 1] =&gt; {"totalClick" =&gt; 100, "conversion" =&gt; 10},
+    ["product_key", 101] =&gt; {"totalClick" =&gt; 60, "conversion" =&gt; 6},
+    ["product_key", 102] =&gt; {"totalClick" =&gt; 40, "conversion" =&gt; 4},
+    ["product_key", "total"] =&gt; {"totalClick" =&gt; 100, "conversion" =&gt; 10}
+  }
+
+  # 輸出結果
+  rows_placements_data = [
+    ["3C", 100, 10],                    # 頂層分類
+    ["3C &gt; 筆記型電腦", 60, 6],          # 子分類（有階層標示）
+    ["3C &gt; 手機", 40, 4],                # 子分類
+    ["total", 100, 10]                  # 總計（排序邏輯已確保在最後）
+  ]
+
+  ---
+  模式 2: 一般維度（demographic / device / os 等）
+
+  else
+    data.map do |target_type_data, target_stat|
+      [target_type_data.second] + target_stat.map {|k, v| v}
+    end
+  end
+
+  實際範例：
+  # 輸入資料
+  source_data = {
+    ["demographic", "male_25_34"] =&gt; {"totalClick" =&gt; 30, "vtr25" =&gt; 18.0, "conversion" =&gt; 3},
+    ["demographic", "female_35_44"] =&gt; {"totalClick" =&gt; 25, "vtr25" =&gt; 15.0, "conversion" =&gt; 2},
+    ["demographic", "total"] =&gt; {"totalClick" =&gt; 55, "vtr25" =&gt; 16.5, "conversion" =&gt; 5}
+  }
+
+  # 輸出結果
+  rows_placements_data = [
+    ["male_25_34", 30, 18.0, 3],
+    ["female_35_44", 25, 15.0, 2],
+    ["total", 55, 16.5, 5]
+  ]
+
+  ---
+  3.5 步驟7: 調整 Total 列位置（行 986-992）
+
+  # move the total to the bottom
+  rows_placements_data.insert(
+    -1,
+    rows_placements_data.delete_at(
+      rows_placements_data.index { |x| x[0].to_s.upcase == 'TOTAL' }
+    )
+  )
+  rows_placements_data[-1].map! { |d| d == 'total' ? 'Total' : d }
+
+  邏輯分解：
+  1. rows_placements_data.index { |x| x[0].to_s.upcase == 'TOTAL' }
+    - 找到第一欄是 "total" 的列（不區分大小寫）
+  2. delete_at(...)
+    - 刪除該列並回傳被刪除的元素
+  3. insert(-1, ...)
+    - 將該列插入到陣列最後（-1 表示最後一個位置）
+  4. rows_placements_data[-1].map! { |d| d == 'total' ? 'Total' : d }
+    - 將最後一列的 'total' 字串統一改為 'Total'（首字母大寫）
+    
+  3.6 步驟8: 設定格式代碼（行 994）
+
+  format_codes = ["regular"] + source_data.first[1].keys.map{ |c| FORMAT_CODES[c] }
+
+  FORMAT_CODES 定義（行 8-56）：
+  FORMAT_CODES = {
+    'totalClick' =&gt; 'thousand',         # 千分位
+    'vtr25' =&gt; 'percentage',            # 百分比
+    'vtr50' =&gt; 'percentage',
+    'conversion' =&gt; 'thousand',
+    'amount_sell' =&gt; 'currency',        # 貨幣
+    'roas' =&gt; 'thousand',
+    # ... 更多定義
+  }
+  
+  3.7 步驟9: 收集 Placement IDs（行 1003-1010）
+
+  placement_ids = []
+  @lookup_placement_export.each do |plaid, tab_indices|
+    tab_indices.each do |tab_index|
+      if tab_index == index
+        placement_ids &lt;&lt; plaid
+      end
+    end
+  end
+  
+  3.8 步驟10: 組合最終結果（行 1012-1017）
+
+  result[index] = {
+    export_name: row_export_name,
+    placement_ids: placement_ids,
+    table_datas: table_datas,
+  }
+
+  
+</pre>
+   </li>
+  </ol>
+ </li>
+</ol>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>
+4. 處理資料並渲染Excel
+<p>
+</p>
+<ul>
+ <li>
+  <p>
+   取得格式化的資料：@formatted_one_campaign_data, @formatted_placements_data
+  </p>
+ </li>
+ <li>
+  <p>
+   渲染對應的 AXLSX Excel 模板
+  </p>
+ </li>
+</ul>
+<p>
+ render xlsx: "api/v1/programmatics/campaigns/generate_#{report_type}_xls.xlsx.axlsx”
+</p>
+<p>
+</p>
+<p>
+</p>
+<h2>
+ <strong>
+  ClickHouse 資料來源與指標
+ </strong>
+</h2>
+資料來源對應表 (DimensionData)：
+<ul>
+ <li>
+  <p>
+   <strong>
+    daily
+   </strong>
+   : event_by_pl - 按日期統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    media
+   </strong>
+   : event_by_pid - 按媒體統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    os
+   </strong>
+   : event_by_pl, device_event - 按作業系統統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    hourly
+   </strong>
+   : hourly_event - 按小時統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    product_key
+   </strong>
+   : product_key_event - 按產品關鍵字統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    segment
+   </strong>
+   : segment_event - 按受眾區隔統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    interest
+   </strong>
+   : interest_event - 按興趣統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    keyword
+   </strong>
+   : interest_event - 按關鍵字統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    demographic
+   </strong>
+   : demographic_event - 按人口統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    device
+   </strong>
+   : device_event - 按設備統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    pack
+   </strong>
+   : event_by_pack - 按素材包統計
+  </p>
+ </li>
+</ul>
+基礎互動指標：
+<ul>
+ <li>
+  <p>
+   <strong>
+    cv
+   </strong>
+   - 曝光次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    impression
+   </strong>
+   - 可視曝光次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    videoClick
+   </strong>
+   - 影片點擊次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    bannerClick
+   </strong>
+   - Banner點擊次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    tb
+   </strong>
+   - Trigger Button點擊次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    uengage
+   </strong>
+   - 首次互動次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    cpe
+   </strong>
+   - CPE 計價互動次數
+  </p>
+ </li>
+</ul>
+影片觀看指標：
+<ul>
+ <li>
+  <p>
+   <strong>
+    q0, q25, q50, q75, q100
+   </strong>
+   - 影片觀看進度統計
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    view2s, view3s, view5s, view10s, view30s
+   </strong>
+   - 不同秒數觀看統計
+  </p>
+ </li>
+</ul>
+計算衍生指標：
+<ul>
+ <li>
+  <p>
+   <strong>
+    ctr_cv, ctr_imp
+   </strong>
+   - 點擊率 (基於cv或impression)
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    cpeRatio_cv, cpeRatio_imp
+   </strong>
+   - 互動率
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    aerRatio
+   </strong>
+   - AER比率
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    q100Ratio_cv, q100Ratio_imp
+   </strong>
+   - 完整觀看率
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    totalClick
+   </strong>
+   - 總點擊數
+  </p>
+ </li>
+</ul>
+轉換追蹤指標 (RTB數據)：
+<ul>
+ <li>
+  <p>
+   <strong>
+    page_view_count
+   </strong>
+   - 頁面瀏覽次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    complete_registration_count
+   </strong>
+   - 完成註冊次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    add_to_cart_count
+   </strong>
+   - 加入購物車次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    purchase
+   </strong>
+   - 購買次數
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    revenue
+   </strong>
+   - 收益金額
+  </p>
+ </li>
+</ul>

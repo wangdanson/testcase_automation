@@ -1,0 +1,612 @@
+<h1>
+ 目的
+</h1>
+<p>
+ 設定 Retargeting 自訂資料源時，只能擇一選擇包含或是排除，希望能夠兩者並存，提升投放準確度。
+</p>
+<h1>
+ User
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      User
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      scope
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     CIS
+    </p>
+   </td>
+   <td>
+    <p>
+     ODM Placement 投放類型 選擇 Retargeting 時，自訂資料源 可進行包含及排除資料源的設定
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     SIO Jimmy
+    </p>
+   </td>
+   <td>
+    <p>
+     sequence segment_target 結構調整，增加 v2，與v1 相容並存
+    </p>
+    <p>
+     (規格：
+     <code>
+      segment_targeting_v2
+     </code>
+     <br/>
+     <a href="https://guoshi.atlassian.net/wiki/pages/diffpagesbyversion.action?pageId=8781860&amp;selectedPageVersions=282&amp;selectedPageVersions=281">
+      https://guoshi.atlassian.net/wiki/pages/diffpagesbyversion.action?pageId=8781860&amp;selectedPageVersions=282&amp;selectedPageVersions=281
+     </a>
+     )
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ Wireframe
+</h1>
+<p>
+ PM 設計, Penny 確認的版本:
+</p>
+<img src="image-20230726-024746.png"/>
+<h1>
+ 情境
+</h1>
+<ul>
+ <li>
+  <p>
+   如果是現有資料，
+   <code>
+    sequence
+   </code>
+   結構：
+  </p>
+ </li>
+</ul>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     Retargeting 只設定包含
+    </p>
+   </th>
+   <th>
+    <p>
+     Retargeting 只設定排除
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <pre>"segment_targeting_v2": {
+  "enable": true,
+  "pool": 1861503,
+  "allow": [
+    "290d1271-b89b-11ed-94f2-42010a006ae7"
+  ],
+  "deny": []
+},
+"segment_targeting": {
+  "enable": true,
+  "pool": 1861503,
+  "segment_ids": [
+    "290d1271-b89b-11ed-94f2-42010a006ae7"
+  ],
+  "include": true
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>"segment_targeting_v2": {
+  "enable": true,
+  "pool": 17509436,
+  "allow": [],
+  "deny": [
+    "6a511f7a-ab4e-11ed-94f2-42010a006ae7",
+    "c8817123-ab4e-11ed-94f2-42010a006ae7"
+  ]
+},
+"segment_targeting": {
+  "enable": true,
+  "pool": 17509436,
+  "segment_ids": [
+    "6a511f7a-ab4e-11ed-94f2-42010a006ae7",
+    "c8817123-ab4e-11ed-94f2-42010a006ae7"
+  ],
+  "include": false
+}</pre>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<ul>
+ <li>
+  <p>
+   如果是上線後才進行設定，
+   <code>
+    sequence
+   </code>
+   結構：
+  </p>
+ </li>
+</ul>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      情境
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     沒設定 Retargeting
+    </p>
+   </th>
+   <th>
+    <p>
+     Retargeting 兩個都設
+    </p>
+   </th>
+   <th>
+    <p>
+     Retargeting 設定包含1個 排除0個
+    </p>
+   </th>
+   <th>
+    <p>
+     Retargeting 設排除1個 包含0個
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <th>
+    <p>
+     <code>
+      sequence
+     </code>
+     結構
+    </p>
+   </th>
+   <td>
+    <pre>"segment_targeting_v2": {
+  "enable": false,
+  "pool": 0,
+  "allow": [],
+  "deny": []
+},
+"segment_targeting": {
+  "enable": false,
+  "pool": 0,
+  "segment_ids": [],
+  "include": true
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>"segment_targeting_v2": {
+  "enable": true,
+  "pool": 24195575,
+  "allow": [
+    "6a511f7a-ab4e-11ed-94f2-42010a006ae7",
+    "c8817123-ab4e-11ed-94f2-42010a006ae7",
+    "ce7dae1b-bc8e-11ed-94f2-42010a006ae7"
+  ],
+  "deny": [
+    "389322d5-a925-11ed-94f2-42010a006ae7",
+    "290d1271-b89b-11ed-94f2-42010a006ae7"
+  ]
+},
+"segment_targeting": {
+  "enable": true,
+  "pool": 24195575,
+  "segment_ids": [
+    "6a511f7a-ab4e-11ed-94f2-42010a006ae7",
+    "c8817123-ab4e-11ed-94f2-42010a006ae7",
+    "ce7dae1b-bc8e-11ed-94f2-42010a006ae7"
+  ],
+  "include": true
+}</pre>
+   </td>
+   <td>
+    <pre>"segment_targeting_v2": {
+  "enable": true,
+  "pool": 137800,
+  "allow": [
+    "4e19b136-c3ca-11ed-94f2-42010a006ae7"
+  ],
+  "deny": []
+},
+"segment_targeting": {
+  "enable": true,
+  "pool": 137800,
+  "segment_ids": [
+    "4e19b136-c3ca-11ed-94f2-42010a006ae7"
+  ],
+  "include": true
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>"segment_targeting_v2": {
+  "enable": true,
+  "pool": 8319018,
+  "allow": [],
+  "deny": [
+    "c8817123-ab4e-11ed-94f2-42010a006ae7"
+  ]
+},
+  "segment_targeting": {
+  "enable": true,
+  "pool": 8319018,
+  "segment_ids": [
+    "c8817123-ab4e-11ed-94f2-42010a006ae7"
+  ],
+  "include": false
+}</pre>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      備註
+     </strong>
+    </p>
+   </th>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     當兩個都進行設定，v1 結構 只列出包含(allow)的部分
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ Sequqnce更新時間點
+</h1>
+<h1>
+ API 規格
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      path
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      method
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      request body
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      response body(success &amp; fail)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      example(optional)
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{advertiser_id}/campaigns/{campaign_id}/placements
+    </p>
+   </td>
+   <td>
+    <p>
+     post
+    </p>
+   </td>
+   <td>
+    <p>
+     新增 Placement
+    </p>
+   </td>
+   <td>
+    <pre>{
+  data: {
+    targeting: {
+      retargeting: {
+        pids: array,
+        placement_ids: array,
+        segments: {
+          include: array,
+          exclude: array
+        },
+        industrial_ids: array,
+        uu_qty: integer
+      },
+      isp_include: boolean,
+      isps: array
+    },
+  }
+}</pre>
+   </td>
+   <td>
+    <p>
+     <strong>
+      success
+     </strong>
+     :
+    </p>
+    <pre>{
+  message: string,
+  data: {
+    targeting: {
+      retargeting: {
+        pids: array,
+        placement_ids: array,
+        segments: array,
+        industrial_ids: array,
+        uu_qty: integer
+      },
+      isp_include: boolean,
+      isps: array
+    },
+  }
+}</pre>
+    <p>
+     <strong>
+      fail
+     </strong>
+     :
+    </p>
+    <pre>{
+    "status": string,
+    "message": string
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     swagger:
+     <br/>
+     <a href="http://localhost:4000/apidocs/odm_index.html#/Placement%20%E8%A8%AD%E5%AE%9A/post_advertisers__advertiser_id__campaigns__campaign_id__placements">
+      http://localhost:4000/apidocs/odm_index.html#/Placement 設定/post_advertisers__advertiser_id__campaigns__campaign_id__placements
+     </a>
+    </p>
+    <pre>request:
+{
+  data: {
+    targeting: {
+      retargeting: {
+        pids: [],
+        placement_ids: [],
+        segments: {
+          include: [3933, 123],
+          exclude: [1111]
+        },
+        industrial_ids: [],
+        uu_qty: 0
+      },
+      isp_include: false,
+      isps: []
+    },
+  }
+}
+
+response:
+success:
+{
+  message: string,
+  data: {
+    targeting: {
+      retargeting: {
+        pids: [],
+        placement_ids: [],
+        segments: {
+          include: [3933, 123],
+          exclude: [1111]
+        },
+        industrial_ids: [],
+        uu_qty: 0
+      },
+      isp_include: false,
+      isps: []
+    },
+  }
+}
+
+fail:
+{
+    "status": "error",
+    "message": "查無權限"
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers​/{advertiser_id}​/campaigns​/{campaign_id}​/placements​/{id}
+    </p>
+   </td>
+   <td>
+    <p>
+     get
+    </p>
+   </td>
+   <td>
+    <p>
+     取得 Placement
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     同項次一
+    </p>
+   </td>
+   <td>
+    <p>
+     swagger:
+     <br/>
+     <a href="http://localhost:4000/apidocs/odm_index.html#/Placement%20%E8%A8%AD%E5%AE%9A/get_advertisers__advertiser_id__campaigns__campaign_id__placements__id_">
+      http://localhost:4000/apidocs/odm_index.html#/Placement 設定/get_advertisers__advertiser_id__campaigns__campaign_id__placements__id_
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{advertiser_id}/campaigns/{campaign_id}/placements/{id}
+    </p>
+   </td>
+   <td>
+    <p>
+     put
+    </p>
+   </td>
+   <td>
+    <p>
+     更新 Placement
+    </p>
+   </td>
+   <td>
+    <p>
+     同項次一
+    </p>
+   </td>
+   <td>
+    <p>
+     同項次一
+    </p>
+   </td>
+   <td>
+    <p>
+     swagger:
+     <br/>
+     <a href="http://localhost:4000/apidocs/odm_index.html#/Placement%20%E8%A8%AD%E5%AE%9A/put_advertisers__advertiser_id__campaigns__campaign_id__placements__id_">
+      http://localhost:4000/apidocs/odm_index.html#/Placement 設定/put_advertisers__advertiser_id__campaigns__campaign_id__placements__id_
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     api/v1/odm/advertisers/{advertiser_id}/campaigns/{campaign_id}/placements/{id}/duplicate
+    </p>
+   </td>
+   <td>
+    <p>
+     post
+    </p>
+   </td>
+   <td>
+    <p>
+     複製 Placement
+    </p>
+   </td>
+   <td>
+    <p>
+     同項次一
+    </p>
+   </td>
+   <td>
+    <p>
+     同項次一
+    </p>
+   </td>
+   <td>
+    <p>
+     swagger:
+     <br/>
+     <a href="http://localhost:4000/apidocs/odm_index.html#/Placement%20%E8%A8%AD%E5%AE%9A/post_advertisers__advertiser_id__campaigns__campaign_id__placements__id__duplicate">
+      http://localhost:4000/apidocs/odm_index.html#/Placement 設定/post_advertisers__advertiser_id__campaigns__campaign_id__placements__id__duplicate
+     </a>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>

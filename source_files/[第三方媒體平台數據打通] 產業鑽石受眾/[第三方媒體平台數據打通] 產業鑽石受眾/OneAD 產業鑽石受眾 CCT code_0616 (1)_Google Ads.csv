@@ -1,0 +1,14 @@
+﻿渠道,帳戶,基底程式碼
+Google Ads,"
+OneAD MCC 管理員帳戶
+經銷商：統一數網
+帳戶ID：107-082-1107
+Google代碼：AW-11482244970","<!-- Google tag (gtag.js) -->
+<script async src=""https://www.googletagmanager.com/gtag/js?id=AW-11482244970""></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11482244970');
+</script>"

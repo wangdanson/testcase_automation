@@ -4,6 +4,9 @@
   "description": "Automated test case generation using Gemini CLI",
   "scripts": {
     "setup": "npm install -g @google/gemini-cli && pip install -r requirements.txt",
+    "sync:confluence": "python3 sync_from_confluence.py",
+    "sync:knowledge": "python3 sync_knowledge.py",
+    "sync:knowledge:no-sync": "python3 sync_knowledge.py --no-sync",
     "//": "「setup」指令：一鍵自動安裝 Gemini CLI 全域工具與 Python 必要相依套件"
   },
   "author": "wangdanson",

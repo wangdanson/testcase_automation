@@ -1,0 +1,555 @@
+<p>
+ <strong>
+  目的
+ </strong>
+ ：InStream Q3 要發展跨螢策略，主打 桌機/手機/CTV 可以跨裝置控制頻次
+ (Cookieless 後，真的要強調頻次嗎？)
+ ，並提供 campaign 整體 Reach &amp; Frequency
+</p>
+<ul>
+ <li>
+  <p>
+   Reach: 觸及 Unique user (UU)
+  </p>
+ </li>
+ <li>
+  <p>
+   Frequency (縮寫 Freq.): 觸及頻次 = 總曝光數 / 觸及 UU
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+ <strong>
+  現況與未來功能：
+ </strong>
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      現況
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      未來
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       控制頻次層級
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     placement level
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       placement level
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        campaign level
+       </strong>
+       (如果買法不同怎麼做？現行頻次跟著買法走
+       <strong>
+        ans: 不論什麼買法都是控制在 impression
+       </strong>
+       )
+      </p>
+     </li>
+     <li>
+      <p>
+       placement group 共用頻次 (相同買法)
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       控制 id 類型
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     uuid (OneID)
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        OneIDx
+       </strong>
+       <br/>
+       (如果客戶看超過設定頻次對外說法？頻次容易達到不好投放？)
+      </p>
+     </li>
+     <li>
+      <p>
+       uuid (OneID)
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       控制時間範圍
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     整個 placement 走期
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       整個 placement 走期
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        整個 campaign 走期
+       </strong>
+      </p>
+     </li>
+    </ol>
+    <ul>
+     <li>
+      <p>
+       日頻次/週頻次/月頻次 (TBC) - 重度影響查詢速度
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <ol>
+     <li>
+      <p>
+       ODM 報表呈現
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     拆裝置
+    </p>
+    <ul>
+     <li>
+      <p>
+       Desktop/Mobile/App：distinct uuid 數量
+      </p>
+     </li>
+     <li>
+      <p>
+       CTV：distinct HHID 數量
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     拆裝置
+    </p>
+    <ul>
+     <li>
+      <p>
+       Desktop/Mobile/App：
+       <strong>
+        校正後 distinct OneIDx 數量
+       </strong>
+      </p>
+     </li>
+     <li>
+      <p>
+       CTV：distinct HHID 數量
+      </p>
+     </li>
+    </ul>
+    <p>
+     <strong>
+      不拆裝置
+     </strong>
+    </p>
+    <ul>
+     <li>
+      <p>
+       <strong>
+        校正後 distinct OneIDx 數量
+       </strong>
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ <strong>
+  功能需求細節：
+ </strong>
+</p>
+<ol>
+ <li>
+  <p>
+   控制頻次層級新增 campaign level：
+  </p>
+  <ol>
+   <li>
+    <p>
+     campaign level / Placement level 從嚴認定，例如 Placement level 設定 2次，campaign level 設定 1 次，則為 1 次
+    </p>
+   </li>
+   <li>
+    <p>
+     campaign level 頻次預設無限制
+    </p>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   ODM 報表拆裝置 distinct UU 數，
+   調整為校正後 distinct OneIDx 數量
+  </p>
+  <ol>
+   <li>
+    <p>
+     報表1：廣告活動 &gt; 廣告成效 &gt; 整體活動成效
+    </p>
+   </li>
+   <li>
+    <p>
+     報表2：投放項目設定 &gt; 投放成效報告 &gt; 整體活動成效
+    </p>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   ODM 報表呈現新增不拆裝置 distinct UU 數：
+  </p>
+  <ol>
+   <li>
+    <p>
+     報表：廣告活動 &gt; 廣告成效 &gt; 整體活動成效
+    </p>
+   </li>
+   <li>
+    <p>
+     裝置：All
+    </p>
+   </li>
+   <li>
+    <p>
+     Unique User：
+     校正後 distinct OneIDx 數量
+    </p>
+    <ol>
+     <li>
+      <p>
+       不含 CTV，只抓 Desktop/mobile/App 計算
+      </p>
+     </li>
+    </ol>
+   </li>
+  </ol>
+ </li>
+</ol>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      裝置
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      impression (A)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      有貼上 oneidx
+     </strong>
+     的
+     <strong>
+      impression (B)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      distinct oneidx (C)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      freq (B/C=D)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      校正後 distinct oneidx (A/D=E)
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Desktop
+    </p>
+   </td>
+   <td>
+    <p>
+     600,000
+    </p>
+   </td>
+   <td>
+    <p>
+     500,000
+    </p>
+   </td>
+   <td>
+    <p>
+     200,000
+    </p>
+   </td>
+   <td>
+    <p>
+     2.5
+    </p>
+   </td>
+   <td>
+    <p>
+     240,000
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Mobile
+    </p>
+   </td>
+   <td>
+    <p>
+     300,000
+    </p>
+   </td>
+   <td>
+    <p>
+     250,000
+    </p>
+   </td>
+   <td>
+    <p>
+     125,000
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     150,000
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     App
+    </p>
+   </td>
+   <td>
+    <p>
+     100,000
+    </p>
+   </td>
+   <td>
+    <p>
+     50,000
+    </p>
+   </td>
+   <td>
+    <p>
+     25,000
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     50,000
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Desktop/Mobile/App
+    </p>
+   </td>
+   <td>
+    <p>
+     1,000,000
+    </p>
+   </td>
+   <td>
+    <p>
+     800,000
+    </p>
+   </td>
+   <td>
+    <p>
+     250,000
+    </p>
+   </td>
+   <td>
+    <p>
+     3.2
+    </p>
+   </td>
+   <td>
+    <p>
+     312,500
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ d. 含 CTV 跨裝置 Freq 計算 (但 Freq 目前沒有在 ODM 上呈現)
+</p>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      total impression (F)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      校正後 distinct oneidx (E)
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      freq (F/E)
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     Desktop/Mobile/App/
+     CTV
+    </p>
+   </td>
+   <td>
+    <p>
+     Desktop/Mobile/App
+    </p>
+   </td>
+   <td>
+    <p>
+     Desktop/Mobile/App/
+     CTV
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     1,500,000
+    </p>
+   </td>
+   <td>
+    <p>
+     312,500
+    </p>
+   </td>
+   <td>
+    <p>
+     4.8
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<p>
+</p>
+<p>
+ <strong>
+  期望上線時間：7/1
+ </strong>
+</p>

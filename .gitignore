@@ -4,6 +4,7 @@ Thumbs.db
 tmp/
 temp/
 .gemini/tmp/
+.sync_reports/
 google_credentials.json
 google_service_account/
 service_account/

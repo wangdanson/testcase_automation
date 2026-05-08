@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant Client as 客戶端
+    participant API as API伺服器
+    participant DB as 資料庫
+
+    Client->>API: 新增媒體請求 (多個 placement ID 和多個媒體 ID)
+    API->>DB: 查詢所有指定 Placement 和媒體的必要資料
+    DB-->>API: 返回所有 Placement 和媒體的資料
+
+    loop 遍歷每個 Placement 資料
+        loop 遍歷每個媒體資料
+            API->>API: 檢查媒體的 ad format type 是否有合法合約
+            alt 合法合約存在
+                API->>DB: 新增媒體到對應的 Placement
+                DB-->>API: 新增成功
+            else 合法合約不存在
+                API-->>Client: 返回錯誤訊息，媒體無法新增
+            end
+        end
+    end
+    API-->>Client: 返回批次新增結果

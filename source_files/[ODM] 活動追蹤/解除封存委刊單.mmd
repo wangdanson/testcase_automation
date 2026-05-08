@@ -1,0 +1,10 @@
+flowchart TD
+  U[解除封存委刊單] --> S4[送出解除封存變更]
+  S4 --> Q2{判斷是否曾因被移除而反灰？}
+
+  Q2 -->|是（曾被移除）| R_keep[維持反灰狀態]
+  Q2 -->|否（未被移除）| R_unfade[解除反灰，恢復正常顯示]
+
+  %% 風格設定：未移除的資料回復白底；維持反灰的則保留灰底
+  style R_keep fill:#eeeeee,stroke:#888
+  style R_unfade fill:#ffffff,stroke:#888
