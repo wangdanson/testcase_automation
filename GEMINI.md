@@ -27,6 +27,7 @@
 *   **格式**: 僅接受 UTF-8 編碼的 CSV 檔案。
 *   **位置**: `generated_test_cases/[來源]/[檔名].csv`。
 *   **同步**: 產出後必須執行 `upload_to_sheets.py`。
+*   **全自動化原則**: 使用者要求產出 test case 時，預設即代表授權「產出 CSV → 執行 `validate_csv.py` → 執行 `upload_to_sheets.py`」完整流程，不得在產出、驗證或上傳前額外等待流程同意。只有使用者明確說「不要上傳」或「只產 CSV」時，才不執行 Google Sheets 上傳。
 
 ## 4. 知識治理與增量維護協議 (Knowledge Governance)
 為確保 `spec_knowledge/` 知識庫的權威性與完整性，維護時必須遵循：
