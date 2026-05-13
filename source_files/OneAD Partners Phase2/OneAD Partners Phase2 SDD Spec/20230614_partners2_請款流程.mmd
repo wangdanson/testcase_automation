@@ -1,0 +1,112 @@
+sequenceDiagram
+actor u as Publisher
+participant p as Partners
+participant m as 信箱
+actor d as PD
+participant o as OSS(ERP)
+actor f as Finance
+
+activate u
+u ->>+ p: 打開請款/收益列表<br>選擇請款項目<br>選擇銀行帳戶<br>提交請款申請
+p ->> p: 顯示提示與注意事項等訊息
+p ->> m: 寄出備忘錄
+deactivate p
+
+%% 網站主提供資料
+alt 個人帳戶
+alt 直接下載勞報單
+  u ->>+p: 在備忘訊息中勞務報酬單 excel 檔
+  deactivate p
+else 收信下載勞報單 
+u ->>+ m: 收信
+m -->>- u: 在備忘 Email 附件附上勞務報酬單 excel 檔
+u ->>+ m: 勞務報酬單列印<br>填寫勞務報酬單<br>回覆備忘 Email, 將勞報單照片作為附件
+deactivate m
+
+activate d
+d ->>+ m: 收信
+m -->>- d: 取得網站主勞報單
+deactivate d
+end
+
+
+else 公司帳戶
+
+u ->> u: 開立發票
+
+  alt 紙本發票
+    activate u
+    u ->>+ d: 將紙本發票郵寄到公司
+    deactivate u
+    deactivate d
+  else 電子發票
+    u ->>+ m: 回覆備忘 Email<br>將電子發票作為附件
+    deactivate m
+    activate d
+    d ->>+ m: 收信
+    m -->>- d: 收到電子發票檔案
+    deactivate d
+  end
+end
+
+%% 審核請款資料
+loop 審核請款資料
+activate d
+d ->>+ m: 收信
+m -->>- d: 獲取請款資料與檔案
+d ->>+ d: 檢查請款資料是否正確無缺漏
+d ->>+ o: 進入請款審核頁面
+deactivate d
+deactivate o
+deactivate d
+
+alt 資料有缺漏
+    activate d
+    d ->>+ o: 駁回請款申請並填寫原因
+    deactivate d
+    o ->>+ m: 發信通知網站主
+    deactivate o
+    deactivate m
+
+    alt 網站主從 Email 看到請款駁回通知信
+    activate u
+    u ->>+ m: 收信
+    m -->>- u: 看到駁回原因
+    deactivate u
+    else 網站主從 Partners/請款單紀錄 看到駁回原因
+    activate u
+    u ->>+ p: 進入請款單紀錄頁面
+    p -->>- u: 看到駁回原因
+    deactivate u
+    end
+    u ->>+ m: 修改資料後用 Email 回覆在原先的對話串
+else 資料正確
+    break 資料正確
+    activate d
+    d ->>+ o: 修改請款單狀態
+    deactivate d
+    o ->> p: 更新請款單狀態
+    deactivate o
+    end
+end
+
+end
+
+activate d
+d ->>+ f: 提供資料
+deactivate d
+f ->>- f: 檢查資料是否正確
+
+
+alt 資料正確
+f ->>+ f: 進行後續請款流程
+deactivate f
+             
+else 資料缺誤
+f ->>+ d: 通知資料缺誤
+d ->>- d: 後續流程同 PD 處理資料缺誤流程
+end
+
+
+
+

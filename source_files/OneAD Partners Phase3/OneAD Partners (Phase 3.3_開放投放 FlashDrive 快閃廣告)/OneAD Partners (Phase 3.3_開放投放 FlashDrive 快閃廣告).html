@@ -1,0 +1,1338 @@
+<h1>
+ 目標
+</h1>
+<p>
+ 新增 FlashDrive 廣告格式供網站主申請, 以增加 FlashDrive 流量
+</p>
+<h1>
+ User
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      User
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      權責
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     網站主
+    </p>
+   </td>
+   <td>
+    <p>
+     管理網站, 廣告版位; 對廣告版位收益進行請款
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     PD
+    </p>
+   </td>
+   <td>
+    <p>
+     審核申請(網站, 廣告版位, 請款)
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ UserStory
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      使用者
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      結果
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     ITO
+    </p>
+   </td>
+   <td>
+    <p>
+     支援多格式, 多計價方式的廣告格式設定與請款
+    </p>
+   </td>
+   <td>
+    <p>
+     架構調整
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     網站主
+    </p>
+   </td>
+   <td>
+    <p>
+     申請 FlashDrive 格式, 並取得嵌入碼
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告版位申請(FlashDrive 格式)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     申請並獲取 FlashDrive 的廣告收益
+    </p>
+   </td>
+   <td>
+    <p>
+     收益報表
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     以手動申請的網站主可看到已申請 FD 廣告單元
+    </p>
+   </td>
+   <td>
+    <p>
+     自動補上申請紀錄(migrate ?)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    5
+   </td>
+   <td>
+    <p>
+     PD
+    </p>
+   </td>
+   <td>
+    <p>
+     審核 FlashDrive 格式的申請
+    </p>
+   </td>
+   <td>
+    <p>
+     審核廣告版位
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ Diagram
+</h1>
+<h2>
+ Wireframe
+</h2>
+<h1>
+ FlashDrive 對應嵌入碼
+</h1>
+<pre>&lt;div id = "oneadMFSDFPTag"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+var custom_call = function (params) {
+      if (params.hasAd) {
+        console.log('MFS has AD')
+      } else {
+        console.log('MFS AD empty')
+      }
+    }
+var _ONEAD = {};
+_ONEAD.pub = {};
+_ONEAD.pub.slotobj = document.getElementById("oneadMFSDFPTag"); 
+_ONEAD.pub.slots = ["div-onead-ad"];
+_ONEAD.pub.uid = "2000XXX"; //媒體 uid
+_ONEAD.pub.external_url = "https://onead.onevision.com.tw/";
+_ONEAD.pub.player_mode_div = "div-onead-ad";
+_ONEAD.pub.player_mode = "mobile-fullscreen";
+_ONEAD.pub.google_view_click = "%%CLICK_URL_UNESC%%";
+_ONEAD.pub.google_view_pixel = "";
+_ONEAD.pub.queryAdCallback = custom_call
+var ONEAD_pubs = ONEAD_pubs || [];
+ONEAD_pubs.push(_ONEAD);
+&lt;/script&gt;
+&lt;script type="text/javascript" src = "https://ad-specs.guoshipartners.com/static/js/onead-lib.min.js"&gt;&lt;/script&gt;</pre>
+<h1>
+ 功能細項
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      UserStory ID
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      FE/BE
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      細項
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      開發時間
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      描述
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+   <td>
+    <p>
+     Partners
+    </p>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     架構調整
+    </p>
+   </td>
+   <td>
+    <p>
+     BE
+    </p>
+   </td>
+   <td>
+    <p>
+     合約
+    </p>
+    <p>
+     支援多種廣告格式(一個格式只會有一個計價單位)
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2d
+    </p>
+   </td>
+   <td>
+    <p>
+     新增 ActiveHash 定義 one_sense ad_format_type 資料
+    </p>
+    <p>
+     (包含要給前端的資訊)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     BE
+    </p>
+   </td>
+   <td>
+    <p>
+     新增 seed, 修改現有ad_format_type id, 改為 ActiveHash 的 id
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1d
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      media_ad_format_type_reviews.ad_format_type_id
+     </code>
+     更新為 ActiveHash id
+    </p>
+    <p>
+     檢查API:
+    </p>
+    <p>
+     GET
+     <code>
+      api/v1/one_sense/media_ad_format_type_reviews
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     FE, BE
+    </p>
+   </td>
+   <td>
+    <p>
+     收益報表支援多種廣告格式
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     寫死的版本已完成
+    </p>
+    <p>
+     從後端獲取選項的版本下個階段在實作
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      partners 格式 id
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     BE
+    </p>
+   </td>
+   <td>
+    <p>
+     用
+     <code>
+      partners 格式 id
+     </code>
+     對應格式清單
+    </p>
+    <p>
+     此階段寫死在 code 中
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1d
+    </p>
+   </td>
+   <td>
+    <p>
+     當通過網站主申請 FD 後，系統只新增 MFS 兩個 ad format type 合約
+    </p>
+    <p>
+     flash_drive_320, flash_drive_300
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    5
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+   <td>
+    <p>
+     Partners
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告單元/列表頁
+    </p>
+    <p>
+     格式邏輯調整：改用
+     <code>
+      partners 格式 id
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     FE
+    </p>
+   </td>
+   <td>
+    <p>
+     單一
+     <code>
+      TextDrive
+     </code>
+     格式改為支援顯示後端提供之多個格式
+    </p>
+    <p>
+     <code>
+      title
+     </code>
+     、
+     <code>
+      introduction
+     </code>
+     、
+     <code>
+      description
+     </code>
+     、
+     <code>
+      image_url
+     </code>
+     改由 API 提供
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/62538e173bf0f00070157064?ref=confluence">
+      HanfourHuang
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2d
+    </p>
+   </td>
+   <td>
+    <p>
+     FlashDrive Icon 由前端處理
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    6
+   </td>
+   <td>
+    <p>
+     BE
+    </p>
+   </td>
+   <td>
+    <p>
+     API:
+     <code>
+      api/v1/one_sense/media_ad_format_type_reviews/options
+     </code>
+    </p>
+    <p>
+     廣告格式多回傳 FlashDrive 格式選項
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1d
+    </p>
+   </td>
+   <td>
+    <pre>data: [{
+  id: number,
+  ad_format_types: [{
+    id: number,
+    preview_url: string || null,
+  }],
+  title: string,
+  introduction: string || null,
+  description: [{
+    text: string || null
+  }],
+  image_url: string || null,
+}]
+
+*example:
+data: [{
+  id: 1,
+  ad_format_types: [{
+    id: 175,
+    preview_url: null,
+  }],
+  title: 'TextDrive快訊廣告',
+  introduction: '可以安排在網站內文任何地方，廣告訴求導流進站，廣告以CPC方式計價，與貴網站用CPC新台幣$1元廣告分潤。',
+  description: [{
+   text: '支援桌機與手機裝置的WebView頁面（不包括native APP )。'
+  }],
+  image_url: '../images/textDrive.svg',
+}]</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    7
+   </td>
+   <td>
+    <p>
+     廣告設定/新增廣告單元
+    </p>
+    <p>
+     格式邏輯調整：改用
+     <code>
+      partners 格式 id
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     FE
+    </p>
+   </td>
+   <td>
+    <p>
+     新增 FlashDrive 說明:
+     <code>
+      introduction
+     </code>
+    </p>
+    <p>
+     新增 FlashDrive 嵌入碼: 改由後端提供
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/62538e173bf0f00070157064?ref=confluence">
+      HanfourHuang
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2d
+    </p>
+   </td>
+   <td>
+    <p>
+     防呆：同一網站, 同一格式不能重複申請
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    8
+   </td>
+   <td>
+    <p>
+     BE
+    </p>
+   </td>
+   <td>
+    <p>
+     API:
+    </p>
+    <p>
+     POST
+     <code>
+      api/v1/one_sense/media_ad_format_type_reviews
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1d
+    </p>
+   </td>
+   <td>
+    <p>
+     參數要修改
+    </p>
+    <p>
+     要新增回傳嵌入碼
+    </p>
+    <p>
+     媒體費生成下細項要確認
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    9
+   </td>
+   <td>
+    <p>
+     廣告單元預覽畫面
+    </p>
+   </td>
+   <td>
+    <p>
+     FE
+    </p>
+   </td>
+   <td>
+    <p>
+     手刻
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/62538e173bf0f00070157064?ref=confluence">
+      HanfourHuang
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     1d
+    </p>
+   </td>
+   <td>
+    <p>
+     flash drive 320
+    </p>
+    <p>
+     素材使用：
+     <a href="https://creative.dsp.com.tw/api/v1/packs/36984/preview">
+      https://creative.dsp.com.tw/api/v1/packs/36984/preview
+     </a>
+    </p>
+    <p>
+     20240223 和 Kai 確認
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    10
+   </td>
+   <td>
+    <p>
+     5
+    </p>
+   </td>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     媒體管理/ Partners 廣告格式審核
+    </p>
+    <p>
+     格式邏輯調整：改用
+     <code>
+      partners 格式 id
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     BE
+    </p>
+   </td>
+   <td>
+    <p>
+     API 調整:
+     <code>
+      /one_sense/media_ad_format_type_reviews
+     </code>
+    </p>
+    <p>
+     新增 FlashDrive 格式資料
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     0.5d
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      ad_format_type
+     </code>
+     改撈 ActiveHash 資料
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    11
+   </td>
+   <td>
+    <p>
+     FE
+    </p>
+   </td>
+   <td>
+    <p>
+     PD 審核 FlashDrive 廣告單元
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/62538e173bf0f00070157064?ref=confluence">
+      HanfourHuang
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     0.5d
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    12
+   </td>
+   <td>
+    <p>
+     Email 通知廣告單元審核結果
+    </p>
+   </td>
+   <td>
+    <p>
+     BE
+    </p>
+   </td>
+   <td>
+    <p>
+     審核成功
+    </p>
+    <p>
+     審核失敗
+    </p>
+    <p>
+     API
+     <code>
+      /one_sense/media_ad_format_type_reviews/check_review
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     0.5d
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告單元要動態變動：
+    </p>
+    <p>
+     TextDrive 或 FlashDrive
+    </p>
+    <p>
+    </p>
+    <p>
+     確認 ad_format_type 資訊正確
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    13
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+   <td>
+    <p>
+     OSS
+    </p>
+   </td>
+   <td>
+    <p>
+     自動補上申請紀錄
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <ul>
+     <li>
+      <p>
+       減少網站主操作
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     3d
+    </p>
+   </td>
+   <td>
+    <p>
+     已手動建立 FD, 但只有建立一個格式(300 或 320), 補上另外一個格式
+    </p>
+    <p>
+     原則上 PD 手動建立時, 兩個格式都會建立
+    </p>
+    <p>
+     已手動建立 FD, 但價格和目前的設定不同(vCPM 40), 以手動資料為主
+    </p>
+    <p>
+    </p>
+    <p>
+     檢查媒體合約(版位: FlashDrive)是否有少, 如果有少要寫seed
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    14
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     Partners
+    </p>
+   </td>
+   <td>
+    <p>
+     補上廣告格式紀錄
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     網站主要可以在 Partners 上看到 PD 手動建立的合約紀錄(非網站主自己申請)
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h1>
+ 驗收標準
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     系統
+    </p>
+   </td>
+   <td>
+    <p>
+     角色
+    </p>
+   </td>
+   <td>
+    <p>
+     功能/頁面
+    </p>
+   </td>
+   <td>
+    <p>
+     測試情境
+    </p>
+   </td>
+   <td>
+    <p>
+     操作步驟
+    </p>
+   </td>
+   <td>
+    <p>
+     期望結果
+    </p>
+   </td>
+   <td>
+    <p>
+     SIT-Kirt驗收
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     Partners
+    </p>
+   </td>
+   <td>
+    <p>
+     ITO
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告版位申請資料產生
+    </p>
+   </td>
+   <td>
+    <p>
+     網站主之前由 PD 手動設定 FD 廣告格式(FD 320, 300)
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       選擇 Partners 網站, 手動設定廣告格式(FD 320, FD 300)
+      </p>
+     </li>
+     <li>
+      <p>
+       執行指令
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     網站主可看到 FD 出現在廣告版位列表中
+    </p>
+   </td>
+   <td>
+    <p>
+     已驗收
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     網站主
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告版位(FD)申請
+    </p>
+   </td>
+   <td>
+    <p>
+     網站主新申請廣告版位(FD)
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       選擇 FD 廣告版位
+      </p>
+     </li>
+     <li>
+      <p>
+       設定廣告版位
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       取得嵌入碼
+      </p>
+     </li>
+     <li>
+      <p>
+       新增廣告版位的申請紀錄
+      </p>
+     </li>
+     <li>
+      <p>
+       收到廣告版位(FD)申請通知信
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     已驗收
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     OSS
+    </p>
+    <p>
+     Partners
+    </p>
+   </td>
+   <td>
+    <p>
+     PD
+    </p>
+    <p>
+     網站主
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告版位申請審核
+    </p>
+   </td>
+   <td>
+    <p>
+     PD 通過審核
+    </p>
+   </td>
+   <td>
+    <p>
+     PD 在 OSS/ Partners 廣告格式審核, 點擊 核准 按鈕
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       廣告版位申請狀態變更為核准
+      </p>
+     </li>
+     <li>
+      <p>
+       網站主收到核准通知信
+      </p>
+     </li>
+     <li>
+      <p>
+       Partners 廣告版位申請狀態變更
+      </p>
+     </li>
+     <li>
+      <p>
+       ODM 廣告活動的格式為 FD 320, FD 300 時, 該網站會出現在媒體列表中
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     已驗收
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    5
+   </td>
+   <td>
+    <p>
+     PD 否決審核
+    </p>
+   </td>
+   <td>
+    <p>
+     PD 在 OSS/ Partners 廣告格式審核, 點擊 駁回 按鈕, 填入原因
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       廣告版位申請狀態變更為駁回
+      </p>
+     </li>
+     <li>
+      <p>
+       網站主收到駁回通知信
+      </p>
+     </li>
+     <li>
+      <p>
+       Partners 廣告版位申請狀態變更
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     已驗收
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    6
+   </td>
+   <td>
+    <p>
+     顯示廣告版位(FD)收益
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告版位為網站主自己申請
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       投放廣告到廣告版位(FD)
+      </p>
+     </li>
+    </ol>
+   </td>
+   <td>
+    <p>
+     計算後的 vCPM 應為預設值(40)
+    </p>
+   </td>
+   <td>
+    <p>
+     uat驗收
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    7
+   </td>
+   <td>
+    <p>
+     廣告版位為上線前 PD 手動建立
+    </p>
+   </td>
+   <td>
+    <p>
+     計算後的 vCPM 應為手動設定值
+    </p>
+    <p>
+     日前和 PD 確認過, 應該都是 40
+    </p>
+   </td>
+   <td>
+    <p>
+     已驗收
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    8
+   </td>
+   <td>
+    <p>
+     廣告版位為網站主自己申請, 但之後有手動調整價格
+    </p>
+   </td>
+   <td>
+    <p>
+     uat驗收
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>
+<h1>
+ 參考資料
+</h1>
+<p>
+ <a href="https://docs.google.com/presentation/d/1egP0LkUDNOs1sf38yr3Jvl9YDLY-nwYkn1lLERPwn0Y/edit?usp=sharing">
+  https://docs.google.com/presentation/d/1egP0LkUDNOs1sf38yr3Jvl9YDLY-nwYkn1lLERPwn0Y/edit?usp=sharing
+ </a>
+ (從
+ <a href="https://guoshi-my.sharepoint.com/:p:/g/personal/kaichang_guoshi_onmicrosoft_com/EZlvyraJdvVCuTVVStrYiKwBwlK4eVqgEHDC_MQdBK_vTw?rtime=rv1nsukl3Eg">
+  網站主線上申請平台_0412.pptx (sharepoint.com)
+ </a>
+ 複製)
+</p>
+<p>
+ <a href="https://docs.google.com/spreadsheets/d/1YVOG76QhswjySaGrh3V6z0SzVcoNsPVm9Ldo9zAU3os/edit">
+  20240314_Partners Phase3.3 新增 FD 格式
+ </a>
+ SIT/UAT 回報表單
+</p>

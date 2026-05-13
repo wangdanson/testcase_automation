@@ -1,0 +1,63 @@
+<p>
+</p>
+<p>
+</p>
+<h1>
+ 目標
+</h1>
+<p>
+ 在Parners上新一個格式NativeDriveGroup
+</p>
+<h1>
+ 需求端提供的文件
+</h1>
+<p>
+ <a href="/wiki/download/attachments/3697246209/Partners_%E6%96%B0%E5%A2%9END%E6%A0%BC%E5%BC%8F.pptx?version=1&amp;modificationDate=1728006203048&amp;cacheVersion=1&amp;api=v2">
+  <img src="https://guoshi.atlassian.net/wiki/download/thumbnails/3697246209/Partners_%E6%96%B0%E5%A2%9END%E6%A0%BC%E5%BC%8F.pptx?version=1&amp;modificationDate=1728006203048&amp;cacheVersion=1&amp;api=v2&amp;viewType=fileMacro"/>
+ </a>
+</p>
+<h1>
+ <br/>
+ 疑問
+</h1>
+<p>
+ <br/>
+ 1.過去格式的文字調整將會調整到使用者自行設定的文字
+ <br/>
+ A: 此文字調整需求忽略
+</p>
+<p>
+ 2.加入新格式需要它的 格式細項 (ad_format_type_id)
+ <br/>
+ A:
+ <img alt="image (1).png" src="image (1).png"/>
+ 231
+</p>
+<p>
+ 3.加入新格式需要它的嵌入碼
+</p>
+<p>
+ A: 如下
+</p>
+<pre>&lt;!--OneAD Native Drive Group SDK --&gt;
+  &lt;div id="div-onead-ndg"&gt;&lt;/div&gt;
+  &lt;script type="text/javascript"&gt;
+    var custom_call_NDG = function (params) {
+        if (params.hasAd) {
+          console.log('NDG has AD')
+        } else {
+          console.log('NDG AD Empty');
+        }
+      }
+    ONEAD_TEXT = {};
+    ONEAD_TEXT.pub = {};
+    ONEAD_TEXT.pub.uid = 2000311;
+    ONEAD_TEXT.pub.slotobj = document.getElementById("div-onead-ndg");
+    ONEAD_TEXT.pub.player_mode = "native-drive-group";
+    ONEAD_TEXT.pub.space_id = "";
+    ONEAD_TEXT.pub.position_id = "0";
+    ONEAD_TEXT.pub.queryAdCallback = custom_call_NDG;
+    window.ONEAD_text_pubs = window.ONEAD_text_pubs || [];
+    ONEAD_text_pubs.push(ONEAD_TEXT);
+    &lt;/script&gt;
+  &lt;script src="https://ad-specs.guoshipartners.com/static/js/ad-serv.min.js"&gt;&lt;/script&gt;</pre>

@@ -1,0 +1,2460 @@
+<h1>
+ Format
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      Type
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Description
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Required Keys
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Optional Keys
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     success
+    </p>
+   </td>
+   <td>
+    <p>
+     正常情形
+    </p>
+    <ul>
+     <li>
+      <p>
+       可正確執行操作
+      </p>
+     </li>
+     <li>
+      <p>
+       可正常回傳資料
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     status, data
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     error
+    </p>
+   </td>
+   <td>
+    <p>
+     非正常情形, 舉例但不限於下列情境：
+    </p>
+    <ul>
+     <li>
+      <p>
+       使用者無權限
+      </p>
+     </li>
+     <li>
+      <p>
+       http 請求資料格式不符格式, 符合格式但包含錯誤的值
+      </p>
+     </li>
+     <li>
+      <p>
+       後端執行環境發生錯誤(runtime error)
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     status, message
+    </p>
+   </td>
+   <td>
+    <p>
+     code
+    </p>
+    <ul>
+     <li>
+      <p>
+       目前想到的使用情境：在打 API 的時候, 檢查使用者帳戶, 如果使用者被停權, 前端會進行登
+      </p>
+     </li>
+     <li>
+      <p>
+       出的操作
+      </p>
+     </li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ example
+</h2>
+<h3>
+ Success
+</h3>
+<pre>{
+  status: "success",
+  data: [] 
+}</pre>
+<pre>{
+  status: "success",
+  data: {
+    id: 1,
+    name: "Test"
+  }
+}</pre>
+<h3>
+ Error
+</h3>
+<pre>{
+ status: "error",
+ message: "invaild user ID"
+}</pre>
+<p>
+</p>
+<pre>{
+  status: "error",
+  code: 1,
+  message: "account is disabled"
+}</pre>
+<p>
+</p>
+<h1>
+ Tony-Sandbox API 功能測試帳號
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      帳號
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      密碼
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6191bdf6d2e64c00717fb5ab?ref=confluence">
+      RikaLin (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      rikalin@guoshipartners.com
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     Gsp123456
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      ito_team@onesense.com.tw
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     123456
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      shufuliao@onead.com.tw
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     Gsp123456
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ List
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      項目
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      功能名稱
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Method
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      path
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      request body
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      request body sample
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      response
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      who
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     帳號相關
+    </p>
+   </td>
+   <td>
+    <p>
+     登入
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2232">
+      IP-2232
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/login
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>type Request = {
+  email: string
+  password: string
+}</pre>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>type SuccessResponse = {
+  status: 'success'
+  data: {
+    id: number
+    token: string
+  }
+}
+
+type ErrorResponse = {
+  status: 'error'
+  message: string
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     登出
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2240">
+      IP-2240
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/logout
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre># Request Headers
+Authorization: Bearer {TOKEN}</pre>
+    <p>
+     後續需 auth 的 API，Headers 都要帶 token
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>type SuccessResponse = {
+  status: 'success'
+  data: null
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     忘記密碼
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2233">
+      IP-2233
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/forgot_password
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "email": "test@example.com"
+}</pre>
+   </td>
+   <td>
+    <p>
+     // 存在的電子信箱
+    </p>
+    <pre>{
+  "email": "test@example.com"
+}</pre>
+    <p>
+     // 不存在的電子信箱
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": {
+        "email": "test@example.com",
+        "updated_at": "2023-04-24T10:59:46.969+08:00"
+    }
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6191bdf6d2e64c00717fb5ab?ref=confluence">
+      RikaLin (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     設定密碼
+     <br/>
+     (mail 跳轉)
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2262">
+      IP-2262
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/update_password_by_verification_code
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "email": "test@example.com",
+  "password": "password123",
+  "verification_code": "521d88850e7e51be3c49be8aaa06cc64"
+}</pre>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": {
+        "id": 123,
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3MDgsImV4cCI6MTY4NDgyOTE0OX0.e99mVhI2TgaeiDZy0gBGMM4gnNWJ7y-FF4EMMrKPkV8"
+    }
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6191bdf6d2e64c00717fb5ab?ref=confluence">
+      RikaLin (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    5
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     註冊帳號
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2216">
+      IP-2216
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/registration
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "account": {
+        "email": "test@example.com",
+        "firstname": "英文名字",
+        "lastname": "英文姓氏",
+        "firstname_ch": "中文名字",
+        "lastname_ch": "中文姓氏",
+        "cellphone": "0987654321",
+        "address": "公司地址"
+    },
+    "media": {
+        "name_ch": "網站中文名稱",
+        "name": "網站英文名稱",
+        "media_major_category_id": 1,
+        "web_url": "http://www.example.com.tw/",
+        "mobile_url": "http://m.example.com.tw/",
+        "introduction": "網站特色簡介"
+    }
+}</pre>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": {
+        "id": 123,
+        "email": "test@example.com",
+        "created_at": "2023-04-21T12:47:31.513+08:00"
+    }
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6191bdf6d2e64c00717fb5ab?ref=confluence">
+      RikaLin (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    6
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     user info
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2236">
+      IP-2236
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/info
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     Headers 需要 token
+    </p>
+    <pre># Request Headers
+Authorization: Bearer {TOKEN}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     ✅
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": {
+        "id": 123,
+        "email": "test@example.com",
+        "firstname": "英文名字",
+        "lastname": "英文姓氏",
+        "firstname_ch": "中文名字",
+        "lastname_ch": "中文姓氏",
+        "firstname": "",
+        "lastname": "中文姓氏",
+        "cellphone": "0987654321",
+        "address": "公司地址"
+    }
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6191bdf6d2e64c00717fb5ab?ref=confluence">
+      RikaLin (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    7
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     更新個人資料
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2237">
+      IP-2237
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/update_info
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     Headers 需要 token
+    </p>
+    <pre># Request Headers
+Authorization: Bearer {TOKEN}</pre>
+    <pre># Request Body
+{
+    "firstname": "Test",
+    "lastname": "Hi",
+    "firstname_ch": "測試",
+    "lastname_ch": "嗨",
+    "cellphone": "0123456789",
+    "address": "台北市內湖區"
+}</pre>
+   </td>
+   <td>
+    <pre>{
+    "firstname": "Test",
+    "lastname": "Hi",
+    "firstname_ch": "測試",
+    "lastname_ch": "嗨",
+    "cellphone": "0123456789",
+    "address": "台北市內湖區"
+}</pre>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": {
+        "id": 123,
+        "email": "test@example.com",
+        "firstname": "Test",
+        "lastname": "Hi",
+        "firstname_ch": "測試",
+        "lastname_ch": "嗨",
+        "cellphone": "0123456789",
+        "address": "台北市內湖區"
+    }
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6191bdf6d2e64c00717fb5ab?ref=confluence">
+      RikaLin (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    8
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     變更密碼
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2261">
+      IP-2261
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/users/update_password
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     Headers 需要 token
+    </p>
+    <pre># Request Headers
+Authorization: Bearer {TOKEN}</pre>
+    <pre># Request Body
+{
+  "password": "password123"
+}</pre>
+   </td>
+   <td>
+    <pre>{
+  "password": "password123"
+}</pre>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": {
+        "id": 123,
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3MjIsImV4cCI6MTY4NDk4NTkzN30.CS-VBQy1jH6VfoBfj4TX7NznHarEbYK1AOsEqFN58UE"
+    }
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6191bdf6d2e64c00717fb5ab?ref=confluence">
+      RikaLin (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    9
+   </td>
+   <td>
+    <p>
+     網站
+    </p>
+   </td>
+   <td>
+    <p>
+     網站列表
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2241">
+      IP-2241
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/medias/
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     no params
+    </p>
+   </td>
+   <td>
+    <p>
+     no
+    </p>
+   </td>
+   <td>
+    <pre>{
+  status: 'success',
+  data: [
+    {
+      id: number,
+      // 核准狀態
+      status: string,
+      // 網站中文名
+      name_ch: string,
+      // 網站英文名
+      name: string | null,
+      // 網站網址
+      web_url: string,
+      mobile_url: string | null,
+      // 網站類別
+      media_major_category_id: number,
+      // 網站特色簡介
+      introduction: string,
+    }, ...
+  ]
+}</pre>
+    <p>
+    </p>
+    <p>
+     Z: introduction: string | null
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+    <p>
+    </p>
+    <p>
+    </p>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    10
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     網站 options
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2255">
+      IP-2255
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/medias/options
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     no
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": {
+      "media_major_category": [
+        {
+          "id": 1,
+          "name": "新聞",
+        },...
+      ]
+    }
+}</pre>
+    <p>
+    </p>
+    <p>
+     Z: 多一個參數 enable
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    11
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     新增網站
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2243">
+      IP-2243
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/medias/
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "name_ch": "網站中文名稱",
+  "name": "網站英文名稱",
+  "media_major_category_id": 1,
+  "web_url": "http://www.example.com.tw/",
+  "mobile_url": "http://m.example.com.tw/",
+  "introduction": "網站特色簡介"
+}</pre>
+   </td>
+   <td>
+    <pre>{
+  "name_ch": "網站中文名稱",
+  "name": "網站英文名稱",
+  "media_major_category_id": 1,
+  "web_url": "http://www.example.com.tw/",
+  "mobile_url": "http://m.example.com.tw/",
+  "introduction": "網站特色簡介"
+}</pre>
+    <p>
+     z: 發生未預期錯誤
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": nil
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    12
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     編輯網站
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2283">
+      IP-2283
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/medias/{:id}
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  name: "網站英文名稱",
+  name_ch: "網站中文名稱",
+  web_url: "https://example.com.tw/",
+  mobile_url: "https://m.example.com.tw/",
+  media_major_category_id: 1,
+  introduction: "網站特色簡介"
+}</pre>
+   </td>
+   <td>
+    <pre>{
+  name: "網站英文名稱",
+  name_ch: "網站中文名稱",
+  web_url: "https://example.com.tw/",
+  mobile_url: "https://m.example.com.tw/",
+  media_major_category_id: 1,
+  introduction: "網站特色簡介"
+}</pre>
+    <p>
+    </p>
+    <img src="image-20230428-054733.png"/>
+    <p>
+     z: error, sf: 已修
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": nil
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    13
+   </td>
+   <td>
+    <p>
+     廣告格式
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告格式列表
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/media_ad_format_type_reviews/options
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <img src="image-20230428-055022.png"/>
+    <p>
+     z: error
+    </p>
+   </td>
+   <td>
+    <pre> {
+    status: "success",
+    data: 
+      {
+        id: 175,
+        title: "Text Drive文字廣告"
+      }
+  }</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6110ad337ab143006e6514c1?ref=confluence">
+      shanhsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    14
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告格式列表-create 後清單列表
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/media_ad_format_type_reviews
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>[
+  {   id: 1,
+      uid: "2000431",
+      media_id: 436,
+      ad_slot_name: "自定義"
+      ad_format_type_id: 175,
+      preview_url: "http......"
+      reviewer_id: 955,
+      status: "draft"
+      rejected_note: ""
+  },
+  {
+      id: 2,
+      uid: "2000432",
+      media_id: 437,
+      ad_slot_name: "一起來"
+      ad_format_type_id: 175,
+      preview_url: "http......",
+      reviewer_id: 467,
+      status: "draft"
+      rejected_note: ""
+  }
+]</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6110ad337ab143006e6514c1?ref=confluence">
+      shanhsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    15
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     變更廣告格式狀態-建立狀態為「草稿」，並建立合約
+    </p>
+    <p>
+     在 Partners 建立廣告格式
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/media_ad_format_type_reviews
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  media_id: 100,
+  ad_slot_name: "自定義",
+  ad_format_type_id: 175,
+  preview_url: "http://..."
+}</pre>
+   </td>
+   <td>
+    <pre>{
+  media_id: 100,
+  ad_slot_name: "自定義",
+  ad_format_type_id: 175,
+  preview_url: "http://..."
+}</pre>
+    <p>
+    </p>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    status: "success",
+    data: {}
+}</pre>
+    <pre>{
+  status: "error",
+  message: [重複申請！]
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6110ad337ab143006e6514c1?ref=confluence">
+      shanhsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    16
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     變更廣告格式審核資訊
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/media_ad_format_type_reviews/:id
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  id: 1,
+  media_id: 100,
+  ad_slot_name: "自定義",
+  preview_url: "http://..."
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    status: "success",
+    data: null
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6110ad337ab143006e6514c1?ref=confluence">
+      shanhsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    17
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     申請廣告格式
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/media_ad_format_type_reviews/:id/review
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  id: 1
+}</pre>
+    <p>
+     “pending” 情境：將審核資料狀態變更為「待審核」後寄信通知 PD
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    status: "success",
+    data: null
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6110ad337ab143006e6514c1?ref=confluence">
+      shanhsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    18
+   </td>
+   <td>
+    <p>
+     報表
+    </p>
+   </td>
+   <td>
+    <p>
+     每月即時應付成本 (媒體費)
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/profit_reports
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  months: [
+    '2023/01/01',
+    '2023/04/01',
+  ],
+}</pre>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>
+[
+  {
+    id: 4,
+    media: "BabyHome",
+    ad_format: "Subtotal",
+    total_playtime: 215505,
+    total_amount: 16365,
+    month: "2023/01",
+    children: [
+      {
+        id: 1,
+        media: null,
+        ad_format: "MIR",
+        pricing_model: "vCPM",
+        total_playtime: 30565,
+        total_amount: 2292.43
+      },
+      {
+        id: 2,
+        media: null,
+        ad_format: "MIC",
+        pricing_model: "vCPM",
+        total_playtime: 13473,
+        total_amount: 1212.57
+      },
+      {
+        id: 3,
+        media: null,
+        ad_format: "MIRV",
+        pricing_model: "vCPM",
+        total_playtime: 171467,
+        total_amount: 12860.12
+      },
+    ],
+  },
+],</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    19
+   </td>
+   <td>
+    <p>
+     提款記錄
+    </p>
+   </td>
+   <td>
+    <p>
+     提款列表
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/my_checks
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  status: 'success',
+  data: {
+    media_fee_costs: [
+      # 尚未申請
+      {
+        id: 1,
+        start_date: '2023/05/01',
+        end_date: '2023/05/31',
+        amount: 100.0,
+        media_description: '痞客邦',
+        media_id: 123,
+        # 支票號碼
+        my_check_number: nil,
+        my_check_status: 'none',
+      },
+      # 已申請待審核
+      {
+        id: 2,
+        start_date: '2023/04/01',
+        end_date: '2023/04/30',
+        amount: 150.0,
+        media_description: '痞客邦',
+        media_id: 123,
+        my_check_number: '230512000002',
+        my_check_status: 'pending',
+      },
+      # 已付款
+      {
+        id: 3,
+        start_date: '2023/03/01',
+        end_date: '2023/03/31',
+        amount: 300,
+        media_description: '痞客邦',
+        media_id: 123,
+        my_check_number: '230412000003',
+        my_check_status: 'paid',
+      },
+    ]
+  }
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    20
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     申請提款
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/my_checks
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    21
+   </td>
+   <td>
+    <p>
+     銀行帳戶
+    </p>
+   </td>
+   <td>
+    <p>
+     銀行帳戶列表
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2249">
+      IP-2249
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/payment_infos
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     no-request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": [
+      {
+        "id": 77
+        "vat_num": "24328949",       
+        "bank_code": "722",      
+        "account_name": "asfasfasf",        
+        "account_number": "1722-822-222-22",        
+        "type": "company",
+        "used_files_default": true
+      }, ...
+    ]
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    22
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     銀行代碼選項
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2292">
+      IP-2292
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/payment_infos/bank_code_option
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+     no-request
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>"status": "success",
+    "data": [
+      {
+        "code": "004"
+        "name": "臺灣銀行",       
+      }, ...
+    ]</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    23
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     新增銀行帳戶
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2248">
+      IP-2248
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     POST
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/payment_infos
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>type form_data
+{
+    "type": "company",
+    "vat_num": "24328949",      
+    "bank_code": "722",        
+    "account_name": "asfasfasf",        
+    "account_number": "1722-822-222-22",        
+    "used_files_default": "false",
+    "file": 檔案
+}</pre>
+   </td>
+   <td>
+    <pre>type Request = {
+  // 個人收款人姓名 or 公司名稱
+  account_name: string
+  // 身分證號 or 公司統一編號
+  vat_num: string
+  // 銀行帳號
+  account_number: string
+  // 銀行代碼
+  bank_code: string
+  // 銀行存摺照片
+  attach_file: File (格式再橋)
+  // 同意儲存資料
+  is_agree: boolean
+  // 標記「個人」or「公司」，表單不會顯示給 user
+  type: 'company' | 'person'
+}</pre>
+    <p>
+    </p>
+    <pre>{
+    "vat_num": "24328949",      
+    "bank_code": "722",        
+    "account_name": "asfasfasf",        
+    "account_number": "1722-822-222-22",        
+    "used_files_default": false
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": "創建成功"
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    24
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     更新銀行帳戶
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2250">
+      IP-2250
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/one_sense/payment_infos/{:id}
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>type form_data
+{
+    "type": "company",
+    "vat_num": "24328949",      
+    "bank_code": "722",        
+    "account_name": "asfasfasf",        
+    "account_number": "1722-822-222-22",        
+    "used_files_default": "false",
+    "file": 檔案
+}</pre>
+   </td>
+   <td>
+    <p>
+     同 create
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": "更新成功"
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    25
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     刪除銀行帳戶
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    26
+   </td>
+   <td>
+    <p>
+     ERP
+    </p>
+   </td>
+   <td>
+    <p>
+     網站審核列表
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2258">
+      IP-2258
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /one_sense/media_reviews
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  status: "success",
+    data: [
+      {
+        id: 1,
+        status: "pending", 
+        note: "審核人員備註",
+        uid: "1000003",
+        name_ch: "網站中文名稱",
+        name: "網站英文名稱", 
+        media_major_category: "新聞", #網站類別
+        web_url: "電腦版網址",
+        mobile_url: "手機版網址",
+        introduction: "網站特色簡介"
+        owner: { #創建人
+          name: "創建人姓名",
+          email: "email"
+        }
+      },...
+    ]
+}</pre>
+    <p>
+     status
+     :
+     <code>
+      pending
+     </code>
+     審核中、
+     <code>
+      rejected
+     </code>
+     駁回、
+     <code>
+      approved
+     </code>
+     通過、
+     <code>
+      disabled
+     </code>
+     停用(使用者操作)
+    </p>
+    <p>
+     pending 會被排序在最前面。
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    27
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     網站審核狀態變更
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2259">
+      IP-2259
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /one_sense/media_reviews/:id/review
+     </code>
+    </p>
+    <p>
+     審核列表的 data id
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  status: "approved",
+  # 使用者只會接收到 rejected 駁回、approved 啟用
+  # 後端會擋已經審核過的 media review
+  note: "",
+}</pre>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    "status": "success",
+    "data": nil,
+}</pre>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/633a928914c6b4b2210f2cfa?ref=confluence">
+      shufuliao (Unlicensed)
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    28
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告格式審核列表
+    </p>
+   </td>
+   <td>
+    <p>
+     GET
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /one_sense/media_ad_format_type_reviews
+     </code>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{ 
+  status: "success",
+  data:{
+    list:[
+      {   id: 1,
+          uid: "2000431",
+          media_id: 436,
+          ad_slot_name: "自定義"
+          ad_format_type_id: 175,
+          preview_url: "http......"
+          status: "pending"
+          rejected_note: null
+      },
+      {
+          id: 2,
+          uid: "2000432",
+          media_id: 437,
+          ad_slot_name: "一起來"
+          ad_format_type_id: 175,
+          preview_url: "http......"
+          status: "aprroved"
+          rejected_note: null
+      }
+    ],
+    media:[ 
+      {
+        uid: "200001",
+        name_ch: "媒體一"
+      }
+    ],
+    ad_format_type:[ 
+      {
+        id: 175,
+        title: "Text Drive文字廣告"
+      }
+    ]
+  }
+}</pre>
+    <p>
+     後端會以 “pending” 狀態的為優先順序
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6110ad337ab143006e6514c1?ref=confluence">
+      shanhsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    29
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     廣告格式審核狀態變更
+    </p>
+   </td>
+   <td>
+    <p>
+     PUT
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /one_sense/media_ad_format_type_reviews/check_review
+     </code>
+    </p>
+   </td>
+   <td>
+    <pre>{
+  id: 1,
+  status: "approved",
+  rejected_note: ""
+}</pre>
+    <p>
+     情境：
+     當 PD 判斷審核為通過時
+    </p>
+    <pre>{
+  id: 1,
+  status: "rejected",
+  rejected_note: "有錯誤"
+}</pre>
+    <p>
+     情境：當 PD 判斷審核驗證失敗的情況，而且一定要輸入 fail 原因
+     <br/>
+     備註：當 PD 將狀態變更後，使用者需要再走一次送審流程，所以在畫面上當選擇「驗證失敗」或「通過」，PD 就不能再指定變更狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <pre>{
+    status: "success",
+    data: null,
+}</pre>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/6110ad337ab143006e6514c1?ref=confluence">
+      shanhsu
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    30
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     請款審核列表
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    31
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     請款審核狀態變更
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/617fa87616119e00697e0b94?ref=confluence">
+      Rocco
+     </a>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    32
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     （舊有API）媒體列表
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    33
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+     （舊有API）帳號管理列表
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+</p>

@@ -1,0 +1,159 @@
+<hr/>
+<h1>
+ 目的
+</h1>
+<p>
+ 當 PAD 有需求要新增 ”廣告格式” 時,
+ <br/>
+ <strong>
+  前後端工程師可以藉由此文件, 快速理解需要新增異動的程式碼及工作細節
+ </strong>
+</p>
+<h1>
+ 前端
+</h1>
+<ol>
+ <li>
+  <p>
+   確認
+   <code>
+    /media_ad_format_type_reviews/options
+   </code>
+   是否有回傳最新的格式
+  </p>
+ </li>
+ <li>
+  <p>
+   請 TPM 提供格式圖片
+  </p>
+ </li>
+ <li>
+  <p>
+   確認新格式預覽的排版方式確認新格式預覽的排版方式
+  </p>
+  <ol>
+   <li>
+    <p>
+     如有 PC / mobile 兩種版本，需要手刻兩種預覽
+    </p>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   請 TPM 提供廣告預覽素材
+  </p>
+ </li>
+ <li>
+  <p>
+   確認新格式欄位是否有需要增減
+  </p>
+ </li>
+</ol>
+<p>
+</p>
+<img alt="image-20241018-091025.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3706191914/image-20241018-091025.png?version=1&amp;modificationDate=1729242629575&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=351"/>
+<img alt="image-20241018-091102.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3706191914/image-20241018-091102.png?version=1&amp;modificationDate=1729242665327&amp;cacheVersion=1&amp;api=v2&amp;width=760&amp;height=383"/>
+<p>
+</p>
+<h1>
+ 後端
+</h1>
+<ol>
+ <li>
+  <p>
+   確認資料
+  </p>
+  <ol>
+   <li>
+    <p>
+     確認 PAD 提供的資料是否完整
+    </p>
+    <ol>
+     <li>
+      <p>
+       格式細項 ad_format_type id (ad_format_type 可能會是多個, 所以務必確認 id)
+      </p>
+     </li>
+     <li>
+      <p>
+       price_info 的資訊：
+      </p>
+      <img alt="截圖 2024-10-18 下午5.10.52.png" src="https://guoshi.atlassian.net/wiki/download/thumbnails/3706191914/%E6%88%AA%E5%9C%96%202024-10-18%20%E4%B8%8B%E5%8D%885.10.52.png?version=1&amp;modificationDate=1729242679480&amp;cacheVersion=1&amp;api=v2&amp;width=712&amp;height=163"/>
+     </li>
+     <li>
+      <p>
+       嵌入碼
+      </p>
+     </li>
+     <li>
+      <p>
+       計價單位
+      </p>
+     </li>
+     <li>
+      <p>
+       DEMO Link：在 OSS 格式審核的 preview 頁使用 (
+       <code>
+        preview_url_params
+       </code>
+       )
+      </p>
+     </li>
+    </ol>
+   </li>
+   <li>
+    <p>
+     前端需提供的資訊
+    </p>
+    <ol>
+     <li>
+      <p>
+       <code>
+        image_url
+       </code>
+      </p>
+     </li>
+    </ol>
+   </li>
+  </ol>
+ </li>
+ <li>
+  <p>
+   將取得的資訊新增到
+   <code>
+    ad_format_type_bundle.rb
+   </code>
+   (使用
+   <code>
+    ActiveHash
+   </code>
+   紀錄資料)
+  </p>
+ </li>
+ <li>
+  <p>
+   <code>
+    embed_code
+   </code>
+   按照舊有邏輯新增相對應的檔案 ( uid 要修改成變數)
+  </p>
+  <ol>
+   <li>
+    <p>
+     <code>
+      ONEAD_TEXT.pub.uid = "&lt;%= data.uid.to_s %&gt;";
+     </code>
+    </p>
+   </li>
+  </ol>
+ </li>
+</ol>
+<p>
+ 參考PR :
+ <a href="https://github.com/onead/erp/pull/4121/files">
+  https://github.com/onead/erp/pull/4121/files
+ </a>
+</p>
+<p>
+</p>

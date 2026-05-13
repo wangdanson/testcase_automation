@@ -1,0 +1,23 @@
+sequenceDiagram
+Actor u as 網站主
+participant p as Partners
+Actor pd as PD
+participant o as OSS
+
+u ->>p: 送出請款申請
+p->>p: 建立請款申請紀錄
+p->>pd: 寄信通知審查
+
+opt PD 駁回
+pd ->> o: 下載請款資料
+o -->> pd: 提供請款資料
+pd ->> o: 判斷帳戶資料錯誤, 填寫原因並駁回請款申請
+p ->> u: 發信通知網站主調整帳戶資料
+u ->> p: 變更帳戶資料
+u ->> p: 至請款紀錄頁面使用目前帳戶資料進行請款
+p ->> pd: 發信通知請款紀錄變更
+p ->> o: 下載請款資料
+o ->> pd: 提供請款資料
+pd ->> o: 判斷帳戶資料正確, 核准請款申請
+end
+

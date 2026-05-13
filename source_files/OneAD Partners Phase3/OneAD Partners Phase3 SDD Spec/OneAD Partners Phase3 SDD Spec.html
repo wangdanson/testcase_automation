@@ -1,0 +1,607 @@
+<h1>
+ 項目清單
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     [OSS] 自動匯入網站主的銀行資訊
+    </p>
+   </td>
+   <td>
+    <p>
+     欄位空白時, 自動帶入文字補滿
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     [OSS] 提供請款相關資料下載
+    </p>
+   </td>
+   <td>
+    <p>
+     銀行存摺影本, 採購單
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     [ODM] 媒體設定的清單針對 Partners 註冊的網站單獨唯一群組
+    </p>
+   </td>
+   <td>
+    <p>
+     因為 Partners 網站如果太多, 沒有視為一個群組, 提供批次操作的話會讓頁面太長( 媒體選項的展開收合, 一次性全選/全不選)
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     [Partners] 網站主可新增多個網站
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    5
+   </td>
+   <td>
+    <p>
+     [Partners] 銀行帳號只能設定一個
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       帳號類型可變更(個人 &gt; 公司, 公司 &gt; 個人)
+      </p>
+     </li>
+     <li>
+      <p>
+       銀行帳號可變更
+      </p>
+     </li>
+    </ol>
+    <p>
+     與請款流程相關邏輯：
+    </p>
+    <p>
+     請款紀錄會以請款當下的銀行帳戶資訊作為轉帳的戶頭, 所以請款後要變更匯款的銀行帳戶需要透過人工的方式進行調整
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h1>
+ Wireframe
+</h1>
+<h2>
+ [ODM] Partners 類型媒體集中到 Partners 分類, 選單可展開/收合
+</h2>
+<h2>
+ [Partners] 新增多網站
+</h2>
+<p>
+ 第一行為網站管理, 新增網站的流程
+</p>
+<p>
+ 之後為與實作多網站後, 需要確認資料能夠區分不同網站的地方
+</p>
+<h2>
+ [Partners] 銀行帳戶資料/類型變更
+</h2>
+<h1>
+ 功能細項
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+   </th>
+   <th>
+    <p>
+     <strong>
+      分類
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Function Feature
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      Who
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      估時
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      UI &amp; Notes
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    1
+   </td>
+   <td>
+    <p>
+     [OSS] 自動匯入網站主的銀行資訊
+    </p>
+   </td>
+   <td>
+    <p>
+     BE: 匯入媒體群組的銀行資訊
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2562">
+      IP-2562
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     done
+    </p>
+   </td>
+   <td>
+    <p>
+     api:
+     <code>
+      /medias/payment_infos
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    2
+   </td>
+   <td>
+    <p>
+     [OSS] 提供請款相關資料下載
+    </p>
+   </td>
+   <td>
+    <p>
+     BE:
+     銀行存摺影本 API
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2561">
+      IP-2561
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     done
+    </p>
+   </td>
+   <td>
+    <p>
+     api:
+     <code>
+      /one_sense/my_checks_reviews/{:id}/bank_book
+     </code>
+    </p>
+    <p>
+     下載銀行存摺影本圖片檔案
+    </p>
+    <pre>file&lt;?&gt;</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    3
+   </td>
+   <td>
+    <p>
+     BE: 採購單 檔案 API
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2559">
+      IP-2559
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/624d0b50ad6b7e006aa8d6d6?ref=confluence">
+      Elain Wu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     done
+    </p>
+   </td>
+   <td>
+    <p>
+     採購單樣板：
+     <a href="https://guoshi-my.sharepoint.com/:x:/g/personal/kaichang_guoshi_onmicrosoft_com/ER2K3FsrbFtNlUFwSR_DYfYBlMQYnenSUOc9XeFkpRQJSQ?e=23W7AX">
+      採購單(範本).xlsx (sharepoint.com)
+     </a>
+    </p>
+    <p>
+     api:
+     <code>
+      /one_sense/my_checks_reviews/{id}/download_purchase_order
+     </code>
+    </p>
+    <p>
+     下載 excel 檔案
+    </p>
+    <pre>{
+  status: "success",
+  data: {
+    "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "content": "UEsDBBQAAAAIAABJtRJRqKzcgbmez\nzcXjuN+jayZjtEbJbsR+uq1wD\nkCVg+QTa",
+    "encoding": "base64"
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    4
+   </td>
+   <td>
+    <p>
+     FE: 在請款審核頁面, 備忘欄位新增按鈕(銀行存摺影本, 採購單)
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/631ef233cf721d09b015bf33?ref=confluence">
+      Lastor Chen (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     done
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    5
+   </td>
+   <td>
+    <p>
+     [ODM] 媒體設定的清單針對 Partners 註冊的網站單獨唯一群組
+    </p>
+   </td>
+   <td>
+    <p>
+     FE:
+    </p>
+    <p>
+     Partners 網站申請時會選擇分類, 審核通過後會依據對應的分類歸類在 ODM 媒體選擇當中
+    </p>
+    <p>
+     根據 uid(2 開頭) 判定是否為在 Partners 註冊的網站
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/557058:508ea223-fd64-4316-9665-ea32c2261a02?ref=confluence">
+      Ryan Meng
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     2d
+    </p>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    6
+   </td>
+   <td>
+    <p>
+     [Partners] 網站主可新增多個網站
+    </p>
+   </td>
+   <td>
+    <p>
+     BE:
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2616">
+      IP-2616
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       收益報表增加media_id
+      </p>
+     </li>
+     <li>
+      <p>
+       請款紀錄明細增加media_id, media_name
+      </p>
+     </li>
+     <li>
+      <p>
+       請款審核明細增加media_id, media_name
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    7
+   </td>
+   <td>
+    <p>
+     FE:
+    </p>
+    <ul>
+     <li>
+      <p>
+       網站管理，開放「新增網站」功能
+      </p>
+      <ul>
+       <li>
+        <p>
+         原本 create 功能只做一半，將其補全
+        </p>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <p>
+       各頁面加入網站 filter
+      </p>
+     </li>
+     <li>
+      <p>
+       請款紀錄，明細欄位改為 pop-up UI 顯示 table
+      </p>
+     </li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/631ef233cf721d09b015bf33?ref=confluence">
+      Lastor Chen (Unlicensed)
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     5d
+    </p>
+   </td>
+   <td>
+    <p>
+     需請後端調整 API
+    </p>
+    <ul>
+     <li>
+      <p>
+       收益報表，篩選網站功能需追加網站 id
+      </p>
+      <pre>// 添加 media_id
+type Payload = {
+  parent_data: {
+    // ...
+    media_id: number,
+  },
+  child_data: {
+    // ...
+    media_id: number | null, // 這邊不確定需不需要, 目前頁面是用不到
+  },
+}</pre>
+     </li>
+     <li>
+      <p>
+       請款紀錄，明細顯示 UI 要多顯示「網站名稱」
+      </p>
+      <pre>// 在明細 media_fee_costs 裡面添加網站 id, name
+type Payload = {
+  // ...
+  media_fee_costs: {
+    // ...
+    media_id: number,
+    media_name: string,
+  }[],
+}[]</pre>
+     </li>
+    </ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    8
+   </td>
+   <td>
+    <p>
+     [Partners] 銀行帳號限制：只能使用單一銀行帳號
+    </p>
+   </td>
+   <td>
+    <p>
+     BE:
+    </p>
+    <p>
+     只要牽涉到指向銀行帳戶的功能, 都需要確認, 是否指向該筆紀錄對應的銀行帳戶, 而非最新的銀行帳戶
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/IP-2605">
+      IP-2605
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/712020:e3581f4c-d04d-4541-b908-8c0775986275?ref=confluence">
+      Kirt Hsu
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     5d
+    </p>
+   </td>
+   <td>
+    <ol>
+     <li>
+      <p>
+       [Partners] 媒體群組改成只能綁一個付款帳戶
+      </p>
+     </li>
+     <li>
+      <p>
+       [Partners] 付款帳戶相關API調整
+      </p>
+     </li>
+     <li>
+      <p>
+       [Partners] 請款單相關API調整
+      </p>
+     </li>
+     <li>
+      <p>
+       [Partners] 請款紀錄相關API調整
+      </p>
+     </li>
+     <li>
+      <p>
+       [DB] uploadFile、myCheck欄位調整
+      </p>
+     </li>
+     <li>
+      <p>
+       [OSS] 匯入媒體群組付款帳戶邏輯調整
+      </p>
+     </li>
+     <li>
+      <p>
+       [OSS] 請款紀錄相關API調整
+      </p>
+     </li>
+    </ol>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    9
+   </td>
+   <td>
+    <p>
+     FE:
+    </p>
+    <p>
+     不論是新增帳戶或是修改, 對後端來說都是呼叫新增帳戶的 API
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/wiki/people/62538e173bf0f00070157064?ref=confluence">
+      HanfourHuang
+     </a>
+    </p>
+   </td>
+   <td>
+    <p>
+     3d
+    </p>
+   </td>
+   <td>
+   </td>
+  </tr>
+ </tbody>
+</table>

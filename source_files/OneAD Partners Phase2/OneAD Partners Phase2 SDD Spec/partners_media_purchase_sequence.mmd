@@ -1,0 +1,46 @@
+sequenceDiagram
+actor m as 媒體
+participant system as Partners/OSS
+actor pd as PD
+actor acc as Accounting
+
+rect rgb(191, 200, 60)
+  note right of m: 媒體請款流程
+  m ->>+ system: 勾選請款月份並送出
+  system -->> system: 驗證申請資料與金額
+  alt 請款金額小於門檻
+    system -->> m: 申請金額不足門檻
+  else
+    system -) pd: mail 通知新申請( async )
+    system -->>- m: 申請成功
+  end
+end
+
+rect rgb(20, 199, 234)
+  note right of pd: 採購單流程
+  pd ->>+ pd: 驗證申請資料
+  alt 資料缺漏
+    pd ->> system: 更新申請狀態: 資料缺漏
+    system -) m: mail 通知申請狀態變更 ( async )
+  else
+    pd ->>- acc: 提交採購單
+  end
+end
+
+rect rgb(20, 210, 166)
+  note right of acc: 付款流程
+  acc ->>+ acc: 驗證採購單資料
+  alt 資料缺漏
+    acc ->> pd: 資料有缺漏
+    pd ->> system: 更新申請狀態: 資料缺漏
+  else
+    acc ->> system: 查詢採購單號
+    system -->> acc: 帶出相關申請應付帳務
+    acc ->> system: 發票/勞務報酬單 入系統
+    system ->> system: 更新申請狀態: 已請款
+  end
+  system -) m: mail 通知申請狀態變更 ( async )﻿
+end
+
+
+

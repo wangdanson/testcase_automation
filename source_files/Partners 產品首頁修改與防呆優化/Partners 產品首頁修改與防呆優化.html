@@ -1,0 +1,368 @@
+<p>
+ 本文件彙整「流量變現好夥伴」專案於 2025 Q2 實作的 UI 調整與驗證功能更新，作為設計與前端實作同步依據，聚焦於 Figma 原型畫面調整與實際開發邏輯需求。
+</p>
+<hr/>
+<h2>
+ <strong>
+  🎯 本次更新範圍
+ </strong>
+</h2>
+<p>
+ 本次開發僅針對以下項目進行調整：
+</p>
+<ol>
+ <li>
+  <p>
+   根據
+   <a href="https://www.figma.com/design/O9YPciTgGYp07f78uclquc/%E6%B5%81%E9%87%8F%E8%AE%8A%E7%8F%BE%E5%A5%BD%E5%A4%A5%E4%BC%B4?node-id=1014-581&amp;p=f&amp;t=oybvjFkshxGnESNv-0">
+    <strong>
+     Figma UI 設計稿
+    </strong>
+   </a>
+   更新畫面結構、文案與提示文字
+  </p>
+ </li>
+ <li>
+  <p>
+   增加欄位提示 icon 與 hover/click 說明
+  </p>
+ </li>
+ <li>
+  <p>
+   網域申請時加入平台限制規則（不可用社群平台）
+  </p>
+ </li>
+</ol>
+<hr/>
+<h2>
+ <strong>
+  📂 畫面調整與說明
+ </strong>
+</h2>
+<p>
+ <strong>
+  🔸 首頁
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   合作效益區塊調整
+  </p>
+  <ul>
+   <li>
+    <p>
+     根據不同合作效益添加導向區塊與按鈕
+    </p>
+   </li>
+   <li>
+    <p>
+     添加說明區塊
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+ <strong>
+  🔸 FAQ說明流程頁（新增畫面）
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   如何成為 OneAD 流量變現好夥伴
+  </p>
+  <ul>
+   <li>
+    <p>
+     立即註冊按鈕：要可以轉址到註冊頁面
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   如何獲取廣告收益
+  </p>
+  <ul>
+   <li>
+    <p>
+     廣告服務平台約定條款：
+     <code>
+      modal mask
+     </code>
+     彈出視窗（原本註冊頁面裡面有）
+    </p>
+   </li>
+   <li>
+    <p>
+     注意事項：
+     <code>
+      modal mask
+     </code>
+     彈出視窗
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+ <strong>
+  🔸 註冊頁面
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    網址欄位新增提示 icon
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   hover / click 顯示：
+  </p>
+ </li>
+</ul>
+<p>
+ 請確認您申請的網站支援嵌入 Javascript，由於 OneAD 廣告代碼使用此語法。請注意，Facebook、Instagram、Threads、LINE、YouTube、TikTok 和 Discord 等平台不支援 Javascript 嵌入，因此無法接受來自這些平台的申請。
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    網域驗證功能
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   禁止下列平台開頭的網址（前綴比對）：
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://www.facebook.com/">
+    https://www.facebook.com/
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://www.instagram.com/">
+    https://www.instagram.com/
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://www.threads.net/">
+    https://www.threads.net/
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://www.youtube.com/">
+    https://www.youtube.com/
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://discord.com/">
+    https://discord.com/
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://www.tiktok.com/">
+    https://www.tiktok.com/
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a href="https://www.twitch.tv/">
+    https://www.twitch.tv/
+   </a>
+  </p>
+ </li>
+ <li>
+  <p>
+   若輸入上述網址應出現錯誤提示：「不支援此平台網址，請使用可嵌入 JS 的網站」
+  </p>
+ </li>
+</ul>
+<p>
+</p>
+<p>
+ <strong>
+  🔸 廣告單元設定頁
+ </strong>
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    新增格式欄提示 icon
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   提示文：
+  </p>
+ </li>
+</ul>
+<p>
+ 建議您可設定方便辨識的命名，例如「NativeDrive原生廣告-文中」。
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    新增程式碼置放網址提示 icon
+   </strong>
+  </p>
+ </li>
+ <li>
+  <p>
+   提示文：
+  </p>
+ </li>
+</ul>
+<p>
+ 請提供您預期置放程式碼的網頁連結，以加快廣告審核速度。
+</p>
+<p>
+</p>
+<hr/>
+<h2>
+ <strong>
+  🧪 測試驗收建議
+ </strong>
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      測試情境
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      驗收條件
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     社群平台網址輸入驗證
+    </p>
+   </td>
+   <td>
+    <p>
+     輸入受限網址時是否正確阻擋並顯示錯誤訊息
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     網址欄提示 icon 行為
+    </p>
+   </td>
+   <td>
+    <p>
+     Hover / Click 是否正確顯示資訊提示視窗
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     廣告單元欄位提示 icon 行為
+    </p>
+   </td>
+   <td>
+    <p>
+     Hover / Click 是否正確顯示命名建議文案
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     提示 icon 響應性
+    </p>
+   </td>
+   <td>
+    <p>
+     各裝置 Breakpoint 下是否仍顯示正確且不影響排版
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<hr/>
+<h2>
+ <strong>
+  📌 補充說明
+ </strong>
+</h2>
+<ul>
+ <li>
+  <p>
+   所有提示 icon 請以 SVG 圖示呈現，符合品牌樣式。
+  </p>
+ </li>
+ <li>
+  <p>
+   所有 icon 提示框建議使用浮動 tooltip（預設 hover 出現）並保留 click fallback。
+  </p>
+ </li>
+</ul>
+<hr/>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>
+<p>
+ 如需比對畫面細節請參見附件：《流量變現好夥伴 Wireframe》PDF 設計稿版本。
+</p>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>
+<p>
+</p>
+<p>
+ <a href="/wiki/download/attachments/3852795911/%E6%B5%81%E9%87%8F%E8%AE%8A%E7%8F%BE%E5%A5%BD%E5%A4%A5%E4%BC%B4.pdf?version=1&amp;modificationDate=1745550210444&amp;cacheVersion=1&amp;api=v2">
+  <img src="https://guoshi.atlassian.net/wiki/download/thumbnails/3852795911/%E6%B5%81%E9%87%8F%E8%AE%8A%E7%8F%BE%E5%A5%BD%E5%A4%A5%E4%BC%B4.pdf?version=1&amp;modificationDate=1745550210444&amp;cacheVersion=1&amp;api=v2&amp;viewType=fileMacro"/>
+ </a>
+ <a href="/wiki/download/attachments/3852795911/%E6%B5%81%E9%87%8F%E8%AE%8A%E7%8F%BE%E5%A5%BD%E5%A4%A5%E4%BC%B4%20Wireframe_%20To%20Emma%20%26%20ITO%20(1).pptx?version=1&amp;modificationDate=1745550201282&amp;cacheVersion=1&amp;api=v2">
+  <img src="https://guoshi.atlassian.net/wiki/download/thumbnails/3852795911/%E6%B5%81%E9%87%8F%E8%AE%8A%E7%8F%BE%E5%A5%BD%E5%A4%A5%E4%BC%B4%20Wireframe_%20To%20Emma%20%26%20ITO%20(1).pptx?version=1&amp;modificationDate=1745550201282&amp;cacheVersion=1&amp;api=v2&amp;viewType=fileMacro"/>
+ </a>
+</p>
+<p>
+</p>
