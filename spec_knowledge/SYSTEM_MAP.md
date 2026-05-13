@@ -1,8 +1,8 @@
 # 🌐 系統規格迭代知識庫 (System Specification Iteration Map)
 
 > **本文件用途**: 記錄 `source_files` 中已同步規格的系統邊界、迭代歷史、跨系統依賴與知識庫落點。  
-> **最後盤點日期**: 2026-05-06  
-> **維護原則**: `SYSTEM_MAP.md` 負責「來源覆蓋與系統關係」；各系統的測試規則沉澱在對應知識文件，例如 `SuperDSP_RULES.md`、`ODM_REPORT_TRACKING.md`。
+> **最後盤點日期**: 2026-05-13  
+> **維護原則**: `SYSTEM_MAP.md` 負責「來源覆蓋與系統關係」；各系統的測試規則沉澱在對應知識文件，例如 `SuperDSP_RULES.md`、`ODM_REPORT_TRACKING.md`、`PARTNERS_RULES.md`。
 
 ---
 
@@ -12,9 +12,10 @@
 | :--- | :--- | :--- | :--- |
 | **SuperDSP** | DSP 投放平台、Campaign / Ad Group、受眾定向、素材與第三方量測、Commerce AD / RTB | ODM, Studio, ERP/OSS, OYM, 外部媒體平台 | `SuperDSP_RULES.md` |
 | **ODM** | 廣告管理、活動追蹤、素材審核、投放與成效報表、委刊單與追蹤碼 | SuperDSP, 外部媒體平台, ERP/OSS | `ODM_REPORT_TRACKING.md` |
+| **Partners** | 網站主註冊、網站/廣告格式申請、嵌入碼、收益報表、請款與付款帳戶 | ODM, ERP/OSS, SuperDSP, OYM | `PARTNERS_RULES.md` |
 | **Studio** | 動態素材與素材包製作、素材預覽、素材包回填 | SuperDSP, ODM | `SuperDSP_RULES.md` |
-| **ERP/OSS** | 合約、帳務、媒體底價、月結報表、CCT code 管理 | SuperDSP, OYM, ODM | `SYSTEM_MAP.md` |
-| **OYM** | 媒體端設定、RTB 底價、媒體資料維護 | ERP/OSS, SuperDSP | `SYSTEM_MAP.md` |
+| **ERP/OSS** | 合約、帳務、媒體底價、月結報表、CCT code 管理、Partners 審核與請款 | SuperDSP, OYM, ODM, Partners | `SYSTEM_MAP.md`, `PARTNERS_RULES.md` |
+| **OYM** | 媒體端設定、RTB 底價、媒體資料維護 | ERP/OSS, SuperDSP, Partners | `SYSTEM_MAP.md` |
 | **外部媒體平台** | Google Ads / Meta / TikTok CCT code 與第三方投放資料 | ODM, SuperDSP, ERP/OSS | `ODM_REPORT_TRACKING.md`, `SuperDSP_RULES.md` |
 
 ---
@@ -28,7 +29,7 @@
 | IO 到 Sequence | `source_files/SuperDSP 從IO到Sequence` | Campaign、Ad Group、Sequence、狀態轉換 | `SuperDSP_RULES.md` |
 | AOE Pilot Phase 1 | `source_files/SuperDSP Pilot for AOE (Phase 1)` | AOE 操作流程、前後端規格、Pilot 驗收 | `SuperDSP_RULES.md` |
 | AOE Pilot Phase 2 | `source_files/SuperDSP Pilot for AOE (Phase 2)` | AOE 進階投放、權限、版位素材連動 | `SuperDSP_RULES.md` |
-| Partners Commerce Ad | `source_files/[Partners][SuperDSP 平台化 Phase 1.5.0] Commerce Ad` | Partners 帳號、Commerce Ad 入口、免審核與 UI 權限 | `SuperDSP_RULES.md` |
+| Partners Commerce Ad | `source_files/[Partners][SuperDSP 平台化 Phase 1.5.0] Commerce Ad` | Partners 帳號、Commerce Ad 入口、NativeDrive/Commerce Ad 合約與 UI 權限 | `SuperDSP_RULES.md`, `PARTNERS_RULES.md` |
 | Commerce AD Phase 1 | `source_files/[SuperDSP 平台化]/[Commerce AD Phase 1] Commerce AD & RTB` | Commerce AD 建立、RTB、CPC、Margin、Sequence | `SuperDSP_RULES.md` |
 | Commerce AD Phase 2 | `source_files/[SuperDSP 平台化]/[Commerce AD Phase 2] Commerce AD 帳務管理 及 受眾洞察報告下載` | 帳務管理、受眾洞察報告、月報欄位 | `SuperDSP_RULES.md` |
 | Commerce AD Phase 3 | `source_files/[SuperDSP 平台化]/[Commerce AD Phase 3] Commerce AD 媒體端 RTB 底價設定` | OYM/ERP 媒體底價、RTB floor price | `SuperDSP_RULES.md`, `SYSTEM_MAP.md` |
@@ -96,7 +97,42 @@
 
 ---
 
-## 五、ODM 功能主題與測試切面
+## 五、Partners 規格覆蓋索引
+
+| 規格群組 | 來源路徑 | 覆蓋模組 | 規則落點 |
+| :--- | :--- | :--- | :--- |
+| Partners Phase 1 | `source_files/OneAD Partners Phase1` | 網站主註冊、網站申請、TextDrive、基礎 API、網站/廣告格式審核 | `PARTNERS_RULES.md` |
+| Partners Phase 2 | `source_files/OneAD Partners Phase2` | 收益明細、請款申請、請款紀錄、請款審核、勞務報酬單與附件下載 | `PARTNERS_RULES.md` |
+| Partners Phase 3 | `source_files/OneAD Partners Phase3` | 多網站、ODM Partners 媒體群組、單一銀行帳戶、付款帳戶快照、國碼/護照/國外銀行 | `PARTNERS_RULES.md`, `ODM_REPORT_TRACKING.md` |
+| Partners Phase 4 | `source_files/Partners Phase4` | 請款作業優化、銀行帳戶錯誤處理、核准後再駁回流程缺口 | `PARTNERS_RULES.md` |
+| Partners 首頁與註冊防呆 | `source_files/Partners 產品首頁修改與防呆優化` | 首頁/FAQ/註冊 UI、URL 社群平台阻擋、提示 icon | `PARTNERS_RULES.md` |
+| Partners 廣告格式通用規格 | `source_files/Partners 新增廣告格式需求, 前後端開發注意事項` | options API、ActiveHash、嵌入碼、預覽、price_info、格式資料完整性 | `PARTNERS_RULES.md` |
+| NativeDriveGroup | `source_files/Partners 新增格式NativeDriveGroup[跨部門需求]` | `ad_format_type_id = 231`、NDG 嵌入碼、格式文字保護 | `PARTNERS_RULES.md` |
+| FlashDrive / 特殊格式 | `source_files/OneAD Partners Phase3/OneAD Partners (Phase 3.3_開放投放 FlashDrive 快閃廣告)`, `source_files/Partners 媒體人工開放 特殊格式(FlashDrive_Cover_….)` | FD 320/300、人工合約、ODM 媒體選擇、vCPM、收益/請款 | `PARTNERS_RULES.md`, `ODM_REPORT_TRACKING.md` |
+| Commerce Ad in Partners | `source_files/[Partners][SuperDSP 平台化 Phase 1.5.0] Commerce Ad` | 上線通知、NativeDrive/Commerce Ad 預覽、合約補建與新建 | `PARTNERS_RULES.md`, `SuperDSP_RULES.md` |
+| Partners 前後端優化 | `source_files/Partners 前後端優化調整20241007[跨部門需求]` | 請款送出日為假日仍可帶入發票日期欄位 | `PARTNERS_RULES.md` |
+
+---
+
+## 六、Partners 功能迭代歷史
+
+| 版本 / 專案 | 核心功能改動 | 主要影響 | 狀態 |
+| :--- | :--- | :--- | :--- |
+| Phase 1 | 網站主註冊、網站審核、TextDrive 廣告格式、基礎 API | Partners、OSS/ERP、OYM 報表 | 已索引 |
+| Phase 2 | 收益明細、請款申請、請款紀錄、ERP 請款審核 | Partners、ERP/OSS、財務 | 已索引 |
+| Phase 3 | 多網站、單一銀行帳戶、ODM Partners 媒體群組 | Partners、ODM、OSS | 已索引 |
+| Phase 3.1 | 註冊頁聯絡入口與電子報 | Partners UI、GTM | 已索引 |
+| Phase 3.2 | 駁回原因、國碼手機、國籍/護照、國外銀行 | Partners、OSS、通知信 | 已索引 |
+| Phase 3.3 | FlashDrive 開放投放 | Partners、OSS、ODM、收益報表 | 已索引 |
+| Phase 4 | 請款作業與錯誤銀行帳戶處理 | Partners、ERP/OSS、財務 | 已索引；部分流程待確認 |
+| 2024 前後端優化 | 請款假日發票日期處理 | Partners 請款 | 已索引 |
+| NativeDriveGroup | 新增 NDG 格式 | Partners 廣告格式與嵌入碼 | 已索引 |
+| Commerce Ad | Partners 端同步 Commerce Ad | Partners、SuperDSP、合約 | 已索引 |
+| 首頁防呆優化 | 網域社群平台阻擋與 UI 提示 | Partners 註冊/首頁 | 已索引 |
+
+---
+
+## 七、ODM 功能主題與測試切面
 
 | 主題 | ODM 知識庫已沉澱重點 | 需要串接的系統 |
 | :--- | :--- | :--- |
@@ -113,7 +149,22 @@
 
 ---
 
-## 六、跨系統關係與測試切面
+## 八、Partners 功能主題與測試切面
+
+| 主題 | Partners 知識庫已沉澱重點 | 需要串接的系統 |
+| :--- | :--- | :--- |
+| 註冊與網站審核 | 網站資料、JS 嵌入限制、社群平台 URL 阻擋、駁回原因、審核通知 | OSS/ERP |
+| 多網站 | `media_id/media_name`、網站 filter、報表與請款明細隔離 | ODM, OSS |
+| 廣告格式 | TextDrive、FlashDrive、NativeDriveGroup、Commerce Ad、options API、重複申請防呆、嵌入碼 | OSS, ODM, SuperDSP |
+| 收益報表 | 月收益、特殊格式收益、人工開放格式、vCPM 與計價單位 | OSS, ODM, OYM |
+| 請款與附件 | 請款下限、請款狀態、勞務報酬單、發票日期、採購單、銀行存摺影本 | ERP/OSS, 財務 |
+| 付款帳戶 | 單一銀行帳戶、請款當下快照、國外銀行、護照、人工調整流程 | ERP/OSS |
+| ODM 媒體群組 | Partners 類型媒體集中、展開收合、全選/全不選、FD/特殊格式可選媒體 | ODM |
+| Commerce Ad | 上線彈窗、NativeDrive/Commerce Ad 預覽、既有與新用戶合約建立 | SuperDSP, OSS |
+
+---
+
+## 九、跨系統關係與測試切面
 
 ### 1. SuperDSP ↔ Studio
 *   SuperDSP 從 IO / Ad Group 流程導流 Studio 建立素材包。
@@ -147,9 +198,24 @@
 *   CTV 報表以 HHID 聚合，不可用一般 Unique User 驗證。
 *   報表測試需分開驗證 UI 顯示、API 計算、Excel 匯出與無資料狀態。
 
+### 7. Partners ↔ OSS/ERP
+*   Partners 網站審核、廣告格式審核、請款審核、銀行存摺影本與採購單下載都需透過 OSS/ERP 流程驗證。
+*   請款資料的單號、金額、發票日期、付款帳戶、狀態與 note 需在 Partners、OSS/ERP 與財務流程一致。
+*   駁回網站、駁回廣告格式、駁回請款都需保留原因並寄送通知，不可只改狀態。
+
+### 8. Partners ↔ ODM
+*   Partners 網站審核通過後，ODM 媒體選單需將 Partners 媒體集中到可展開/收合的 Partners 群組。
+*   Partners FlashDrive / 特殊格式合約需影響 ODM 媒體可選性；FD 320/300 格式活動需能選到已核准或人工開放的 Partners 媒體。
+*   多網站資料需在 ODM 端以正確 media id 區分，避免不同網站收益或投放設定混用。
+
+### 9. Partners ↔ SuperDSP / Commerce AD
+*   SuperDSP Commerce Ad 上線時，Partners 需同步顯示上線通知、NativeDrive/Commerce Ad 預覽與合約建立邏輯。
+*   已申請 NativeDrive 與未申請 NativeDrive 的網站主需分別驗證既有合約補建與新申請雙合約建立。
+*   Commerce Ad 的 RTB、底價、帳務主規則仍屬 SuperDSP/OYM/ERP；Partners 端測試聚焦網站主入口、合約與嵌入碼可用性。
+
 ---
 
-## 七、規格分析狀態判定
+## 十、規格分析狀態判定
 
 | 判定項目 | 目前狀態 | 說明 |
 | :--- | :--- | :--- |
@@ -157,12 +223,14 @@
 | SuperDSP 測試規則 | 已完成核心規則沉澱 | 已按權限、Campaign、素材、受眾、追蹤碼、Commerce AD、報表、特殊產品整理 |
 | ODM 來源資料夾 | 已完成知識庫層級索引 | `ODM_REPORT_TRACKING.md` 可用主題已整合為本文件的 ODM 覆蓋索引與測試切面 |
 | ODM 測試規則 | 已完成核心規則沉澱 | 已按權限、報表、追蹤碼、委刊單、批次更新、頻次、影音、資料驗證、素材審查整理 |
+| Partners 來源資料夾 | 已完成知識庫層級索引 | 19 份 Partners HTML 文件已列入本文件與 `PARTNERS_RULES.md` |
+| Partners 測試規則 | 已完成核心規則沉澱 | 已按註冊、網站審核、多網站、廣告格式、收益、請款、銀行帳戶、跨系統連動整理 |
 | 逐字全文轉錄 | 不採用 | 知識庫目標是 QA 可用規則與來源索引，不是替代原始規格全文 |
 | 後續新增 source_files | 待增量同步 | 新同步的 Confluence 來源需再更新本地圖與對應規則文件 |
 
 ---
 
-## 八、維護規範
+## 十一、維護規範
 
 *   新增或同步 Confluence 規格後，先更新本文件的來源索引，再更新對應系統的規則文件。
 *   若資料夾名稱未包含系統名，但內容涉及 SuperDSP/ODM/ERP/OYM/Studio，仍需依實際內容歸檔，不得只依資料夾名稱判斷。

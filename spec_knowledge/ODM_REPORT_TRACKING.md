@@ -1,6 +1,7 @@
 # 📈 ODM 報表計算與活動追蹤邏輯 (Report & Tracking)
 
 > **本文件用途**: 記錄 ODM 系統中關於成效報表 API、追蹤碼生成機制、活動狀態遷移、批次更新與營運操作門禁的技術邏輯。
+> **Partners 關聯**: Partners 網站主、廣告格式、收益與請款規則另見 `PARTNERS_RULES.md`；ODM 端需承接 Partners 媒體群組、FlashDrive/特殊格式可選媒體與跨系統報表一致性。
 
 ---
 
@@ -131,6 +132,8 @@
 *   **新增媒體**: 新增媒體前需確認媒體的 ad format type 具有合法合約，否則該 Placement/媒體組合需回傳失敗原因。
 *   **移除媒體**: 未開啟 pacing 時，移除後至少需保留一個媒體；已開啟 pacing 時，移除後至少需保留可承接便宜流量的媒體。
 *   **編輯紀錄**: 若勾選的 Placement 為上刊或暫停狀態，批次媒體更新成功後需新增編輯紀錄。
+*   **Partners 媒體群組**: Partners 註冊網站需集中到 ODM 媒體選單中的 Partners 分類，支援展開/收合與全選/全不選；常用識別條件為 `uid` 2 開頭，但測試需覆蓋非 Partners 媒體不被誤歸類。
+*   **Partners 特殊格式**: FlashDrive / Cover / GP+ 等人工開放格式即使沒有一般合約審核紀錄，也可能視為 PD 直接建立；ODM 媒體選擇需能選到合法 Partners 媒體，並依合約日期大於今天的規則判斷可用性。
 
 ### 4. 頻次控制規則
 *   **跨裝置頻次**: 投放 ID 與頻次設定需支援跨裝置控制頻次，避免桌機、手機、CTV 分別計算造成超頻。
@@ -205,6 +208,21 @@
 *   **免審核特權**: SuperDSP Partners / AOE 特定代理商素材可能具備自動通過機制；ODM 審查測試需同時覆蓋正向自動通過與一般代理商反向隔離。
 *   **產業類別差異**: 人工 Pass 需選擇產業類別；自動通過流程不得錯誤要求在素材層級補填 OneAD 產業類別。
 *   **狀態一致性**: 素材在 Reviewing、Passed、Rejected 間切換後，SuperDSP 端素材可選取性與 ODM 審核列表狀態需一致。
+
+---
+
+## 七、Partners 媒體與收益回歸
+> 📍 來源規格：[Partners Phase 3.3 FlashDrive](../source_files/OneAD%20Partners%20Phase3/OneAD%20Partners%20(Phase%203.3_開放投放%20FlashDrive%20快閃廣告))、[Partners 媒體人工開放特殊格式](../source_files/Partners%20媒體人工開放%20特殊格式(FlashDrive_Cover_….))
+
+### 1. ODM 媒體選擇
+*   **審核通過連動**: Partners 網站或廣告格式審核通過後，ODM 對應格式的媒體清單需可看到該網站。
+*   **FD 320/300**: ODM 廣告活動格式為 FD 320 或 FD 300 時，需能選到通過 FlashDrive 申請或人工建立合約的 Partners 媒體。
+*   **人工建立合約**: 若 FD 或 Cover 等特殊格式是由 PD/OSS 人工建立，ODM 仍需視為可投放來源；測試需確認沒有審核紀錄時的後端判斷。
+
+### 2. 報表與成本一致
+*   **收益回流**: Partners 特殊格式投放後，Partners 收益報表、OSS `profit-report` 與 `media-fee-cost` 都需能取得對應收益。
+*   **價格來源**: FlashDrive 預設 vCPM 為 40，但如果 OSS 曾手動設定價格，報表計算需以手動值為準。
+*   **多網站隔離**: Partners 多網站情境下，ODM 投放與報表需保留正確 `media_id`，不可把同帳號不同網站收益合併到錯誤網站。
 
 ---
 

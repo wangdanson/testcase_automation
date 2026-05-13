@@ -1,8 +1,8 @@
 # ⚙️ SuperDSP 核心業務邏輯與連動規則 (Core Rules)
 
 > **本文件用途**: 將 `source_files` 中所有已辨識為 SuperDSP 相關的規格，整理成可直接轉換為 QA 測試案例的核心規則。  
-> **最後盤點日期**: 2026-05-06  
-> **覆蓋說明**: 本文件不是逐字轉錄規格，而是將平台化、AOE、Commerce AD、CCT、Custom Audience、FlashDrive、Preview、Studio、第三方量測、受眾與追蹤碼等規格中的「測試必驗邏輯」集中沉澱。完整來源索引請見 `SYSTEM_MAP.md`。
+> **最後盤點日期**: 2026-05-13  
+> **覆蓋說明**: 本文件不是逐字轉錄規格，而是將平台化、AOE、Commerce AD、CCT、Custom Audience、FlashDrive、Preview、Studio、第三方量測、受眾與追蹤碼等規格中的「測試必驗邏輯」集中沉澱。完整來源索引請見 `SYSTEM_MAP.md`；Partners 網站主與請款/格式申請規則另見 `PARTNERS_RULES.md`。
 
 ---
 
@@ -24,6 +24,8 @@
 *   `source_files/SuperDSP Pilot for AOE (Phase 1)`
 *   `source_files/SuperDSP Pilot for AOE (Phase 2)`
 *   `source_files/[Partners][SuperDSP 平台化 Phase 1.5.0] Commerce Ad`
+*   `source_files/OneAD Partners Phase3/OneAD Partners (Phase 3.3_開放投放 FlashDrive 快閃廣告)`
+*   `source_files/Partners 媒體人工開放 特殊格式(FlashDrive_Cover_….)`
 *   `source_files/[SuperDSP 平台化]/[Commerce AD Phase 1] Commerce AD & RTB`
 *   `source_files/[SuperDSP 平台化]/[Commerce AD Phase 2] Commerce AD 帳務管理 及 受眾洞察報告下載`
 *   `source_files/[SuperDSP 平台化]/[Commerce AD Phase 3] Commerce AD 媒體端 RTB 底價設定`
@@ -54,6 +56,7 @@
 ### 2. Partners 與 AOE 特殊帳號
 *   Partners 帳號在 Commerce AD/AOE 相關流程具備特定 UI 與資料權限。
 *   Partners 或特定 SuperDSP 來源上傳到 ODM 的素材，存在「素材審核自動通過」或「免審核綠色通道」情境，需驗證 SuperDSP 與 ODM 狀態同步。
+*   Partners 本身的網站主註冊、網站審核、廣告格式申請、收益與請款規則不在 SuperDSP 主流程內；跨到 Commerce Ad、FlashDrive 或 ODM 媒體選擇時需同時讀 `PARTNERS_RULES.md`。
 *   AOE Pilot 流程需要驗證廣告主/產業主次類別/素材包/版位格式/投放狀態之間的連動，不能只測單一表單欄位。
 *   AOE 特定 advertiser 或帳號條件應以資料驅動方式驗證，不應把單一 ID 當成全域規則；若規格明確指定 ID，測試案例需同時包含正向與非指定 ID 負向案例。
 
@@ -174,6 +177,11 @@
 
 ## 八、Commerce AD 與 RTB
 
+### 0. Partners 端 Commerce Ad 入口
+*   Commerce Ad 在 Partners 端歸類於 NativeDrive 原生廣告，需同步新增上線通知彈窗與手機/電腦版預覽。
+*   已申請 NativeDrive 的 Partners 使用者，上線時需自動補建 Commerce Ad 合約；未申請者按「儲存並取得程式碼」後需同時建立 NativeDrive 與 Commerce Ad 合約。
+*   Partners 端 Commerce Ad 合約、嵌入碼與通知規則詳見 `PARTNERS_RULES.md`；SuperDSP 測試需關注 Commerce AD / RTB / 帳務主流程是否與 Partners 合約資料一致。
+
 ### 1. Commerce AD Phase 1 - 建立與 RTB
 *   Commerce AD 建立流程需驗證資料定向、受眾模式、環境模式、產業/產品類別、廣告格式、CPC 出價、Margin、Studio 素材包與其他投放設定。
 *   CPC 出價最低值、CPC 小數位、Margin 整數限制、Margin 不得超過上限等表單限制需驗證。
@@ -219,6 +227,8 @@
 
 ### 1. FlashDrive
 *   FlashDrive 上架 SuperDSP 需驗證格式是否可被選擇、素材包規格、pacing 條件與投放流程。
+*   Partners Phase 3.3 另要求 FlashDrive 320/300 可由網站主申請、PD 審核、取得嵌入碼並進入收益/請款；ODM 中 FD 320/300 活動需能選到核准或人工開放的 Partners 媒體。
+*   Partners 端 FD 預設 vCPM 為 40；若 PD/OSS 手動設定過價格，收益計算應以手動值為準。
 *   若 FlashDrive 有待 PM 確認規則，測試案例需標註為待確認，不可當作已定義驗收標準。
 
 ### 2. Preview 與正式環境廣告投放
