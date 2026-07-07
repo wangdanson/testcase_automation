@@ -1,0 +1,52 @@
+<mxfile host="ac.draw.io" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.8.6">
+  <diagram id="RMNaWymUVBfXpZgU9v4H" name="第 1 页">
+    <mxGraphModel dx="1588" dy="958" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-1" value="批次修改" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="253" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-7" value="" style="swimlane;strokeColor=#666666;swimlaneFillColor=#FFFFFF;fillColor=#ffffff;fontColor=#008CFF;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="380" y="200" width="100" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-9" value="狀態" style="text;spacing=0;strokeColor=inherit;align=center;verticalAlign=middle;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rSize=5;fillColor=inherit;fontStyle=1;fontColor=#666666;fontSize=17;" vertex="1" parent="fNnyMEeBKfkkRD2p57wT-7">
+          <mxGeometry width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-10" value="投放策略" style="text;spacing=0;strokeColor=#008CFF;align=center;verticalAlign=middle;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rSize=5;fillColor=#008CFF;fontStyle=1;fontColor=#ffffff;fontSize=17;" vertex="1" parent="fNnyMEeBKfkkRD2p57wT-7">
+          <mxGeometry y="26" width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-13" value="Pacing狀態" style="text;spacing=0;strokeColor=inherit;align=center;verticalAlign=middle;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rSize=5;fillColor=inherit;fontStyle=1;fontColor=#666666;fontSize=17;" vertex="1" parent="fNnyMEeBKfkkRD2p57wT-7">
+          <mxGeometry y="52" width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-14" value="投放優先度" style="text;spacing=0;strokeColor=inherit;align=center;verticalAlign=middle;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rSize=5;fillColor=inherit;fontStyle=1;fontColor=#666666;fontSize=17;" vertex="1" parent="fNnyMEeBKfkkRD2p57wT-7">
+          <mxGeometry y="78" width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-15" value="走期" style="text;spacing=0;strokeColor=inherit;align=center;verticalAlign=middle;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rSize=5;fillColor=inherit;fontStyle=1;fontColor=#666666;fontSize=17;" vertex="1" parent="fNnyMEeBKfkkRD2p57wT-7">
+          <mxGeometry y="104" width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-16" value="媒體" style="text;spacing=0;strokeColor=inherit;align=center;verticalAlign=middle;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rSize=5;fillColor=inherit;fontStyle=1;fontColor=#666666;fontSize=17;" vertex="1" parent="fNnyMEeBKfkkRD2p57wT-7">
+          <mxGeometry y="130" width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-19" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="261.5" width="100" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-20" value="點擊" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-21" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="261.5" width="100" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-22" value="點擊" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="240.5" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-24" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;跳出彈窗, 或瀏覽器右側跳出&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="170" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fNnyMEeBKfkkRD2p57wT-25" value="Window Title" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=;fontSize=17;labelBackgroundColor=none;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="630" y="220" width="550" height="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

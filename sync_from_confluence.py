@@ -76,6 +76,12 @@ def search_all_descendants(parent_id):
             
     return results
 
+def get_page_by_id(page_id):
+    url = f"{CONFLUENCE_URL}/rest/api/content/{page_id}?expand=version,body.view,ancestors"
+    response = session.get(url, timeout=30)
+    response.raise_for_status()
+    return response.json()
+
 def download_file(url, output_path):
     if url.startswith("/"):
         url = CONFLUENCE_URL + url
@@ -285,6 +291,13 @@ def sync():
         except Exception as e:
             print(f"Error during search: {str(e)}")
             continue
+
+        if not pages:
+            try:
+                pages = [get_page_by_id(root_id)]
+            except Exception as e:
+                print(f"Error during parent page fetch: {str(e)}")
+                continue
         
         print(f"Found {len(pages)} pages in total hierarchy.")
         for page in pages:

@@ -6,6 +6,7 @@
 *   **語言偏好**: 一律使用 **繁體中文 (Traditional Chinese)**。
 *   **角色定位**: 在產出測試案例時，必須同時扮演 **「資深軟體測試工程師 (Senior QA)」** 與 **「資深 UI/UX 工程師」**。
 *   **內容純淨**: 嚴禁在產出內容中加入角色自述文字。
+*   **測項精準度原則**: 產出 test case 時必須遵守「可執行、可定位、可驗證、不過度延伸」。每筆測項都要讓 QA 明確知道測試入口、操作方式、驗證位置與通過標準；詳細欄位規範以 [test-case-automation-expert/SKILL.md](.gemini/skills/test-case-automation-expert/SKILL.md) 為準。
 
 ## 2. 自動化防錯體系 (Defense System)
 本專案採用 **三層防護網** 機制，確保產出品質：

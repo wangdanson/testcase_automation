@@ -1,0 +1,192 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"Partners","Partner User","登入/任一頁面","【UI】【正向】Commerce Ad 上線通知彈窗顯示","已登入網站主進入 Partners 任一頁面時，應看到 Commerce Ad 新功能上線通知","1. 使用尚未看過通知的 Partner User 登入 Partners
+2. 進入 Partners 任一功能頁面
+3. 觀察頁面是否出現通知彈窗
+4. 檢查彈窗顯示位置與頁面遮罩狀態","1. 系統顯示 Commerce Ad 上線資訊彈窗
+2. 彈窗內容能讓使用者知道 Partners 已新增 Commerce Ad 格式
+3. 同一使用者至少應看到一次通知
+4. 彈窗不應造成頁面版面錯亂","純人工驗證；來源：UserStory 1、通知彈窗規格"
+"Partners","Partner User","登入流程","【功能】【正向】未登入使用者登入後顯示通知彈窗","未登入使用者進入 Partners 後，應先完成登入，再看到 Commerce Ad 通知","1. 清除登入狀態
+2. 開啟 Partners 任一需要登入的頁面
+3. 完成登入流程
+4. 觀察登入完成後的頁面","1. 未登入時應先導至登入流程
+2. 登入完成後應回到 Partners 頁面
+3. 系統應顯示 Commerce Ad 上線通知彈窗
+4. 原本欲進入的頁面不應無故遺失","純人工驗證；來源：功能提醒彈窗流程圖"
+"Partners","Partner User","通知彈窗","【UI】【正向】彈窗基本元件顯示","Commerce Ad 通知彈窗應包含必要文案與可操作元件","1. 使用尚未關閉過通知的 Partner User 登入 Partners
+2. 觸發 Commerce Ad 通知彈窗
+3. 檢查彈窗標題、內容、核選方框與按鈕
+4. 檢查右上角 X 是否存在","1. 彈窗顯示 Commerce Ad 格式新增資訊
+2. 彈窗有「下次不再顯示」核選方框
+3. 彈窗底部有「關閉」按鈕
+4. 彈窗右上角有 X 可關閉彈窗
+5. 文案與按鈕在桌機解析度下不截斷","純人工驗證；來源：功能細項通知彈窗"
+"Partners","Partner User","通知彈窗","【功能】【正向】未勾選下次不顯示再次顯示","使用者未勾選下次不再顯示並關閉彈窗後，重新整理仍應再次看到通知","1. 使用尚未關閉過通知的 Partner User 登入 Partners
+2. 等待 Commerce Ad 通知彈窗顯示
+3. 不勾選「下次不再顯示」
+4. 點擊「關閉」
+5. 重新整理頁面","1. 第一次彈窗可正常關閉
+2. 重新整理後應再次顯示 Commerce Ad 通知彈窗
+3. 不應因單次關閉而永久不顯示
+4. 使用者仍可再次選擇是否不再顯示","純人工驗證；來源：功能提醒彈窗流程圖"
+"Partners","Partner User","通知彈窗","【功能】【正向】勾選下次不顯示後不再彈出","使用者勾選下次不再顯示並關閉彈窗後，後續不應再次看到通知","1. 使用尚未關閉過通知的 Partner User 登入 Partners
+2. 等待 Commerce Ad 通知彈窗顯示
+3. 勾選「下次不再顯示」
+4. 點擊「關閉」
+5. 重新整理頁面
+6. 切換至其他 Partners 頁面","1. 第一次彈窗可正常關閉
+2. 重新整理後不應再次顯示 Commerce Ad 通知彈窗
+3. 切換至其他 Partners 頁面時也不應再次顯示
+4. Partners 其他功能仍可正常操作","純人工驗證；不查 Local Storage"
+"Partners","Partner User","通知彈窗","【功能】【正向】使用 X 關閉彈窗","使用者可透過右上角 X 關閉 Commerce Ad 通知彈窗","1. 使用尚未關閉過通知的 Partner User 登入 Partners
+2. 等待 Commerce Ad 通知彈窗顯示
+3. 不勾選「下次不再顯示」
+4. 點擊彈窗右上角 X
+5. 重新整理頁面","1. 彈窗應被關閉
+2. 頁面應可正常操作
+3. 未勾選下次不再顯示時，重新整理後仍應依規則再次顯示
+4. X 與底部關閉按鈕的行為一致","純人工驗證；來源：功能細項"
+"Partners","Partner User","通知彈窗","【狀態】【正向】彈窗顯示期限到期後不再顯示","超過規格設定顯示期間後，Commerce Ad 通知彈窗不應再顯示","1. 使用測試環境中已設定為顯示期限後的狀態
+2. 使用未勾選過不再顯示的 Partner User 登入 Partners
+3. 進入 Partners 任一頁面
+4. 檢查是否出現 Commerce Ad 通知彈窗","1. 超過顯示期限後不應再顯示通知彈窗
+2. Partners 其他頁面功能仍正常可用
+3. 不應出現空白彈窗或錯誤提示","純人工驗證；需測試環境提供期限後狀態"
+"Partners","Partner User","通知彈窗","【回歸】【正向】通知彈窗不阻斷原頁面資料載入","Commerce Ad 通知彈窗顯示時，原 Partners 頁面的資料仍應正常載入","1. 使用 Partner User 登入 Partners
+2. 進入有資料列表或設定內容的 Partners 頁面
+3. 等待 Commerce Ad 通知彈窗顯示
+4. 關閉彈窗
+5. 檢查原頁面內容與操作","1. 彈窗顯示時頁面不應發生錯誤
+2. 關閉彈窗後原頁面資料完整呈現
+3. 原頁面的查詢、切換、儲存等既有操作不受影響","純人工驗證；任一頁面回歸"
+"Partners","Partner User","廣告設定/NativeDrive原生廣告","【UI】【正向】NativeDrive 頁顯示 Commerce Ad 預覽入口","NativeDrive 原生廣告頁應新增 Commerce Ad 相關預覽資訊","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定」
+3. 開啟「NativeDrive 原生廣告」
+4. 檢查廣告格式預覽區塊","1. 預覽區塊保留原本 NativeDrive 原生廣告預覽
+2. 預覽區塊新增 Commerce Ad 相關預覽
+3. Commerce Ad 歸類於 NativeDrive 原生廣告底下
+4. 入口文案與頁面排版一致","純人工驗證；來源：UserStory 2"
+"Partners","Partner User","廣告設定/NativeDrive原生廣告","【UI】【正向】手機版預覽維持原 NativeDrive 顯示","新增 Commerce Ad 後，手機版預覽仍應維持原 NativeDrive 顯示","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定 / NativeDrive 原生廣告」
+3. 切換或查看手機版預覽
+4. 比對手機版預覽內容","1. 手機版預覽維持原本 NativeDrive 原生廣告預覽
+2. 手機版預覽不應被 Commerce Ad 電腦版樣式取代
+3. 預覽畫面正常載入且無破圖
+4. 手機版預覽文案與操作維持既有行為","純人工驗證；來源：驗收標準"
+"Partners","Partner User","廣告設定/NativeDrive原生廣告","【UI】【正向】電腦版顯示兩種預覽","電腦版預覽中應可看到 NativeDrive 與 Commerce Ad 兩種預覽畫面","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定 / NativeDrive 原生廣告」
+3. 切換至電腦版預覽
+4. 檢查可用預覽類型","1. 電腦版顯示原 NativeDrive 預覽
+2. 電腦版顯示 Commerce Ad 預覽
+3. 兩種預覽可清楚區分
+4. 切換時不應出現空白或破圖","純人工驗證；來源：驗收標準"
+"Partners","Partner User","廣告設定/NativeDrive原生廣告","【功能】【正向】預覽切換不影響頁面狀態","使用者在不同預覽畫面間切換時，廣告設定頁不應遺失已填資料或發生錯誤","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定 / NativeDrive 原生廣告」
+3. 若頁面有可編輯欄位，先填入測試內容
+4. 在手機版、NativeDrive 電腦版、Commerce Ad 電腦版預覽間切換
+5. 回到原設定區檢查資料","1. 預覽切換順暢且無錯誤提示
+2. 已填寫但尚未儲存的頁面資料不應被清空
+3. 預覽切換不應觸發非預期儲存
+4. 頁面操作狀態保持一致","純人工驗證；不查 API"
+"Partners","Partner User","廣告設定/NativeDrive原生廣告","【回歸】【正向】原 NativeDrive 預覽維持正常","新增 Commerce Ad 預覽後，原 NativeDrive 原生廣告預覽仍應正常使用","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定 / NativeDrive 原生廣告」
+3. 查看原 NativeDrive 手機版與電腦版預覽
+4. 操作原有廣告設定流程","1. 原 NativeDrive 預覽可正常顯示
+2. 原有廣告設定欄位與按鈕維持既有行為
+3. 新增 Commerce Ad 預覽不應造成原 NativeDrive 功能退化","純人工驗證；既有功能回歸"
+"Partners","Partner User","廣告設定/NativeDrive原生廣告","【UI】【反向】不顯示 RTB 或底價設定入口","Partners 現階段不應提供網站主設定底價或開啟 RTB 的頁面入口","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定 / NativeDrive 原生廣告」
+3. 檢查 Commerce Ad 相關區塊
+4. 檢查是否有底價設定、RTB 開關或競價設定入口","1. 頁面不提供網站主設定底價欄位
+2. 頁面不提供 RTB 外部競價設定入口
+3. Commerce Ad 現階段僅以通知、預覽與既有取得程式碼流程呈現","純人工驗證；來源：會議記錄收斂"
+"Partners","Partner User","廣告設定/儲存並取得程式碼","【回歸】【正向】取得程式碼既有流程維持可用","新增 Commerce Ad 合約邏輯後，原本儲存並取得程式碼流程仍應完成","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定」
+3. 填寫 NativeDrive 原生廣告必要資料
+4. 點擊「儲存並取得程式碼」
+5. 檢查畫面結果與程式碼區塊","1. 系統完成儲存
+2. 使用者可取得程式碼
+3. 程式碼區塊不應空白或錯誤
+4. 既有 NativeDrive 原生廣告流程不因 Commerce Ad 中斷","純人工驗證；不查後端資料"
+"Partners","Partner User","廣告設定/儲存並取得程式碼","【功能】【正向】程式碼輸出可複製使用","使用者取得程式碼後，應能正常複製既有 JavaScript 嵌入碼","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定」
+3. 點擊「儲存並取得程式碼」
+4. 檢查程式碼區塊
+5. 使用頁面提供的複製操作或手動選取複製","1. 程式碼內容正常顯示
+2. 程式碼可被完整複製
+3. 複製操作後頁面不應報錯
+4. 若 Commerce Ad 嵌入方式仍待確認，既有程式碼輸出仍不可被破壞","純人工驗證；來源：會議記錄 Javascript Code 待確認"
+"Partners","已申請過NativeDrive原生廣告的使用者","合約資料","【功能】【正向】既有 NativeDrive 使用者免額外申請","已申請過 NativeDrive 原生廣告的使用者，上線後應可直接使用 Commerce Ad 相關流程，不需額外申請","1. 使用已申請過 NativeDrive 原生廣告的 Partner User 登入
+2. 進入「廣告設定 / NativeDrive 原生廣告」
+3. 查看 Commerce Ad 預覽與可用狀態
+4. 點擊「儲存並取得程式碼」","1. 使用者可看到 Commerce Ad 相關預覽
+2. 使用者不需額外申請 Commerce Ad
+3. 使用者可正常儲存並取得程式碼
+4. 原 NativeDrive 設定仍保留","純人工前台驗證；不查 DB"
+"OSS","partner_admin","合約資料","【數據】【正向】既有 NativeDrive 使用者合約可見","已申請過 NativeDrive 原生廣告的使用者，上線後應可在後台人工確認 Commerce Ad 合約存在","1. 以 partner_admin 或具備合約檢視權限的帳號登入後台
+2. 搜尋已申請過 NativeDrive 原生廣告的網站主或媒體
+3. 開啟合約資料頁
+4. 檢查 NativeDrive 與 Commerce Ad 合約顯示狀態","1. 原 NativeDrive 合約資料仍存在
+2. Commerce Ad 合約資料可在後台被人工檢視
+3. 兩種合約可被區分
+4. 不需查資料庫即可在後台確認結果","純人工後台驗證；不檢查 price_info 欄位細節"
+"Partners","未申請過NativeDrive原生廣告的使用者","廣告設定/儲存並取得程式碼","【功能】【正向】首次儲存可取得程式碼","未申請過 NativeDrive 原生廣告的使用者，完成必要資料後應可儲存並取得程式碼","1. 準備未申請過 NativeDrive 原生廣告的 Partner User
+2. 登入 Partners 並進入「廣告設定」
+3. 填寫必要資料
+4. 點擊「儲存並取得程式碼」
+5. 檢查畫面結果","1. 系統完成儲存
+2. 使用者可取得程式碼
+3. 頁面不應顯示合約建立失敗或格式不可用錯誤
+4. 後續再次進入頁面仍可看到相關設定","純人工前台驗證；不查 API"
+"OSS","partner_admin","合約資料","【數據】【正向】首次儲存建立兩種合約可見","未申請過 NativeDrive 的使用者首次儲存後，後台應可人工確認 NativeDrive 與 Commerce Ad 兩種合約","1. 以未申請過 NativeDrive 的 Partner User 完成儲存並取得程式碼
+2. 以 partner_admin 或具備合約檢視權限的帳號登入後台
+3. 搜尋該網站主或媒體
+4. 開啟合約資料頁","1. 後台可看到 NativeDrive 原生廣告合約
+2. 後台可看到 Commerce Ad 合約
+3. 兩種合約為不同資料
+4. 合約資料顯示不應重複或錯位","純人工後台驗證；不檢查 DB"
+"Partners","未申請過NativeDrive原生廣告的使用者","廣告設定/儲存並取得程式碼","【功能】【反向】必填資料不足不取得程式碼","未申請使用者在必要資料未填完整時，點擊儲存並取得程式碼應被阻擋","1. 準備未申請過 NativeDrive 原生廣告的 Partner User
+2. 進入「廣告設定」
+3. 故意留空必要欄位
+4. 點擊「儲存並取得程式碼」
+5. 檢查畫面提示與程式碼區塊","1. 系統顯示必要欄位錯誤
+2. 儲存流程被阻擋
+3. 不顯示可用程式碼
+4. 使用者補齊資料後可重新送出","純人工驗證；前台負向流程"
+"Partners","未申請過NativeDrive原生廣告的使用者","廣告設定/儲存並取得程式碼","【回歸】【正向】重複點擊儲存不出現重複錯誤","使用者重複點擊儲存並取得程式碼時，前台不應出現重複合約或流程錯誤","1. 準備未申請過 NativeDrive 原生廣告的 Partner User
+2. 填寫廣告設定必要資料
+3. 點擊「儲存並取得程式碼」
+4. 成功後再次點擊同一按鈕
+5. 檢查畫面與程式碼區塊","1. 第一次儲存成功並顯示程式碼
+2. 重複點擊不應顯示重複建立錯誤
+3. 程式碼仍可正常取得
+4. 頁面不應進入不可恢復狀態","純人工前台驗證；合約筆數細節另由後台補充"
+"OSS","partner_admin","合約資料","【數據】【反向】重複儲存不產生重複合約可見","同一使用者重複儲存後，後台合約列表不應出現重複 NativeDrive 或 Commerce Ad 合約","1. 以 Partner User 完成一次儲存並取得程式碼
+2. 以同一使用者再次點擊儲存並取得程式碼
+3. 以 partner_admin 登入後台
+4. 搜尋該網站主或媒體並查看合約列表","1. Commerce Ad 合約不應重複顯示
+2. NativeDrive 合約不應重複顯示
+3. 原合約資料仍可正常檢視
+4. 後台列表不應出現同格式多筆異常資料","純人工後台驗證；不查 DB"
+"Partners","Partner User","廣告設定/NativeDrive原生廣告","【回歸】【正向】既有廣告設定保存正常","Commerce Ad 通知、預覽與合約新增後，既有廣告設定仍應正常保存","1. 使用 Partner User 登入 Partners
+2. 進入「廣告設定 / NativeDrive 原生廣告」
+3. 修改既有設定欄位
+4. 儲存設定
+5. 重新進入頁面檢查資料","1. 設定成功儲存
+2. 重新進入頁面後資料維持更新後內容
+3. 新增 Commerce Ad 預覽與合約邏輯不造成既有設定遺失
+4. 頁面不應顯示非預期錯誤","純人工驗證；既有流程回歸"
+"OSS","partner_admin","合約資料","【回歸】【正向】NativeDrive 合約資料不受影響","新增 Commerce Ad 合約後，既有 NativeDrive 合約資料仍應保持可見且未被覆蓋","1. 準備已有 NativeDrive 合約的 Partner User
+2. 完成 Commerce Ad 合約補建或首次儲存流程
+3. 以 partner_admin 登入後台
+4. 開啟該使用者或媒體的合約資料頁","1. NativeDrive 合約資料仍可檢視
+2. Commerce Ad 合約以獨立項目顯示
+3. 兩種合約名稱或格式可被清楚區分
+4. NativeDrive 合約不應被 Commerce Ad 取代","純人工後台驗證；不查 DB"
+"Partners","Partner User","全站導覽","【回歸】【正向】不新增未規劃功能入口","Partners 全站導覽不應因 Commerce Ad 通知新增未規劃的 RTB、報表或底價設定入口","1. 使用 Partner User 登入 Partners
+2. 檢查主選單與廣告設定相關入口
+3. 檢查是否新增 Commerce Ad、RTB、底價或報表相關入口
+4. 進入 NativeDrive 原生廣告頁確認實際呈現","1. 不新增規格未要求的獨立 Commerce Ad 功能頁
+2. 不新增 RTB 或底價設定入口
+3. Commerce Ad 依規格呈現在通知與 NativeDrive 預覽/合約邏輯中
+4. 既有導覽結構不被破壞","純人工驗證；來源：主規格與會議記錄"

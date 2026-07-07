@@ -1,0 +1,594 @@
+<h2>
+ 概述
+</h2>
+<p>
+ SuperDSP DPA 廣告格式需要在建立/更新素材包時傳入 `feed_uid` 與 `feed_url`，並在回傳結果中帶出這兩個欄位供 studio (
+ <code>
+  creative_cloud
+ </code>
+ ) 前端編輯表單預填。
+</p>
+<h2>
+ 修改範圍
+</h2>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    <p>
+     <strong>
+      系統
+     </strong>
+    </p>
+   </th>
+   <th>
+    <p>
+     <strong>
+      項目
+     </strong>
+    </p>
+   </th>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     ERP
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-3032">
+      ITP-3032
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     MASA
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-3035">
+      ITP-3035
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-3040">
+      ITP-3040
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     MOAI
+    </p>
+   </td>
+   <td>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-3034">
+      ITP-3034
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+    <p>
+     <a href="https://guoshi.atlassian.net/browse/ITP-3033">
+      ITP-3033
+     </a>
+     -
+     取得議題詳細資料...
+     狀態
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2>
+ API 規格
+</h2>
+<h3>
+ 素材包
+</h3>
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     創建素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Post
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/material/packs
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre># 新增 SuperDSP 素材
+
+body
+{
+  ......
+  "feed_uid": string, optional
+  "feed_url": string, optional
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/packs_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "status": "success",
+  "data": {
+    ....
+    "feed_url": "https://example.com/feed.xml",
+    "feed_uid": "feed-uid-001",
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     feed_url &amp; feed_uid 如果為空, response 回傳 null
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     更新素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Put
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/material/packs/:pack_id
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre># 更新 SuperDSP 素材
+
+body
+{
+  ......
+  "feed_uid": string, optional
+  "feed_url": string, optional
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/packs_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "status": "success",
+  "data": {
+    ....
+    "feed_url": "https://example.com/feed.xml",
+    "feed_uid": "feed-uid-001",
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     feed_url &amp; feed_uid 如果為空, response 回傳 null
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     取得素材包 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/material/packs/:pack_id
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     舊 API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/packs_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "status": "success",
+  "data": {
+    ....
+    "feed_url": "https://example.com/feed.xml",
+    "feed_uid": "feed-uid-001",
+  }
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+     feed_url &amp; feed_uid 如果為空, response 回傳 null
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3>
+ 追蹤碼
+</h3>
+按一下此處以展開...
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     name
+    </p>
+   </td>
+   <td>
+    <p>
+     追蹤碼 list API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     methods
+    </p>
+   </td>
+   <td>
+    <p>
+     Get
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     path
+    </p>
+   </td>
+   <td>
+    <p>
+     <code>
+      /api/v1/advertisers/:advertiser_id/tags
+     </code>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     status
+    </p>
+   </td>
+   <td>
+    <p>
+     new API
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     開發狀態
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     request type
+    </p>
+   </td>
+   <td>
+    <pre>header
+{
+  Authorization: string, required: true
+  X-User: string, required: true
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     controller
+    </p>
+   </td>
+   <td>
+    <p>
+     app/controllers/api/v1/material/packs_controller.rb
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     response
+    </p>
+   </td>
+   <td>
+    <pre>{
+  "status": "success",
+  "data": [
+    {
+      "uid": "123456789",
+      "name": "tag name",
+    }
+  ]
+}</pre>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     備註
+    </p>
+   </td>
+   <td>
+    <p>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>

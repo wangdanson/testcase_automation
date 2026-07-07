@@ -1,0 +1,101 @@
+"系統","權限","功能/頁面","測試功能","測試情境","操作步驟","期望結果","備註"
+"SuperDSP","API Consumer","DPA Mapping API","【功能】【正向】UUID Mapping API 基礎映射","使用合法 UUID 與 uuid_cross 呼叫 mapping API 時，系統可建立或更新對應關係","1. 準備一組符合 UUID format 的 uuid 與 uuid_cross
+2. 以 API 工具呼叫 `/v2/dpa/mapping?uuid=[UUID format]&uuid_cross=[UUID format]`
+3. 查核 API 回應狀態與 mapping 儲存結果
+4. 再以相同 uuid_cross 呼叫 feed.xml 驗證後續推薦可讀取此識別","1. mapping API 應回應成功狀態
+2. uuid 與 uuid_cross 的對應關係應可被後續推薦流程使用
+3. 不應產生重複或互相衝突的 mapping 資料","來源：DPA end-to-end 測試方法 / UUID mapping URL"
+"SuperDSP","API Consumer","DPA Mapping API","【功能】【反向】UUID Mapping API 參數格式檢查","uuid 或 uuid_cross 不是 UUID format 時，mapping API 不應寫入無效識別資料","1. 準備不符合 UUID format 的 uuid 或 uuid_cross
+2. 呼叫 `/v2/dpa/mapping?uuid=[invalid]&uuid_cross=[UUID format]`
+3. 交換測試 uuid 合法但 uuid_cross 不合法的情境
+4. 查核 API 回應與後端 mapping 資料","1. API 應拒絕或回傳可辨識的參數錯誤
+2. 無效 uuid 或 uuid_cross 不應被寫入 mapping
+3. 錯誤情境不應影響既有合法 mapping 資料","來源：DPA end-to-end 測試方法 / UUID mapping URL；若實作錯誤碼未定義，需以實際 API 規格補齊"
+"SuperDSP","API Consumer","DPA Feed API","【功能】【正向】feed.xml RSS 基礎輸出","使用合法 feed_uid 與 uuid_cross 呼叫 feed.xml 時，系統回傳符合 RSS 與 Google product feed 欄位的 XML","1. 準備存在商品資料的 feed_uid 與合法 uuid_cross
+2. 呼叫規格 URL `/v2/dpa/feed.xml??feed_uid=[STRING]&uuid_cross=[UUID format]`
+3. 檢查 response content type 與 XML 結構
+4. 檢查 channel 與 item 內的商品欄位","1. API 應回傳可解析的 XML
+2. XML 根節點應為 RSS 2.0 並包含 `xmlns:g`
+3. 每筆 item 至少應包含 `g:id`、`g:title`、`g:link`、`g:image_link`、`g:price`、`g:brand`、`g:availability`
+4. 商品內容應只來自指定 feed_uid 的 feed","來源：DPA end-to-end 測試方法 / Recommender feed xml URL；不是 UI 顯示測試"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【正向】DefaultCount 預設輸出筆數","feed.xml 未帶 count 時，系統依 DefaultCount 回傳 4 筆商品","1. 準備至少 4 筆有效商品的 feed_uid
+2. 使用合法 uuid_cross 呼叫 feed.xml 且不帶 count
+3. 解析 XML item 數量
+4. 比對回傳順序是否符合推薦挑選順序","1. XML 應回傳 4 筆 item
+2. item 數量不應超過 DefaultCount
+3. 回傳順序應依 Tier1、Tier2、Tier3、補滿的挑選順序輸出","來源：DPA end-to-end 測試方法 / ServeConfig DefaultCount=4"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【反向】MaxCount 上限控制","feed.xml 帶入超過 MaxCount 的 count 時，系統最多只回傳 30 筆商品","1. 準備超過 30 筆有效商品的 feed_uid
+2. 使用合法 uuid_cross 呼叫 feed.xml 並帶入 count=100
+3. 解析 XML item 數量
+4. 檢查所有 item 是否仍屬於指定 feed_uid","1. XML item 數量應被 clamp 到 30 筆以內
+2. 不應因 count 過大回傳 5xx 或超量資料
+3. 所有 item 仍應符合去重與 feed 內商品限制","來源：DPA end-to-end 測試方法 / ServeConfig MaxCount=30"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【正向】Tier1 AddToCart 與 ViewContent 計分排序","uuid_cross 有近期互動歷史時，Tier1 依事件權重與線性衰減分數排序互動商品","1. 建立同一 uuid_cross 的測試互動資料：AddToCart 與 ViewContent 各對應不同商品
+2. 確認互動商品皆存在於同一 feed_uid
+3. 呼叫 feed.xml 並指定足夠 count
+4. 比對 XML item 前段排序與預期 score","1. AddToCart 應以 eventWeight 2.0 計分
+2. ViewContent 應以 eventWeight 1.0 計分
+3. recencyDecay 應依 `max(0, 1 - age / window)` 套用
+4. Tier1 命中應依 score 由高到低輸出，同分時依 product id 字典序","來源：DPA end-to-end 測試方法 / Tier 1 計分"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【反向】Tier1 已購買抑制","商品已 Purchase 後，最後購買時間點含以前的 AddToCart 與 ViewContent 不應再成為 Tier1 retargeting 依據","1. 建立同一商品先 ViewContent 或 AddToCart、後 Purchase 的互動歷史
+2. 確認 Purchase 可早於 Tier1 lookback window 且仍被抑制掃描讀取
+3. 呼叫 feed.xml
+4. 比對該商品是否因購買前互動進入 Tier1","1. 最後購買時間點含以前的 AddToCart 與 ViewContent 應被略過
+2. Purchase 本身 eventWeight 為 0，不應直接進入 Tier1
+3. 被抑制商品不應成為 Tier2 擴展種子
+4. 該商品仍可因 Tier2、Tier3 或補滿以其他理由出現","來源：DPA end-to-end 測試方法 / Tier 1 已購買抑制"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【正向】Tier1 回購互動保留","商品 Purchase 後若再次產生新互動，購買後的 AddToCart 或 ViewContent 仍應照常計分","1. 建立同一商品先 Purchase、後 AddToCart 的互動歷史
+2. 確認 AddToCart 發生時間晚於最後購買時間
+3. 呼叫 feed.xml 並解析 item 順序
+4. 查核該商品是否可作為 Tier1 命中","1. Purchase 後的新互動應保留並計分
+2. AddToCart 應套用 7 天窗口與 eventWeight 2.0
+3. 商品可依 score 排入 Tier1
+4. 不應因曾經 Purchase 而永久排除該商品","來源：DPA end-to-end 測試方法 / 回購場景"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【反向】Tier1 時效窗口排除","互動事件超過各自作用窗口時，不應被 Tier1 採用","1. 建立 AddToCart 超過 7 天的互動資料
+2. 建立 ViewContent 超過 15 天的互動資料
+3. 呼叫 feed.xml 並解析 Tier1 前段結果
+4. 查核超窗商品是否被排除在 Tier1 外","1. 超過 7 天的 AddToCart 不應進入 Tier1
+2. 超過 15 天的 ViewContent 不應進入 Tier1
+3. 未列出的事件不應因 fallback 窗口直接進入 Tier1，除非實作明確定義事件權重
+4. API 應繼續走 Tier3 或補滿，不應回 5xx","來源：DPA end-to-end 測試方法 / RecencyWindowDays 與 EventWeights"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【正向】Tier2 類別與品牌 round-robin 擴展","Tier1 有多個命中商品時，Tier2 以命中商品為種子輪流取同類別與同品牌商品","1. 準備兩個以上 Tier1 命中商品，且各自有同類別與同品牌候選商品
+2. 確認候選商品皆存在於 feed_uid 且未被 Tier1 選過
+3. 呼叫 feed.xml 並指定 count 大於 Tier1 命中數
+4. 比對 Tier2 item 的輪詢順序","1. Tier2 應依 Tier1 score 順序逐輪取候選
+2. 每個 Tier1 命中的候選序列應先取類別成員，再取品牌成員
+3. 不應由最高分命中商品一次佔滿所有剩餘 count
+4. 已選過商品不得重複輸出","來源：DPA end-to-end 測試方法 / Tier 2 round-robin"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【正向】Tier3 demographic 熱門 fallback","uuid_cross 沒有可用個人互動訊號時，feed.xml 應依 demographic 熱門排行補入商品","1. 準備沒有 Tier1 歷史的 uuid_cross
+2. 確認 userattr 可推導 demo 分桶
+3. 在 Redis 熱門排行 `dpa:pop:<feed_uid>:<demo>` 準備候選商品
+4. 呼叫 feed.xml 並解析 item 順序","1. 系統應讀取指定 feed_uid 與 demo 分桶的熱門度排行
+2. 僅可輸出仍在 feed 內且未選過的商品
+3. 取回候選上限應符合 Tier3K=30
+4. 回傳順序應依熱門排行與前段已選結果去重後輸出","來源：DPA end-to-end 測試方法 / Tier 3 demographic 熱門"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【反向】unknown demo fallback","uuid_cross 無法解析 demographic 或為空時，Tier3 應落到 unknown 桶","1. 準備無 userattr 對應的 uuid_cross 或空 uuid_cross 情境
+2. 在 Redis 熱門排行 `dpa:pop:<feed_uid>:0` 準備候選商品
+3. 呼叫 feed.xml
+4. 比對回傳商品是否來自 unknown demo 桶與 feed 原始資料","1. demo 應落為 0
+2. 系統應可使用 unknown 桶熱門排行補入商品
+3. 若 unknown 桶不足，應再依 feed 原始順序補滿
+4. 不應因 userattr 無法解析而回 5xx","來源：DPA end-to-end 測試方法 / demo=0 與 resilience"
+"SuperDSP","API Consumer","DPA Feed API","【數據】【正向】DefaultOrder 補滿機制","前三段推薦不足 count 時，系統依 feed 原始順序補滿剩餘商品","1. 準備 Tier1、Tier2、Tier3 合計不足 count 的測試資料
+2. 確認 feed_uid 內仍有其他有效商品
+3. 呼叫 feed.xml 並指定 count
+4. 比對後段 item 與 feed 原始順序","1. 前三段不足時，剩餘商品應依 DefaultOrder 補入
+2. 補滿商品仍需屬於指定 feed_uid
+3. 補滿過程不得輸出已選過商品
+4. item 總數應盡量補到 count，若 feed 商品總數不足則不得輸出不存在商品","來源：DPA end-to-end 測試方法 / 補滿"
+"SuperDSP","API Consumer","DPA Feed API","【回歸】【正向】推薦結果全程去重","商品同時符合多個 Tier 條件時，feed.xml 最終 RSS 不應出現重複 item","1. 準備同一商品同時符合 Tier1 命中、Tier2 候選與 Tier3 熱門排行
+2. 呼叫 feed.xml 並指定足夠 count
+3. 解析所有 item 的 `g:id`
+4. 檢查重複商品與輸出順序","1. 每個 `g:id` 在同一次 RSS 回應中只能出現一次
+2. 商品首次被較高優先 Tier 選中後，後續 Tier 應略過該商品
+3. 去重後不足 count 時應由後續候選或 DefaultOrder 補滿","來源：DPA end-to-end 測試方法 / 全程去重"
+"SuperDSP","API Consumer","DPA Feed API","【狀態】【反向】相依服務失敗退化","userattr、互動歷史或熱門排行任一相依失敗時，feed.xml 不應因單一相依失敗回 5xx","1. 模擬 userattr 解析失敗並呼叫 feed.xml
+2. 模擬讀取互動歷史失敗並呼叫 feed.xml
+3. 模擬讀取熱門排行失敗並呼叫 feed.xml
+4. 分別檢查 API 狀態碼與 item 輸出來源","1. userattr 失敗時 demo 應落為 0 並仍可走 Tier3
+2. 互動歷史失敗時應視為空歷史，改走 Tier3 或補滿
+3. 熱門排行失敗時應跳過 Tier3 並使用 DefaultOrder 補滿
+4. 最差情況至少回 feed 預設順序前 count 筆，不應回 5xx","來源：DPA end-to-end 測試方法 / 逐層退化 resilience"

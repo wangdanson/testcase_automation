@@ -21,6 +21,7 @@
 | **Strategy** | **雙標籤強制規範** | **必須**使用兩類標籤組成，格式為 `【分類】【性質】功能名稱`（如 `【權限】【正向】`），嚴禁只使用單一標籤。 | User Correction (Pilot Phase 2) |
 | **Strategy** | **過濾瑣碎技術邏輯** | **禁止**將純技術欄位名稱映射（如 MIB -> MIC）列為測試項目。應專注於業務價值與 UI 變更之測試。 | User Correction (Pilot Phase 2) |
 | **Strategy** | **人工驗證主清單優先** | 預設產出可人工執行的主清單，維持適中顆粒度；API payload、option API、欄位映射、低機率交叉情境應放到補充/回歸池，不得讓主清單造成驗證疲勞。範例檔只參考顆粒度與語氣，不得跨系統複製功能內容。 | User Correction (2026-05-11) |
+| **Precision** | **測項欄位必須可執行且不過度延伸** | 測試功能、測試情境、操作步驟、期望結果與備註都必須精準描述 QA 可找到入口、可操作、可觀察或可驗證的內容。不得把規格中的後端資料來源、API 欄位或推論結果改寫成 UI 上可見的行為；若規格只寫 `mobile_url` 或「媒體 URL 使用手機版」，測項應寫成「資料來源/Sequence 輸出使用 mobile URL」，不可寫成「使用者可辨識手機版 URL」，除非規格明確要求 UI 顯示。 | User Correction (2026-05-26) |
 | **Workflow** | **規格分析到上傳端到端執行** | 使用者要求分析規格文件並產出 test case 時，預設直接完成規格分析、CSV 產出、`validate_csv.py` 驗證與 `upload_to_sheets.py` 上傳；產出、驗證、上傳視為同一個全自動化任務，不得先停下詢問流程同意。只有使用者明確要求「不要上傳」或「只產 CSV」時，才不執行 Google Sheets 上傳；若明確要求先預覽或只分析，才停止在對應階段。 | User Correction (2026-05-12) |
 | **Identity** | **ODM 審核查核角色** | 驗證 ODM 列表中 AOE 素材過濾之行為，測試角色應使用 **Onead User (AOE Admin)**，而非 PAD。 | User Correction (Pilot Phase 2) |
 | **L10n** | **繁中語系標籤修正** | 確保姓氏在前、名字在後，對應 `lastName` 與 `firstName` | Pilot Phase 1 |
@@ -98,3 +99,8 @@
 *   **修正**: 使用者要求產出 test case 時，預設即代表授權完整流程：產出 CSV、執行 `validate_csv.py`、執行 `upload_to_sheets.py`。不得再詢問是否要驗證或是否要上傳。
 *   **例外指令**: 只有使用者明確說「不要上傳」或「只產 CSV」時，才不執行 Google Sheets 上傳；若明確要求「先預覽」或「只分析不產出」，才停止在對應階段。
 *   **工具權限邊界**: 若 sandbox 或網路限制強制要求執行權限，應依環境規則請求並優先使用可持久化的 `python3 upload_to_sheets.py` prefix rule；這是工具層權限，不是流程同意。
+
+### 📅 2026-05-26 (測試項目過度延伸與欄位不精確)
+*   **錯誤**: 將規格中的「媒體 URL 使用手機版」與後端 `customers.mobile_url` / `black_list_media.map(&:mobile_url)` 推論成 UI 測項「使用者應能辨識手機版 URL」，導致 QA 可能誤以為畫面上必須有明確手機版 URL 標示或辨識入口。
+*   **修正**: 產出 test case 時，每個欄位必須精準區分「UI 可見行為」、「使用者操作」、「後端資料來源」、「Sequence/API 輸出」與「跨系統驗證」。若規格沒有明確要求 UI 呈現，不得寫成 UI 驗證；應改寫為可驗證的資料流或輸出結果，例如「選擇媒體後，儲存資料與 Sequence 產出的 URL 來源為 `customers.mobile_url`」。
+*   **檢查點**: 產出前逐筆檢查 `測試情境`、`操作步驟`、`期望結果` 是否能讓 QA 知道入口在哪、要做什麼、看哪裡、如何判定通過；若需要查 API、報表或 Sequence，必須在步驟中明確寫出查核位置，不可只寫抽象描述。
